@@ -1,0 +1,3006 @@
+{
+  "contractName": "IContests",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "contestType",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "fee",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "start",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "end",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "message",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct IContests.IContest",
+          "name": "contest",
+          "type": "tuple"
+        }
+      ],
+      "name": "add",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "contestType",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "fee",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "start",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "end",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "message",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct IContests.IContest",
+          "name": "contest",
+          "type": "tuple"
+        }
+      ],
+      "name": "update",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "name": "remove",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "contestId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "contestId",
+          "type": "uint256"
+        }
+      ],
+      "name": "Exist",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "_ids",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "getSome",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "contestType",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "fee",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "start",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "end",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "message",
+                  "type": "string"
+                }
+              ],
+              "internalType": "struct IContests.IContest",
+              "name": "contestInfo",
+              "type": "tuple"
+            },
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "enum IContests.ContestState",
+              "name": "state",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint256",
+              "name": "timeStamp",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IContests.Contest[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAll",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "contestType",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "fee",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "start",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "end",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "message",
+                  "type": "string"
+                }
+              ],
+              "internalType": "struct IContests.IContest",
+              "name": "contestInfo",
+              "type": "tuple"
+            },
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "enum IContests.ContestState",
+              "name": "state",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint256",
+              "name": "timeStamp",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IContests.Contest[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "gets",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "contestType",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "fee",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "start",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "end",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "message",
+                  "type": "string"
+                }
+              ],
+              "internalType": "struct IContests.IContest",
+              "name": "contestInfo",
+              "type": "tuple"
+            },
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "enum IContests.ContestState",
+              "name": "state",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint256",
+              "name": "timeStamp",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IContests.Contest[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "get",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "contestType",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "fee",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "start",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "end",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "string",
+                  "name": "message",
+                  "type": "string"
+                }
+              ],
+              "internalType": "struct IContests.IContest",
+              "name": "contestInfo",
+              "type": "tuple"
+            },
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "enum IContests.ContestState",
+              "name": "state",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint256",
+              "name": "timeStamp",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IContests.Contest",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"}],\"name\":\"Exist\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"contestType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"start\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"end\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"}],\"internalType\":\"struct IContests.IContest\",\"name\":\"contest\",\"type\":\"tuple\"}],\"name\":\"add\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"get\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"contestType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"start\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"end\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"}],\"internalType\":\"struct IContests.IContest\",\"name\":\"contestInfo\",\"type\":\"tuple\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"enum IContests.ContestState\",\"name\":\"state\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IContests.Contest\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAll\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"contestType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"start\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"end\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"}],\"internalType\":\"struct IContests.IContest\",\"name\":\"contestInfo\",\"type\":\"tuple\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"enum IContests.ContestState\",\"name\":\"state\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IContests.Contest[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"_ids\",\"type\":\"uint256[]\"}],\"name\":\"getSome\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"contestType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"start\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"end\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"}],\"internalType\":\"struct IContests.IContest\",\"name\":\"contestInfo\",\"type\":\"tuple\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"enum IContests.ContestState\",\"name\":\"state\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IContests.Contest[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"gets\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"contestType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"start\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"end\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"}],\"internalType\":\"struct IContests.IContest\",\"name\":\"contestInfo\",\"type\":\"tuple\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"enum IContests.ContestState\",\"name\":\"state\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IContests.Contest[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"isOwner\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"remove\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"contestType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"start\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"end\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"}],\"internalType\":\"struct IContests.IContest\",\"name\":\"contest\",\"type\":\"tuple\"}],\"name\":\"update\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IContests.sol\":\"IContests\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IContests.sol\":{\"keccak256\":\"0x74c61e599a23ff74c7483cfb58b7efe8120e153e52ae7719323f5700b319a2e6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://038f6da7e4c8ac30db75906f86ca61e2d3663bf1d0dfce42f256f8a815948f8e\",\"dweb:/ipfs/QmarsuD4AEYTipttVnnHvxjUAtKSWuPvF8Xa1QPoQALVuH\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.10;\npragma experimental ABIEncoderV2;\n\ninterface IContests {\n\n    struct IContest {\n        string contestType;\n        string name;\n        uint fee;\n        uint start;\n        uint end;\n        string message;\n    }\n\n    struct Contest {\n        uint id;\n        IContest contestInfo;\n        address owner;\n        ContestState state;\n        uint timeStamp;\n    }\n\n    enum ContestState{\n        DEFAULT,\n        CREATED,\n        STARTED,\n        ENDED\n    }\n\n    function add(IContest calldata contest) external;\n\n    function update(uint id, IContest calldata contest) external;\n\n    function remove(uint id) external;\n\n    function isOwner(uint contestId, address account) external view returns(bool);\n\n    function Exist(uint contestId) external view returns(bool);\n\n    function getSome(uint [] memory _ids) external view returns (Contest [] memory);\n\n    function getAll() external view returns (Contest [] memory);\n\n    function gets(address account) external view returns (Contest [] memory);\n\n    function getCount() external view returns (uint);\n\n    function get(uint index) external view returns (Contest memory);\n}",
+  "sourcePath": "/Users/yhy/Desktop/Graduation-Project/contracts/IContests.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/IContests.sol",
+    "exportedSymbols": {
+      "IContests": [
+        1547
+      ]
+    },
+    "id": 1548,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1440,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:5"
+      },
+      {
+        "id": 1441,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "57:33:5"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IContests",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1547,
+        "linearizedBaseContracts": [
+          1547
+        ],
+        "name": "IContests",
+        "nameLocation": "102:9:5",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IContests.IContest",
+            "id": 1454,
+            "members": [
+              {
+                "constant": false,
+                "id": 1443,
+                "mutability": "mutable",
+                "name": "contestType",
+                "nameLocation": "152:11:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1454,
+                "src": "145:18:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1442,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "145:6:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1445,
+                "mutability": "mutable",
+                "name": "name",
+                "nameLocation": "180:4:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1454,
+                "src": "173:11:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1444,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "173:6:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1447,
+                "mutability": "mutable",
+                "name": "fee",
+                "nameLocation": "199:3:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1454,
+                "src": "194:8:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1446,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "194:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1449,
+                "mutability": "mutable",
+                "name": "start",
+                "nameLocation": "217:5:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1454,
+                "src": "212:10:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1448,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "212:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1451,
+                "mutability": "mutable",
+                "name": "end",
+                "nameLocation": "237:3:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1454,
+                "src": "232:8:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1450,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "232:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1453,
+                "mutability": "mutable",
+                "name": "message",
+                "nameLocation": "257:7:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1454,
+                "src": "250:14:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1452,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "250:6:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "IContest",
+            "nameLocation": "126:8:5",
+            "nodeType": "StructDefinition",
+            "scope": 1547,
+            "src": "119:152:5",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IContests.Contest",
+            "id": 1467,
+            "members": [
+              {
+                "constant": false,
+                "id": 1456,
+                "mutability": "mutable",
+                "name": "id",
+                "nameLocation": "307:2:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1467,
+                "src": "302:7:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1455,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "302:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1459,
+                "mutability": "mutable",
+                "name": "contestInfo",
+                "nameLocation": "328:11:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1467,
+                "src": "319:20:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_IContest_$1454_storage_ptr",
+                  "typeString": "struct IContests.IContest"
+                },
+                "typeName": {
+                  "id": 1458,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 1457,
+                    "name": "IContest",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 1454,
+                    "src": "319:8:5"
+                  },
+                  "referencedDeclaration": 1454,
+                  "src": "319:8:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_IContest_$1454_storage_ptr",
+                    "typeString": "struct IContests.IContest"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1461,
+                "mutability": "mutable",
+                "name": "owner",
+                "nameLocation": "357:5:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1467,
+                "src": "349:13:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 1460,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "349:7:5",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1464,
+                "mutability": "mutable",
+                "name": "state",
+                "nameLocation": "385:5:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1467,
+                "src": "372:18:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_ContestState_$1472",
+                  "typeString": "enum IContests.ContestState"
+                },
+                "typeName": {
+                  "id": 1463,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 1462,
+                    "name": "ContestState",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 1472,
+                    "src": "372:12:5"
+                  },
+                  "referencedDeclaration": 1472,
+                  "src": "372:12:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_ContestState_$1472",
+                    "typeString": "enum IContests.ContestState"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1466,
+                "mutability": "mutable",
+                "name": "timeStamp",
+                "nameLocation": "405:9:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1467,
+                "src": "400:14:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1465,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "400:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Contest",
+            "nameLocation": "284:7:5",
+            "nodeType": "StructDefinition",
+            "scope": 1547,
+            "src": "277:144:5",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IContests.ContestState",
+            "id": 1472,
+            "members": [
+              {
+                "id": 1468,
+                "name": "DEFAULT",
+                "nameLocation": "454:7:5",
+                "nodeType": "EnumValue",
+                "src": "454:7:5"
+              },
+              {
+                "id": 1469,
+                "name": "CREATED",
+                "nameLocation": "471:7:5",
+                "nodeType": "EnumValue",
+                "src": "471:7:5"
+              },
+              {
+                "id": 1470,
+                "name": "STARTED",
+                "nameLocation": "488:7:5",
+                "nodeType": "EnumValue",
+                "src": "488:7:5"
+              },
+              {
+                "id": 1471,
+                "name": "ENDED",
+                "nameLocation": "505:5:5",
+                "nodeType": "EnumValue",
+                "src": "505:5:5"
+              }
+            ],
+            "name": "ContestState",
+            "nameLocation": "432:12:5",
+            "nodeType": "EnumDefinition",
+            "src": "427:89:5"
+          },
+          {
+            "functionSelector": "48547814",
+            "id": 1478,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "add",
+            "nameLocation": "531:3:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1476,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1475,
+                  "mutability": "mutable",
+                  "name": "contest",
+                  "nameLocation": "553:7:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1478,
+                  "src": "535:25:5",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_IContest_$1454_calldata_ptr",
+                    "typeString": "struct IContests.IContest"
+                  },
+                  "typeName": {
+                    "id": 1474,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 1473,
+                      "name": "IContest",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1454,
+                      "src": "535:8:5"
+                    },
+                    "referencedDeclaration": 1454,
+                    "src": "535:8:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_IContest_$1454_storage_ptr",
+                      "typeString": "struct IContests.IContest"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "534:27:5"
+            },
+            "returnParameters": {
+              "id": 1477,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "570:0:5"
+            },
+            "scope": 1547,
+            "src": "522:49:5",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "8475798c",
+            "id": 1486,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "update",
+            "nameLocation": "586:6:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1484,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1480,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "598:2:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1486,
+                  "src": "593:7:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1479,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "593:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1483,
+                  "mutability": "mutable",
+                  "name": "contest",
+                  "nameLocation": "620:7:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1486,
+                  "src": "602:25:5",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_IContest_$1454_calldata_ptr",
+                    "typeString": "struct IContests.IContest"
+                  },
+                  "typeName": {
+                    "id": 1482,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 1481,
+                      "name": "IContest",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1454,
+                      "src": "602:8:5"
+                    },
+                    "referencedDeclaration": 1454,
+                    "src": "602:8:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_IContest_$1454_storage_ptr",
+                      "typeString": "struct IContests.IContest"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "592:36:5"
+            },
+            "returnParameters": {
+              "id": 1485,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "637:0:5"
+            },
+            "scope": 1547,
+            "src": "577:61:5",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "4cc82215",
+            "id": 1491,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "remove",
+            "nameLocation": "653:6:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1489,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1488,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "665:2:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1491,
+                  "src": "660:7:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1487,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "660:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "659:9:5"
+            },
+            "returnParameters": {
+              "id": 1490,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "677:0:5"
+            },
+            "scope": 1547,
+            "src": "644:34:5",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "5a5d096c",
+            "id": 1500,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isOwner",
+            "nameLocation": "693:7:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1496,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1493,
+                  "mutability": "mutable",
+                  "name": "contestId",
+                  "nameLocation": "706:9:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1500,
+                  "src": "701:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1492,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "701:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1495,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "725:7:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1500,
+                  "src": "717:15:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1494,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "717:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "700:33:5"
+            },
+            "returnParameters": {
+              "id": 1499,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1498,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1500,
+                  "src": "756:4:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 1497,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "756:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "755:6:5"
+            },
+            "scope": 1547,
+            "src": "684:78:5",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "e4dc1491",
+            "id": 1507,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Exist",
+            "nameLocation": "777:5:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1503,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1502,
+                  "mutability": "mutable",
+                  "name": "contestId",
+                  "nameLocation": "788:9:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1507,
+                  "src": "783:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1501,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "783:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "782:16:5"
+            },
+            "returnParameters": {
+              "id": 1506,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1505,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1507,
+                  "src": "821:4:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 1504,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "821:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "820:6:5"
+            },
+            "scope": 1547,
+            "src": "768:59:5",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "83241803",
+            "id": 1517,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getSome",
+            "nameLocation": "842:7:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1511,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1510,
+                  "mutability": "mutable",
+                  "name": "_ids",
+                  "nameLocation": "865:4:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1517,
+                  "src": "850:19:5",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1508,
+                      "name": "uint",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "850:4:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 1509,
+                    "nodeType": "ArrayTypeName",
+                    "src": "850:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "849:21:5"
+            },
+            "returnParameters": {
+              "id": 1516,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1515,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1517,
+                  "src": "894:17:5",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Contest_$1467_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct IContests.Contest[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1513,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 1512,
+                        "name": "Contest",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 1467,
+                        "src": "894:7:5"
+                      },
+                      "referencedDeclaration": 1467,
+                      "src": "894:7:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Contest_$1467_storage_ptr",
+                        "typeString": "struct IContests.Contest"
+                      }
+                    },
+                    "id": 1514,
+                    "nodeType": "ArrayTypeName",
+                    "src": "894:10:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Contest_$1467_storage_$dyn_storage_ptr",
+                      "typeString": "struct IContests.Contest[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "893:19:5"
+            },
+            "scope": 1547,
+            "src": "833:80:5",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "53ed5143",
+            "id": 1524,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAll",
+            "nameLocation": "928:6:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1518,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "934:2:5"
+            },
+            "returnParameters": {
+              "id": 1523,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1522,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1524,
+                  "src": "960:17:5",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Contest_$1467_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct IContests.Contest[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1520,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 1519,
+                        "name": "Contest",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 1467,
+                        "src": "960:7:5"
+                      },
+                      "referencedDeclaration": 1467,
+                      "src": "960:7:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Contest_$1467_storage_ptr",
+                        "typeString": "struct IContests.Contest"
+                      }
+                    },
+                    "id": 1521,
+                    "nodeType": "ArrayTypeName",
+                    "src": "960:10:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Contest_$1467_storage_$dyn_storage_ptr",
+                      "typeString": "struct IContests.Contest[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "959:19:5"
+            },
+            "scope": 1547,
+            "src": "919:60:5",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "930ad975",
+            "id": 1533,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "gets",
+            "nameLocation": "994:4:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1527,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1526,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "1007:7:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1533,
+                  "src": "999:15:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1525,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "999:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "998:17:5"
+            },
+            "returnParameters": {
+              "id": 1532,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1531,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1533,
+                  "src": "1039:17:5",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Contest_$1467_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct IContests.Contest[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1529,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 1528,
+                        "name": "Contest",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 1467,
+                        "src": "1039:7:5"
+                      },
+                      "referencedDeclaration": 1467,
+                      "src": "1039:7:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Contest_$1467_storage_ptr",
+                        "typeString": "struct IContests.Contest"
+                      }
+                    },
+                    "id": 1530,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1039:10:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Contest_$1467_storage_$dyn_storage_ptr",
+                      "typeString": "struct IContests.Contest[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1038:19:5"
+            },
+            "scope": 1547,
+            "src": "985:73:5",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "a87d942c",
+            "id": 1538,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCount",
+            "nameLocation": "1073:8:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1534,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1081:2:5"
+            },
+            "returnParameters": {
+              "id": 1537,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1536,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1538,
+                  "src": "1107:4:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1535,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1107:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1106:6:5"
+            },
+            "scope": 1547,
+            "src": "1064:49:5",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "9507d39a",
+            "id": 1546,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "get",
+            "nameLocation": "1128:3:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1541,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1540,
+                  "mutability": "mutable",
+                  "name": "index",
+                  "nameLocation": "1137:5:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1546,
+                  "src": "1132:10:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1539,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1132:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1131:12:5"
+            },
+            "returnParameters": {
+              "id": 1545,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1544,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1546,
+                  "src": "1167:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Contest_$1467_memory_ptr",
+                    "typeString": "struct IContests.Contest"
+                  },
+                  "typeName": {
+                    "id": 1543,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 1542,
+                      "name": "Contest",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1467,
+                      "src": "1167:7:5"
+                    },
+                    "referencedDeclaration": 1467,
+                    "src": "1167:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Contest_$1467_storage_ptr",
+                      "typeString": "struct IContests.Contest"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1166:16:5"
+            },
+            "scope": 1547,
+            "src": "1119:64:5",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1548,
+        "src": "92:1093:5",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1153:5"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/IContests.sol",
+    "exportedSymbols": {
+      "IContests": [
+        1547
+      ]
+    },
+    "id": 1548,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1440,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:5"
+      },
+      {
+        "id": 1441,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "57:33:5"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IContests",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1547,
+        "linearizedBaseContracts": [
+          1547
+        ],
+        "name": "IContests",
+        "nameLocation": "102:9:5",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IContests.IContest",
+            "id": 1454,
+            "members": [
+              {
+                "constant": false,
+                "id": 1443,
+                "mutability": "mutable",
+                "name": "contestType",
+                "nameLocation": "152:11:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1454,
+                "src": "145:18:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1442,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "145:6:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1445,
+                "mutability": "mutable",
+                "name": "name",
+                "nameLocation": "180:4:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1454,
+                "src": "173:11:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1444,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "173:6:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1447,
+                "mutability": "mutable",
+                "name": "fee",
+                "nameLocation": "199:3:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1454,
+                "src": "194:8:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1446,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "194:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1449,
+                "mutability": "mutable",
+                "name": "start",
+                "nameLocation": "217:5:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1454,
+                "src": "212:10:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1448,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "212:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1451,
+                "mutability": "mutable",
+                "name": "end",
+                "nameLocation": "237:3:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1454,
+                "src": "232:8:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1450,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "232:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1453,
+                "mutability": "mutable",
+                "name": "message",
+                "nameLocation": "257:7:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1454,
+                "src": "250:14:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1452,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "250:6:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "IContest",
+            "nameLocation": "126:8:5",
+            "nodeType": "StructDefinition",
+            "scope": 1547,
+            "src": "119:152:5",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IContests.Contest",
+            "id": 1467,
+            "members": [
+              {
+                "constant": false,
+                "id": 1456,
+                "mutability": "mutable",
+                "name": "id",
+                "nameLocation": "307:2:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1467,
+                "src": "302:7:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1455,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "302:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1459,
+                "mutability": "mutable",
+                "name": "contestInfo",
+                "nameLocation": "328:11:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1467,
+                "src": "319:20:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_IContest_$1454_storage_ptr",
+                  "typeString": "struct IContests.IContest"
+                },
+                "typeName": {
+                  "id": 1458,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 1457,
+                    "name": "IContest",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 1454,
+                    "src": "319:8:5"
+                  },
+                  "referencedDeclaration": 1454,
+                  "src": "319:8:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_IContest_$1454_storage_ptr",
+                    "typeString": "struct IContests.IContest"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1461,
+                "mutability": "mutable",
+                "name": "owner",
+                "nameLocation": "357:5:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1467,
+                "src": "349:13:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 1460,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "349:7:5",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1464,
+                "mutability": "mutable",
+                "name": "state",
+                "nameLocation": "385:5:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1467,
+                "src": "372:18:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_ContestState_$1472",
+                  "typeString": "enum IContests.ContestState"
+                },
+                "typeName": {
+                  "id": 1463,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 1462,
+                    "name": "ContestState",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 1472,
+                    "src": "372:12:5"
+                  },
+                  "referencedDeclaration": 1472,
+                  "src": "372:12:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_ContestState_$1472",
+                    "typeString": "enum IContests.ContestState"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1466,
+                "mutability": "mutable",
+                "name": "timeStamp",
+                "nameLocation": "405:9:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 1467,
+                "src": "400:14:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1465,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "400:4:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Contest",
+            "nameLocation": "284:7:5",
+            "nodeType": "StructDefinition",
+            "scope": 1547,
+            "src": "277:144:5",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IContests.ContestState",
+            "id": 1472,
+            "members": [
+              {
+                "id": 1468,
+                "name": "DEFAULT",
+                "nameLocation": "454:7:5",
+                "nodeType": "EnumValue",
+                "src": "454:7:5"
+              },
+              {
+                "id": 1469,
+                "name": "CREATED",
+                "nameLocation": "471:7:5",
+                "nodeType": "EnumValue",
+                "src": "471:7:5"
+              },
+              {
+                "id": 1470,
+                "name": "STARTED",
+                "nameLocation": "488:7:5",
+                "nodeType": "EnumValue",
+                "src": "488:7:5"
+              },
+              {
+                "id": 1471,
+                "name": "ENDED",
+                "nameLocation": "505:5:5",
+                "nodeType": "EnumValue",
+                "src": "505:5:5"
+              }
+            ],
+            "name": "ContestState",
+            "nameLocation": "432:12:5",
+            "nodeType": "EnumDefinition",
+            "src": "427:89:5"
+          },
+          {
+            "functionSelector": "48547814",
+            "id": 1478,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "add",
+            "nameLocation": "531:3:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1476,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1475,
+                  "mutability": "mutable",
+                  "name": "contest",
+                  "nameLocation": "553:7:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1478,
+                  "src": "535:25:5",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_IContest_$1454_calldata_ptr",
+                    "typeString": "struct IContests.IContest"
+                  },
+                  "typeName": {
+                    "id": 1474,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 1473,
+                      "name": "IContest",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1454,
+                      "src": "535:8:5"
+                    },
+                    "referencedDeclaration": 1454,
+                    "src": "535:8:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_IContest_$1454_storage_ptr",
+                      "typeString": "struct IContests.IContest"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "534:27:5"
+            },
+            "returnParameters": {
+              "id": 1477,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "570:0:5"
+            },
+            "scope": 1547,
+            "src": "522:49:5",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "8475798c",
+            "id": 1486,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "update",
+            "nameLocation": "586:6:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1484,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1480,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "598:2:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1486,
+                  "src": "593:7:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1479,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "593:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1483,
+                  "mutability": "mutable",
+                  "name": "contest",
+                  "nameLocation": "620:7:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1486,
+                  "src": "602:25:5",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_IContest_$1454_calldata_ptr",
+                    "typeString": "struct IContests.IContest"
+                  },
+                  "typeName": {
+                    "id": 1482,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 1481,
+                      "name": "IContest",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1454,
+                      "src": "602:8:5"
+                    },
+                    "referencedDeclaration": 1454,
+                    "src": "602:8:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_IContest_$1454_storage_ptr",
+                      "typeString": "struct IContests.IContest"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "592:36:5"
+            },
+            "returnParameters": {
+              "id": 1485,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "637:0:5"
+            },
+            "scope": 1547,
+            "src": "577:61:5",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "4cc82215",
+            "id": 1491,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "remove",
+            "nameLocation": "653:6:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1489,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1488,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "665:2:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1491,
+                  "src": "660:7:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1487,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "660:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "659:9:5"
+            },
+            "returnParameters": {
+              "id": 1490,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "677:0:5"
+            },
+            "scope": 1547,
+            "src": "644:34:5",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "5a5d096c",
+            "id": 1500,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isOwner",
+            "nameLocation": "693:7:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1496,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1493,
+                  "mutability": "mutable",
+                  "name": "contestId",
+                  "nameLocation": "706:9:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1500,
+                  "src": "701:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1492,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "701:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1495,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "725:7:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1500,
+                  "src": "717:15:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1494,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "717:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "700:33:5"
+            },
+            "returnParameters": {
+              "id": 1499,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1498,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1500,
+                  "src": "756:4:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 1497,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "756:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "755:6:5"
+            },
+            "scope": 1547,
+            "src": "684:78:5",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "e4dc1491",
+            "id": 1507,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Exist",
+            "nameLocation": "777:5:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1503,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1502,
+                  "mutability": "mutable",
+                  "name": "contestId",
+                  "nameLocation": "788:9:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1507,
+                  "src": "783:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1501,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "783:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "782:16:5"
+            },
+            "returnParameters": {
+              "id": 1506,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1505,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1507,
+                  "src": "821:4:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 1504,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "821:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "820:6:5"
+            },
+            "scope": 1547,
+            "src": "768:59:5",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "83241803",
+            "id": 1517,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getSome",
+            "nameLocation": "842:7:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1511,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1510,
+                  "mutability": "mutable",
+                  "name": "_ids",
+                  "nameLocation": "865:4:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1517,
+                  "src": "850:19:5",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1508,
+                      "name": "uint",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "850:4:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 1509,
+                    "nodeType": "ArrayTypeName",
+                    "src": "850:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "849:21:5"
+            },
+            "returnParameters": {
+              "id": 1516,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1515,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1517,
+                  "src": "894:17:5",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Contest_$1467_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct IContests.Contest[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1513,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 1512,
+                        "name": "Contest",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 1467,
+                        "src": "894:7:5"
+                      },
+                      "referencedDeclaration": 1467,
+                      "src": "894:7:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Contest_$1467_storage_ptr",
+                        "typeString": "struct IContests.Contest"
+                      }
+                    },
+                    "id": 1514,
+                    "nodeType": "ArrayTypeName",
+                    "src": "894:10:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Contest_$1467_storage_$dyn_storage_ptr",
+                      "typeString": "struct IContests.Contest[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "893:19:5"
+            },
+            "scope": 1547,
+            "src": "833:80:5",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "53ed5143",
+            "id": 1524,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAll",
+            "nameLocation": "928:6:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1518,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "934:2:5"
+            },
+            "returnParameters": {
+              "id": 1523,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1522,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1524,
+                  "src": "960:17:5",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Contest_$1467_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct IContests.Contest[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1520,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 1519,
+                        "name": "Contest",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 1467,
+                        "src": "960:7:5"
+                      },
+                      "referencedDeclaration": 1467,
+                      "src": "960:7:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Contest_$1467_storage_ptr",
+                        "typeString": "struct IContests.Contest"
+                      }
+                    },
+                    "id": 1521,
+                    "nodeType": "ArrayTypeName",
+                    "src": "960:10:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Contest_$1467_storage_$dyn_storage_ptr",
+                      "typeString": "struct IContests.Contest[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "959:19:5"
+            },
+            "scope": 1547,
+            "src": "919:60:5",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "930ad975",
+            "id": 1533,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "gets",
+            "nameLocation": "994:4:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1527,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1526,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "1007:7:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1533,
+                  "src": "999:15:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1525,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "999:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "998:17:5"
+            },
+            "returnParameters": {
+              "id": 1532,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1531,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1533,
+                  "src": "1039:17:5",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Contest_$1467_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct IContests.Contest[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1529,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 1528,
+                        "name": "Contest",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 1467,
+                        "src": "1039:7:5"
+                      },
+                      "referencedDeclaration": 1467,
+                      "src": "1039:7:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Contest_$1467_storage_ptr",
+                        "typeString": "struct IContests.Contest"
+                      }
+                    },
+                    "id": 1530,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1039:10:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Contest_$1467_storage_$dyn_storage_ptr",
+                      "typeString": "struct IContests.Contest[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1038:19:5"
+            },
+            "scope": 1547,
+            "src": "985:73:5",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "a87d942c",
+            "id": 1538,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCount",
+            "nameLocation": "1073:8:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1534,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1081:2:5"
+            },
+            "returnParameters": {
+              "id": 1537,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1536,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1538,
+                  "src": "1107:4:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1535,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1107:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1106:6:5"
+            },
+            "scope": 1547,
+            "src": "1064:49:5",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "9507d39a",
+            "id": 1546,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "get",
+            "nameLocation": "1128:3:5",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1541,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1540,
+                  "mutability": "mutable",
+                  "name": "index",
+                  "nameLocation": "1137:5:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1546,
+                  "src": "1132:10:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1539,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1132:4:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1131:12:5"
+            },
+            "returnParameters": {
+              "id": 1545,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1544,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1546,
+                  "src": "1167:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Contest_$1467_memory_ptr",
+                    "typeString": "struct IContests.Contest"
+                  },
+                  "typeName": {
+                    "id": 1543,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 1542,
+                      "name": "Contest",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1467,
+                      "src": "1167:7:5"
+                    },
+                    "referencedDeclaration": 1467,
+                    "src": "1167:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Contest_$1467_storage_ptr",
+                      "typeString": "struct IContests.Contest"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1166:16:5"
+            },
+            "scope": 1547,
+            "src": "1119:64:5",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1548,
+        "src": "92:1093:5",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1153:5"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.10+commit.fc410830.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.4",
+  "updatedAt": "2022-02-14T03:17:48.848Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
