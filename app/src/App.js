@@ -2,7 +2,6 @@ import React from 'react';
 import {Drizzle, generateStore} from "@drizzle/store";
 import {DrizzleContext} from "@drizzle/react-plugin";
 
-import Banner from "./components/Navbar/HeaderBar";
 import Route from "./components/router/route";
 import "./App.css"
 
@@ -23,7 +22,6 @@ function App() {
 
                     return (
                         <>
-                            <Banner/>
                             <Route drizzle={drizzle} drizzleState={drizzleState}/>
                         </>
                     )

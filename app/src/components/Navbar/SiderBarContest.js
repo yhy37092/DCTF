@@ -1,6 +1,7 @@
 import React from "react";
 import {Col, Container, Nav, Row} from "react-bootstrap";
 import User from "../User";
+import {Link} from "react-router-dom";
 
 export default ({contestId,drizzle, drizzleState ,children}) => {
     return (
@@ -11,9 +12,10 @@ export default ({contestId,drizzle, drizzleState ,children}) => {
                     <Nav className="me-auto">
                         <Container fluid>
                             <User drizzle={drizzle} drizzleState={drizzleState}/>
-                            <Nav.Link href={`/contestAdmin/contest/${contestId}`}>Contest</Nav.Link>
-                            <Nav.Link href={`/contestAdmin/Contest/${contestId}/challenges`}>Challenges</Nav.Link>
-                            <Nav.Link href={`/contestAdmin/Contest/${contestId}/teams`}>Teams</Nav.Link>
+                            <Link to={`/contestAdmin/contest/${contestId}`} className="nav-link">Contest</Link>
+                            <Link to={`/contestAdmin/Contest/${contestId}/challenges`}
+                                  className="nav-link">Challenges</Link>
+                            <Link to={`/contestAdmin/Contest/${contestId}/teams`} className="nav-link">Teams</Link>
                         </Container>
                     </Nav>
                 </div>

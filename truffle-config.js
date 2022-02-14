@@ -25,9 +25,11 @@ module.exports = {
             skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
         },
         private: {
-        provider: () => new HDWalletProvider(secrets.mnemonic, secrets.privateNetwork),
-        network_id: 3458,   // This network is yours, in the cloud.
-        production: true    // Treats this network as if it was a public net. (default: false)
+            host: "47.94.20.232",     // Localhost (default: none)
+            port: 8545,            // Standard Ethereum port (default: none)
+            provider: () => new HDWalletProvider(secrets.mnemonic,"http://47.94.20.232:8545"),
+            network_id: 3458,   // This network is yours, in the cloud.
+            production: true    // Treats this network as if it was a public net. (default: false)
         }
     },
     compilers: {

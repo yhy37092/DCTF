@@ -1,9 +1,10 @@
 import React from "react";
+import HeadBar from "../../components/Navbar/HeaderBar";
 
 export default () => {
 
     return (
-        <>
+        <HeadBar>
             <p/><p/>
             <div align="center">
                 <h5>This is a decentralized ctf platform base on Ethereum.</h5>
@@ -18,7 +19,7 @@ export default () => {
                 <p>As a user, you can attend contest in <a href="/contests">Contests</a> and review ended
                     one in <a href="/revire">Review</a></p>
             </div>
-        </>
+        </HeadBar>
     );
 
 }
