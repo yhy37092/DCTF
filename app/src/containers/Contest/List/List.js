@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import {before} from "../../utils/utils";
-import {ContestPreview} from "../../components/Contest";
+import {before} from "../../../utils/utils";
+import {ContestPreview} from "../../../components/Contest";
 
 
 export default ({drizzle, drizzleState}) => {
@@ -19,7 +19,12 @@ export default ({drizzle, drizzleState}) => {
         <>
             {
                 contests ? (
-                    contests.value.map((contest, index) => ((before(contest.contestInfo.start) ? (<ContestPreview key={index} contest={contest} link={`/contest/${contest.id}`}/>) : null)))) : null
+                    contests.value.map((contest, index) => ((before(contest.contestInfo.start) ? (
+                        <div key={index}>
+                            <ContestPreview contest={contest} link={`/Contests/Contest-${contest.id}`}/>
+                            <br/>
+                        </div>
+                    ) : null)))) : null
             }
         </>
     );

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Button, Col, Form, FormCheck, Row, Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import {toContestState, toDate, toEther} from "../../utils/utils";
+import {toContestState, toDate, toEther} from "../../../utils/utils";
 
 export default ({drizzle, drizzleState}) => {
 
@@ -60,7 +60,7 @@ export default ({drizzle, drizzleState}) => {
                                        }}/></td>
                         <td>{contest.id}</td>
                         <td><Link
-                            to={`/contestAdmin/contest/${contest.id}`}>{contest.contestInfo.name}</Link>
+                            to={`/ContestAdmin/Contest-${contest.id}`}>{contest.contestInfo.name}</Link>
                         </td>
                         <td>{contest.contestInfo.contestType}</td>
                         <td>{toEther(contest.contestInfo.fee)} ether</td>

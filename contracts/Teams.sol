@@ -21,6 +21,9 @@ contract Teams is ITeams {
     //TeamId => Team
     mapping(uint => Team) public teams;
     uint public nextId = 1;
+
+    // index
+    //contestId + address => teamId
     mapping(uint => mapping(address => uint)) addressToTeamId;
     mapping(uint => EnumerableSet.UintSet) contestTeams;
 
@@ -86,6 +89,9 @@ contract Teams is ITeams {
 
     function gets(uint contestId) external view returns (Team [] memory) {
         return _gets(contestTeams[contestId].values());
+    }
+    function getsId(uint contestId) external view returns (uint [] memory) {
+        return contestTeams[contestId].values();
     }
 
     function getOne(uint contestId, address account) external view returns (Team memory) {

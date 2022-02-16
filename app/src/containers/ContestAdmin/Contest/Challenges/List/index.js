@@ -2,7 +2,7 @@ import React from "react";
 import {Breadcrumb, Col, Row} from "react-bootstrap";
 
 import Header from "./Header";
-import List from "./List"
+import Form from "./Form"
 import {Link, useParams} from "react-router-dom";
 
 export default ({drizzle, drizzleState}) => {
@@ -14,13 +14,12 @@ export default ({drizzle, drizzleState}) => {
             <Row>
                 <Col>
                     <Breadcrumb>
-                        <Link to="/Contests" className="breadcrumb-item">Contests</Link>
-                        <Link to={`/Contests/Contest-${contestId}`} className="breadcrumb-item">Contest-{contestId}</Link>
-                        <Breadcrumb.Item active>OnGoing</Breadcrumb.Item>
+                        <Link to="/ContestAdmin" className="breadcrumb-item">ContestAdmin</Link>
+                        <Link to={`/ContestAdmin/Contest-${contestId}`} className="breadcrumb-item">Contest-{contestId}</Link>
+                        <Breadcrumb.Item active>Challenges</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>
             </Row>
-
             <Row>
                 <Col>
                     <Header drizzle={drizzle} drizzleState={drizzleState}/>
@@ -29,7 +28,7 @@ export default ({drizzle, drizzleState}) => {
 
             <Row>
                 <Col>
-                    <List drizzle={drizzle} drizzleState={drizzleState}/>
+                    <Form drizzle={drizzle} drizzleState={drizzleState}/>
                 </Col>
             </Row>
         </>

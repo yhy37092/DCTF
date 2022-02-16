@@ -37,6 +37,8 @@ interface ITeams {
 
     function gets(uint contestId) external view returns (Team [] memory);
 
+    function getsId(uint contestId) external view returns (uint [] memory);
+
     function getOne(uint contestId, address account) external view returns (Team memory);
 
     function getCount() external view returns (uint);

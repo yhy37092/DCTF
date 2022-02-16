@@ -60,7 +60,7 @@ export default ({drizzle, drizzleState}) => {
                                            }}/></td>
                             <td>{challenge.id}</td>
                             <td><Link
-                                to={`/contestAdmin/Contest/${contestId}/challenge/${challenge.id}`}>{challenge.challengeInfo.name}</Link>
+                                to={`/ContestAdmin/Contest-${contestId}/Challenges/Challenge-${challenge.id}`}>{challenge.challengeInfo.name}</Link>
                             </td>
                             <td>{challenge.challengeInfo.category}</td>
                             <td>{challenge.challengeInfo.value}</td>

@@ -1,32 +1,12 @@
 import React from "react";
-import {Col, Container, Row, Stack} from "react-bootstrap";
+import {Route, Routes} from "react-router-dom";
 
-import Header from "./Header";
-import Form from "./Form"
-import HeadBar from "../../components/Navbar/HeaderBar";
-import SideBarInfo from "../../components/Navbar/SideBarInfo";
+import List from "./List";
 
 export default ({drizzle, drizzleState}) => {
-
     return (
-        <HeadBar>
-            <SideBarInfo drizzle={drizzle} drizzleState={drizzleState}>
-                <Container>
-                    <Stack gap={4}>
-                        <Row>
-                            <Col>
-                                <Header drizzle={drizzle} drizzleState={drizzleState}/>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col>
-                                <Form drizzle={drizzle} drizzleState={drizzleState}/>
-                            </Col>
-                        </Row>
-                    </Stack>
-                </Container>
-            </SideBarInfo>
-        </HeadBar>
+        <Routes>
+            <Route path={`/`} element={<List drizzle={drizzle} drizzleState={drizzleState}/>}/>
+        </Routes>
     );
 };

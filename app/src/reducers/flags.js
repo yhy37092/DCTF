@@ -1,24 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    data: [],
+    UserData: [],
+    AdminData: []
 };
 
 export const flagsSlice = createSlice({
     name: 'flags',
     initialState,
     reducers: {
-        add (state,action) {
-            state.data = [...state.data, action.payload]
+        userAdd (state,action) {
+            state.UserData = [...state.UserData, action.payload]
         },
-        remove(state, action) {
-            state.data.splice(action.payload, 1);
+        userRemove(state, action) {
+            state.UserData.splice(action.payload, 1);
+        },
+        adminAdd (state,action) {
+            state.AdminData = [...state.AdminData, action.payload]
+        },
+        adminRemove(state, action) {
+            state.AdminData.splice(action.payload, 1);
         }
     }
 });
 
-export const { add, remove } = flagsSlice.actions;
+export const { userAdd, userRemove, adminAdd, adminRemove } = flagsSlice.actions;
 
-export const getFlags = (state) => state.flags.data;
+export const getUserFlags = (state) => state.flags.UserData;
+export const getAdminFlags = (state) => state.flags.AdminData;
 
 export default flagsSlice.reducer;

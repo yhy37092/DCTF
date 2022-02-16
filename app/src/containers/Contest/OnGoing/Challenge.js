@@ -1,6 +1,6 @@
 import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
-import {add, getFlags, remove} from "../../../reducers/flags";
+import {getUserFlags, userAdd, userRemove} from "../../../reducers/flags";
 import React, {useEffect, useState} from "react";
 import Web3Utils from "web3-utils";
 import {Button, Card, FormControl, InputGroup, Modal, Tab, Tabs} from "react-bootstrap";
@@ -10,7 +10,7 @@ export default ({drizzle, drizzleState, challenge, teamId}) => {
 
     const {contestId} = useParams();
 
-    const flags = useSelector(getFlags);
+    const flags = useSelector(getUserFlags);
     const dispatch = useDispatch();
 
     const {commitForMember} = drizzle.contracts.Moves.methods;
@@ -20,7 +20,7 @@ export default ({drizzle, drizzleState, challenge, teamId}) => {
 
     useEffect(() => {
         flags.forEach(flag => flag.challengeId === challenge.id && setFlag(flag.flag))
-    })
+    }, [flags, challenge.id])
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -28,12 +28,12 @@ export default ({drizzle, drizzleState, challenge, teamId}) => {
         // remove old
         flags.forEach((item, index) => {
             if (item.challengeId === challenge.id)
-                dispatch(remove(index));
+                dispatch(userRemove(index));
         })
         // add new
         const salt = Web3Utils.randomHex(32);
-        dispatch(add({contestId: contestId, teamId: teamId, challengeId: challenge.id, flag: flag, salt: salt}));
-        commitForMember.cacheSend(teamId, challenge.id, Web3Utils.soliditySha3(flag, salt));
+        dispatch(userAdd({contestId: contestId, teamId: teamId, challengeId: challenge.id, flag: flag, salt: salt}));
+        commitForMember.cacheSend(contestId, teamId, challenge.id, Web3Utils.soliditySha3(flag, salt));
     }
 
     return (

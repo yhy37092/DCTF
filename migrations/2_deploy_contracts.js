@@ -10,5 +10,5 @@ module.exports = async (deployer, network, accounts) => {
     await deployer.deploy(Contests, AccessContr0l.address);
     await deployer.deploy(Challenges, Contests.address);
     await deployer.deploy(Teams, Contests.address);
-    await deployer.deploy(Moves, Contests.address, Teams.address);
+    await deployer.deploy(Moves, Contests.address, Challenges.address, Teams.address);
 };

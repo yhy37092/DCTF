@@ -41,6 +41,18 @@ const toTeamState = state => {
     }
 }
 
+const toMoveState = state => {
+    state = parseInt(state);
+    switch (state) {
+        case 1 :
+            return 'COMMITTED'
+        case 2 :
+            return 'REVEALED'
+        default :
+            return 'ERROR'
+    }
+}
+
 const timeSince = dateTimestamp => {
     function mdiv(dividend, divisor) {
         return [Math.floor(dividend / divisor), dividend % divisor];
@@ -78,5 +90,6 @@ export {
     before,
     after,
     toContestState,
-    toTeamState
+    toTeamState,
+    toMoveState
 };

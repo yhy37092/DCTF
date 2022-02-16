@@ -1,33 +1,16 @@
 import React from "react";
-import {Col, Container, Row, Stack} from "react-bootstrap";
+import {Route, Routes} from "react-router-dom";
 
-import Header from "./Header";
-import List from "./List"
-import SideBarInfo from "../../components/Navbar/SideBarInfo";
-import HeadBar from "../../components/Navbar/HeaderBar";
+import List from "./List/index";
+import Detail from "./Detail";
+import OnGoing from "./OnGoing";
 
 export default ({drizzle, drizzleState}) => {
-
     return (
-        <HeadBar>
-            <SideBarInfo drizzle={drizzle} drizzleState={drizzleState}>
-                <Container>
-                    <Stack gap={4}>
-                        <Row>
-                            <Col>
-                                <Header drizzle={drizzle} drizzleState={drizzleState}/>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col>
-                                <List drizzle={drizzle} drizzleState={drizzleState}/>
-                            </Col>
-                        </Row>
-                    </Stack>
-                </Container>
-            </SideBarInfo>
-        </HeadBar>
-
+        <Routes>
+            <Route path={`/`} element={<List drizzle={drizzle} drizzleState={drizzleState}/>}/>
+            <Route path={`/Contest-:contestId`} element={<Detail drizzle={drizzle} drizzleState={drizzleState}/>}/>
+            <Route path={`/Contest-:contestId/ongoing`} element={<OnGoing drizzle={drizzle} drizzleState={drizzleState}/>}/>
+        </Routes>
     );
 };

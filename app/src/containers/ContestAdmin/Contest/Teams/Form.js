@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Button, Col, Form, FormCheck, Row, Table} from "react-bootstrap";
-import {toTeamState} from "../../../utils/utils";
+import {toTeamState} from "../../../../utils/utils";
 import {useParams} from "react-router";
 
 export default ({drizzle, drizzleState}) => {
@@ -53,7 +53,6 @@ export default ({drizzle, drizzleState}) => {
                     <th>id</th>
                     <th>name</th>
                     <th>captain</th>
-                    <th>members</th>
                     <th>state</th>
                 </tr>
                 </thead>
@@ -71,7 +70,6 @@ export default ({drizzle, drizzleState}) => {
                             <td>{team.id}</td>
                             <td>{team.teamInfo.name}</td>
                             <td>{team.teamInfo.captain}</td>
-                            <td>{team.teamInfo.members.map(member => (<p>member</p>))}</td>
                             <td>{toTeamState(team.state)}</td>
                         </tr>
                     ))

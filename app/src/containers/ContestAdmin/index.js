@@ -1,32 +1,18 @@
 import React from "react";
-import {Col, Container, Row, Stack} from "react-bootstrap";
+import {Route, Routes} from "react-router-dom";
 
-import Header from "./Header";
-import Form from "./Form"
-import SideBarInfo from "../../components/Navbar/SideBarInfo";
-import HeadBar from "../../components/Navbar/HeaderBar";
+import List from "./List";
+import New from "./New"
+import Contest from "./Contest"
 
 export default ({drizzle, drizzleState}) => {
-
     return (
-        <HeadBar>
-            <SideBarInfo drizzle={drizzle} drizzleState={drizzleState}>
-                <Container>
-                    <Stack gap={4}>
-                        <Row>
-                            <Col>
-                                <Header drizzle={drizzle} drizzleState={drizzleState}/>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col>
-                                <Form drizzle={drizzle} drizzleState={drizzleState}/>
-                            </Col>
-                        </Row>
-                    </Stack>
-                </Container>
-            </SideBarInfo>
-        </HeadBar>
+        <Routes>
+            <Route path={`/`} element={<List drizzle={drizzle} drizzleState={drizzleState}/>}/>
+            <Route path={`/ContestNew`}
+                   element={<New drizzle={drizzle} drizzleState={drizzleState}/>}/>
+            <Route path={`/Contest-:contestId/*`}
+                   element={<Contest drizzle={drizzle} drizzleState={drizzleState}/>}/>
+        </Routes>
     );
 };

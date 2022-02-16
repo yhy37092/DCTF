@@ -35,6 +35,8 @@ interface IChallenges {
 
     function gets(uint contestId) external view returns (Challenge [] memory);
 
+    function getsId(uint contestId) external view returns (uint [] memory);
+
     function getCount() external view returns (uint);
 
     function get(uint index) external view returns (Challenge memory);

@@ -23,6 +23,8 @@ contract Challenges is IChallenges{
     mapping(uint => Challenge) public challenges;
     uint public nextId = 1;
 
+    // index
+    // contestId => challengeIds
     mapping(uint => EnumerableSet.UintSet) contestChallenges;
 
     function _gets(uint [] memory _ids) internal view returns (Challenge [] memory) {
@@ -66,6 +68,9 @@ contract Challenges is IChallenges{
 
     function gets(uint contestId) external view returns (Challenge [] memory){
         return _gets(contestChallenges[contestId].values());
+    }
+    function getsId(uint contestId) external view returns (uint [] memory){
+        return contestChallenges[contestId].values();
     }
 
     function getCount() external view returns (uint) {

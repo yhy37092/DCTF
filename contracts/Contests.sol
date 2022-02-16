@@ -20,6 +20,9 @@ contract Contests is IContests {
     //ContestId => contest
     mapping(uint => Contest) public contests;
     uint public nextId = 1;
+
+    // index
+    // contests managed by someone
     mapping(address => EnumerableSet.UintSet) ownerToIds;
 
     function _gets(uint [] memory _ids) internal view returns (Contest [] memory) {

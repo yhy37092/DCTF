@@ -28,8 +28,11 @@ export default ({drizzle, drizzleState}) => {
         <>
             {challenges ? (
                 challenges.value.map(((challenge, index) => (
-                    <Challenge key={index} challenge={challenge} drizzle={drizzle} drizzleState={drizzleState}
-                                      teamId={team && team.value.id}/>
+                    <>
+                        <Challenge key={index} challenge={challenge} drizzle={drizzle} drizzleState={drizzleState}
+                                   teamId={team && team.value.id}/>
+                        <br/>
+                    </>
                 )))
             ) : null}
         </>
