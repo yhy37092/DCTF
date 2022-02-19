@@ -1,32 +1,23 @@
 import React, {useEffect, useState} from "react";
-import Web3Utils from "web3-utils";
 import {Button, Col, Form, FormCheck, Row, Table} from "react-bootstrap";
+import {Link} from "react-router-dom";
+import {toContestState, toDate, toEther} from "../../../utils/utils";
 
-export default ({drizzle, drizzleState}) => {
-    const CONTEST_ADMIN = Web3Utils.keccak256("CONTEST_ADMIN");
-    const {getRoleMembers, revokeRole} = drizzle.contracts.AccessContr0l.methods;
-
-    const [adminsKey, setAdminsKey] = useState(0);
-    const {AccessContr0l} = drizzleState.contracts;
-    const admins = AccessContr0l.getRoleMembers[adminsKey]
-    useEffect(() => {
-        const adminsKey = getRoleMembers.cacheCall(CONTEST_ADMIN);
-        setAdminsKey(adminsKey);
-    }, [getRoleMembers, CONTEST_ADMIN])
+export default ({onSubmit, data}) => {
 
     const [checkList, setCheckList] = useState([]);
-    const handleRevoke = (event) => {
-        event.preventDefault();
-        checkList.forEach((value, index) => {
-            value && revokeRole.cacheSend(CONTEST_ADMIN, admins.value[index]);
-        });
-    }
     useEffect(() => {
-        admins && setCheckList(Array(admins.value.length).fill(false));
-    }, [admins])
+        setCheckList(Array(data.length).fill(false));
+    }, [data])
 
     return (
-        <Form onSubmit={handleRevoke}>
+        <Form onSubmit={event => {
+            event.preventDefault()
+            const _data = []
+            checkList.map((value, index) => value && _data.push(data[index].id))
+            onSubmit({_data: _data})
+        }
+        }>
             <Row><Col>
                 <Button className="float-end" variant="outline-danger" type="submit">
                     <i className="btn-fa fas fa-trash-alt"/>
@@ -38,12 +29,18 @@ export default ({drizzle, drizzleState}) => {
                     <th><FormCheck type={"checkbox"} id={"default-checkbox"}
                                    onChange={event => (setCheckList(checkList.slice().fill(event.target.checked)))}/>
                     </th>
-                    <th>account</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Fee</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>State</th>
                 </tr>
                 </thead>
                 <tbody>
-                {admins ? (
-                    admins.value.map((admin, index) => (
+                {
+                    data.map((value, index) => (
                         <tr key={index}>
                             <td><FormCheck type="checkbox" id={index}
                                            checked={checkList.length > index && checkList[index]}
@@ -52,10 +49,18 @@ export default ({drizzle, drizzleState}) => {
                                                tmp[index] = event.target.checked;
                                                setCheckList(tmp);
                                            }}/></td>
-                            <td>{admin}</td>
+                            <td>{value.id}</td>
+                            <td><Link
+                                to={`/ContestAdmin/Contest-${value.id}`}>{value.info.name}</Link>
+                            </td>
+                            <td>{value.info.Type}</td>
+                            <td>{toEther(value.info.fee)} ether</td>
+                            <td>{toDate(value.info.start)}</td>
+                            <td>{toDate(value.info.end)}</td>
+                            <td>{toContestState(value.state)}</td>
                         </tr>
                     ))
-                ) : null}
+                }
                 </tbody>
             </Table>
         </Form>

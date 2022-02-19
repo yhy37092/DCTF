@@ -2,44 +2,33 @@ import React, {useEffect, useState} from "react";
 import {Button, Form, FormControl, FormGroup, FormLabel, FormText, Row} from "react-bootstrap";
 import DateTimePicker from "react-datetime-picker";
 import SimpleMDE from "react-simplemde-editor";
-import {useParams} from "react-router";
 
-export default ({drizzle, drizzleState}) => {
+export default ({onSubmit, data}) => {
 
-    const {contestId} = useParams();
+    const [contestType, setContestType] = useState(data.info.contestType)
+    const [name, setName] = useState(data.info.name)
+    const [fee, setFee] = useState(data.info.fee)
+    const [start, setStart] = useState(new Date(parseInt(data.info.start) * 1000))
+    const [end, setEnd] = useState(new Date(parseInt(data.info.start) * 1000));
+    const [message, setMessage] = useState(data.info.message);
 
-    const {update, contests} = drizzle.contracts.Contests.methods;
+    useEffect(()=>{
+        setContestType(data.info.contestType)
+        setName(data.info.name)
+        setFee(data.info.fee)
+        setStart(new Date(parseInt(data.info.start) * 1000))
+        setEnd(new Date(parseInt(data.info.end) * 1000))
+        setMessage(data.info.message)
+    },[data])
 
-    const [contestKey, setContestKey] = useState(0);
-    const {Contests} = drizzleState.contracts;
-    const contest = Contests.contests[contestKey];
-    useEffect(() => {
-        const contestKey = contests.cacheCall(contestId);
-        setContestKey(contestKey);
-    }, [contests, contestId])
-
-    const [contestType, setContestType] = useState("")
-    const [name, setName] = useState("");
-    const [fee, setFee] = useState(0);
-    const [start, setStart] = useState(new Date());
-    const [end, setEnd] = useState(new Date());
-    const [message, setMessage] = useState("");
-    useEffect(() => {
-        contest && setContestType(contest.value.contestInfo.contestType)
-        contest && setName(contest.value.contestInfo.name);
-        contest && setFee(contest.value.contestInfo.fee);
-        contest && setStart(new Date(parseInt(contest.value.contestInfo.start) * 1000));
-        contest && setEnd(new Date(parseInt(contest.value.contestInfo.end) * 1000));
-        contest && setMessage(contest.value.contestInfo.message);
-    }, [contest])
-
-    const handleSubmit = event => {
-        event.preventDefault();
-        update.cacheSend(contestId, [contestType, name, fee, start.getTime()/1000, end.getTime()/1000, message]);
-    }
-
-    return(
-        <Form onSubmit={handleSubmit}>
+    return (
+        <Form onSubmit={event => {
+            event.preventDefault()
+            onSubmit({
+                _data: [contestType, name, fee, parseInt(start.getTime() / 1000), parseInt(end.getTime() / 1000), message]
+            })
+        }
+        }>
             <FormGroup>
                 <FormLabel as={Row}>Name:</FormLabel>
                 <FormText as={Row} muted>The name of your challenge</FormText>
@@ -72,8 +61,7 @@ export default ({drizzle, drizzleState}) => {
             </FormGroup>
 
             <FormGroup>
-                <Button className="float-end" key="submit" variant="primary" type="button"
-                        onClick={handleSubmit}>Update</Button>
+                <Button className="float-end" variant="primary" type="submit">Update</Button>
             </FormGroup>
         </Form>
     )

@@ -5,12 +5,12 @@ import {toTeamState} from "../utils/utils";
 export default ({team}) => (
     <Card>
         <Card.Body>
-            <Card.Title>{team.teamInfo.name}</Card.Title>
-            <Card.Text><strong>captin: </strong>{team.teamInfo.captain}</Card.Text>
+            <Card.Title>{team.info.name}</Card.Title>
+            <Card.Text><strong>captin: </strong>{team.info.captain}</Card.Text>
         </Card.Body>
         <ListGroup variant="flush">
             {
-                team.teamInfo.members.map((member, index) => (
+                team.info.members.map((member, index) => (
                     <ListGroupItem key={index}><strong>member {index + 1}</strong>: {member}</ListGroupItem>
                 ))
             }

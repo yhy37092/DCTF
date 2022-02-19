@@ -7,20 +7,20 @@ export default ({contest}) => {
 
     return (
         <Card>
-            <Card.Header>{contest.contestInfo.contestType}
-                {before(contest.contestInfo.start) && <i className="fas fa-hourglass-start"/>}
-                {after(contest.contestInfo.start) && before(contest.contestInfo.end) && <i className="fas fa-hourglass-half"/>}
-                {after(contest.contestInfo.end) && <i className="fas fa-hourglass-end"/>}
+            <Card.Header>{contest.info.contestType}
+                {before(contest.info.start) && <i className="fas fa-hourglass-start"/>}
+                {after(contest.info.start) && before(contest.info.end) && <i className="fas fa-hourglass-half"/>}
+                {after(contest.info.end) && <i className="fas fa-hourglass-end"/>}
             </Card.Header>
             <Card.Body>
-                <Card.Title>{contest.contestInfo.name}</Card.Title>
+                <Card.Title>{contest.info.name}</Card.Title>
             </Card.Body>
             <ListGroup variant="flush">
-                <ListGroupItem><ReactMarkdown>{contest.contestInfo.message}</ReactMarkdown></ListGroupItem>
+                <ListGroupItem><ReactMarkdown>{contest.info.message}</ReactMarkdown></ListGroupItem>
                 <ListGroupItem><strong>Owner</strong>: {contest.owner}</ListGroupItem>
-                <ListGroupItem><strong>Fee</strong>: {toEther(contest.contestInfo.fee)} ether</ListGroupItem>
-                <ListGroupItem><strong>Start</strong>: {toDate(contest.contestInfo.start)}</ListGroupItem>
-                <ListGroupItem><strong>End</strong>: {toDate(contest.contestInfo.end)}</ListGroupItem>
+                <ListGroupItem><strong>Fee</strong>: {toEther(contest.info.fee)} ether</ListGroupItem>
+                <ListGroupItem><strong>Start</strong>: {toDate(contest.info.start)}</ListGroupItem>
+                <ListGroupItem><strong>End</strong>: {toDate(contest.info.end)}</ListGroupItem>
             </ListGroup>
         </Card>
     )

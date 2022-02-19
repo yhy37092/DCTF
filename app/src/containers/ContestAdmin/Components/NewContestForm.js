@@ -3,9 +3,7 @@ import {Button, Col, Form, FormControl, FormGroup, FormLabel, FormText, Row} fro
 import DateTimePicker from "react-datetime-picker";
 import SimpleMDE from "react-simplemde-editor";
 
-export default ({drizzle, drizzleState}) => {
-
-    const {add} = drizzle.contracts.Contests.methods;
+export default ({onSubmit}) => {
 
     const [contestType, setContestType] = useState("Jeopardy")
     const [name, setName] = useState("");
@@ -14,13 +12,14 @@ export default ({drizzle, drizzleState}) => {
     const [end, setEnd] = useState(new Date());
     const [message, setMessage] = useState("");
 
-    const handleSubmit = event => {
-        event.preventDefault();
-        add.cacheSend([contestType, name, fee, parseInt(start.getTime()/1000), parseInt(end.getTime()/1000), message]);
-    }
-
-    return(
-        <Form onSubmit={handleSubmit}>
+    return (
+        <Form onSubmit={event => {
+            event.preventDefault()
+            onSubmit({
+                _data: [contestType, name, fee, parseInt(start.getTime() / 1000), parseInt(end.getTime() / 1000), message]
+            })
+        }
+        }>
             <Row>
                 <Col md={3}>
                     <FormLabel>Challenge Types</FormLabel>
@@ -50,12 +49,12 @@ export default ({drizzle, drizzleState}) => {
                     <FormGroup>
                         <FormLabel as={Row}>Start:</FormLabel>
                         <FormText as={Row} muted>This is the time your contest start.</FormText>
-                        <DateTimePicker onChange={setStart} value={start} />
+                        <DateTimePicker onChange={setStart} value={start}/>
                     </FormGroup>
                     <FormGroup>
                         <FormLabel as={Row}>End:</FormLabel>
                         <FormText as={Row} muted>This is the time your contest end.</FormText>
-                        <DateTimePicker onChange={setEnd} value={end} />
+                        <DateTimePicker onChange={setEnd} value={end}/>
                     </FormGroup>
                     <FormGroup>
                         <FormLabel as={Row}>Message:</FormLabel>
@@ -65,8 +64,7 @@ export default ({drizzle, drizzleState}) => {
                     </FormGroup>
 
                     <FormGroup>
-                        <Button className="float-end" key="submit" variant="primary" type="button"
-                                onClick={handleSubmit}>Create</Button>
+                        <Button className="float-end" variant="primary" type="submit">Create</Button>
                     </FormGroup>
                 </Col>
             </Row>
