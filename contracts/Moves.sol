@@ -52,17 +52,19 @@ contract Moves is IMoves {
     }
 
     function commitForAdmin(uint contestId, uint challengeId, bytes32 hash) external
-    onlyContestOwner(contestId) {
+    onlyContestOwner(contestId)
+    onlyContestInState(contestId, IContests.ContestState.STARTED) {
         uint oldId = challengeFlag[challengeId];
         contestFlags[contestId].remove(oldId);
         delete moves[oldId];
-        uint id =_commit(contestId, challengeId, 0, hash);
+        uint id = _commit(contestId, challengeId, 0, hash);
         challengeFlag[challengeId] = id;
         contestFlags[contestId].add(id);
     }
 
     function commitForMember(uint contestId, uint teamId, uint challengeId, bytes32 hash) external
-    onlyTeamMember(teamId) {
+    onlyTeamMember(teamId)
+    onlyContestInState(contestId, IContests.ContestState.STARTED) {
         uint oldId = submitFlag[challengeId][teamId];
         contestSubmits[contestId].remove(oldId);
         delete moves[oldId];
@@ -72,12 +74,14 @@ contract Moves is IMoves {
     }
 
     function revealForAdmin(uint contestId, uint challengeId, string memory flag, bytes32 salt) external
-    onlyContestOwner(contestId) {
+    onlyContestOwner(contestId)
+    onlyContestInState(contestId, IContests.ContestState.ENDED) {
         _reveal(challengeFlag[challengeId], flag, salt);
     }
 
     function revealForMember(uint contestId, uint teamId, uint challengeId, string memory flag, bytes32 salt) external
-    onlyTeamMember(teamId) {
+    onlyTeamMember(teamId)
+    onlyContestInState(contestId, IContests.ContestState.ENDED) {
         _reveal(submitFlag[challengeId][teamId], flag, salt);
     }
 
@@ -109,6 +113,11 @@ contract Moves is IMoves {
 
     modifier onlyContestOwner(uint contestId){
         require(Contests.isOwner(contestId, msg.sender), "only contest owner");
+        _;
+    }
+
+    modifier onlyContestInState(uint contestId, IContests.ContestState state){
+        require(Contests.contestInState(contestId, state), "wrong contest state");
         _;
     }
 

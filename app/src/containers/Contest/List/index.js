@@ -17,7 +17,7 @@ export default ({drizzle, drizzleState}) => {
             </Row>
             <Row>
                 <Col>
-                    <Header drizzle={drizzle} drizzleState={drizzleState}/>
+                    <Header/>
                 </Col>
             </Row>
 

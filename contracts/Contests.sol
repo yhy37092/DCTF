@@ -23,7 +23,7 @@ contract Contests is IContests {
 
     // index
     // contests managed by someone
-    mapping(address => EnumerableSet.UintSet) ownerToIds;
+    mapping(address => EnumerableSet.UintSet) addressToContests;
 
     function _gets(uint [] memory _ids) internal view returns (Contest [] memory) {
         uint number = _ids.length;
@@ -34,28 +34,40 @@ contract Contests is IContests {
         return result;
     }
 
+    function _updateState(uint id) internal {
+        if(block.timestamp >= contests[id].contestInfo.start) contests[id].state = IContests.ContestState.STARTED;
+        if(block.timestamp >= contests[id].contestInfo.end) contests[id].state = IContests.ContestState.ENDED;
+    }
+
     function add(IContest calldata contest) external
     onlyContestAdmin()
     timeQualified(contest.start, contest.end) {
         ids.add(nextId);
-        ownerToIds[msg.sender].add(nextId);
+        addressToContests[msg.sender].add(nextId);
         contests[nextId] = Contest(nextId, contest, msg.sender, ContestState.CREATED, block.timestamp);
         nextId++;
     }
 
     function update(uint id, IContest calldata contest) external
+    onlyContestExist(id)
     onlyContestOwner(id)
-    timeQualified(contest.start, contest.end) 
-    onlyContestExist(id){
+    onlyContestInState(id, IContests.ContestState.CREATED)
+    timeQualified(contest.start, contest.end) {
         contests[id].contestInfo = contest;
     }
 
     function remove(uint id) external
+    onlyContestExist(id)
     onlyContestOwner(id)
-    onlyContestExist(id){
+    onlyContestInState(id, IContests.ContestState.CREATED) {
         ids.remove(id);
-        ownerToIds[msg.sender].remove(id);
+        addressToContests[msg.sender].remove(id);
         delete contests[id];
+    }
+
+    function contestInState(uint id, IContests.ContestState state) external returns(bool) {
+        _updateState(id);
+        return contests[id].state == state;
     }
 
     function isOwner(uint contestId, address account) external view returns(bool) {
@@ -75,7 +87,7 @@ contract Contests is IContests {
     }
 
     function gets(address account) external view returns (Contest [] memory){
-        return _gets(ownerToIds[account].values());
+        return _gets(addressToContests[account].values());
     }
 
     function getCount() external view returns (uint) {
@@ -98,6 +110,12 @@ contract Contests is IContests {
 
     modifier onlyContestOwner(uint id){
         require(contests[id].owner == msg.sender, "only contest owner");
+        _;
+    }
+
+    modifier onlyContestInState(uint id, IContests.ContestState state){
+        _updateState(id);
+        require(contests[id].state == state, "wrong contest state");
         _;
     }
 

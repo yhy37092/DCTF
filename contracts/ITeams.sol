@@ -15,6 +15,7 @@ interface ITeams {
         uint contestId;
         ITeam teamInfo;
         TeamState state;
+        uint score;
         uint timeStamp;
     }
 
@@ -29,7 +30,11 @@ interface ITeams {
 
     function auditTeam(uint contestId, uint teamId, bool result) external;
 
+    function updateScore(uint contestId, uint [] memory teamIds, uint [] memory scores) external;
+
     function isTeamMember(uint teamId, address account) external view returns(bool);
+
+    function getApply() external view returns (uint [] memory);
 
     function getAll() external view returns (Team [] memory);
 

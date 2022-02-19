@@ -3,10 +3,10 @@ import {Breadcrumb, Col, Row} from "react-bootstrap";
 
 import Header from "./Header";
 import Form from "./Form";
-import {ContestDetail} from "../../../components/Contest";
 import {useParams} from "react-router";
 import TeamCard from "../../../components/Team";
 import {Link} from "react-router-dom";
+import {ContestDetail} from "../../../components/Contest";
 
 export default ({drizzle, drizzleState}) => {
 

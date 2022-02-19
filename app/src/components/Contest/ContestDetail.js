@@ -1,13 +1,17 @@
-import React from 'react'
-import ReactMarkdown from 'react-markdown'
 import {Card, ListGroup, ListGroupItem} from "react-bootstrap";
-import {timeSince, toDate, toEther} from "../utils/utils";
-import {Link} from "react-router-dom";
+import {after, before, toDate, toEther} from "../../utils/utils";
+import ReactMarkdown from "react-markdown";
+import React from "react";
 
-const ContestDetail = ({contest}) => {
+export default ({contest}) => {
 
     return (
         <Card>
+            <Card.Header>{contest.contestInfo.contestType}
+                {before(contest.contestInfo.start) && <i className="fas fa-hourglass-start"/>}
+                {after(contest.contestInfo.start) && before(contest.contestInfo.end) && <i className="fas fa-hourglass-half"/>}
+                {after(contest.contestInfo.end) && <i className="fas fa-hourglass-end"/>}
+            </Card.Header>
             <Card.Body>
                 <Card.Title>{contest.contestInfo.name}</Card.Title>
             </Card.Body>
@@ -21,20 +25,4 @@ const ContestDetail = ({contest}) => {
         </Card>
     )
 
-}
-const ContestPreview = ({contest, link}) => (
-    <Card className="text-center" border="primary">
-        <Card.Header>{contest.contestInfo.contestType}</Card.Header>
-        <Card.Body>
-            <Card.Title>{contest.contestInfo.name}</Card.Title>
-            <Card.Text>{contest.contestInfo.description}</Card.Text>
-            <Link to={link}>Detail</Link>
-        </Card.Body>
-        <Card.Footer
-            className="text-muted">{timeSince(contest.timeStamp)}</Card.Footer>
-    </Card>
-)
-export {
-    ContestPreview,
-    ContestDetail
 }

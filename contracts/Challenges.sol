@@ -37,7 +37,8 @@ contract Challenges is IChallenges{
     }
 
     function add(uint contestId, IChallenge calldata challenge) external
-    onlyContestOwner(contestId) {
+    onlyContestOwner(contestId)
+    onlyContestInState(contestId, IContests.ContestState.STARTED){
         ids.add(nextId);
         contestChallenges[contestId].add(nextId);
         challenges[nextId] = Challenge(nextId, contestId, challenge, block.timestamp);
@@ -46,13 +47,15 @@ contract Challenges is IChallenges{
 
     function update(uint contestId, uint id, IChallenge calldata challenge) external
     onlyChallengeExist(id)
-    onlyContestOwner(contestId) {
+    onlyContestOwner(contestId)
+    onlyContestInState(contestId, IContests.ContestState.STARTED){
         challenges[id].challengeInfo = challenge;
     }
 
     function remove(uint contestId, uint id) external
     onlyChallengeExist(id)
-    onlyContestOwner(contestId) {
+    onlyContestOwner(contestId)
+    onlyContestInState(contestId, IContests.ContestState.STARTED){
         ids.remove(id);
         contestChallenges[contestId].remove(id);
         delete challenges[id];
@@ -87,6 +90,10 @@ contract Challenges is IChallenges{
     }
     modifier onlyContestOwner(uint contestId){
         require(Contests.isOwner(contestId, msg.sender), "only contest owner");
+        _;
+    }
+    modifier onlyContestInState(uint contestId, IContests.ContestState state){
+        require(Contests.contestInState(contestId, state), "wrong contest state");
         _;
     }
 }

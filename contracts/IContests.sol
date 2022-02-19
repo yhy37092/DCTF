@@ -34,6 +34,8 @@ interface IContests {
 
     function remove(uint id) external;
 
+    function contestInState(uint id, IContests.ContestState state) external returns(bool);
+
     function isOwner(uint contestId, address account) external view returns(bool);
 
     function Exist(uint contestId) external view returns(bool);
