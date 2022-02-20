@@ -25,7 +25,7 @@ export default ({onSubmit, data}) => {
         <Form onSubmit={event => {
             event.preventDefault()
             onSubmit({
-                _data: [contestType, name, fee, start.getTime() / 1000, end.getTime() / 1000, message]
+                _data: [contestType, name, fee, parseInt(start.getTime() / 1000), parseInt(end.getTime() / 1000), message]
             })
         }
         }>

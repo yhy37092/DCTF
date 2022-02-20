@@ -1,9 +1,3 @@
-import Contest from "./Contest";
-import ContestAdmin from "./ContestAdmin";
-import Default from "./Default";
-
-export {
-    Contest,
-    ContestAdmin,
-    Default
-}
+export { default as NavBar } from './Default'
+export { default as ContestAdminNavBar } from './ContestAdmin'
+export { default as ContestNavBar } from './Contest'

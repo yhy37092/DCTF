@@ -1,55 +1,43 @@
 import React from 'react'
-import {Route, Routes} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import {Container, Stack} from 'react-bootstrap'
-import {Drizzle, generateStore} from '@drizzle/store'
-import {DrizzleContext} from '@drizzle/react-plugin'
-
-import options from './drizzle/drizzleOptions'
+import {Drizzle} from '@drizzle/store'
+import {drizzleReactHooks} from '@drizzle/react-plugin'
+import drizzleOptions from './drizzle/drizzleOptions'
+import {NavBar} from "./components";
 import Home from './containers/Home'
 import SystemAdmin from './containers/SystemAdmin'
 import ContestAdmin from './containers/ContestAdmin'
 import Contest from './containers/Contest'
 import NoMatch from './components/NoMatch'
-import Review from './containers/Review'
-import {Default} from './components/Navbars'
 
 import './App.css'
 
-const drizzleStore = generateStore(options)
-const drizzle = new Drizzle(options, drizzleStore)
+const drizzle = new Drizzle(drizzleOptions)
+const {DrizzleProvider} = drizzleReactHooks
 
 function App() {
 
     return (
-        <DrizzleContext.Provider drizzle={drizzle}>
-            <DrizzleContext.Consumer>
-                {drizzleContext => {
-                    const {drizzle, drizzleState, initialized} = drizzleContext
-
-                    if (!initialized) return <p>Loading...</p>
-
-                    return (
-                        <Container>
-                            <Stack gap={4}>
-                                <Default/>
-                                <Routes>
-                                    <Route exact path='/' element={<Home/>}/>
-                                    <Route path='SystemAdmin/*' element={<SystemAdmin drizzle={drizzle}
-                                                                                    drizzleState={drizzleState}/>}/>
-                                    <Route path='ContestAdmin/*' element={<ContestAdmin drizzle={drizzle}
-                                                                                        drizzleState={drizzleState}/>}/>
-                                    <Route path='Contests/*'
-                                           element={<Contest drizzle={drizzle} drizzleState={drizzleState}/>}/>
-                                    <Route path='Review/*'
-                                           element={<Review drizzle={drizzle} drizzleState={drizzleState}/>}/>
-                                    <Route path='*' element={<NoMatch />} />
-                                </Routes>
-                            </Stack>
-                        </Container>
-                    )
-                }}
-            </DrizzleContext.Consumer>
-        </DrizzleContext.Provider>
+        <Router>
+            <DrizzleProvider drizzle={drizzle}>
+                <drizzleReactHooks.Initializer>
+                    <Container>
+                        <Stack gap={4}>
+                            <NavBar/>
+                            <Routes>
+                                <Route exact path='/' element={<Home/>}/>
+                                <Route path='SystemAdmin/*' element={<SystemAdmin/>}/>
+                                <Route path='ContestAdmin/*' element={<ContestAdmin/>}/>
+                                <Route path='Contests/*' element={<Contest/>}/>
+                                {/*<Route path='Review/*' element={<Review/>}/>*/}
+                                <Route path='*' element={<NoMatch/>}/>
+                            </Routes>
+                        </Stack>
+                    </Container>
+                </drizzleReactHooks.Initializer>
+            </DrizzleProvider>
+        </Router>
     )
 }
 

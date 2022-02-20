@@ -1,7 +1,10 @@
-import ContestPreview from "./ContestPreview";
-import ContestDetail from "./ContestDetail";
-
-export {
-    ContestPreview,
-    ContestDetail
-}
+export { default as ContestDetail } from './ContestDetail'
+export { default as ContestPreview } from './ContestPreview'
+export { default as ApplyContest } from './ApplyContest'
+export { default as CommitChallenge } from './CommitChallenge'
+export { default as Contest } from './Contest'
+export { default as ListChallenge } from './ListChallenge'
+export { default as ListContest } from './ListContest'
+export { default as ListMyContest } from './ListMyContest'
+export { default as OnGoingContest } from './OnGoingContest'
+export { default as RevealChallenge } from './RevealChallenge'

@@ -1,33 +1,29 @@
 import React from 'react'
 import {Link, Route, Routes, useParams} from 'react-router-dom'
 import {Breadcrumb, Col, Row} from 'react-bootstrap'
-import NoMatch from '../../../components/NoMatch'
-import {ContestAdmin} from '../../../components/Navbars'
+import {AuditTeam, ContestAdminNavBar, NoMatch, Submissions, UpdateContest} from '../../../components'
 import Challenges from './Challenges'
-import UpdateContest from './UpdateContest'
-import AuditTeam from './AuditTeam'
-import Submissions from "./Submissions";
 
-export default ({drizzle, drizzleState}) => {
+export default () => {
 
     const {contestId} = useParams()
 
     return (
         <>
-            <ContestAdmin contestId={contestId}/>
+            <ContestAdminNavBar contestId={contestId}/>
             <Routes>
-                <Route path={`/`} element={<MainPage drizzle={drizzle} drizzleState={drizzleState}/>}/>
-                <Route path={`/Challenges/*`} element={<Challenges drizzle={drizzle} drizzleState={drizzleState}/>}/>
-                <Route path={`/Teams`} element={<Teams drizzle={drizzle} drizzleState={drizzleState}/>}/>
-                <Route path={`/Submissions`} element={<Submission drizzle={drizzle} drizzleState={drizzleState}/>}/>
+                <Route path={`/`} element={<MainPage/>}/>
+                <Route path={`/Challenges/*`} element={<Challenges/>}/>
+                <Route path={`/Teams`} element={<Teams/>}/>
+                <Route path={`/Submissions`} element={<Submission/>}/>
                 <Route path='*' element={<NoMatch/>}/>
             </Routes>
         </>
     )
 }
 
-function MainPage(props) {
-    const {drizzle, drizzleState} = props
+function MainPage() {
+    
     const {contestId} = useParams()
 
     return (
@@ -48,7 +44,7 @@ function MainPage(props) {
 
             <Row>
                 <Col>
-                    <UpdateContest drizzle={drizzle} drizzleState={drizzleState}/>
+                    <UpdateContest contestId={contestId}/>
                 </Col>
             </Row>
         </>
@@ -56,8 +52,8 @@ function MainPage(props) {
     )
 }
 
-function Teams(props) {
-    const {drizzle, drizzleState} = props
+function Teams() {
+    
     const {contestId} = useParams()
 
     return (
@@ -80,7 +76,7 @@ function Teams(props) {
 
             <Row>
                 <Col>
-                    <AuditTeam drizzle={drizzle} drizzleState={drizzleState}/>
+                    <AuditTeam contestId={contestId}/>
                 </Col>
             </Row>
         </>
@@ -88,8 +84,8 @@ function Teams(props) {
     )
 }
 
-function Submission(props) {
-    const {drizzle, drizzleState} = props
+function Submission() {
+    
     const {contestId} = useParams()
 
     return (
@@ -113,7 +109,7 @@ function Submission(props) {
 
             <Row>
                 <Col>
-                    <Submissions drizzle={drizzle} drizzleState={drizzleState}/>
+                    <Submissions contestId={contestId}/>
                 </Col>
             </Row>
         </>

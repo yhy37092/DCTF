@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Button, Form} from 'react-bootstrap'
+import {Button, Form, InputGroup} from 'react-bootstrap'
 
 export default ({onSubmit, data}) => {
 
@@ -17,8 +17,12 @@ export default ({onSubmit, data}) => {
                 }
             )
         }}>
-            <Form.Control placeholder='flag' onChange={event => setFlag(event.target.value)} value={flag}/>
-            <Button variant='primary' type='submit'>Commit</Button>
+            <Form.Group>
+                <InputGroup>
+                    <Form.Control placeholder='flag' onChange={event => setFlag(event.target.value)} value={flag}/>
+                    <Button variant='primary' type='submit'>Commit</Button>
+                </InputGroup>
+            </Form.Group>
         </Form>
     )
 }
