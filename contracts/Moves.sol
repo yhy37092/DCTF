@@ -45,9 +45,9 @@ contract Moves is IMoves {
 
     function _reveal(uint id, string memory flag, bytes32 salt) internal {
         require(moves[id].state == IMoves.MoveState.COMMITTED, "already revealed");
-        require(moves[id].moveInfo.hash == keccak256(abi.encodePacked(flag, salt)), "does not match commitment");
-        moves[id].moveInfo.flag = flag;
-        moves[id].moveInfo.salt = salt;
+        require(moves[id].info.hash == keccak256(abi.encodePacked(flag, salt)), "does not match commitment");
+        moves[id].info.flag = flag;
+        moves[id].info.salt = salt;
         moves[id].state = MoveState.REVEALED;
     }
 
@@ -73,16 +73,32 @@ contract Moves is IMoves {
         contestSubmits[contestId].add(id);
     }
 
-    function revealForAdmin(uint contestId, uint challengeId, string memory flag, bytes32 salt) external
+    function _revealForAdmin(uint contestId, uint challengeId, string memory flag, bytes32 salt) internal
     onlyContestOwner(contestId)
     onlyContestInState(contestId, IContests.ContestState.ENDED) {
         _reveal(challengeFlag[challengeId], flag, salt);
     }
 
-    function revealForMember(uint contestId, uint teamId, uint challengeId, string memory flag, bytes32 salt) external
+    function revealForAdmins(uint contestId, uint [] memory challengeIds, string [] memory flags, bytes32 [] memory salts) external {
+        require(challengeIds.length == flags.length, "length should be equal");
+        require(salts.length == flags.length, "length should be equal");
+        for (uint i = 0; i < challengeIds.length; i++) {
+            _revealForAdmin(contestId, challengeIds[i], flags[i], salts[i]);
+        }
+    }
+
+    function _revealForMember(uint contestId, uint teamId, uint challengeId, string memory flag, bytes32 salt) internal
     onlyTeamMember(teamId)
     onlyContestInState(contestId, IContests.ContestState.ENDED) {
         _reveal(submitFlag[challengeId][teamId], flag, salt);
+    }
+
+    function revealForMembers(uint contestId, uint teamId, uint [] memory challengeIds, string [] memory flags, bytes32 [] memory salts) external {
+        require(challengeIds.length == flags.length, "length should be equal");
+        require(salts.length == flags.length, "length should be equal");
+        for (uint i = 0; i < challengeIds.length; i++) {
+            _revealForMember(contestId, teamId, challengeIds[i], flags[i], salts[i]);
+        }
     }
 
     function _gets(uint [] memory _ids) internal view returns (Move [] memory) {

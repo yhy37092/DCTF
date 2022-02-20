@@ -35,8 +35,8 @@ contract Contests is IContests {
     }
 
     function _updateState(uint id) internal {
-        if(block.timestamp >= contests[id].contestInfo.start) contests[id].state = IContests.ContestState.STARTED;
-        if(block.timestamp >= contests[id].contestInfo.end) contests[id].state = IContests.ContestState.ENDED;
+        if(block.timestamp >= contests[id].info.start) contests[id].state = IContests.ContestState.STARTED;
+        if(block.timestamp >= contests[id].info.end) contests[id].state = IContests.ContestState.ENDED;
     }
 
     function add(IContest calldata contest) external
@@ -53,16 +53,21 @@ contract Contests is IContests {
     onlyContestOwner(id)
     onlyContestInState(id, IContests.ContestState.CREATED)
     timeQualified(contest.start, contest.end) {
-        contests[id].contestInfo = contest;
+        contests[id].info = contest;
     }
 
-    function remove(uint id) external
+    function _remove(uint id) internal
     onlyContestExist(id)
     onlyContestOwner(id)
     onlyContestInState(id, IContests.ContestState.CREATED) {
         ids.remove(id);
         addressToContests[msg.sender].remove(id);
         delete contests[id];
+    }
+    function removes(uint [] memory _ids) external {
+        for(uint i = 0; i < _ids.length; i++) {
+            _remove(_ids[i]);
+        }
     }
 
     function contestInState(uint id, IContests.ContestState state) external returns(bool) {

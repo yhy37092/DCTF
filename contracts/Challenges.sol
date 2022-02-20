@@ -49,16 +49,22 @@ contract Challenges is IChallenges{
     onlyChallengeExist(id)
     onlyContestOwner(contestId)
     onlyContestInState(contestId, IContests.ContestState.STARTED){
-        challenges[id].challengeInfo = challenge;
+        challenges[id].info = challenge;
     }
 
-    function remove(uint contestId, uint id) external
+    function _remove(uint contestId, uint id) internal
     onlyChallengeExist(id)
     onlyContestOwner(contestId)
-    onlyContestInState(contestId, IContests.ContestState.STARTED){
+    onlyContestInState(contestId, IContests.ContestState.STARTED) {
         ids.remove(id);
         contestChallenges[contestId].remove(id);
         delete challenges[id];
+    }
+
+    function removes(uint contestId, uint [] memory _ids) external {
+        for (uint i = 0; i < _ids.length; i++) {
+            _remove(contestId, _ids[i]);
+        }
     }
 
     function getAll() external view returns (Challenge [] memory) {

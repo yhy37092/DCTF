@@ -19,7 +19,7 @@ interface IChallenges {
     struct Challenge {
         uint id;
         uint contestId;
-        IChallenge challengeInfo;
+        IChallenge info;
         uint timeStamp;
     }
 
@@ -27,7 +27,7 @@ interface IChallenges {
 
     function update(uint contestId, uint id, IChallenge calldata challenge) external;
 
-    function remove(uint contestId, uint id) external;
+    function removes(uint contestId, uint [] memory _ids) external;
 
     function getAll() external view returns (Challenge [] memory);
 

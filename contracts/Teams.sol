@@ -53,7 +53,7 @@ contract Teams is ITeams {
         _ids[0] = contestId;
         IContests.Contest memory contest = Contests.getSome(_ids)[0];
 
-        require(msg.value == contest.contestInfo.fee, "not qualified contest fee");
+        require(msg.value == contest.info.fee, "not qualified contest fee");
 
         // add index
         addressToTeamId[contestId][team.captain] = nextId;
@@ -65,7 +65,7 @@ contract Teams is ITeams {
         contestTeams[contestId].add(_add(contestId, team));
     }
 
-    function auditTeam(uint contestId, uint teamId, bool result) external
+    function _auditTeam(uint contestId, uint teamId, bool result) internal
     onlyContestOwner(contestId)
     onlyContestInState(contestId, IContests.ContestState.CREATED) {
         require(teams[teamId].state == ITeams.TeamState.APPLIED, "wrong team state");
@@ -77,7 +77,13 @@ contract Teams is ITeams {
         _ids[0] = contestId;
         IContests.Contest memory contest = Contests.getSome(_ids)[0];
         teams[teamId].state = ITeams.TeamState.REJECTED;
-        teams[teamId].teamInfo.captain.transfer(contest.contestInfo.fee);
+        teams[teamId].info.captain.transfer(contest.info.fee);
+    }
+    function auditTeams(uint contestId, uint [] memory _ids, bool [] memory results) external {
+        require(_ids.length == results.length,'ids length should be equal with results length');
+        for(uint i = 0; i < _ids.length; i++) {
+            _auditTeam(contestId, _ids[i], results[i]);
+        }
     }
 
     function updateScore(uint contestId, uint [] memory teamIds, uint [] memory scores) external
@@ -90,9 +96,9 @@ contract Teams is ITeams {
     }
 
     function isTeamMember(uint teamId, address account) external view returns(bool) {
-        if(teams[teamId].teamInfo.captain == account) return true;
-        for (uint i = 0; i < teams[teamId].teamInfo.members.length; i++) {
-            if(teams[teamId].teamInfo.members[i] == account) return true;
+        if(teams[teamId].info.captain == account) return true;
+        for (uint i = 0; i < teams[teamId].info.members.length; i++) {
+            if(teams[teamId].info.members[i] == account) return true;
         }
         return false;
     }

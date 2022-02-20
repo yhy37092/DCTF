@@ -15,7 +15,7 @@ interface IContests {
 
     struct Contest {
         uint id;
-        IContest contestInfo;
+        IContest info;
         address owner;
         ContestState state;
         uint timeStamp;
@@ -32,7 +32,7 @@ interface IContests {
 
     function update(uint id, IContest calldata contest) external;
 
-    function remove(uint id) external;
+    function removes(uint [] memory _ids) external;
 
     function contestInState(uint id, IContests.ContestState state) external returns(bool);
 

@@ -24,4 +24,15 @@ contract AccessContr0l is AccessControlEnumerable {
         return accounts;
     }
 
+    function grantRoles(bytes32 role, address [] memory accounts) external {
+        for(uint i = 0; i < accounts.length; i++) {
+            grantRole(role, accounts[i]);
+        }
+    }
+    function revokeRoles(bytes32 role, address [] memory accounts) external {
+        for(uint i = 0; i < accounts.length; i++) {
+            revokeRole(role, accounts[i]);
+        }
+    }
+
 }

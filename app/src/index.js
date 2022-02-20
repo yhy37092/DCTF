@@ -1,13 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import {BrowserRouter} from "react-router-dom";
-import {Provider} from 'react-redux';
-import {PersistGate} from 'redux-persist/integration/react';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {BrowserRouter} from 'react-router-dom'
+import {Provider} from 'react-redux'
+import {PersistGate} from 'redux-persist/integration/react'
 
-import App from './App';
-import configureStore from "./store/configureStore"
+import App from './App'
+import configureStore from './store/configureStore'
 
-let {store, persistor} = configureStore();
+let {store, persistor} = configureStore()
 
 ReactDOM.render(
     <React.StrictMode>
@@ -20,4 +20,4 @@ ReactDOM.render(
         </Provider>
     </React.StrictMode>,
     document.getElementById('root')
-);
+)

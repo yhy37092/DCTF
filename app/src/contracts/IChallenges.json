@@ -32,7 +32,7 @@
             },
             {
               "internalType": "string",
-              "name": "info",
+              "name": "connectionInfo",
               "type": "string"
             },
             {
@@ -97,7 +97,7 @@
             },
             {
               "internalType": "string",
-              "name": "info",
+              "name": "connectionInfo",
               "type": "string"
             },
             {
@@ -134,12 +134,12 @@
           "type": "uint256"
         },
         {
-          "internalType": "uint256",
-          "name": "id",
-          "type": "uint256"
+          "internalType": "uint256[]",
+          "name": "_ids",
+          "type": "uint256[]"
         }
       ],
-      "name": "remove",
+      "name": "removes",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -184,7 +184,7 @@
                 },
                 {
                   "internalType": "string",
-                  "name": "info",
+                  "name": "connectionInfo",
                   "type": "string"
                 },
                 {
@@ -204,7 +204,7 @@
                 }
               ],
               "internalType": "struct IChallenges.IChallenge",
-              "name": "challengeInfo",
+              "name": "info",
               "type": "tuple"
             },
             {
@@ -267,7 +267,7 @@
                 },
                 {
                   "internalType": "string",
-                  "name": "info",
+                  "name": "connectionInfo",
                   "type": "string"
                 },
                 {
@@ -287,7 +287,7 @@
                 }
               ],
               "internalType": "struct IChallenges.IChallenge",
-              "name": "challengeInfo",
+              "name": "info",
               "type": "tuple"
             },
             {
@@ -350,7 +350,7 @@
                 },
                 {
                   "internalType": "string",
-                  "name": "info",
+                  "name": "connectionInfo",
                   "type": "string"
                 },
                 {
@@ -370,7 +370,7 @@
                 }
               ],
               "internalType": "struct IChallenges.IChallenge",
-              "name": "challengeInfo",
+              "name": "info",
               "type": "tuple"
             },
             {
@@ -465,7 +465,7 @@
                 },
                 {
                   "internalType": "string",
-                  "name": "info",
+                  "name": "connectionInfo",
                   "type": "string"
                 },
                 {
@@ -485,7 +485,7 @@
                 }
               ],
               "internalType": "struct IChallenges.IChallenge",
-              "name": "challengeInfo",
+              "name": "info",
               "type": "tuple"
             },
             {
@@ -503,7 +503,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"challengeType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"category\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"info\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"file\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"hint\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.IChallenge\",\"name\":\"challenge\",\"type\":\"tuple\"}],\"name\":\"add\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"get\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"challengeType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"category\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"info\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"file\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"hint\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.IChallenge\",\"name\":\"challengeInfo\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.Challenge\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAll\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"challengeType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"category\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"info\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"file\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"hint\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.IChallenge\",\"name\":\"challengeInfo\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.Challenge[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"_ids\",\"type\":\"uint256[]\"}],\"name\":\"getSome\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"challengeType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"category\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"info\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"file\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"hint\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.IChallenge\",\"name\":\"challengeInfo\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.Challenge[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"}],\"name\":\"gets\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"challengeType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"category\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"info\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"file\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"hint\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.IChallenge\",\"name\":\"challengeInfo\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.Challenge[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"}],\"name\":\"getsId\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"remove\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"challengeType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"category\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"info\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"file\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"hint\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.IChallenge\",\"name\":\"challenge\",\"type\":\"tuple\"}],\"name\":\"update\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IChallenges.sol\":\"IChallenges\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IChallenges.sol\":{\"keccak256\":\"0xf485cff16b5ce1fb7e7e5839e22bf5c6bfc9526d5746195555cb70ef343596cc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7715c8cebd06bd6c531c065a15d998a3e352484476d425a7efb6c9f32f2cb086\",\"dweb:/ipfs/QmSaqJUmg2UZoP3UomdhmTM665hfmZeLF65fCC7YdNdaYG\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"challengeType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"category\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"connectionInfo\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"file\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"hint\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.IChallenge\",\"name\":\"challenge\",\"type\":\"tuple\"}],\"name\":\"add\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"get\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"challengeType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"category\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"connectionInfo\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"file\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"hint\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.IChallenge\",\"name\":\"info\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.Challenge\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAll\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"challengeType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"category\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"connectionInfo\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"file\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"hint\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.IChallenge\",\"name\":\"info\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.Challenge[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"_ids\",\"type\":\"uint256[]\"}],\"name\":\"getSome\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"challengeType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"category\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"connectionInfo\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"file\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"hint\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.IChallenge\",\"name\":\"info\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.Challenge[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"}],\"name\":\"gets\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"challengeType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"category\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"connectionInfo\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"file\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"hint\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.IChallenge\",\"name\":\"info\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.Challenge[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"}],\"name\":\"getsId\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256[]\",\"name\":\"_ids\",\"type\":\"uint256[]\"}],\"name\":\"removes\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"challengeType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"category\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"connectionInfo\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"file\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"hint\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"internalType\":\"struct IChallenges.IChallenge\",\"name\":\"challenge\",\"type\":\"tuple\"}],\"name\":\"update\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IChallenges.sol\":\"IChallenges\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IChallenges.sol\":{\"keccak256\":\"0x5be60ccd4b3563a3c6a9d483823406111b04dec6c64809d95c151931fddea759\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://64bb92f2ab9b4605c6edcc7452a2c36fd53f0103037181513d5febe061c05ede\",\"dweb:/ipfs/QmSCHaDPhvz7qP3FsnbKfkFSTvGh8Lmbc8dwxU5UG685FZ\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -511,21 +511,21 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.10;\n\npragma experimental ABIEncoderV2;\n\ninterface IChallenges {\n\n    struct IChallenge {\n        string challengeType;\n        string name;\n        string category;\n        string message;\n        string info;\n        string file;\n        string hint;\n        uint value;\n    }\n\n    struct Challenge {\n        uint id;\n        uint contestId;\n        IChallenge challengeInfo;\n        uint timeStamp;\n    }\n\n    function add(uint contestId, IChallenge calldata challenge) external;\n\n    function update(uint contestId, uint id, IChallenge calldata challenge) external;\n\n    function remove(uint contestId, uint id) external;\n\n    function getAll() external view returns (Challenge [] memory);\n\n    function getSome(uint [] calldata _ids) external view returns (Challenge [] memory);\n\n    function gets(uint contestId) external view returns (Challenge [] memory);\n\n    function getsId(uint contestId) external view returns (uint [] memory);\n\n    function getCount() external view returns (uint);\n\n    function get(uint index) external view returns (Challenge memory);\n\n}",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.10;\n\npragma experimental ABIEncoderV2;\n\ninterface IChallenges {\n\n    struct IChallenge {\n        string challengeType;\n        string name;\n        string category;\n        string message;\n        string connectionInfo;\n        string file;\n        string hint;\n        uint value;\n    }\n\n    struct Challenge {\n        uint id;\n        uint contestId;\n        IChallenge info;\n        uint timeStamp;\n    }\n\n    function add(uint contestId, IChallenge calldata challenge) external;\n\n    function update(uint contestId, uint id, IChallenge calldata challenge) external;\n\n    function removes(uint contestId, uint [] memory _ids) external;\n\n    function getAll() external view returns (Challenge [] memory);\n\n    function getSome(uint [] calldata _ids) external view returns (Challenge [] memory);\n\n    function gets(uint contestId) external view returns (Challenge [] memory);\n\n    function getsId(uint contestId) external view returns (uint [] memory);\n\n    function getCount() external view returns (uint);\n\n    function get(uint index) external view returns (Challenge memory);\n\n}",
   "sourcePath": "/Users/yhy/Code/GitHub/DCTF/contracts/IChallenges.sol",
   "ast": {
     "absolutePath": "project:/contracts/IChallenges.sol",
     "exportedSymbols": {
       "IChallenges": [
-        1622
+        1077
       ]
     },
-    "id": 1623,
+    "id": 1078,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1521,
+        "id": 975,
         "literals": [
           "solidity",
           "^",
@@ -533,16 +533,16 @@
           ".10"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:24:4"
+        "src": "32:24:2"
       },
       {
-        "id": 1522,
+        "id": 976,
         "literals": [
           "experimental",
           "ABIEncoderV2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "58:33:4"
+        "src": "58:33:2"
       },
       {
         "abstract": false,
@@ -551,27 +551,27 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 1622,
+        "id": 1077,
         "linearizedBaseContracts": [
-          1622
+          1077
         ],
         "name": "IChallenges",
-        "nameLocation": "103:11:4",
+        "nameLocation": "103:11:2",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "IChallenges.IChallenge",
-            "id": 1539,
+            "id": 993,
             "members": [
               {
                 "constant": false,
-                "id": 1524,
+                "id": 978,
                 "mutability": "mutable",
                 "name": "challengeType",
-                "nameLocation": "157:13:4",
+                "nameLocation": "157:13:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1539,
-                "src": "150:20:4",
+                "scope": 993,
+                "src": "150:20:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -579,10 +579,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1523,
+                  "id": 977,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "150:6:4",
+                  "src": "150:6:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -592,13 +592,13 @@
               },
               {
                 "constant": false,
-                "id": 1526,
+                "id": 980,
                 "mutability": "mutable",
                 "name": "name",
-                "nameLocation": "187:4:4",
+                "nameLocation": "187:4:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1539,
-                "src": "180:11:4",
+                "scope": 993,
+                "src": "180:11:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -606,10 +606,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1525,
+                  "id": 979,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "180:6:4",
+                  "src": "180:6:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -619,13 +619,13 @@
               },
               {
                 "constant": false,
-                "id": 1528,
+                "id": 982,
                 "mutability": "mutable",
                 "name": "category",
-                "nameLocation": "208:8:4",
+                "nameLocation": "208:8:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1539,
-                "src": "201:15:4",
+                "scope": 993,
+                "src": "201:15:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -633,10 +633,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1527,
+                  "id": 981,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "201:6:4",
+                  "src": "201:6:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -646,13 +646,13 @@
               },
               {
                 "constant": false,
-                "id": 1530,
+                "id": 984,
                 "mutability": "mutable",
                 "name": "message",
-                "nameLocation": "233:7:4",
+                "nameLocation": "233:7:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1539,
-                "src": "226:14:4",
+                "scope": 993,
+                "src": "226:14:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -660,10 +660,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1529,
+                  "id": 983,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "226:6:4",
+                  "src": "226:6:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -673,13 +673,13 @@
               },
               {
                 "constant": false,
-                "id": 1532,
+                "id": 986,
                 "mutability": "mutable",
-                "name": "info",
-                "nameLocation": "257:4:4",
+                "name": "connectionInfo",
+                "nameLocation": "257:14:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1539,
-                "src": "250:11:4",
+                "scope": 993,
+                "src": "250:21:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -687,10 +687,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1531,
+                  "id": 985,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "250:6:4",
+                  "src": "250:6:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -700,13 +700,13 @@
               },
               {
                 "constant": false,
-                "id": 1534,
+                "id": 988,
                 "mutability": "mutable",
                 "name": "file",
-                "nameLocation": "278:4:4",
+                "nameLocation": "288:4:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1539,
-                "src": "271:11:4",
+                "scope": 993,
+                "src": "281:11:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -714,10 +714,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1533,
+                  "id": 987,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "271:6:4",
+                  "src": "281:6:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -727,13 +727,13 @@
               },
               {
                 "constant": false,
-                "id": 1536,
+                "id": 990,
                 "mutability": "mutable",
                 "name": "hint",
-                "nameLocation": "299:4:4",
+                "nameLocation": "309:4:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1539,
-                "src": "292:11:4",
+                "scope": 993,
+                "src": "302:11:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -741,10 +741,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1535,
+                  "id": 989,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "292:6:4",
+                  "src": "302:6:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -754,13 +754,13 @@
               },
               {
                 "constant": false,
-                "id": 1538,
+                "id": 992,
                 "mutability": "mutable",
                 "name": "value",
-                "nameLocation": "318:5:4",
+                "nameLocation": "328:5:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1539,
-                "src": "313:10:4",
+                "scope": 993,
+                "src": "323:10:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -768,10 +768,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1537,
+                  "id": 991,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "313:4:4",
+                  "src": "323:4:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -781,25 +781,25 @@
               }
             ],
             "name": "IChallenge",
-            "nameLocation": "129:10:4",
+            "nameLocation": "129:10:2",
             "nodeType": "StructDefinition",
-            "scope": 1622,
-            "src": "122:208:4",
+            "scope": 1077,
+            "src": "122:218:2",
             "visibility": "public"
           },
           {
             "canonicalName": "IChallenges.Challenge",
-            "id": 1549,
+            "id": 1003,
             "members": [
               {
                 "constant": false,
-                "id": 1541,
+                "id": 995,
                 "mutability": "mutable",
                 "name": "id",
-                "nameLocation": "368:2:4",
+                "nameLocation": "378:2:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1549,
-                "src": "363:7:4",
+                "scope": 1003,
+                "src": "373:7:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -807,10 +807,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1540,
+                  "id": 994,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "363:4:4",
+                  "src": "373:4:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -820,13 +820,13 @@
               },
               {
                 "constant": false,
-                "id": 1543,
+                "id": 997,
                 "mutability": "mutable",
                 "name": "contestId",
-                "nameLocation": "385:9:4",
+                "nameLocation": "395:9:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1549,
-                "src": "380:14:4",
+                "scope": 1003,
+                "src": "390:14:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -834,10 +834,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1542,
+                  "id": 996,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "380:4:4",
+                  "src": "390:4:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -847,33 +847,33 @@
               },
               {
                 "constant": false,
-                "id": 1546,
+                "id": 1000,
                 "mutability": "mutable",
-                "name": "challengeInfo",
-                "nameLocation": "415:13:4",
+                "name": "info",
+                "nameLocation": "425:4:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1549,
-                "src": "404:24:4",
+                "scope": 1003,
+                "src": "414:15:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_IChallenge_$1539_storage_ptr",
+                  "typeIdentifier": "t_struct$_IChallenge_$993_storage_ptr",
                   "typeString": "struct IChallenges.IChallenge"
                 },
                 "typeName": {
-                  "id": 1545,
+                  "id": 999,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 1544,
+                    "id": 998,
                     "name": "IChallenge",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 1539,
-                    "src": "404:10:4"
+                    "referencedDeclaration": 993,
+                    "src": "414:10:2"
                   },
-                  "referencedDeclaration": 1539,
-                  "src": "404:10:4",
+                  "referencedDeclaration": 993,
+                  "src": "414:10:2",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_IChallenge_$1539_storage_ptr",
+                    "typeIdentifier": "t_struct$_IChallenge_$993_storage_ptr",
                     "typeString": "struct IChallenges.IChallenge"
                   }
                 },
@@ -881,13 +881,13 @@
               },
               {
                 "constant": false,
-                "id": 1548,
+                "id": 1002,
                 "mutability": "mutable",
                 "name": "timeStamp",
-                "nameLocation": "443:9:4",
+                "nameLocation": "444:9:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1549,
-                "src": "438:14:4",
+                "scope": 1003,
+                "src": "439:14:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -895,10 +895,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1547,
+                  "id": 1001,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "438:4:4",
+                  "src": "439:4:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -908,34 +908,34 @@
               }
             ],
             "name": "Challenge",
-            "nameLocation": "343:9:4",
+            "nameLocation": "353:9:2",
             "nodeType": "StructDefinition",
-            "scope": 1622,
-            "src": "336:123:4",
+            "scope": 1077,
+            "src": "346:114:2",
             "visibility": "public"
           },
           {
             "functionSelector": "f34cce88",
-            "id": 1557,
+            "id": 1011,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "add",
-            "nameLocation": "474:3:4",
+            "nameLocation": "475:3:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1555,
+              "id": 1009,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1551,
+                  "id": 1005,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "483:9:4",
+                  "nameLocation": "484:9:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1557,
-                  "src": "478:14:4",
+                  "scope": 1011,
+                  "src": "479:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -943,10 +943,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1550,
+                    "id": 1004,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "478:4:4",
+                    "src": "479:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -956,75 +956,75 @@
                 },
                 {
                   "constant": false,
-                  "id": 1554,
+                  "id": 1008,
                   "mutability": "mutable",
                   "name": "challenge",
-                  "nameLocation": "514:9:4",
+                  "nameLocation": "515:9:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1557,
-                  "src": "494:29:4",
+                  "scope": 1011,
+                  "src": "495:29:2",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_IChallenge_$1539_calldata_ptr",
+                    "typeIdentifier": "t_struct$_IChallenge_$993_calldata_ptr",
                     "typeString": "struct IChallenges.IChallenge"
                   },
                   "typeName": {
-                    "id": 1553,
+                    "id": 1007,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1552,
+                      "id": 1006,
                       "name": "IChallenge",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1539,
-                      "src": "494:10:4"
+                      "referencedDeclaration": 993,
+                      "src": "495:10:2"
                     },
-                    "referencedDeclaration": 1539,
-                    "src": "494:10:4",
+                    "referencedDeclaration": 993,
+                    "src": "495:10:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_IChallenge_$1539_storage_ptr",
+                      "typeIdentifier": "t_struct$_IChallenge_$993_storage_ptr",
                       "typeString": "struct IChallenges.IChallenge"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "477:47:4"
+              "src": "478:47:2"
             },
             "returnParameters": {
-              "id": 1556,
+              "id": 1010,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "533:0:4"
+              "src": "534:0:2"
             },
-            "scope": 1622,
-            "src": "465:69:4",
+            "scope": 1077,
+            "src": "466:69:2",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "7b1b175a",
-            "id": 1567,
+            "id": 1021,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "update",
-            "nameLocation": "549:6:4",
+            "nameLocation": "550:6:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1565,
+              "id": 1019,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1559,
+                  "id": 1013,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "561:9:4",
+                  "nameLocation": "562:9:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1567,
-                  "src": "556:14:4",
+                  "scope": 1021,
+                  "src": "557:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1032,10 +1032,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1558,
+                    "id": 1012,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "556:4:4",
+                    "src": "557:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1045,13 +1045,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 1561,
+                  "id": 1015,
                   "mutability": "mutable",
                   "name": "id",
-                  "nameLocation": "577:2:4",
+                  "nameLocation": "578:2:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1567,
-                  "src": "572:7:4",
+                  "scope": 1021,
+                  "src": "573:7:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1059,10 +1059,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1560,
+                    "id": 1014,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "572:4:4",
+                    "src": "573:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1072,75 +1072,75 @@
                 },
                 {
                   "constant": false,
-                  "id": 1564,
+                  "id": 1018,
                   "mutability": "mutable",
                   "name": "challenge",
-                  "nameLocation": "601:9:4",
+                  "nameLocation": "602:9:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1567,
-                  "src": "581:29:4",
+                  "scope": 1021,
+                  "src": "582:29:2",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_IChallenge_$1539_calldata_ptr",
+                    "typeIdentifier": "t_struct$_IChallenge_$993_calldata_ptr",
                     "typeString": "struct IChallenges.IChallenge"
                   },
                   "typeName": {
-                    "id": 1563,
+                    "id": 1017,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1562,
+                      "id": 1016,
                       "name": "IChallenge",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1539,
-                      "src": "581:10:4"
+                      "referencedDeclaration": 993,
+                      "src": "582:10:2"
                     },
-                    "referencedDeclaration": 1539,
-                    "src": "581:10:4",
+                    "referencedDeclaration": 993,
+                    "src": "582:10:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_IChallenge_$1539_storage_ptr",
+                      "typeIdentifier": "t_struct$_IChallenge_$993_storage_ptr",
                       "typeString": "struct IChallenges.IChallenge"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "555:56:4"
+              "src": "556:56:2"
             },
             "returnParameters": {
-              "id": 1566,
+              "id": 1020,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "620:0:4"
+              "src": "621:0:2"
             },
-            "scope": 1622,
-            "src": "540:81:4",
+            "scope": 1077,
+            "src": "541:81:2",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "functionSelector": "6526db7a",
-            "id": 1574,
+            "functionSelector": "bddfa122",
+            "id": 1029,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "remove",
-            "nameLocation": "636:6:4",
+            "name": "removes",
+            "nameLocation": "637:7:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1572,
+              "id": 1027,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1569,
+                  "id": 1023,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "648:9:4",
+                  "nameLocation": "650:9:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1574,
-                  "src": "643:14:4",
+                  "scope": 1029,
+                  "src": "645:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1148,10 +1148,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1568,
+                    "id": 1022,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "643:4:4",
+                    "src": "645:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1161,380 +1161,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 1571,
-                  "mutability": "mutable",
-                  "name": "id",
-                  "nameLocation": "664:2:4",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1574,
-                  "src": "659:7:4",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 1570,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "659:4:4",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "642:25:4"
-            },
-            "returnParameters": {
-              "id": 1573,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "676:0:4"
-            },
-            "scope": 1622,
-            "src": "627:50:4",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "53ed5143",
-            "id": 1581,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getAll",
-            "nameLocation": "692:6:4",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 1575,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "698:2:4"
-            },
-            "returnParameters": {
-              "id": 1580,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1579,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nameLocation": "-1:-1:-1",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1581,
-                  "src": "724:19:4",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Challenge_$1549_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct IChallenges.Challenge[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 1577,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 1576,
-                        "name": "Challenge",
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 1549,
-                        "src": "724:9:4"
-                      },
-                      "referencedDeclaration": 1549,
-                      "src": "724:9:4",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Challenge_$1549_storage_ptr",
-                        "typeString": "struct IChallenges.Challenge"
-                      }
-                    },
-                    "id": 1578,
-                    "nodeType": "ArrayTypeName",
-                    "src": "724:12:4",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Challenge_$1549_storage_$dyn_storage_ptr",
-                      "typeString": "struct IChallenges.Challenge[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "723:21:4"
-            },
-            "scope": 1622,
-            "src": "683:62:4",
-            "stateMutability": "view",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "83241803",
-            "id": 1591,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getSome",
-            "nameLocation": "760:7:4",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 1585,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1584,
+                  "id": 1026,
                   "mutability": "mutable",
                   "name": "_ids",
-                  "nameLocation": "785:4:4",
+                  "nameLocation": "676:4:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1591,
-                  "src": "768:21:4",
-                  "stateVariable": false,
-                  "storageLocation": "calldata",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_uint256_$dyn_calldata_ptr",
-                    "typeString": "uint256[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 1582,
-                      "name": "uint",
-                      "nodeType": "ElementaryTypeName",
-                      "src": "768:4:4",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
-                      }
-                    },
-                    "id": 1583,
-                    "nodeType": "ArrayTypeName",
-                    "src": "768:7:4",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
-                      "typeString": "uint256[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "767:23:4"
-            },
-            "returnParameters": {
-              "id": 1590,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1589,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nameLocation": "-1:-1:-1",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1591,
-                  "src": "814:19:4",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Challenge_$1549_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct IChallenges.Challenge[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 1587,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 1586,
-                        "name": "Challenge",
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 1549,
-                        "src": "814:9:4"
-                      },
-                      "referencedDeclaration": 1549,
-                      "src": "814:9:4",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Challenge_$1549_storage_ptr",
-                        "typeString": "struct IChallenges.Challenge"
-                      }
-                    },
-                    "id": 1588,
-                    "nodeType": "ArrayTypeName",
-                    "src": "814:12:4",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Challenge_$1549_storage_$dyn_storage_ptr",
-                      "typeString": "struct IChallenges.Challenge[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "813:21:4"
-            },
-            "scope": 1622,
-            "src": "751:84:4",
-            "stateMutability": "view",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "d30f3f48",
-            "id": 1600,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "gets",
-            "nameLocation": "850:4:4",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 1594,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1593,
-                  "mutability": "mutable",
-                  "name": "contestId",
-                  "nameLocation": "860:9:4",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1600,
-                  "src": "855:14:4",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 1592,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "855:4:4",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "854:16:4"
-            },
-            "returnParameters": {
-              "id": 1599,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1598,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nameLocation": "-1:-1:-1",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1600,
-                  "src": "894:19:4",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Challenge_$1549_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct IChallenges.Challenge[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 1596,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 1595,
-                        "name": "Challenge",
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 1549,
-                        "src": "894:9:4"
-                      },
-                      "referencedDeclaration": 1549,
-                      "src": "894:9:4",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Challenge_$1549_storage_ptr",
-                        "typeString": "struct IChallenges.Challenge"
-                      }
-                    },
-                    "id": 1597,
-                    "nodeType": "ArrayTypeName",
-                    "src": "894:12:4",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Challenge_$1549_storage_$dyn_storage_ptr",
-                      "typeString": "struct IChallenges.Challenge[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "893:21:4"
-            },
-            "scope": 1622,
-            "src": "841:74:4",
-            "stateMutability": "view",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "f640a006",
-            "id": 1608,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getsId",
-            "nameLocation": "930:6:4",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 1603,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1602,
-                  "mutability": "mutable",
-                  "name": "contestId",
-                  "nameLocation": "942:9:4",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1608,
-                  "src": "937:14:4",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 1601,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "937:4:4",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "936:16:4"
-            },
-            "returnParameters": {
-              "id": 1607,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1606,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nameLocation": "-1:-1:-1",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1608,
-                  "src": "976:14:4",
+                  "scope": 1029,
+                  "src": "661:19:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1543,18 +1176,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1604,
+                      "id": 1024,
                       "name": "uint",
                       "nodeType": "ElementaryTypeName",
-                      "src": "976:4:4",
+                      "src": "661:4:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 1605,
+                    "id": 1025,
                     "nodeType": "ArrayTypeName",
-                    "src": "976:7:4",
+                    "src": "661:7:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -1563,42 +1196,418 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "975:16:4"
+              "src": "644:37:2"
             },
-            "scope": 1622,
-            "src": "921:71:4",
+            "returnParameters": {
+              "id": 1028,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "690:0:2"
+            },
+            "scope": 1077,
+            "src": "628:63:2",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "53ed5143",
+            "id": 1036,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAll",
+            "nameLocation": "706:6:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1030,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "712:2:2"
+            },
+            "returnParameters": {
+              "id": 1035,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1034,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1036,
+                  "src": "738:19:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Challenge_$1003_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct IChallenges.Challenge[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1032,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 1031,
+                        "name": "Challenge",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 1003,
+                        "src": "738:9:2"
+                      },
+                      "referencedDeclaration": 1003,
+                      "src": "738:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Challenge_$1003_storage_ptr",
+                        "typeString": "struct IChallenges.Challenge"
+                      }
+                    },
+                    "id": 1033,
+                    "nodeType": "ArrayTypeName",
+                    "src": "738:12:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Challenge_$1003_storage_$dyn_storage_ptr",
+                      "typeString": "struct IChallenges.Challenge[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "737:21:2"
+            },
+            "scope": 1077,
+            "src": "697:62:2",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "83241803",
+            "id": 1046,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getSome",
+            "nameLocation": "774:7:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1040,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1039,
+                  "mutability": "mutable",
+                  "name": "_ids",
+                  "nameLocation": "799:4:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1046,
+                  "src": "782:21:2",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_calldata_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1037,
+                      "name": "uint",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "782:4:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 1038,
+                    "nodeType": "ArrayTypeName",
+                    "src": "782:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "781:23:2"
+            },
+            "returnParameters": {
+              "id": 1045,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1044,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1046,
+                  "src": "828:19:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Challenge_$1003_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct IChallenges.Challenge[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1042,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 1041,
+                        "name": "Challenge",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 1003,
+                        "src": "828:9:2"
+                      },
+                      "referencedDeclaration": 1003,
+                      "src": "828:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Challenge_$1003_storage_ptr",
+                        "typeString": "struct IChallenges.Challenge"
+                      }
+                    },
+                    "id": 1043,
+                    "nodeType": "ArrayTypeName",
+                    "src": "828:12:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Challenge_$1003_storage_$dyn_storage_ptr",
+                      "typeString": "struct IChallenges.Challenge[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "827:21:2"
+            },
+            "scope": 1077,
+            "src": "765:84:2",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "d30f3f48",
+            "id": 1055,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "gets",
+            "nameLocation": "864:4:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1049,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1048,
+                  "mutability": "mutable",
+                  "name": "contestId",
+                  "nameLocation": "874:9:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1055,
+                  "src": "869:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1047,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "869:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "868:16:2"
+            },
+            "returnParameters": {
+              "id": 1054,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1053,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1055,
+                  "src": "908:19:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Challenge_$1003_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct IChallenges.Challenge[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1051,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 1050,
+                        "name": "Challenge",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 1003,
+                        "src": "908:9:2"
+                      },
+                      "referencedDeclaration": 1003,
+                      "src": "908:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Challenge_$1003_storage_ptr",
+                        "typeString": "struct IChallenges.Challenge"
+                      }
+                    },
+                    "id": 1052,
+                    "nodeType": "ArrayTypeName",
+                    "src": "908:12:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Challenge_$1003_storage_$dyn_storage_ptr",
+                      "typeString": "struct IChallenges.Challenge[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "907:21:2"
+            },
+            "scope": 1077,
+            "src": "855:74:2",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "f640a006",
+            "id": 1063,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getsId",
+            "nameLocation": "944:6:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1058,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1057,
+                  "mutability": "mutable",
+                  "name": "contestId",
+                  "nameLocation": "956:9:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1063,
+                  "src": "951:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1056,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "951:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "950:16:2"
+            },
+            "returnParameters": {
+              "id": 1062,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1061,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1063,
+                  "src": "990:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1059,
+                      "name": "uint",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "990:4:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 1060,
+                    "nodeType": "ArrayTypeName",
+                    "src": "990:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "989:16:2"
+            },
+            "scope": 1077,
+            "src": "935:71:2",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "a87d942c",
-            "id": 1613,
+            "id": 1068,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getCount",
-            "nameLocation": "1007:8:4",
+            "nameLocation": "1021:8:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1609,
+              "id": 1064,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1015:2:4"
+              "src": "1029:2:2"
             },
             "returnParameters": {
-              "id": 1612,
+              "id": 1067,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1611,
+                  "id": 1066,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1613,
-                  "src": "1041:4:4",
+                  "scope": 1068,
+                  "src": "1055:4:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1606,10 +1615,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1610,
+                    "id": 1065,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1041:4:4",
+                    "src": "1055:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1618,36 +1627,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1040:6:4"
+              "src": "1054:6:2"
             },
-            "scope": 1622,
-            "src": "998:49:4",
+            "scope": 1077,
+            "src": "1012:49:2",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "9507d39a",
-            "id": 1621,
+            "id": 1076,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "get",
-            "nameLocation": "1062:3:4",
+            "nameLocation": "1076:3:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1616,
+              "id": 1071,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1615,
+                  "id": 1070,
                   "mutability": "mutable",
                   "name": "index",
-                  "nameLocation": "1071:5:4",
+                  "nameLocation": "1085:5:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1621,
-                  "src": "1066:10:4",
+                  "scope": 1076,
+                  "src": "1080:10:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1655,10 +1664,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1614,
+                    "id": 1069,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1066:4:4",
+                    "src": "1080:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1667,76 +1676,76 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1065:12:4"
+              "src": "1079:12:2"
             },
             "returnParameters": {
-              "id": 1620,
+              "id": 1075,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1619,
+                  "id": 1074,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1621,
-                  "src": "1101:16:4",
+                  "scope": 1076,
+                  "src": "1115:16:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Challenge_$1549_memory_ptr",
+                    "typeIdentifier": "t_struct$_Challenge_$1003_memory_ptr",
                     "typeString": "struct IChallenges.Challenge"
                   },
                   "typeName": {
-                    "id": 1618,
+                    "id": 1073,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1617,
+                      "id": 1072,
                       "name": "Challenge",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1549,
-                      "src": "1101:9:4"
+                      "referencedDeclaration": 1003,
+                      "src": "1115:9:2"
                     },
-                    "referencedDeclaration": 1549,
-                    "src": "1101:9:4",
+                    "referencedDeclaration": 1003,
+                    "src": "1115:9:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Challenge_$1549_storage_ptr",
+                      "typeIdentifier": "t_struct$_Challenge_$1003_storage_ptr",
                       "typeString": "struct IChallenges.Challenge"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "1100:18:4"
+              "src": "1114:18:2"
             },
-            "scope": 1622,
-            "src": "1053:66:4",
+            "scope": 1077,
+            "src": "1067:66:2",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 1623,
-        "src": "93:1029:4",
+        "scope": 1078,
+        "src": "93:1043:2",
         "usedErrors": []
       }
     ],
-    "src": "32:1090:4"
+    "src": "32:1104:2"
   },
   "legacyAST": {
     "absolutePath": "project:/contracts/IChallenges.sol",
     "exportedSymbols": {
       "IChallenges": [
-        1622
+        1077
       ]
     },
-    "id": 1623,
+    "id": 1078,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1521,
+        "id": 975,
         "literals": [
           "solidity",
           "^",
@@ -1744,16 +1753,16 @@
           ".10"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:24:4"
+        "src": "32:24:2"
       },
       {
-        "id": 1522,
+        "id": 976,
         "literals": [
           "experimental",
           "ABIEncoderV2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "58:33:4"
+        "src": "58:33:2"
       },
       {
         "abstract": false,
@@ -1762,27 +1771,27 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 1622,
+        "id": 1077,
         "linearizedBaseContracts": [
-          1622
+          1077
         ],
         "name": "IChallenges",
-        "nameLocation": "103:11:4",
+        "nameLocation": "103:11:2",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "IChallenges.IChallenge",
-            "id": 1539,
+            "id": 993,
             "members": [
               {
                 "constant": false,
-                "id": 1524,
+                "id": 978,
                 "mutability": "mutable",
                 "name": "challengeType",
-                "nameLocation": "157:13:4",
+                "nameLocation": "157:13:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1539,
-                "src": "150:20:4",
+                "scope": 993,
+                "src": "150:20:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1790,10 +1799,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1523,
+                  "id": 977,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "150:6:4",
+                  "src": "150:6:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1803,13 +1812,13 @@
               },
               {
                 "constant": false,
-                "id": 1526,
+                "id": 980,
                 "mutability": "mutable",
                 "name": "name",
-                "nameLocation": "187:4:4",
+                "nameLocation": "187:4:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1539,
-                "src": "180:11:4",
+                "scope": 993,
+                "src": "180:11:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1817,10 +1826,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1525,
+                  "id": 979,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "180:6:4",
+                  "src": "180:6:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1830,13 +1839,13 @@
               },
               {
                 "constant": false,
-                "id": 1528,
+                "id": 982,
                 "mutability": "mutable",
                 "name": "category",
-                "nameLocation": "208:8:4",
+                "nameLocation": "208:8:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1539,
-                "src": "201:15:4",
+                "scope": 993,
+                "src": "201:15:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1844,10 +1853,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1527,
+                  "id": 981,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "201:6:4",
+                  "src": "201:6:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1857,13 +1866,13 @@
               },
               {
                 "constant": false,
-                "id": 1530,
+                "id": 984,
                 "mutability": "mutable",
                 "name": "message",
-                "nameLocation": "233:7:4",
+                "nameLocation": "233:7:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1539,
-                "src": "226:14:4",
+                "scope": 993,
+                "src": "226:14:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1871,10 +1880,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1529,
+                  "id": 983,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "226:6:4",
+                  "src": "226:6:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1884,13 +1893,13 @@
               },
               {
                 "constant": false,
-                "id": 1532,
+                "id": 986,
                 "mutability": "mutable",
-                "name": "info",
-                "nameLocation": "257:4:4",
+                "name": "connectionInfo",
+                "nameLocation": "257:14:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1539,
-                "src": "250:11:4",
+                "scope": 993,
+                "src": "250:21:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1898,10 +1907,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1531,
+                  "id": 985,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "250:6:4",
+                  "src": "250:6:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1911,13 +1920,13 @@
               },
               {
                 "constant": false,
-                "id": 1534,
+                "id": 988,
                 "mutability": "mutable",
                 "name": "file",
-                "nameLocation": "278:4:4",
+                "nameLocation": "288:4:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1539,
-                "src": "271:11:4",
+                "scope": 993,
+                "src": "281:11:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1925,10 +1934,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1533,
+                  "id": 987,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "271:6:4",
+                  "src": "281:6:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1938,13 +1947,13 @@
               },
               {
                 "constant": false,
-                "id": 1536,
+                "id": 990,
                 "mutability": "mutable",
                 "name": "hint",
-                "nameLocation": "299:4:4",
+                "nameLocation": "309:4:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1539,
-                "src": "292:11:4",
+                "scope": 993,
+                "src": "302:11:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1952,10 +1961,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1535,
+                  "id": 989,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "292:6:4",
+                  "src": "302:6:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1965,13 +1974,13 @@
               },
               {
                 "constant": false,
-                "id": 1538,
+                "id": 992,
                 "mutability": "mutable",
                 "name": "value",
-                "nameLocation": "318:5:4",
+                "nameLocation": "328:5:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1539,
-                "src": "313:10:4",
+                "scope": 993,
+                "src": "323:10:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1979,10 +1988,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1537,
+                  "id": 991,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "313:4:4",
+                  "src": "323:4:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1992,25 +2001,25 @@
               }
             ],
             "name": "IChallenge",
-            "nameLocation": "129:10:4",
+            "nameLocation": "129:10:2",
             "nodeType": "StructDefinition",
-            "scope": 1622,
-            "src": "122:208:4",
+            "scope": 1077,
+            "src": "122:218:2",
             "visibility": "public"
           },
           {
             "canonicalName": "IChallenges.Challenge",
-            "id": 1549,
+            "id": 1003,
             "members": [
               {
                 "constant": false,
-                "id": 1541,
+                "id": 995,
                 "mutability": "mutable",
                 "name": "id",
-                "nameLocation": "368:2:4",
+                "nameLocation": "378:2:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1549,
-                "src": "363:7:4",
+                "scope": 1003,
+                "src": "373:7:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2018,10 +2027,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1540,
+                  "id": 994,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "363:4:4",
+                  "src": "373:4:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2031,13 +2040,13 @@
               },
               {
                 "constant": false,
-                "id": 1543,
+                "id": 997,
                 "mutability": "mutable",
                 "name": "contestId",
-                "nameLocation": "385:9:4",
+                "nameLocation": "395:9:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1549,
-                "src": "380:14:4",
+                "scope": 1003,
+                "src": "390:14:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2045,10 +2054,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1542,
+                  "id": 996,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "380:4:4",
+                  "src": "390:4:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2058,33 +2067,33 @@
               },
               {
                 "constant": false,
-                "id": 1546,
+                "id": 1000,
                 "mutability": "mutable",
-                "name": "challengeInfo",
-                "nameLocation": "415:13:4",
+                "name": "info",
+                "nameLocation": "425:4:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1549,
-                "src": "404:24:4",
+                "scope": 1003,
+                "src": "414:15:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_IChallenge_$1539_storage_ptr",
+                  "typeIdentifier": "t_struct$_IChallenge_$993_storage_ptr",
                   "typeString": "struct IChallenges.IChallenge"
                 },
                 "typeName": {
-                  "id": 1545,
+                  "id": 999,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 1544,
+                    "id": 998,
                     "name": "IChallenge",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 1539,
-                    "src": "404:10:4"
+                    "referencedDeclaration": 993,
+                    "src": "414:10:2"
                   },
-                  "referencedDeclaration": 1539,
-                  "src": "404:10:4",
+                  "referencedDeclaration": 993,
+                  "src": "414:10:2",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_IChallenge_$1539_storage_ptr",
+                    "typeIdentifier": "t_struct$_IChallenge_$993_storage_ptr",
                     "typeString": "struct IChallenges.IChallenge"
                   }
                 },
@@ -2092,13 +2101,13 @@
               },
               {
                 "constant": false,
-                "id": 1548,
+                "id": 1002,
                 "mutability": "mutable",
                 "name": "timeStamp",
-                "nameLocation": "443:9:4",
+                "nameLocation": "444:9:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 1549,
-                "src": "438:14:4",
+                "scope": 1003,
+                "src": "439:14:2",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2106,10 +2115,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1547,
+                  "id": 1001,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "438:4:4",
+                  "src": "439:4:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2119,34 +2128,34 @@
               }
             ],
             "name": "Challenge",
-            "nameLocation": "343:9:4",
+            "nameLocation": "353:9:2",
             "nodeType": "StructDefinition",
-            "scope": 1622,
-            "src": "336:123:4",
+            "scope": 1077,
+            "src": "346:114:2",
             "visibility": "public"
           },
           {
             "functionSelector": "f34cce88",
-            "id": 1557,
+            "id": 1011,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "add",
-            "nameLocation": "474:3:4",
+            "nameLocation": "475:3:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1555,
+              "id": 1009,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1551,
+                  "id": 1005,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "483:9:4",
+                  "nameLocation": "484:9:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1557,
-                  "src": "478:14:4",
+                  "scope": 1011,
+                  "src": "479:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2154,10 +2163,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1550,
+                    "id": 1004,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "478:4:4",
+                    "src": "479:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2167,75 +2176,75 @@
                 },
                 {
                   "constant": false,
-                  "id": 1554,
+                  "id": 1008,
                   "mutability": "mutable",
                   "name": "challenge",
-                  "nameLocation": "514:9:4",
+                  "nameLocation": "515:9:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1557,
-                  "src": "494:29:4",
+                  "scope": 1011,
+                  "src": "495:29:2",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_IChallenge_$1539_calldata_ptr",
+                    "typeIdentifier": "t_struct$_IChallenge_$993_calldata_ptr",
                     "typeString": "struct IChallenges.IChallenge"
                   },
                   "typeName": {
-                    "id": 1553,
+                    "id": 1007,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1552,
+                      "id": 1006,
                       "name": "IChallenge",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1539,
-                      "src": "494:10:4"
+                      "referencedDeclaration": 993,
+                      "src": "495:10:2"
                     },
-                    "referencedDeclaration": 1539,
-                    "src": "494:10:4",
+                    "referencedDeclaration": 993,
+                    "src": "495:10:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_IChallenge_$1539_storage_ptr",
+                      "typeIdentifier": "t_struct$_IChallenge_$993_storage_ptr",
                       "typeString": "struct IChallenges.IChallenge"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "477:47:4"
+              "src": "478:47:2"
             },
             "returnParameters": {
-              "id": 1556,
+              "id": 1010,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "533:0:4"
+              "src": "534:0:2"
             },
-            "scope": 1622,
-            "src": "465:69:4",
+            "scope": 1077,
+            "src": "466:69:2",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "7b1b175a",
-            "id": 1567,
+            "id": 1021,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "update",
-            "nameLocation": "549:6:4",
+            "nameLocation": "550:6:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1565,
+              "id": 1019,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1559,
+                  "id": 1013,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "561:9:4",
+                  "nameLocation": "562:9:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1567,
-                  "src": "556:14:4",
+                  "scope": 1021,
+                  "src": "557:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2243,10 +2252,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1558,
+                    "id": 1012,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "556:4:4",
+                    "src": "557:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2256,13 +2265,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 1561,
+                  "id": 1015,
                   "mutability": "mutable",
                   "name": "id",
-                  "nameLocation": "577:2:4",
+                  "nameLocation": "578:2:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1567,
-                  "src": "572:7:4",
+                  "scope": 1021,
+                  "src": "573:7:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2270,10 +2279,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1560,
+                    "id": 1014,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "572:4:4",
+                    "src": "573:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2283,75 +2292,75 @@
                 },
                 {
                   "constant": false,
-                  "id": 1564,
+                  "id": 1018,
                   "mutability": "mutable",
                   "name": "challenge",
-                  "nameLocation": "601:9:4",
+                  "nameLocation": "602:9:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1567,
-                  "src": "581:29:4",
+                  "scope": 1021,
+                  "src": "582:29:2",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_IChallenge_$1539_calldata_ptr",
+                    "typeIdentifier": "t_struct$_IChallenge_$993_calldata_ptr",
                     "typeString": "struct IChallenges.IChallenge"
                   },
                   "typeName": {
-                    "id": 1563,
+                    "id": 1017,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1562,
+                      "id": 1016,
                       "name": "IChallenge",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1539,
-                      "src": "581:10:4"
+                      "referencedDeclaration": 993,
+                      "src": "582:10:2"
                     },
-                    "referencedDeclaration": 1539,
-                    "src": "581:10:4",
+                    "referencedDeclaration": 993,
+                    "src": "582:10:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_IChallenge_$1539_storage_ptr",
+                      "typeIdentifier": "t_struct$_IChallenge_$993_storage_ptr",
                       "typeString": "struct IChallenges.IChallenge"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "555:56:4"
+              "src": "556:56:2"
             },
             "returnParameters": {
-              "id": 1566,
+              "id": 1020,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "620:0:4"
+              "src": "621:0:2"
             },
-            "scope": 1622,
-            "src": "540:81:4",
+            "scope": 1077,
+            "src": "541:81:2",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "functionSelector": "6526db7a",
-            "id": 1574,
+            "functionSelector": "bddfa122",
+            "id": 1029,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "remove",
-            "nameLocation": "636:6:4",
+            "name": "removes",
+            "nameLocation": "637:7:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1572,
+              "id": 1027,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1569,
+                  "id": 1023,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "648:9:4",
+                  "nameLocation": "650:9:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1574,
-                  "src": "643:14:4",
+                  "scope": 1029,
+                  "src": "645:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2359,10 +2368,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1568,
+                    "id": 1022,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "643:4:4",
+                    "src": "645:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2372,380 +2381,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 1571,
-                  "mutability": "mutable",
-                  "name": "id",
-                  "nameLocation": "664:2:4",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1574,
-                  "src": "659:7:4",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 1570,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "659:4:4",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "642:25:4"
-            },
-            "returnParameters": {
-              "id": 1573,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "676:0:4"
-            },
-            "scope": 1622,
-            "src": "627:50:4",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "53ed5143",
-            "id": 1581,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getAll",
-            "nameLocation": "692:6:4",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 1575,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "698:2:4"
-            },
-            "returnParameters": {
-              "id": 1580,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1579,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nameLocation": "-1:-1:-1",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1581,
-                  "src": "724:19:4",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Challenge_$1549_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct IChallenges.Challenge[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 1577,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 1576,
-                        "name": "Challenge",
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 1549,
-                        "src": "724:9:4"
-                      },
-                      "referencedDeclaration": 1549,
-                      "src": "724:9:4",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Challenge_$1549_storage_ptr",
-                        "typeString": "struct IChallenges.Challenge"
-                      }
-                    },
-                    "id": 1578,
-                    "nodeType": "ArrayTypeName",
-                    "src": "724:12:4",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Challenge_$1549_storage_$dyn_storage_ptr",
-                      "typeString": "struct IChallenges.Challenge[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "723:21:4"
-            },
-            "scope": 1622,
-            "src": "683:62:4",
-            "stateMutability": "view",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "83241803",
-            "id": 1591,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getSome",
-            "nameLocation": "760:7:4",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 1585,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1584,
+                  "id": 1026,
                   "mutability": "mutable",
                   "name": "_ids",
-                  "nameLocation": "785:4:4",
+                  "nameLocation": "676:4:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1591,
-                  "src": "768:21:4",
-                  "stateVariable": false,
-                  "storageLocation": "calldata",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_uint256_$dyn_calldata_ptr",
-                    "typeString": "uint256[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 1582,
-                      "name": "uint",
-                      "nodeType": "ElementaryTypeName",
-                      "src": "768:4:4",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
-                      }
-                    },
-                    "id": 1583,
-                    "nodeType": "ArrayTypeName",
-                    "src": "768:7:4",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
-                      "typeString": "uint256[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "767:23:4"
-            },
-            "returnParameters": {
-              "id": 1590,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1589,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nameLocation": "-1:-1:-1",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1591,
-                  "src": "814:19:4",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Challenge_$1549_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct IChallenges.Challenge[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 1587,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 1586,
-                        "name": "Challenge",
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 1549,
-                        "src": "814:9:4"
-                      },
-                      "referencedDeclaration": 1549,
-                      "src": "814:9:4",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Challenge_$1549_storage_ptr",
-                        "typeString": "struct IChallenges.Challenge"
-                      }
-                    },
-                    "id": 1588,
-                    "nodeType": "ArrayTypeName",
-                    "src": "814:12:4",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Challenge_$1549_storage_$dyn_storage_ptr",
-                      "typeString": "struct IChallenges.Challenge[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "813:21:4"
-            },
-            "scope": 1622,
-            "src": "751:84:4",
-            "stateMutability": "view",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "d30f3f48",
-            "id": 1600,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "gets",
-            "nameLocation": "850:4:4",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 1594,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1593,
-                  "mutability": "mutable",
-                  "name": "contestId",
-                  "nameLocation": "860:9:4",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1600,
-                  "src": "855:14:4",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 1592,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "855:4:4",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "854:16:4"
-            },
-            "returnParameters": {
-              "id": 1599,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1598,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nameLocation": "-1:-1:-1",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1600,
-                  "src": "894:19:4",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Challenge_$1549_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct IChallenges.Challenge[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 1596,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 1595,
-                        "name": "Challenge",
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 1549,
-                        "src": "894:9:4"
-                      },
-                      "referencedDeclaration": 1549,
-                      "src": "894:9:4",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Challenge_$1549_storage_ptr",
-                        "typeString": "struct IChallenges.Challenge"
-                      }
-                    },
-                    "id": 1597,
-                    "nodeType": "ArrayTypeName",
-                    "src": "894:12:4",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Challenge_$1549_storage_$dyn_storage_ptr",
-                      "typeString": "struct IChallenges.Challenge[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "893:21:4"
-            },
-            "scope": 1622,
-            "src": "841:74:4",
-            "stateMutability": "view",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "functionSelector": "f640a006",
-            "id": 1608,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getsId",
-            "nameLocation": "930:6:4",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 1603,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1602,
-                  "mutability": "mutable",
-                  "name": "contestId",
-                  "nameLocation": "942:9:4",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1608,
-                  "src": "937:14:4",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 1601,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "937:4:4",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "936:16:4"
-            },
-            "returnParameters": {
-              "id": 1607,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1606,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nameLocation": "-1:-1:-1",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1608,
-                  "src": "976:14:4",
+                  "scope": 1029,
+                  "src": "661:19:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2754,18 +2396,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1604,
+                      "id": 1024,
                       "name": "uint",
                       "nodeType": "ElementaryTypeName",
-                      "src": "976:4:4",
+                      "src": "661:4:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 1605,
+                    "id": 1025,
                     "nodeType": "ArrayTypeName",
-                    "src": "976:7:4",
+                    "src": "661:7:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -2774,42 +2416,418 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "975:16:4"
+              "src": "644:37:2"
             },
-            "scope": 1622,
-            "src": "921:71:4",
+            "returnParameters": {
+              "id": 1028,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "690:0:2"
+            },
+            "scope": 1077,
+            "src": "628:63:2",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "53ed5143",
+            "id": 1036,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAll",
+            "nameLocation": "706:6:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1030,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "712:2:2"
+            },
+            "returnParameters": {
+              "id": 1035,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1034,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1036,
+                  "src": "738:19:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Challenge_$1003_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct IChallenges.Challenge[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1032,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 1031,
+                        "name": "Challenge",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 1003,
+                        "src": "738:9:2"
+                      },
+                      "referencedDeclaration": 1003,
+                      "src": "738:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Challenge_$1003_storage_ptr",
+                        "typeString": "struct IChallenges.Challenge"
+                      }
+                    },
+                    "id": 1033,
+                    "nodeType": "ArrayTypeName",
+                    "src": "738:12:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Challenge_$1003_storage_$dyn_storage_ptr",
+                      "typeString": "struct IChallenges.Challenge[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "737:21:2"
+            },
+            "scope": 1077,
+            "src": "697:62:2",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "83241803",
+            "id": 1046,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getSome",
+            "nameLocation": "774:7:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1040,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1039,
+                  "mutability": "mutable",
+                  "name": "_ids",
+                  "nameLocation": "799:4:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1046,
+                  "src": "782:21:2",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_calldata_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1037,
+                      "name": "uint",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "782:4:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 1038,
+                    "nodeType": "ArrayTypeName",
+                    "src": "782:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "781:23:2"
+            },
+            "returnParameters": {
+              "id": 1045,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1044,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1046,
+                  "src": "828:19:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Challenge_$1003_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct IChallenges.Challenge[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1042,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 1041,
+                        "name": "Challenge",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 1003,
+                        "src": "828:9:2"
+                      },
+                      "referencedDeclaration": 1003,
+                      "src": "828:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Challenge_$1003_storage_ptr",
+                        "typeString": "struct IChallenges.Challenge"
+                      }
+                    },
+                    "id": 1043,
+                    "nodeType": "ArrayTypeName",
+                    "src": "828:12:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Challenge_$1003_storage_$dyn_storage_ptr",
+                      "typeString": "struct IChallenges.Challenge[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "827:21:2"
+            },
+            "scope": 1077,
+            "src": "765:84:2",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "d30f3f48",
+            "id": 1055,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "gets",
+            "nameLocation": "864:4:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1049,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1048,
+                  "mutability": "mutable",
+                  "name": "contestId",
+                  "nameLocation": "874:9:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1055,
+                  "src": "869:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1047,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "869:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "868:16:2"
+            },
+            "returnParameters": {
+              "id": 1054,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1053,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1055,
+                  "src": "908:19:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_Challenge_$1003_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct IChallenges.Challenge[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1051,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 1050,
+                        "name": "Challenge",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 1003,
+                        "src": "908:9:2"
+                      },
+                      "referencedDeclaration": 1003,
+                      "src": "908:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Challenge_$1003_storage_ptr",
+                        "typeString": "struct IChallenges.Challenge"
+                      }
+                    },
+                    "id": 1052,
+                    "nodeType": "ArrayTypeName",
+                    "src": "908:12:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Challenge_$1003_storage_$dyn_storage_ptr",
+                      "typeString": "struct IChallenges.Challenge[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "907:21:2"
+            },
+            "scope": 1077,
+            "src": "855:74:2",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "f640a006",
+            "id": 1063,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getsId",
+            "nameLocation": "944:6:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1058,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1057,
+                  "mutability": "mutable",
+                  "name": "contestId",
+                  "nameLocation": "956:9:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1063,
+                  "src": "951:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1056,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "951:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "950:16:2"
+            },
+            "returnParameters": {
+              "id": 1062,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1061,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1063,
+                  "src": "990:14:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1059,
+                      "name": "uint",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "990:4:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 1060,
+                    "nodeType": "ArrayTypeName",
+                    "src": "990:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "989:16:2"
+            },
+            "scope": 1077,
+            "src": "935:71:2",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "a87d942c",
-            "id": 1613,
+            "id": 1068,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getCount",
-            "nameLocation": "1007:8:4",
+            "nameLocation": "1021:8:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1609,
+              "id": 1064,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1015:2:4"
+              "src": "1029:2:2"
             },
             "returnParameters": {
-              "id": 1612,
+              "id": 1067,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1611,
+                  "id": 1066,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1613,
-                  "src": "1041:4:4",
+                  "scope": 1068,
+                  "src": "1055:4:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2817,10 +2835,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1610,
+                    "id": 1065,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1041:4:4",
+                    "src": "1055:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2829,36 +2847,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1040:6:4"
+              "src": "1054:6:2"
             },
-            "scope": 1622,
-            "src": "998:49:4",
+            "scope": 1077,
+            "src": "1012:49:2",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "9507d39a",
-            "id": 1621,
+            "id": 1076,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "get",
-            "nameLocation": "1062:3:4",
+            "nameLocation": "1076:3:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1616,
+              "id": 1071,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1615,
+                  "id": 1070,
                   "mutability": "mutable",
                   "name": "index",
-                  "nameLocation": "1071:5:4",
+                  "nameLocation": "1085:5:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1621,
-                  "src": "1066:10:4",
+                  "scope": 1076,
+                  "src": "1080:10:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2866,10 +2884,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1614,
+                    "id": 1069,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1066:4:4",
+                    "src": "1080:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2878,62 +2896,62 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1065:12:4"
+              "src": "1079:12:2"
             },
             "returnParameters": {
-              "id": 1620,
+              "id": 1075,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1619,
+                  "id": 1074,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1621,
-                  "src": "1101:16:4",
+                  "scope": 1076,
+                  "src": "1115:16:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Challenge_$1549_memory_ptr",
+                    "typeIdentifier": "t_struct$_Challenge_$1003_memory_ptr",
                     "typeString": "struct IChallenges.Challenge"
                   },
                   "typeName": {
-                    "id": 1618,
+                    "id": 1073,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1617,
+                      "id": 1072,
                       "name": "Challenge",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1549,
-                      "src": "1101:9:4"
+                      "referencedDeclaration": 1003,
+                      "src": "1115:9:2"
                     },
-                    "referencedDeclaration": 1549,
-                    "src": "1101:9:4",
+                    "referencedDeclaration": 1003,
+                    "src": "1115:9:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Challenge_$1549_storage_ptr",
+                      "typeIdentifier": "t_struct$_Challenge_$1003_storage_ptr",
                       "typeString": "struct IChallenges.Challenge"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "1100:18:4"
+              "src": "1114:18:2"
             },
-            "scope": 1622,
-            "src": "1053:66:4",
+            "scope": 1077,
+            "src": "1067:66:2",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 1623,
-        "src": "93:1029:4",
+        "scope": 1078,
+        "src": "93:1043:2",
         "usedErrors": []
       }
     ],
-    "src": "32:1090:4"
+    "src": "32:1104:2"
   },
   "compiler": {
     "name": "solc",
@@ -2941,7 +2959,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-02-19T13:24:17.452Z",
+  "updatedAt": "2022-02-20T03:23:39.816Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

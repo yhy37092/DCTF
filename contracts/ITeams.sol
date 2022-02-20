@@ -13,7 +13,7 @@ interface ITeams {
     struct Team {
         uint id;
         uint contestId;
-        ITeam teamInfo;
+        ITeam info;
         TeamState state;
         uint score;
         uint timeStamp;
@@ -28,7 +28,7 @@ interface ITeams {
 
     function applyContest(uint contestId, ITeam calldata team) external payable;
 
-    function auditTeam(uint contestId, uint teamId, bool result) external;
+    function auditTeams(uint contestId, uint [] memory _ids, bool [] memory results) external;
 
     function updateScore(uint contestId, uint [] memory teamIds, uint [] memory scores) external;
 

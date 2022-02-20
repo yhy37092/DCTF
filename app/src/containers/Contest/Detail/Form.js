@@ -49,14 +49,14 @@ export default ({drizzle, drizzleState, contestId}) => {
                             onClick={() => {
                                 setCount(count + 1);
                                 members.splice(count, 0, '');
-                            }}>Add member</Button>
+                            }}>Add</Button>
                 </Col>
                 <Col>
                     <Button className="float-end" key="Delete member" variant="outline-secondary" type="button"
                             onClick={() => {
                                 count > 0 && setCount(count - 1);
                                 members.splice(members.length - 1, 1);
-                            }}>Delete member</Button>
+                            }}>sub</Button>
                 </Col>
             </Row>
             <Button key="submit" variant="primary" type="button" onClick={handleSubmit}>Submit</Button>

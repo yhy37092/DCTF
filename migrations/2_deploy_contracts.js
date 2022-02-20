@@ -81,7 +81,7 @@ module.exports = async (deployer, network, accounts) => {
     await AccessContr0lInstance.grantRole(Web3Utils.soliditySha3('CONTEST_ADMIN'), contestAdmin);
     await Promise.all(contests.map(contest => ContestInstance.add(contest)));
     await Promise.all([...Array(4).keys()].map(index => TeamsInstance.applyContest(index + 1, ['Cock_Intelligence_Agency', systemAdmin, [accounts[1], accounts[2]]])));
-    await Promise.all([false, true, true].map((result, index) => TeamsInstance.auditTeam(index + 1, index + 1, result)));
+    await Promise.all([false, true, true].map((result, index) => TeamsInstance.auditTeams(index + 1, [index + 1], [result])));
     const delay = ms => new Promise(res => setTimeout(res, ms));
     await delay(10001);
 
@@ -96,8 +96,8 @@ module.exports = async (deployer, network, accounts) => {
     );
     await delay(50001);
     [...Array(2).keys()].map(async (index) =>
-        await Promise.all(flags.map((flag, i) => MovesInstance.revealForAdmin(index + 1, challenges.length * index + i + 1, flag[0], flag[1])))
+        await Promise.all(flags.map((flag, i) => MovesInstance.revealForAdmins(index + 1, [challenges.length * index + i + 1], [flag[0]], [flag[1]])))
     );
-    await Promise.all(flags.map((flag, i) => MovesInstance.revealForMember(2, 2, challenges.length + i + 1, flag[0], flag[1])));
+    await Promise.all(flags.map((flag, i) => MovesInstance.revealForMembers(2, 2, [challenges.length + i + 1], [flag[0]], [flag[1]])));
 
 };

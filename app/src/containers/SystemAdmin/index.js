@@ -1,20 +1,20 @@
-import React from "react";
-import {Route, Routes} from "react-router-dom";
+import React from 'react'
+import {Route, Routes} from 'react-router-dom'
 
-import NoMatch from "../../components/NoMatch";
-import {Breadcrumb, Col, Row} from "react-bootstrap";
-import Grant from "./Grant";
-import Revoke from "./Revoke";
+import NoMatch from '../../components/NoMatch'
+import {Breadcrumb, Col, Row} from 'react-bootstrap'
+import Grant from './Grant'
+import Revoke from './Revoke'
 
 export default props => {
     const {drizzle, drizzleState} = props
     return (
         <Routes>
-            <Route path="/" element={<MainPage drizzle={drizzle} drizzleState={drizzleState}/>}/>
-            <Route path="*" element={<NoMatch/>}/>
+            <Route path='/' element={<MainPage drizzle={drizzle} drizzleState={drizzleState}/>}/>
+            <Route path='*' element={<NoMatch/>}/>
         </Routes>
-    );
-};
+    )
+}
 
 function MainPage(props) {
     const {drizzle, drizzleState} = props
@@ -39,5 +39,5 @@ function MainPage(props) {
                 </Col>
             </Row>
         </>
-    );
+    )
 }
