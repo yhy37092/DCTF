@@ -1,10 +1,8 @@
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 
-import NoMatch from '../../components/NoMatch'
 import {Breadcrumb, Col, Row} from 'react-bootstrap'
-import Grant from './Grant'
-import Revoke from './Revoke'
+import {GrantMember, NoMatch, RevokeMember} from "../../components";
 
 export default () => {
     return (
@@ -27,13 +25,13 @@ function MainPage() {
             </Row>
             <Row>
                 <Col>
-                    <Grant/>
+                    <GrantMember/>
                 </Col>
             </Row>
 
             <Row>
                 <Col>
-                    <Revoke/>
+                    <RevokeMember/>
                 </Col>
             </Row>
         </>

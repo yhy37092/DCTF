@@ -9,12 +9,12 @@ import configureStore from './store/configureStore'
 let {store, persistor} = configureStore()
 
 ReactDOM.render(
-    <React.StrictMode>
+    <React.Fragment>
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
                 <App/>
             </PersistGate>
         </Provider>
-    </React.StrictMode>,
+    </React.Fragment>,
     document.getElementById('root')
 )

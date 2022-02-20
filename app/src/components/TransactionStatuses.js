@@ -9,7 +9,7 @@ export default ({TXObjects}) => {
         else setShow(false)
     }, [TXObjects])
     return (
-        <ToastContainer position="top-middle">
+        <ToastContainer position="top-middle" className="position-fixed bottom-0 end-0">
             <Toast show={show} onClose={toggleShow}>
                 <Toast.Header>
                     <strong className="me-auto">Transaction status</strong>
@@ -21,7 +21,7 @@ export default ({TXObjects}) => {
                                 {TXObject === undefined && 'waiting for conform'}
                                 {TXObject && TXObject.status === 'pending' && 'pending'}
                                 {TXObject && TXObject.status === 'success' && 'success'}
-                                {TXObject && TXObject.status === 'error' && `error: ${TXObject.error.message}`}
+                                {TXObject && TXObject.status === 'error' && 'error'}
                             </ListGroup.Item>
                         ))}
                     </ListGroup>

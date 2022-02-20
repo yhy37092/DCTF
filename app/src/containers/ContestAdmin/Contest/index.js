@@ -1,25 +1,21 @@
 import React from 'react'
 import {Link, Route, Routes, useParams} from 'react-router-dom'
 import {Breadcrumb, Col, Row} from 'react-bootstrap'
-import NoMatch from '../../../components/NoMatch'
-import {ContestAdmin} from '../../../components/Navbars'
+import {AuditTeam, ContestAdminNavBar, NoMatch, Submissions, UpdateContest} from '../../../components'
 import Challenges from './Challenges'
-import UpdateContest from './UpdateContest'
-import AuditTeam from './AuditTeam'
-import Submissions from "./Submissions";
 
-export default ({drizzle, drizzleState}) => {
+export default () => {
 
     const {contestId} = useParams()
 
     return (
         <>
-            <ContestAdmin contestId={contestId}/>
+            <ContestAdminNavBar contestId={contestId}/>
             <Routes>
-                <Route path={`/`} element={<MainPage />}/>
-                <Route path={`/Challenges/*`} element={<Challenges />}/>
-                <Route path={`/Teams`} element={<Teams />}/>
-                <Route path={`/Submissions`} element={<Submission />}/>
+                <Route path={`/`} element={<MainPage/>}/>
+                <Route path={`/Challenges/*`} element={<Challenges/>}/>
+                <Route path={`/Teams`} element={<Teams/>}/>
+                <Route path={`/Submissions`} element={<Submission/>}/>
                 <Route path='*' element={<NoMatch/>}/>
             </Routes>
         </>
@@ -48,7 +44,7 @@ function MainPage() {
 
             <Row>
                 <Col>
-                    <UpdateContest />
+                    <UpdateContest contestId={contestId}/>
                 </Col>
             </Row>
         </>
@@ -80,7 +76,7 @@ function Teams() {
 
             <Row>
                 <Col>
-                    <AuditTeam />
+                    <AuditTeam contestId={contestId}/>
                 </Col>
             </Row>
         </>
@@ -113,7 +109,7 @@ function Submission() {
 
             <Row>
                 <Col>
-                    <Submissions />
+                    <Submissions contestId={contestId}/>
                 </Col>
             </Row>
         </>

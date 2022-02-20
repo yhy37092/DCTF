@@ -1,20 +1,18 @@
 import React from 'react'
+import {Breadcrumb, Button, Col, Row} from 'react-bootstrap'
 import {Link, Route, Routes} from 'react-router-dom'
 import Contest from './Contest'
-import NoMatch from '../../components/NoMatch'
-import {Breadcrumb, Button, Col, Row} from 'react-bootstrap'
-import RemoveContest from './RemoveContest'
-import NewContest from './NewContest'
+import {NewContest, NoMatch, RemoveContest} from "../../components";
 
 export default () => {
-    
+
     return (
         <Routes>
-            <Route path={`/`} element={<MainPage />}/>
+            <Route path={`/`} element={<MainPage/>}/>
             <Route path={`/ContestNew`}
-                   element={<New />}/>
+                   element={<New/>}/>
             <Route path={`/Contest-:contestId/*`}
-                   element={<Contest />}/>
+                   element={<Contest/>}/>
             <Route path='*' element={<NoMatch/>}/>
         </Routes>
     )

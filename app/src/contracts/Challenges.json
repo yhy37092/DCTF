@@ -30251,12 +30251,12 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0x85D87BbCfDEAD4Fbb6f62E085f1313046bEb9a03",
-      "transactionHash": "0x13b1b6ea7d8e56b192033dec441470dd1f9eaa08f6b2ffd774de911005f6d40f"
+      "address": "0x8166D4bd2f14F107213cC12b5Fdaff41077559f5",
+      "transactionHash": "0x1b727b38ef283b9d27d6292d31fe51ff8985c183c0262c60c034af4cbeab7e70"
     }
   },
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-02-20T05:43:51.951Z",
+  "updatedAt": "2022-02-20T06:02:16.267Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

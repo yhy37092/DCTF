@@ -1,13 +1,14 @@
 import React from 'react'
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import {Container, Stack} from 'react-bootstrap'
 import {Drizzle} from '@drizzle/store'
-import {drizzleReactHooks} from "@drizzle/react-plugin"
-import drizzleOptions from "./drizzle/drizzleOptions"
-import {Default as Navbar} from "./components/Navbars"
+import {drizzleReactHooks} from '@drizzle/react-plugin'
+import drizzleOptions from './drizzle/drizzleOptions'
+import {NavBar} from "./components";
 import Home from './containers/Home'
 import SystemAdmin from './containers/SystemAdmin'
-import ContestAdmin from "./containers/ContestAdmin"
+import ContestAdmin from './containers/ContestAdmin'
+import Contest from './containers/Contest'
 import NoMatch from './components/NoMatch'
 
 import './App.css'
@@ -23,14 +24,14 @@ function App() {
                 <drizzleReactHooks.Initializer>
                     <Container>
                         <Stack gap={4}>
-                            <Navbar/>
+                            <NavBar/>
                             <Routes>
-                                <Route exact path="/" element={<Home/>}/>
-                                <Route path="SystemAdmin/*" element={<SystemAdmin/>}/>
-                                <Route path="ContestAdmin/*" element={<ContestAdmin/>}/>
-                                {/*<Route path="Contests/*" element={<Contest/>}/>*/}
-                                {/*<Route path="Review/*" element={<Review/>}/>*/}
-                                <Route path="*" element={<NoMatch/>}/>
+                                <Route exact path='/' element={<Home/>}/>
+                                <Route path='SystemAdmin/*' element={<SystemAdmin/>}/>
+                                <Route path='ContestAdmin/*' element={<ContestAdmin/>}/>
+                                <Route path='Contests/*' element={<Contest/>}/>
+                                {/*<Route path='Review/*' element={<Review/>}/>*/}
+                                <Route path='*' element={<NoMatch/>}/>
                             </Routes>
                         </Stack>
                     </Container>

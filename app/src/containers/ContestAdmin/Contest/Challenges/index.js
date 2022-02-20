@@ -1,11 +1,7 @@
 import React from 'react'
 import {Link, Route, Routes, useParams} from 'react-router-dom'
 import {Breadcrumb, Col, Row} from 'react-bootstrap'
-import NewChallenge from './NewChallenge'
-import RemoveChallenge from './RemoveChallenge'
-import RevealChallenge from './RevealChallenge'
-import CommitChallenge from './CommitChallenge'
-import UpdateChallenge from './UpdateChallenge'
+import {CommitChallenge, NewChallenge, RemoveChallenge, RevealChallenge, UpdateChallenge} from "../../../../components";
 
 export default () => {
     
@@ -36,13 +32,13 @@ function MainPage() {
             </Row>
             <Row>
                 <Col>
-                    <RevealChallenge />
+                    <RevealChallenge contestId={contestId}/>
                 </Col>
             </Row>
 
             <Row>
                 <Col>
-                    <RemoveChallenge />
+                    <RemoveChallenge contestId={contestId}/>
                 </Col>
             </Row>
         </>
@@ -76,7 +72,7 @@ function New() {
 
             <Row>
                 <Col>
-                    <NewChallenge />
+                    <NewChallenge contestId={contestId}/>
                 </Col>
             </Row>
         </>
@@ -110,10 +106,10 @@ function Update() {
 
             <Row>
                 <Col>
-                    <CommitChallenge />
+                    <CommitChallenge contestId={contestId} challengeId={challengeId}/>
                 </Col>
                 <Col>
-                    <UpdateChallenge />
+                    <UpdateChallenge contestId={contestId} challengeId={challengeId}/>
                 </Col>
             </Row>
         </>
