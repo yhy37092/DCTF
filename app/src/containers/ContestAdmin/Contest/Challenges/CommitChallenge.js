@@ -1,16 +1,16 @@
 import React, {useCallback} from 'react'
+import {drizzleReactHooks} from "@drizzle/react-plugin";
 import {Tab, Tabs} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
 import {adminAdd, adminRemove, getAdminFlags} from '../../../../reducers/flags'
 import Web3Utils from 'web3-utils'
 import {useParams} from 'react-router-dom'
-import {useCacheSend} from '../../../../hooks/create-use-cache-send'
 import CommitForm from '../../../../components/Forms/CommitForm'
 import TransactionStatuses from '../../../../components/TransactionStatuses'
 
-export default props => {
-    const {drizzle, drizzleState} = props
-    const {send, TXObjects} = useCacheSend(drizzle, drizzleState, 'Moves', 'commitForAdmin')
+export default () => {
+    const {useCacheSend} = drizzleReactHooks.useDrizzle()
+    const {send, TXObjects} = useCacheSend('Moves', 'commitForAdmin')
 
     const {contestId} = useParams()
     const {challengeId} = useParams()

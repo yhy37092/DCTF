@@ -6,18 +6,16 @@ import {Breadcrumb, Col, Row} from 'react-bootstrap'
 import Grant from './Grant'
 import Revoke from './Revoke'
 
-export default props => {
-    const {drizzle, drizzleState} = props
+export default () => {
     return (
         <Routes>
-            <Route path='/' element={<MainPage drizzle={drizzle} drizzleState={drizzleState}/>}/>
+            <Route path='/' element={<MainPage/>}/>
             <Route path='*' element={<NoMatch/>}/>
         </Routes>
     )
 }
 
-function MainPage(props) {
-    const {drizzle, drizzleState} = props
+function MainPage() {
     return (
         <>
             <Row>
@@ -29,13 +27,13 @@ function MainPage(props) {
             </Row>
             <Row>
                 <Col>
-                    <Grant drizzle={drizzle} drizzleState={drizzleState}/>
+                    <Grant/>
                 </Col>
             </Row>
 
             <Row>
                 <Col>
-                    <Revoke drizzle={drizzle} drizzleState={drizzleState}/>
+                    <Revoke/>
                 </Col>
             </Row>
         </>

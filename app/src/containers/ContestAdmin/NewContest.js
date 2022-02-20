@@ -1,11 +1,11 @@
 import React, {useCallback} from 'react'
+import {drizzleReactHooks} from "@drizzle/react-plugin"
 import TransactionStatuses from '../../components/TransactionStatuses'
-import {useCacheSend} from '../../hooks/create-use-cache-send'
 import NewContestForm from '../../components/Forms/NewContestForm'
 
-export default props => {
-    const {drizzle, drizzleState} = props
-    const {send, TXObjects} = useCacheSend(drizzle, drizzleState, 'Contests', 'add')
+export default () => {
+    const {useCacheSend} = drizzleReactHooks.useDrizzle()
+    const {send, TXObjects} = useCacheSend('Contests', 'add')
 
     return (
         <>

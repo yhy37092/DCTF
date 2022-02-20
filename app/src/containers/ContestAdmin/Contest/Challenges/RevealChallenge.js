@@ -1,14 +1,14 @@
 import React from 'react'
+import {drizzleReactHooks} from "@drizzle/react-plugin"
 import {Link, useParams} from 'react-router-dom'
 import {Button} from 'react-bootstrap'
 import {useSelector} from 'react-redux'
 import {getAdminFlags} from '../../../../reducers/flags'
-import {useCacheSend} from '../../../../hooks/create-use-cache-send'
 import TransactionStatuses from '../../../../components/TransactionStatuses'
 
-export default props => {
-    const {drizzle, drizzleState} = props
-    const {send, TXObjects} = useCacheSend(drizzle, drizzleState, 'Moves', 'revealForAdmins')
+export default () => {
+    const {useCacheSend} = drizzleReactHooks.useDrizzle()
+    const {send, TXObjects} = useCacheSend('Moves', 'revealForAdmins')
     const {contestId} = useParams()
     const flags = useSelector(getAdminFlags)
 

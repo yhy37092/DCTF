@@ -1,30 +1,21 @@
-import React, {useCallback, useEffect, useState} from 'react'
+import React, {useCallback} from 'react'
+import {drizzleReactHooks} from "@drizzle/react-plugin"
 import TransactionStatuses from '../../../components/TransactionStatuses'
-import {useCacheSend} from '../../../hooks/create-use-cache-send'
+
 import {useParams} from 'react-router-dom'
 import UpdateContestForm from '../../../components/Forms/UpdateContestForm'
 
-export default props => {
-    const {drizzle, drizzleState} = props
-    const {send, TXObjects} = useCacheSend(drizzle, drizzleState, 'Contests', 'update')
+export default () => {
+    const {useCacheSend, useCacheCall} = drizzleReactHooks.useDrizzle()
+    const {send, TXObjects} = useCacheSend('Contests', 'update')
 
     const {contestId} = useParams()
-
-    const {contests} = drizzle.contracts.Contests.methods
-
-    const [contestKey, setContestKey] = useState(null)
-    const {Contests} = drizzleState.contracts
-    const contest = Contests.contests[contestKey]
-    useEffect(() => {
-        const contestKey = contests.cacheCall(contestId)
-        setContestKey(contestKey)
-    }, [contests, contestId])
 
     return (
         <>
             <TransactionStatuses TXObjects={TXObjects}/>
             <UpdateContestForm
-                data={(contest && contest.value) || {
+                data={useCacheCall('Contests', 'contests', contestId) || {
                     info: {
                         contestType: '',
                         name: '',

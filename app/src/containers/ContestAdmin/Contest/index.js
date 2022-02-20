@@ -16,18 +16,18 @@ export default ({drizzle, drizzleState}) => {
         <>
             <ContestAdmin contestId={contestId}/>
             <Routes>
-                <Route path={`/`} element={<MainPage drizzle={drizzle} drizzleState={drizzleState}/>}/>
-                <Route path={`/Challenges/*`} element={<Challenges drizzle={drizzle} drizzleState={drizzleState}/>}/>
-                <Route path={`/Teams`} element={<Teams drizzle={drizzle} drizzleState={drizzleState}/>}/>
-                <Route path={`/Submissions`} element={<Submission drizzle={drizzle} drizzleState={drizzleState}/>}/>
+                <Route path={`/`} element={<MainPage />}/>
+                <Route path={`/Challenges/*`} element={<Challenges />}/>
+                <Route path={`/Teams`} element={<Teams />}/>
+                <Route path={`/Submissions`} element={<Submission />}/>
                 <Route path='*' element={<NoMatch/>}/>
             </Routes>
         </>
     )
 }
 
-function MainPage(props) {
-    const {drizzle, drizzleState} = props
+function MainPage() {
+    
     const {contestId} = useParams()
 
     return (
@@ -48,7 +48,7 @@ function MainPage(props) {
 
             <Row>
                 <Col>
-                    <UpdateContest drizzle={drizzle} drizzleState={drizzleState}/>
+                    <UpdateContest />
                 </Col>
             </Row>
         </>
@@ -56,8 +56,8 @@ function MainPage(props) {
     )
 }
 
-function Teams(props) {
-    const {drizzle, drizzleState} = props
+function Teams() {
+    
     const {contestId} = useParams()
 
     return (
@@ -80,7 +80,7 @@ function Teams(props) {
 
             <Row>
                 <Col>
-                    <AuditTeam drizzle={drizzle} drizzleState={drizzleState}/>
+                    <AuditTeam />
                 </Col>
             </Row>
         </>
@@ -88,8 +88,8 @@ function Teams(props) {
     )
 }
 
-function Submission(props) {
-    const {drizzle, drizzleState} = props
+function Submission() {
+    
     const {contestId} = useParams()
 
     return (
@@ -113,7 +113,7 @@ function Submission(props) {
 
             <Row>
                 <Col>
-                    <Submissions drizzle={drizzle} drizzleState={drizzleState}/>
+                    <Submissions />
                 </Col>
             </Row>
         </>

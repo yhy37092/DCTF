@@ -7,19 +7,19 @@ import RevealChallenge from './RevealChallenge'
 import CommitChallenge from './CommitChallenge'
 import UpdateChallenge from './UpdateChallenge'
 
-export default props => {
-    const {drizzle, drizzleState} = props
+export default () => {
+    
     return (
         <Routes>
-            <Route path={`/`} element={<MainPage drizzle={drizzle} drizzleState={drizzleState}/>}/>
-            <Route path={`/Challenge-:challengeId`} element={<Update drizzle={drizzle} drizzleState={drizzleState}/>}/>
-            <Route path={`/New`} element={<New drizzle={drizzle} drizzleState={drizzleState}/>}/>
+            <Route path={`/`} element={<MainPage />}/>
+            <Route path={`/Challenge-:challengeId`} element={<Update />}/>
+            <Route path={`/New`} element={<New />}/>
         </Routes>
     )
 }
 
-function MainPage(props) {
-    const {drizzle, drizzleState} = props
+function MainPage() {
+    
     const {contestId} = useParams()
 
     return (
@@ -36,13 +36,13 @@ function MainPage(props) {
             </Row>
             <Row>
                 <Col>
-                    <RevealChallenge drizzle={drizzle} drizzleState={drizzleState}/>
+                    <RevealChallenge />
                 </Col>
             </Row>
 
             <Row>
                 <Col>
-                    <RemoveChallenge drizzle={drizzle} drizzleState={drizzleState}/>
+                    <RemoveChallenge />
                 </Col>
             </Row>
         </>
@@ -50,8 +50,8 @@ function MainPage(props) {
     )
 }
 
-function New(props) {
-    const {drizzle, drizzleState} = props
+function New() {
+    
     const {contestId} = useParams()
 
     return (
@@ -76,7 +76,7 @@ function New(props) {
 
             <Row>
                 <Col>
-                    <NewChallenge drizzle={drizzle} drizzleState={drizzleState}/>
+                    <NewChallenge />
                 </Col>
             </Row>
         </>
@@ -84,8 +84,8 @@ function New(props) {
     )
 }
 
-function Update(props) {
-    const {drizzle, drizzleState} = props
+function Update() {
+    
     const {contestId, challengeId} = useParams()
 
     return (
@@ -110,10 +110,10 @@ function Update(props) {
 
             <Row>
                 <Col>
-                    <CommitChallenge drizzle={drizzle} drizzleState={drizzleState}/>
+                    <CommitChallenge />
                 </Col>
                 <Col>
-                    <UpdateChallenge drizzle={drizzle} drizzleState={drizzleState}/>
+                    <UpdateChallenge />
                 </Col>
             </Row>
         </>

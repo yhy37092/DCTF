@@ -53,7 +53,7 @@ export default ({onSubmit, data}) => {
                             <td><Link
                                 to={`/ContestAdmin/Contest-${value.id}`}>{value.info.name}</Link>
                             </td>
-                            <td>{value.info.Type}</td>
+                            <td>{value.info.contestType}</td>
                             <td>{toEther(value.info.fee)} ether</td>
                             <td>{toDate(value.info.start)}</td>
                             <td>{toDate(value.info.end)}</td>

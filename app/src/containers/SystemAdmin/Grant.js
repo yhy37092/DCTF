@@ -1,13 +1,13 @@
 import React, {useCallback, useState} from 'react'
-import {useCacheSend} from '../../hooks/create-use-cache-send'
+import {drizzleReactHooks} from '@drizzle/react-plugin'
 import Web3Utils from 'web3-utils'
 import {Button, Modal} from 'react-bootstrap'
 import TransactionStatuses from '../../components/TransactionStatuses'
 import GrantForm from '../../components/Forms/GrantForm'
 
-export default props => {
-    const {drizzle, drizzleState} = props
-    const {send, TXObjects} = useCacheSend(drizzle, drizzleState, 'AccessContr0l', 'grantRoles')
+export default () => {
+    const {useCacheSend} = drizzleReactHooks.useDrizzle()
+    const {send, TXObjects} = useCacheSend('AccessContr0l', 'grantRoles')
     const CONTEST_ADMIN = Web3Utils.keccak256('CONTEST_ADMIN')
 
     const [show, setShow] = useState(false)

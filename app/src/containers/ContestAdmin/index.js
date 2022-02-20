@@ -6,22 +6,22 @@ import {Breadcrumb, Button, Col, Row} from 'react-bootstrap'
 import RemoveContest from './RemoveContest'
 import NewContest from './NewContest'
 
-export default props => {
-    const {drizzle, drizzleState} = props
+export default () => {
+    
     return (
         <Routes>
-            <Route path={`/`} element={<MainPage drizzle={drizzle} drizzleState={drizzleState}/>}/>
+            <Route path={`/`} element={<MainPage />}/>
             <Route path={`/ContestNew`}
-                   element={<New drizzle={drizzle} drizzleState={drizzleState}/>}/>
+                   element={<New />}/>
             <Route path={`/Contest-:contestId/*`}
-                   element={<Contest drizzle={drizzle} drizzleState={drizzleState}/>}/>
+                   element={<Contest />}/>
             <Route path='*' element={<NoMatch/>}/>
         </Routes>
     )
 }
 
-function MainPage(props) {
-    const {drizzle, drizzleState} = props
+function MainPage() {
+    
     return (
         <>
             <Row>
@@ -43,15 +43,15 @@ function MainPage(props) {
 
             <Row>
                 <Col>
-                    <RemoveContest drizzle={drizzle} drizzleState={drizzleState}/>
+                    <RemoveContest />
                 </Col>
             </Row>
         </>
     )
 }
 
-function New(props) {
-    const {drizzle, drizzleState} = props
+function New() {
+    
     return (
         <>
             <Row>
@@ -70,7 +70,7 @@ function New(props) {
 
             <Row>
                 <Col>
-                    <NewContest drizzle={drizzle} drizzleState={drizzleState}/>
+                    <NewContest />
                 </Col>
             </Row>
         </>

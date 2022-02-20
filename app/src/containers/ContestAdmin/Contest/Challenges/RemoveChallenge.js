@@ -1,32 +1,23 @@
-import React, {useCallback, useEffect, useState} from 'react'
+import React, {useCallback} from 'react'
+import {drizzleReactHooks} from "@drizzle/react-plugin"
 import {useParams} from 'react-router-dom'
 import RemoveChallengeForm from '../../../../components/Forms/RemoveChallengeForm'
 import TransactionStatuses from '../../../../components/TransactionStatuses'
-import {useCacheSend} from '../../../../hooks/create-use-cache-send'
 
-export default props => {
-    const {drizzle, drizzleState} = props
-    const {send, TXObjects} = useCacheSend(drizzle, drizzleState, 'Challenges', 'removes')
+export default () => {
+    const {useCacheSend, useCacheCall} = drizzleReactHooks.useDrizzle()
+    const {send, TXObjects} = useCacheSend('Challenges', 'removes')
 
-    const {gets} = drizzle.contracts.Challenges.methods
     const {contestId} = useParams()
-
-    const [challengesKey, setChallengesKey] = useState(0)
-    const {Challenges} = drizzleState.contracts
-    const challenges = Challenges.gets[challengesKey]
-    useEffect(() => {
-        const challengesKey = gets.cacheCall(contestId)
-        setChallengesKey(challengesKey)
-    }, [gets, contestId])
 
     return (
         <>
             <TransactionStatuses TXObjects={TXObjects}/>
             <RemoveChallengeForm
-                data={(challenges && challenges.value) || []}
+                data={useCacheCall('Challenges', 'gets', contestId) || []}
                 onSubmit={useCallback(({_data}) => {
                     send(contestId, _data)
-                }, [send,contestId])}/>
+                }, [send, contestId])}/>
         </>
     )
 }

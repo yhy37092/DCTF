@@ -1,45 +1,29 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
+import {drizzleReactHooks} from "@drizzle/react-plugin"
 import {useParams} from 'react-router-dom'
-import SubmissionForm from "../../../components/Forms/SubmissionForm";
+import SubmissionForm from "../../../components/Forms/SubmissionForm"
 
-export default ({drizzle, drizzleState}) => {
+export default () => {
+    const {useCacheCall} = drizzleReactHooks.useDrizzle()
 
     const {contestId} = useParams()
 
-    const {gets} = drizzle.contracts.Moves.methods
-    const [movesKey, setMovesKey] = useState(0)
-    const {Moves} = drizzleState.contracts
-    const moves = Moves.gets[movesKey]
-    useEffect(() => {
-        const movesKey = gets.cacheCall(contestId)
-        setMovesKey(movesKey)
-    }, [gets, contestId])
-
-    const {getSome} = drizzle.contracts.Teams.methods
-    const [teamsKey, setTeamsKey] = useState(0)
-    const {Teams} = drizzleState.contracts
-    const teams = Teams.getSome[teamsKey]
-    useEffect(() => {
-        const ids = []
-        moves && moves.value.forEach(move => ids.push(move.teamId))
-        const teamsKey = getSome.cacheCall(ids)
-        setTeamsKey(teamsKey)
-    }, [getSome, moves])
-
     return (
-        <SubmissionForm data={(moves && teams && moves.value.map(
-            (value, index) => (
-                {
+        <SubmissionForm data={useCacheCall(['Moves', 'Teams'], call => {
+            const moves = call('Moves', 'gets', contestId) || []
+            return moves.map(value => {
+                const team = call('Teams', 'teams', value.teamId) || {info: {name: ''}}
+                return {
                     id: value.id,
                     info: {
                         flag: value.info.flag,
                         salt: value.info.salt,
                         hash: value.info.hash,
-                        name: teams.value[index].info.name
+                        name: team.info.name
                     },
                     state: value.state
                 }
-            )
-        )) || []}/>
+            })
+        })}/>
     )
 }
