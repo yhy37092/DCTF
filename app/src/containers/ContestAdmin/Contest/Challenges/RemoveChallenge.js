@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react'
 import {drizzleReactHooks} from "@drizzle/react-plugin"
-import RemoveChallengeForm from '../Forms/RemoveChallengeForm'
-import TransactionStatuses from '../TransactionStatuses'
+import RemoveChallengeForm from '../../../../components/Forms/RemoveChallengeForm'
+import TransactionStatuses from '../../../../components/TransactionStatuses'
 
 export default ({contestId}) => {
     const {useCacheSend, useCacheCall} = drizzleReactHooks.useDrizzle()

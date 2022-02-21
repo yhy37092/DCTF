@@ -4,14 +4,13 @@ import {drizzleReactHooks} from "@drizzle/react-plugin";
 import {Breadcrumb, Col, Row} from 'react-bootstrap'
 import {before} from '../../utils/utils'
 import {contest, team} from '../../MetaData.json'
-import {
-    ApplyContest, Contest,
-    ContestNavBar,
-    ListContest,
-    ListMyContest,
-    NoMatch,
-    OnGoingContest
-} from "../../components";
+import {ContestNavBar, NoMatch,} from "../../components";
+import ListContest from "./ListContest";
+import ListMyContest from "./ListMyContest";
+import Contest from "./Contest";
+import ApplyContest from "./ApplyContest";
+import OnGoingContest from "./OnGoingContest";
+import {useTranslation} from "react-i18next";
 
 export default () => {
     return (
@@ -29,19 +28,19 @@ export default () => {
 }
 
 function MainPage() {
-
+    const {t, i18n} = useTranslation();
     return (
         <>
             <Row>
                 <Col>
                     <Breadcrumb>
-                        <Breadcrumb.Item active>Contests</Breadcrumb.Item>
+                        <Breadcrumb.Item active>{t('description.Contests')}</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <h1 align='center'>Contests</h1>
+                    <h1 align='center'>{t('description.Contests')}</h1>
                 </Col>
             </Row>
 
@@ -55,20 +54,20 @@ function MainPage() {
 }
 
 function My() {
-
+    const {t, i18n} = useTranslation();
     return (
         <>
             <Row>
                 <Col>
                     <Breadcrumb>
-                        <Link to='/Contests' className='breadcrumb-item'>Contests</Link>
-                        <Breadcrumb.Item active>My</Breadcrumb.Item>
+                        <Link to='/Contests' className='breadcrumb-item'>{t('description.Contests')}</Link>
+                        <Breadcrumb.Item active>{t('description.My')}</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <h1 align='center'>My Contests</h1>
+                    <h1 align='center'>{t('description.My')}</h1>
                 </Col>
             </Row>
 
@@ -82,6 +81,7 @@ function My() {
 }
 
 function Detail() {
+    const {t, i18n} = useTranslation();
     const {contestId} = useParams();
     const {useCacheCall} = drizzleReactHooks.useDrizzle()
     const drizzleState = drizzleReactHooks.useDrizzleState(drizzleState => ({account: drizzleState.accounts[0]}))
@@ -90,15 +90,15 @@ function Detail() {
             <Row>
                 <Col>
                     <Breadcrumb>
-                        <Link to="/Contests" className="breadcrumb-item">Contests</Link>
-                        <Breadcrumb.Item active>Contest-{contestId}</Breadcrumb.Item>
+                        <Link to="/Contests" className="breadcrumb-item">{t('description.Contests')}</Link>
+                        <Breadcrumb.Item active>{t('description.Contest')}-{contestId}</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>
             </Row>
 
             <Row>
                 <Col>
-                    <h1 align="center">Contest</h1>
+                    <h1 align="center">{t('description.Contest')}</h1>
                 </Col>
             </Row>
             <Row>
@@ -119,6 +119,7 @@ function Detail() {
 }
 
 function OnGoing() {
+    const {t, i18n} = useTranslation();
     const {contestId} = useParams();
     const {useCacheCall} = drizzleReactHooks.useDrizzle()
     const drizzleState = drizzleReactHooks.useDrizzleState(drizzleState => ({account: drizzleState.accounts[0]}))
@@ -127,10 +128,10 @@ function OnGoing() {
             <Row>
                 <Col>
                     <Breadcrumb>
-                        <Link to="/Contests" className="breadcrumb-item">Contests</Link>
+                        <Link to="/Contests" className="breadcrumb-item">{t('description.Contests')}</Link>
                         <Link to={`/Contests/Contest-${contestId}`}
-                              className="breadcrumb-item">Contest-{contestId}</Link>
-                        <Breadcrumb.Item active>OnGoing</Breadcrumb.Item>
+                              className="breadcrumb-item">{t('description.Contest')}-{contestId}</Link>
+                        <Breadcrumb.Item active>{t('description.OnGoing')}</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>
             </Row>

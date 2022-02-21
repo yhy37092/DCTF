@@ -2,9 +2,10 @@ import React, {useState} from 'react'
 import {Button, Col, Form, Row} from 'react-bootstrap'
 import DateTimePicker from 'react-datetime-picker'
 import SimpleMDE from 'react-simplemde-editor'
+import {useTranslation} from "react-i18next";
 
 export default ({onSubmit}) => {
-
+    const {t, i18n} = useTranslation();
     const [contestType, setContestType] = useState('Jeopardy')
     const [name, setName] = useState('')
     const [fee, setFee] = useState(0)
@@ -22,10 +23,10 @@ export default ({onSubmit}) => {
         }>
             <Row>
                 <Col md={3}>
-                    <Form.Label>Challenge Types</Form.Label>
+                    <Form.Label>{t('description.Type')}</Form.Label>
                     {
-                        ['Jeopardy', 'Attack With Defence'].map((type) => (
-                            <Form.Check type={'radio'} name={'type'} label={type} key={type}
+                        ['Jeopardy', 'AWD'].map((type) => (
+                            <Form.Check type={'radio'} name={'type'} label={t(`description.${type}`)} key={type}
                                         defaultChecked={type === 'Jeopardy'}
                                         onClick={() => setContestType(type)}/>
                         ))
@@ -33,38 +34,37 @@ export default ({onSubmit}) => {
                 </Col>
                 <Col>
                     <Form.Group>
-                        <Form.Label as={Row}>Name:</Form.Label>
-                        <Form.Text as={Row} muted>The name of your challenge</Form.Text>
+                        <Form.Label as={Row}>{t('description.Name')}:</Form.Label>
+                        <Form.Text as={Row} muted>{t('description.name_of_contest')}</Form.Text>
                         <Form.Control key='name' type='text' value={name}
-                                      placeholder='Enter contest name'
+                                      placeholder={t('description.Enter_contest_name')}
                                       onChange={event => setName(event.target.value)}/>
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label as={Row}>Fee:</Form.Label>
-                        <Form.Text as={Row} muted>The fee of your contest</Form.Text>
+                        <Form.Label as={Row}>{t('description.Fee')}:</Form.Label>
+                        <Form.Text as={Row} muted>{t('description.fee_of_contest')}</Form.Text>
                         <Form.Control type='number' value={fee}
-                                      placeholder='Enter contest fee'
+                                      placeholder={t('description.Enter_contest_fee')}
                                       onChange={event => setFee(event.target.value)}/>
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label as={Row}>Start:</Form.Label>
-                        <Form.Text as={Row} muted>This is the time your contest start.</Form.Text>
+                        <Form.Label as={Row}>{t('description.Start')}:</Form.Label>
+                        <Form.Text as={Row} muted>{t('description.start_of_contest')}</Form.Text>
                         <DateTimePicker onChange={setStart} value={start}/>
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label as={Row}>End:</Form.Label>
-                        <Form.Text as={Row} muted>This is the time your contest end.</Form.Text>
+                        <Form.Label as={Row}>{t('description.End')}:</Form.Label>
+                        <Form.Text as={Row} muted>{t('description.end_of_contest')}</Form.Text>
                         <DateTimePicker onChange={setEnd} value={end}/>
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label as={Row}>Message:</Form.Label>
-                        <Form.Text as={Row} muted>Use this to give a brief introduction to your
-                            contest.</Form.Text>
+                        <Form.Label as={Row}>{t('description.Message')}:</Form.Label>
+                        <Form.Text as={Row} muted>{t('description.message_of_contest')}</Form.Text>
                         <SimpleMDE value={message} onChange={setMessage}/>
                     </Form.Group>
 
                     <Form.Group>
-                        <Button className='float-end' variant='primary' type='submit'>Create</Button>
+                        <Button className='float-end' variant='primary' type='submit'>{t('description.Create')}</Button>
                     </Form.Group>
                 </Col>
             </Row>

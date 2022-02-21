@@ -1,5 +1,5 @@
-export * from './SystemAdmin'
-export * from './ContestAdmin'
-export * from './Contest'
 export * from './Navbars'
+export * from './Contest'
+export * from './Challenge'
+export * from './Team'
 export { default as NoMatch } from './NoMatch'

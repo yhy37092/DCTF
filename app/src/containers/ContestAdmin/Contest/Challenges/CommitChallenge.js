@@ -2,10 +2,10 @@ import React, {useCallback, useEffect, useState} from 'react'
 import {drizzleReactHooks} from "@drizzle/react-plugin";
 import {Tab, Tabs} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
-import {adminAdd, adminRemove, getAdminFlags} from '../../reducers/flags'
+import {adminAdd, adminRemove, getAdminFlags} from '../../../../reducers/flags'
 import Web3Utils from 'web3-utils'
-import CommitForm from '../Forms/CommitForm'
-import TransactionStatuses from '../TransactionStatuses'
+import CommitForm from '../../../../components/Forms/CommitForm'
+import TransactionStatuses from '../../../../components/TransactionStatuses'
 
 export default ({contestId, challengeId}) => {
     const {useCacheSend} = drizzleReactHooks.useDrizzle()

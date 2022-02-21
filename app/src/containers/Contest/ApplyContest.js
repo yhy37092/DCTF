@@ -2,12 +2,13 @@ import React from "react";
 import {drizzleReactHooks} from "@drizzle/react-plugin";
 import {Col, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import TeamCard from "../Team/TeamDetail";
-import ApplyContestForm from "../Forms/ApplyContestForm";
-import TransactionStatuses from "../TransactionStatuses";
+import {TeamDetail} from "../../components";
+import ApplyContestForm from "../../components/Forms/ApplyContestForm";
+import TransactionStatuses from "../../components/TransactionStatuses";
+import {useTranslation} from "react-i18next";
 
 export default ({contest, team}) => {
-
+    const {t, i18n} = useTranslation();
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
     const {send, TXObjects} = useCacheSend('Teams', 'applyContest')
 
@@ -22,31 +23,30 @@ export default ({contest, team}) => {
                     <TransactionStatuses TXObjects={TXObjects}/>
                     {team.state === '0' ? (
                         <div align="center">
-                            <h3>Apply contest</h3>
+                            <h3>{t('description.Apply_contest')}</h3>
                             <ApplyContestForm onSubmit={handleApply}/>
                         </div>
                     ) : null}
                     {team.state === '1' ? (
                         <div align="center">
-                            <h3>Already applied,waiting for approving...</h3>
-                            <h3>team info</h3>
-                            <TeamCard data={team}/>
+                            <h3>{t('description.waiting_for_approving')}</h3>
+                            <h3>{t('description.team_info')}</h3>
+                            <TeamDetail data={team}/>
                         </div>
                     ) : null}
                     {team.state === '2' ? (
                         <div align="center">
-                            <h3>your apply is approved</h3>
-                            <h2><Link to={`/Contests/Contest-${contest.id}/ongoing`}>Go to
-                                contest</Link></h2>
-                            <h3>team info</h3>
-                            <TeamCard data={team}/>
+                            <h3>{t('description.approved')}</h3>
+                            <h2><Link to={`/Contests/Contest-${contest.id}/ongoing`}>{t('description.Go_to_contest')}</Link></h2>
+                            <h3>{t('description.team_info')}</h3>
+                            <TeamDetail data={team}/>
                         </div>
                     ) : null}
                     {team.state === '3' ? (<div align="center">
-                        <h3>Sorry,your apply is rejected!!!</h3>
-                        <h2>But you can re-apply</h2>
-                        <h3>team info</h3>
-                        <TeamCard data={team}/>
+                        <h3>{t('description.apply_rejected')}</h3>
+                        <h3>{t('description.can_re_apply')}</h3>
+                        <h2>{t('description.team_info')}</h2>
+                        <TeamDetail data={team}/>
                         <ApplyContestForm onSubmit={handleApply}/>
                     </div>) : null}
                 </Col>

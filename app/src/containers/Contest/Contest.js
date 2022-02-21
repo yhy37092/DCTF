@@ -1,8 +1,8 @@
 import React from "react";
 import {Col, Row} from "react-bootstrap";
-import {ContestDetail} from "./index";
 import {contest as defaultContest} from '../../MetaData.json'
 import {drizzleReactHooks} from "@drizzle/react-plugin";
+import {ContestDetail} from "../../components";
 
 export default ({contestId}) => {
     const {useCacheCall} = drizzleReactHooks.useDrizzle()

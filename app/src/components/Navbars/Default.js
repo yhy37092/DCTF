@@ -1,10 +1,15 @@
 import React from "react";
-import {Container, Nav, Navbar} from "react-bootstrap";
+import {Button, Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import CustomLink from "./CustomLink";
+import {useTranslation} from 'react-i18next';
 
+const lngs = {
+    en: {nativeName: 'English'},
+    zh_cn: {nativeName: '简体中文'}
+};
 
 export default () => {
-
+    const {t, i18n} = useTranslation();
 
     return (<Navbar bg="dark" variant="dark" fixed="top">
         <Container>
@@ -13,17 +18,29 @@ export default () => {
             <Navbar.Collapse>
                 <Nav className="me-auto">
                     <Nav.Item>
-                        <CustomLink to="/SystemAdmin">System Admin</CustomLink>
+                        <CustomLink to="/SystemAdmin">{t('description.System_Admin')}</CustomLink>
                     </Nav.Item>
                     <Nav.Item>
-                        <CustomLink to={"/ContestAdmin"}>Contest Admin</CustomLink>
+                        <CustomLink to={"/ContestAdmin"}>{t('description.Contest_Admin')}</CustomLink>
                     </Nav.Item>
                     <Nav.Item>
-                        <CustomLink to={"/Contests"}>Contests</CustomLink>
+                        <CustomLink to={"/Contests"}>{t('description.Contests')}</CustomLink>
                     </Nav.Item>
                     <Nav.Item>
-                        <CustomLink to={"/Review"}>Review</CustomLink>
+                        <CustomLink to={"/Review"}>{t('description.Review')}</CustomLink>
                     </Nav.Item>
+                    <Nav.Item>
+
+                    </Nav.Item>
+                </Nav>
+                <Nav>
+                    <NavDropdown as={Nav.Item} title={<i className="fas fa-language">Language</i>}>
+                        {Object.keys(lngs).map((lng) => (
+                            <Button as={NavDropdown.Item} key={lng} onClick={() => i18n.changeLanguage(lng)}>
+                                {lngs[lng].nativeName}
+                            </Button>
+                        ))}
+                    </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
         </Container>

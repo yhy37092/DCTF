@@ -3,13 +3,15 @@ import {getUserFlags, userAdd, userRemove} from "../../reducers/flags";
 import React, {useCallback, useEffect, useState} from "react";
 import Web3Utils from "web3-utils";
 import {Modal, Tab, Tabs} from "react-bootstrap";
-import ChallengeDetail from "../Challenge/ChallengeDetail";
-import CommitForm from "../Forms/CommitForm";
+import ChallengeDetail from "../../components/Challenge/ChallengeDetail";
+import CommitForm from "../../components/Forms/CommitForm";
 import {drizzleReactHooks} from "@drizzle/react-plugin";
-import ChallengePreview from "../Challenge/ChallengePreview";
-import TransactionStatuses from "../TransactionStatuses";
+import TransactionStatuses from "../../components/TransactionStatuses";
+import {ChallengePreview} from "../../components";
+import {useTranslation} from "react-i18next";
 
 export default ({contest, team, challenge}) => {
+    const {t, i18n} = useTranslation();
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
     const {send, TXObjects} = useCacheSend('Moves', 'commitForMember')
     const flags = useSelector(getUserFlags);
@@ -33,7 +35,7 @@ export default ({contest, team, challenge}) => {
                 </Modal.Header>
                 <Modal.Body>
                     <Tabs className="mb-3">
-                        <Tab eventKey="Challenge" title="Challenge">
+                        <Tab eventKey="Challenge" title={t('description.Challenge')}>
                             <ChallengeDetail data={challenge}/>
                         </Tab>
                     </Tabs>

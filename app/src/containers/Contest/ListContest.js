@@ -1,6 +1,6 @@
 import React from "react";
 import {drizzleReactHooks} from '@drizzle/react-plugin'
-import {ContestPreview} from "./index"
+import {ContestPreview} from "../../components"
 
 
 export default ({filter}) => {
@@ -12,7 +12,7 @@ export default ({filter}) => {
                 (useCacheCall('Contests', 'getAll') || []).map((value, index) => (
                     (filter({_data: value}) ? (
                         <div key={index}>
-                            <ContestPreview contest={value} link={`/Contests/Contest-${value.id}`}/>
+                            <ContestPreview data={value} link={`/Contests/Contest-${value.id}`}/>
                             <br/>
                         </div>
                     ) : null)

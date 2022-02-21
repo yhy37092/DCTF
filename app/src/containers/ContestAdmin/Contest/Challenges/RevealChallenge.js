@@ -3,10 +3,12 @@ import {drizzleReactHooks} from "@drizzle/react-plugin"
 import {Link} from 'react-router-dom'
 import {Button} from 'react-bootstrap'
 import {useSelector} from 'react-redux'
-import {getAdminFlags} from '../../reducers/flags'
-import TransactionStatuses from '../TransactionStatuses'
+import {getAdminFlags} from '../../../../reducers/flags'
+import TransactionStatuses from '../../../../components/TransactionStatuses'
+import {useTranslation} from "react-i18next";
 
 export default ({contestId}) => {
+    const {t, i18n} = useTranslation();
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
     const {send, TXObjects} = useCacheSend('Moves', 'revealForAdmins')
     const flags = useSelector(getAdminFlags)
@@ -27,7 +29,7 @@ export default ({contestId}) => {
 
     return (
         <>
-            <h1 align='center'>Challenges
+            <h1 align='center'>{t('description.Challenges')}
                 <Link to={`/ContestAdmin/Contest-${contestId}/Challenges/New`}>
                     <Button
                         variant='outline-secondary'><i

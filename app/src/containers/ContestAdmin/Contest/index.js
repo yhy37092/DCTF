@@ -1,8 +1,12 @@
 import React from 'react'
 import {Link, Route, Routes, useParams} from 'react-router-dom'
 import {Breadcrumb, Col, Row} from 'react-bootstrap'
-import {AuditTeam, ContestAdminNavBar, NoMatch, Submissions, UpdateContest} from '../../../components'
+import {ContestAdminNavBar, NoMatch} from '../../../components'
 import Challenges from './Challenges'
+import {useTranslation} from "react-i18next";
+import Submissions from "./Submissions";
+import AuditTeam from "./AuditTeam";
+import UpdateContest from "./UpdateContest";
 
 export default () => {
 
@@ -16,6 +20,7 @@ export default () => {
                 <Route path={`/Challenges/*`} element={<Challenges/>}/>
                 <Route path={`/Teams`} element={<Teams/>}/>
                 <Route path={`/Submissions`} element={<Submission/>}/>
+                <Route path={`/ScoreBoard`} element={<ScoreBoard/>}/>
                 <Route path='*' element={<NoMatch/>}/>
             </Routes>
         </>
@@ -23,7 +28,7 @@ export default () => {
 }
 
 function MainPage() {
-    
+    const {t} = useTranslation();
     const {contestId} = useParams()
 
     return (
@@ -31,14 +36,14 @@ function MainPage() {
             <Row>
                 <Col>
                     <Breadcrumb>
-                        <Link to='/ContestAdmin' className='breadcrumb-item'>ContestAdmin</Link>
-                        <Breadcrumb.Item active>Contest-{contestId}</Breadcrumb.Item>
+                        <Link to='/ContestAdmin' className='breadcrumb-item'>{t('description.ContestAdmin')}</Link>
+                        <Breadcrumb.Item active>{t('description.Contest')}-{contestId}</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <h1 align='center'>Contest Detail</h1>
+                    <h1 align='center'>{t('description.Contest_Detail')}</h1>
                 </Col>
             </Row>
 
@@ -53,7 +58,7 @@ function MainPage() {
 }
 
 function Teams() {
-    
+    const {t} = useTranslation();
     const {contestId} = useParams()
 
     return (
@@ -61,16 +66,16 @@ function Teams() {
             <Row>
                 <Col>
                     <Breadcrumb>
-                        <Link to='/ContestAdmin' className='breadcrumb-item'>ContestAdmin</Link>
+                        <Link to='/ContestAdmin' className='breadcrumb-item'>{t('description.ContestAdmin')}</Link>
                         <Link to={`/ContestAdmin/Contest-${contestId}`}
-                              className='breadcrumb-item'>Contest-{contestId}</Link>
-                        <Breadcrumb.Item active>Teams</Breadcrumb.Item>
+                              className='breadcrumb-item'>{t('description.Contest')}-{contestId}</Link>
+                        <Breadcrumb.Item active>{t('description.Teams')}</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <h1 align='center'>teams</h1>
+                    <h1 align='center'>{t('description.Teams')}</h1>
                 </Col>
             </Row>
 
@@ -85,7 +90,7 @@ function Teams() {
 }
 
 function Submission() {
-    
+    const {t} = useTranslation();
     const {contestId} = useParams()
 
     return (
@@ -93,17 +98,17 @@ function Submission() {
             <Row>
                 <Col>
                     <Breadcrumb>
-                        <Link to='/ContestAdmin' className='breadcrumb-item'>ContestAdmin</Link>
+                        <Link to='/ContestAdmin' className='breadcrumb-item'>{t('description.ContestAdmin')}</Link>
                         <Link to={`/ContestAdmin/Contest-${contestId}`}
-                              className='breadcrumb-item'>Contest-{contestId}</Link>
-                        <Breadcrumb.Item active>Submissions</Breadcrumb.Item>
+                              className='breadcrumb-item'>{t('description.Contest')}-{contestId}</Link>
+                        <Breadcrumb.Item active>{t('description.Submissions')}</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>
             </Row>
 
             <Row>
                 <Col>
-                    <h1 align='center'>Submissions</h1>
+                    <h1 align='center'>{t('description.Submissions')}</h1>
                 </Col>
             </Row>
 
@@ -114,5 +119,36 @@ function Submission() {
             </Row>
         </>
 
+    )
+}
+
+function ScoreBoard() {
+    const {t} = useTranslation();
+    const {contestId} = useParams()
+    return (
+        <>
+            <Row>
+                <Col>
+                    <Breadcrumb>
+                        <Link to='/ContestAdmin' className='breadcrumb-item'>{t('description.ContestAdmin')}</Link>
+                        <Link to={`/ContestAdmin/Contest-${contestId}`}
+                              className='breadcrumb-item'>{t('description.Contest')}-{contestId}</Link>
+                        <Breadcrumb.Item active>{t('description.ScoreBoard')}</Breadcrumb.Item>
+                    </Breadcrumb>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col>
+                    <h1 align='center'>{t('description.ScoreBoard')}</h1>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col>
+
+                </Col>
+            </Row>
+        </>
     )
 }

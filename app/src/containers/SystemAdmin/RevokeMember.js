@@ -1,8 +1,8 @@
 import React, {useCallback} from 'react'
 import {drizzleReactHooks} from '@drizzle/react-plugin'
 import Web3Utils from 'web3-utils'
-import TransactionStatuses from '../TransactionStatuses'
-import RevokeForm from '../Forms/RevokeForm'
+import TransactionStatuses from '../../components/TransactionStatuses'
+import RevokeForm from '../../components/Forms/RevokeForm'
 
 export default () => {
     const {useCacheSend, useCacheCall} = drizzleReactHooks.useDrizzle()

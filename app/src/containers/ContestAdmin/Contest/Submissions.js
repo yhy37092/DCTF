@@ -1,13 +1,13 @@
 import React from 'react'
 import {drizzleReactHooks} from "@drizzle/react-plugin"
-import SubmissionForm from "../Forms/SubmissionForm"
+import SubmissionForm from "../../../components/Forms/SubmissionForm"
 
 export default ({contestId}) => {
     const {useCacheCall} = drizzleReactHooks.useDrizzle()
 
     return (
         <SubmissionForm data={useCacheCall(['Moves', 'Teams'], call => {
-            const moves = call('Moves', 'gets', contestId) || []
+            const moves = call('Moves', 'getsSubmit', contestId) || []
             return moves.map(value => {
                 const team = call('Teams', 'teams', value.teamId) || {info: {name: ''}}
                 return {

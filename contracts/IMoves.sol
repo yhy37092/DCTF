@@ -34,7 +34,9 @@ interface IMoves {
 
     function revealForMembers(uint contestId, uint teamId, uint [] memory challengeIds, string [] memory flags, bytes32 [] memory salts) external;
 
-    function gets(uint contestId) external view returns (Move [] memory);
+    function getsSubmit(uint contestId) external view returns (Move [] memory);
+
+    function getsAnswer(uint contestId) external view returns (Move [] memory);
 
     function getCount() external view returns (uint);
 

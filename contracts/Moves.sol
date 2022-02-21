@@ -31,7 +31,7 @@ contract Moves is IMoves {
     //challengeId => (teamId => moveId)
     mapping(uint => mapping(uint => uint)) submitFlag;
     // contest flags
-    mapping(uint => EnumerableSet.UintSet) contestFlags;
+    mapping(uint => EnumerableSet.UintSet) contestAnswers;
     // contest submit
     mapping(uint => EnumerableSet.UintSet) contestSubmits;
 
@@ -55,11 +55,11 @@ contract Moves is IMoves {
     onlyContestOwner(contestId)
     onlyContestInState(contestId, IContests.ContestState.STARTED) {
         uint oldId = challengeFlag[challengeId];
-        contestFlags[contestId].remove(oldId);
+        contestAnswers[contestId].remove(oldId);
         delete moves[oldId];
         uint id = _commit(contestId, challengeId, 0, hash);
         challengeFlag[challengeId] = id;
-        contestFlags[contestId].add(id);
+        contestAnswers[contestId].add(id);
     }
 
     function commitForMember(uint contestId, uint teamId, uint challengeId, bytes32 hash) external
@@ -110,8 +110,11 @@ contract Moves is IMoves {
         return result;
     }
 
-    function gets(uint contestId) external view returns (Move [] memory) {
+    function getsSubmit(uint contestId) external view returns (Move [] memory) {
         return _gets(contestSubmits[contestId].values());
+    }
+    function getsAnswer(uint contestId) external view returns (Move [] memory) {
+        return _gets(contestAnswers[contestId].values());
     }
 
     function getCount() external view returns (uint) {
