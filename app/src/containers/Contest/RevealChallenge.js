@@ -2,10 +2,12 @@ import React from 'react'
 import {drizzleReactHooks} from "@drizzle/react-plugin"
 import {Button} from 'react-bootstrap'
 import {useSelector} from 'react-redux'
-import TransactionStatuses from '../TransactionStatuses'
+import TransactionStatuses from '../../components/TransactionStatuses'
 import {getUserFlags} from "../../reducers/flags";
+import {useTranslation} from "react-i18next";
 
 export default ({contest, team}) => {
+    const {t, i18n} = useTranslation();
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
     const {send, TXObjects} = useCacheSend('Moves', 'revealForMembers')
     const flags = useSelector(getUserFlags)
@@ -27,7 +29,7 @@ export default ({contest, team}) => {
     return (
         <>
             <TransactionStatuses TXObjects={TXObjects}/>
-            <h1 align="center">Challenges
+            <h1 align="center">{t('description.Challenges')}
                 <Button variant="outline-secondary" onClick={handleReveal}>
                     <i className="fas fa-arrow-circle-up"/>
                 </Button>

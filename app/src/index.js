@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
 import {PersistGate} from 'redux-persist/integration/react'
 
+import './i18n'
+
 import App from './App'
 import configureStore from './store/configureStore'
 

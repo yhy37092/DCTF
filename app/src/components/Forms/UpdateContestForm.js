@@ -2,9 +2,10 @@ import React, {useEffect, useState} from 'react'
 import {Button, Form, Row} from 'react-bootstrap'
 import DateTimePicker from 'react-datetime-picker'
 import SimpleMDE from 'react-simplemde-editor'
+import {useTranslation} from "react-i18next";
 
 export default ({onSubmit, data}) => {
-
+    const {t, i18n} = useTranslation();
     const [contestType, setContestType] = useState('')
     const [name, setName] = useState('')
     const [fee, setFee] = useState(0)
@@ -30,38 +31,37 @@ export default ({onSubmit, data}) => {
         }
         }>
             <Form.Group>
-                <Form.Label as={Row}>Name:</Form.Label>
-                <Form.Text as={Row} muted>The name of your challenge</Form.Text>
-                <Form.Group type='text' value={name}
-                            placeholder='Enter contest name'
-                            onChange={event => setName(event.target.value)}/>
+                <Form.Label as={Row}>{t('description.Name')}:</Form.Label>
+                <Form.Text as={Row} muted>{t('description.name_of_contest')}</Form.Text>
+                <Form.Control key='name' type='text' value={name}
+                              placeholder={t('description.Enter_contest_name')}
+                              onChange={event => setName(event.target.value)}/>
             </Form.Group>
             <Form.Group>
-                <Form.Label as={Row}>Fee:</Form.Label>
-                <Form.Text as={Row} muted>The fee of your contest</Form.Text>
-                <Form.Group type='number' value={fee}
-                            placeholder='Enter contest fee'
-                            onChange={event => setFee(parseInt(event.target.value))}/>
+                <Form.Label as={Row}>{t('description.Fee')}:</Form.Label>
+                <Form.Text as={Row} muted>{t('description.fee_of_contest')}</Form.Text>
+                <Form.Control type='number' value={fee}
+                              placeholder={t('description.Enter_contest_fee')}
+                              onChange={event => setFee(event.target.value)}/>
             </Form.Group>
             <Form.Group>
-                <Form.Label as={Row}>Start:</Form.Label>
-                <Form.Text as={Row} muted>This is the time your contest start.</Form.Text>
+                <Form.Label as={Row}>{t('description.Start')}:</Form.Label>
+                <Form.Text as={Row} muted>{t('description.start_of_contest')}</Form.Text>
                 <DateTimePicker onChange={setStart} value={start}/>
             </Form.Group>
             <Form.Group>
-                <Form.Label as={Row}>End:</Form.Label>
-                <Form.Text as={Row} muted>This is the time your contest end.</Form.Text>
+                <Form.Label as={Row}>{t('description.End')}:</Form.Label>
+                <Form.Text as={Row} muted>{t('description.end_of_contest')}</Form.Text>
                 <DateTimePicker onChange={setEnd} value={end}/>
             </Form.Group>
             <Form.Group>
-                <Form.Label as={Row}>Message:</Form.Label>
-                <Form.Text as={Row} muted>Use this to give a brief introduction to your
-                    contest.</Form.Text>
+                <Form.Label as={Row}>{t('description.Message')}:</Form.Label>
+                <Form.Text as={Row} muted>{t('description.message_of_contest')}</Form.Text>
                 <SimpleMDE value={message} onChange={setMessage}/>
             </Form.Group>
 
             <Form.Group>
-                <Button className='float-end' variant='primary' type='submit'>Update</Button>
+                <Button className='float-end' variant='primary' type='submit'>{t('description.Update')}</Button>
             </Form.Group>
         </Form>
     )

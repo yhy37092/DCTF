@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import {Button, Col, Form, Row} from 'react-bootstrap'
+import {useTranslation} from "react-i18next";
 
 export default ({onSubmit}) => {
-
+    const {t, i18n} = useTranslation();
     const [name, setName] = useState('');
     const [captain, setCaptin] = useState('');
     const [members, setMembers] = useState([]);
@@ -18,17 +19,17 @@ export default ({onSubmit}) => {
                 }
             )
         }}>
-            <Form.Label>team name</Form.Label>
-            <Form.Control key='name' type='text' name='name' value={name} placeholder='Enter name'
+            <Form.Label>{t('description.team_name')}</Form.Label>
+            <Form.Control key='name' type='text' name='name' value={name} placeholder={t('description.Enter_team_name')}
                           onChange={event => setName(event.target.value)}/>
-            <Form.Label>captain account</Form.Label>
-            <Form.Control key='captain' type='text' name='captain' value={captain} placeholder='Enter captain'
+            <Form.Label>{t('description.captain_account')}</Form.Label>
+            <Form.Control key='captain' type='text' name='captain' value={captain} placeholder={t('description.Enter_account')}
                           onChange={event => setCaptin(event.target.value)}/>
             {
                 members.map((member, index) => (
                     <div key={index + 1}>
-                        <Form.Label>member {index + 1}</Form.Label>
-                        <Form.Control type='text' name={index + 1} value={member} placeholder='Enter member account'
+                        <Form.Label>{t('description.member')} {index + 1}</Form.Label>
+                        <Form.Control type='text' name={index + 1} value={member} placeholder={t('description.Enter_account')}
                                       onChange={event => {
                                           const tmp = members.slice();
                                           tmp[index] = event.target.value;
@@ -39,14 +40,14 @@ export default ({onSubmit}) => {
             }
             <Row>
                 <Col>
-                    <Button className='float-start' key='Add member' variant='outline-secondary' type='button'
+                    <Button className='float-start' variant='outline-secondary' type='button'
                             onClick={() => {
                                 setCount(count + 1)
                                 setMembers(members => [...members, ''])
-                            }}>Add</Button>
+                            }}>{t('description.Add')}</Button>
                 </Col>
                 <Col>
-                    <Button className='float-end' key='Delete member' variant='outline-secondary' type='button'
+                    <Button className='float-end' variant='outline-secondary' type='button'
                             onClick={() => {
                                 if (count > 0) {
                                     setCount(count - 1)
@@ -54,10 +55,10 @@ export default ({onSubmit}) => {
                                     tmp.splice(members.length - 1, 1)
                                     setMembers(tmp)
                                 }
-                            }}>sub</Button>
+                            }}>{t('description.Sub')}</Button>
                 </Col>
             </Row>
-            <Button variant='primary' type='submit'>Submit</Button>
+            <Button variant='primary' type='submit'>{t('description.Submit')}</Button>
         </Form>
     )
 }

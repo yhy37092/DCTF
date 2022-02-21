@@ -2,7 +2,10 @@ import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 
 import {Breadcrumb, Col, Row} from 'react-bootstrap'
-import {GrantMember, NoMatch, RevokeMember} from "../../components";
+import {NoMatch} from "../../components";
+import {useTranslation} from "react-i18next";
+import GrantMember from "./GrantMember";
+import RevokeMember from "./RevokeMember";
 
 export default () => {
     return (
@@ -14,12 +17,13 @@ export default () => {
 }
 
 function MainPage() {
+    const {t} = useTranslation();
     return (
         <>
             <Row>
                 <Col>
                     <Breadcrumb>
-                        <Breadcrumb.Item active>SystemAdmin</Breadcrumb.Item>
+                        <Breadcrumb.Item active>{t('description.SystemAdmin')}</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>
             </Row>

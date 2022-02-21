@@ -2,10 +2,13 @@ import React, {useCallback, useState} from 'react'
 import {drizzleReactHooks} from '@drizzle/react-plugin'
 import Web3Utils from 'web3-utils'
 import {Button, Modal} from 'react-bootstrap'
-import TransactionStatuses from '../TransactionStatuses'
-import GrantForm from '../Forms/GrantForm'
+import TransactionStatuses from '../../components/TransactionStatuses'
+import GrantForm from '../../components/Forms/GrantForm'
+import {useTranslation} from "react-i18next";
 
 export default () => {
+    const { t} = useTranslation();
+
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
     const {send, TXObjects} = useCacheSend('AccessContr0l', 'grantRoles')
     const CONTEST_ADMIN = Web3Utils.keccak256('CONTEST_ADMIN')
@@ -16,7 +19,7 @@ export default () => {
 
     return (
         <>
-            <h1 align='center'>Contest admins
+            <h1 align='center'>{t('description.Contest_admins')}
                 <Button variant='outline-secondary' onClick={handleShow}>
                     <i className='btn-fa fas fa-plus-circle'/>
                 </Button>
@@ -24,7 +27,7 @@ export default () => {
 
             <Modal show={show} onHide={handleShow}>
                 <Modal.Header closeButton onClick={handleClose}>
-                    <Modal.Title>grant a contest admin</Modal.Title>
+                    <Modal.Title>{t('description.grant')}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <TransactionStatuses TXObjects={TXObjects}/>

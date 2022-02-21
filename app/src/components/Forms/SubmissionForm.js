@@ -1,19 +1,20 @@
 import React from 'react'
 import {Form, Table} from 'react-bootstrap'
 import {toMoveState} from "../../utils/utils";
+import {useTranslation} from "react-i18next";
 
 export default ({data}) => {
-
+    const {t, i18n} = useTranslation();
     return (
         <Form>
             <Table responsive bordered hover>
                 <thead className='thead-light'>
                 <tr>
-                    <th>id</th>
-                    <th>team</th>
-                    <th>hash</th>
-                    <th>flag</th>
-                    <th>state</th>
+                    <th>{t('description.Id')}</th>
+                    <th>{t('description.Team')} {t('description.Name')}</th>
+                    <th>{t('description.Hash')}</th>
+                    <th>{t('description.Flag')}</th>
+                    <th>{t('description.State')}</th>
                 </tr>
                 </thead>
                 <tbody>

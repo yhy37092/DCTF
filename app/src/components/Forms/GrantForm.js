@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import {Button, Form, ModalFooter} from 'react-bootstrap'
+import {useTranslation} from "react-i18next";
 
 export default ({onSubmit}) => {
-
+    const { t, i18n } = useTranslation();
     const [accounts, setAccounts] = useState([''])
     const [count, setCount] = useState(1)
 
@@ -17,12 +18,12 @@ export default ({onSubmit}) => {
             )
         }}>
             <Form.Group>
-                <Form.Label>account address</Form.Label>
+                <Form.Label>{t('description.account_address')}</Form.Label>
                 {
                     accounts.map((account, index) => (
                         <div key={index}>
-                            <Form.Text muted>account {index + 1}</Form.Text>
-                            <Form.Control type='text' name='account' value={account} placeholder='Enter account'
+                            <Form.Text muted>{t('description.account')} {index + 1}</Form.Text>
+                            <Form.Control type='text' name='account' value={account} placeholder={t('description.Enter_account')}
                                           onChange={event => {
                                               setAccounts(accounts.slice().fill(event.target.value, index, index + 1))
                                           }}/>
@@ -35,7 +36,7 @@ export default ({onSubmit}) => {
                         onClick={() => {
                             setCount(count + 1)
                             setAccounts(accounts => [...accounts, ''])
-                        }}>Add</Button>
+                        }}>{t('description.Add')}</Button>
                 <Button className='float-end' variant='outline-secondary' type='button'
                         onClick={() => {
                             if (count > 1) {
@@ -44,8 +45,8 @@ export default ({onSubmit}) => {
                                 tmp.splice(accounts.length - 1, 1)
                                 setAccounts(tmp)
                             }
-                        }}>sub</Button>
-                <Button variant='primary' type='submit'>Submit</Button>
+                        }}>{t('description.Sub')}</Button>
+                <Button variant='primary' type='submit'>{t('description.Submit')}</Button>
             </ModalFooter>
         </Form>
     )

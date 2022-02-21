@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import {Button, Col, Form, Row, Table} from 'react-bootstrap'
 import {Link, useParams} from 'react-router-dom'
+import {useTranslation} from "react-i18next";
 
 export default ({onSubmit, data}) => {
-
+    const {t, i18n} = useTranslation();
     const {contestId} = useParams()
 
     const [checkList, setCheckList] = useState([])
@@ -30,11 +31,10 @@ export default ({onSubmit, data}) => {
                     <th><Form.Check type={'checkbox'} id={'default-checkbox'}
                                     onChange={event => (setCheckList(checkList.slice().fill(event.target.checked)))}/>
                     </th>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Value</th>
-                    <th>Type</th>
+                    <th>{t('description.Id')}</th>
+                    <th>{t('description.Name')}</th>
+                    <th>{t('description.Category')}</th>
+                    <th>{t('description.Value')}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -54,7 +54,6 @@ export default ({onSubmit, data}) => {
                             </td>
                             <td>{value.info.category}</td>
                             <td>{value.info.value}</td>
-                            <td>{value.info.challengeType}</td>
                         </tr>
                     ))
                 }

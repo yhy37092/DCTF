@@ -1,8 +1,8 @@
 import React, {useCallback} from 'react'
 import {drizzleReactHooks} from "@drizzle/react-plugin"
-import TransactionStatuses from '../TransactionStatuses'
-import {contest} from '../../MetaData.json'
-import UpdateContestForm from '../Forms/UpdateContestForm'
+import TransactionStatuses from '../../../components/TransactionStatuses'
+import {contest} from '../../../MetaData.json'
+import UpdateContestForm from '../../../components/Forms/UpdateContestForm'
 
 export default ({contestId}) => {
     const {useCacheSend, useCacheCall} = drizzleReactHooks.useDrizzle()

@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import {Button, Col, Form, Row, Table} from 'react-bootstrap'
+import {useTranslation} from "react-i18next";
 
 export default ({onSubmit, data}) => {
-
+    const {t, i18n} = useTranslation();
     const [checkList, setCheckList] = useState([])
     useEffect(() => {
         setCheckList(Array(data.length).fill(false))
@@ -27,7 +28,7 @@ export default ({onSubmit, data}) => {
                     <th><Form.Check type={'checkbox'} id={'default-checkbox'}
                                     onChange={event => (setCheckList(checkList.slice().fill(event.target.checked)))}/>
                     </th>
-                    <th>account</th>
+                    <th>{t('description.account')}</th>
                 </tr>
                 </thead>
                 <tbody>

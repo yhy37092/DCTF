@@ -1,10 +1,15 @@
 import React from 'react'
 import {Link, Route, Routes, useParams} from 'react-router-dom'
 import {Breadcrumb, Col, Row} from 'react-bootstrap'
-import {CommitChallenge, NewChallenge, RemoveChallenge, RevealChallenge, UpdateChallenge} from "../../../../components";
+import RevealChallenge from "./RevealChallenge";
+import RemoveChallenge from "./RemoveChallenge";
+import NewChallenge from "./NewChallenge";
+import CommitChallenge from "./CommitChallenge";
+import UpdateChallenge from "./UpdateChallenge";
+import {useTranslation} from "react-i18next";
 
 export default () => {
-    
+
     return (
         <Routes>
             <Route path={`/`} element={<MainPage />}/>
@@ -15,7 +20,7 @@ export default () => {
 }
 
 function MainPage() {
-    
+    const {t, i18n} = useTranslation();
     const {contestId} = useParams()
 
     return (
@@ -23,10 +28,10 @@ function MainPage() {
             <Row>
                 <Col>
                     <Breadcrumb>
-                        <Link to='/ContestAdmin' className='breadcrumb-item'>ContestAdmin</Link>
+                        <Link to='/ContestAdmin' className='breadcrumb-item'>{t('description.ContestAdmin')}</Link>
                         <Link to={`/ContestAdmin/Contest-${contestId}`}
-                              className='breadcrumb-item'>Contest-{contestId}</Link>
-                        <Breadcrumb.Item active>Challenges</Breadcrumb.Item>
+                              className='breadcrumb-item'>{t('description.Contest')}-{contestId}</Link>
+                        <Breadcrumb.Item active>{t('description.Challenges')}</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>
             </Row>
@@ -47,7 +52,7 @@ function MainPage() {
 }
 
 function New() {
-    
+    const {t, i18n} = useTranslation();
     const {contestId} = useParams()
 
     return (
@@ -55,18 +60,18 @@ function New() {
             <Row>
                 <Col>
                     <Breadcrumb>
-                        <Link to='/ContestAdmin' className='breadcrumb-item'>ContestAdmin</Link>
+                        <Link to='/ContestAdmin' className='breadcrumb-item'>{t('description.ContestAdmin')}</Link>
                         <Link to={`/ContestAdmin/Contest-${contestId}`}
-                              className='breadcrumb-item'>Contest-{contestId}</Link>
+                              className='breadcrumb-item'>{t('description.Contest')}-{contestId}</Link>
                         <Link to={`/ContestAdmin/Contest-${contestId}/Challenges`}
-                              className='breadcrumb-item'>Challenges</Link>
-                        <Breadcrumb.Item active>New</Breadcrumb.Item>
+                              className='breadcrumb-item'>{t('description.Challenges')}</Link>
+                        <Breadcrumb.Item active>{t('description.New')}</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <h1 align='center'>Create Challenge</h1>
+                    <h1 align='center'>{t('description.Create_Challenge')}</h1>
                 </Col>
             </Row>
 
@@ -81,7 +86,7 @@ function New() {
 }
 
 function Update() {
-    
+    const {t, i18n} = useTranslation();
     const {contestId, challengeId} = useParams()
 
     return (
@@ -89,18 +94,18 @@ function Update() {
             <Row>
                 <Col>
                     <Breadcrumb>
-                        <Link to='/ContestAdmin' className='breadcrumb-item'>ContestAdmin</Link>
+                        <Link to='/ContestAdmin' className='breadcrumb-item'>{t('description.ContestAdmin')}</Link>
                         <Link to={`/ContestAdmin/Contest-${contestId}`}
-                              className='breadcrumb-item'>Contest-{contestId}</Link>
+                              className='breadcrumb-item'>{t('description.Contest')}-{contestId}</Link>
                         <Link to={`/ContestAdmin/Contest-${contestId}/Challenges`}
-                              className='breadcrumb-item'>Challenges</Link>
-                        <Breadcrumb.Item active>Challenge-{challengeId}</Breadcrumb.Item>
+                              className='breadcrumb-item'>{t('description.Challenges')}</Link>
+                        <Breadcrumb.Item active>{t('description.Challenge')}-{challengeId}</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <h1 align='center'>Update Challenge</h1>
+                    <h1 align='center'>{t('description.Challenge_Detail')}</h1>
                 </Col>
             </Row>
 

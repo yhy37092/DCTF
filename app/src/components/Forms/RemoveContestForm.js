@@ -2,9 +2,10 @@ import React, {useEffect, useState} from 'react'
 import {Button, Col, Form, Row, Table} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import {toContestState, toDate, toEther} from '../../utils/utils'
+import {useTranslation} from "react-i18next";
 
 export default ({onSubmit, data}) => {
-
+    const {t, i18n} = useTranslation();
     const [checkList, setCheckList] = useState([])
     useEffect(() => {
         setCheckList(Array(data.length).fill(false))
@@ -27,15 +28,15 @@ export default ({onSubmit, data}) => {
                 <thead className='thead-light'>
                 <tr>
                     <th><Form.Check type={'checkbox'} id={'default-checkbox'}
-                                   onChange={event => (setCheckList(checkList.slice().fill(event.target.checked)))}/>
+                                    onChange={event => (setCheckList(checkList.slice().fill(event.target.checked)))}/>
                     </th>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Fee</th>
-                    <th>Start</th>
-                    <th>End</th>
-                    <th>State</th>
+                    <th>{t('description.Id')}</th>
+                    <th>{t('description.Name')}</th>
+                    <th>{t('description.Type')}</th>
+                    <th>{t('description.Fee')}</th>
+                    <th>{t('description.Start')}</th>
+                    <th>{t('description.End')}</th>
+                    <th>{t('description.State')}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -53,7 +54,7 @@ export default ({onSubmit, data}) => {
                             <td><Link
                                 to={`/ContestAdmin/Contest-${value.id}`}>{value.info.name}</Link>
                             </td>
-                            <td>{value.info.contestType}</td>
+                            <td>{t(`description.${value.info.contestType}`)}</td>
                             <td>{toEther(value.info.fee)} ether</td>
                             <td>{toDate(value.info.start)}</td>
                             <td>{toDate(value.info.end)}</td>
