@@ -5,7 +5,7 @@ import {ContestAdminNavBar, NoMatch} from '../../../components'
 import Challenges from './Challenges'
 import {useTranslation} from "react-i18next";
 import Submissions from "./Submissions";
-import AuditTeam from "./AuditTeam";
+import AuditTeam from "./Teams";
 import UpdateContest from "./UpdateContest";
 
 export default () => {

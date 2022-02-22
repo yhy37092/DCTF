@@ -20,7 +20,7 @@ export default () => {
 }
 
 function MainPage() {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     const {contestId} = useParams()
 
     return (
@@ -52,7 +52,7 @@ function MainPage() {
 }
 
 function New() {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     const {contestId} = useParams()
 
     return (
@@ -86,7 +86,7 @@ function New() {
 }
 
 function Update() {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     const {contestId, challengeId} = useParams()
 
     return (

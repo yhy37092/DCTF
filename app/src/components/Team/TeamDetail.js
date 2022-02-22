@@ -4,7 +4,7 @@ import {toTeamState} from "../../utils/utils";
 import {useTranslation} from "react-i18next";
 
 export default ({data}) => {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     return (
         <Card>
             <Card.Body>

@@ -5,7 +5,7 @@ import React from "react";
 import {useTranslation} from "react-i18next";
 
 export default ({data}) => {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     return (
         <Card>
             <Card.Header>{t(`description.${data.info.contestType}`)}

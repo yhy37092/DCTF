@@ -1,0 +1,511 @@
+{
+	"compiler": {
+		"version": "0.8.12+commit.f00d7308"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_Contests",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "contestId",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "challengeType",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "category",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "message",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "connectionInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "file",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "hint",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IChallenges.IChallenge",
+						"name": "challenge",
+						"type": "tuple"
+					}
+				],
+				"name": "add",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "challenges",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "contestId",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "challengeType",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "category",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "message",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "connectionInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "file",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "hint",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IChallenges.IChallenge",
+						"name": "info",
+						"type": "tuple"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStamp",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "get",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "contestId",
+								"type": "uint256"
+							},
+							{
+								"components": [
+									{
+										"internalType": "string",
+										"name": "challengeType",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "name",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "category",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "message",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "connectionInfo",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "file",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "hint",
+										"type": "string"
+									},
+									{
+										"internalType": "uint256",
+										"name": "value",
+										"type": "uint256"
+									}
+								],
+								"internalType": "struct IChallenges.IChallenge",
+								"name": "info",
+								"type": "tuple"
+							},
+							{
+								"internalType": "uint256",
+								"name": "timeStamp",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IChallenges.Challenge",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "getChallenge",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "contestId",
+								"type": "uint256"
+							},
+							{
+								"components": [
+									{
+										"internalType": "string",
+										"name": "challengeType",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "name",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "category",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "message",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "connectionInfo",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "file",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "hint",
+										"type": "string"
+									},
+									{
+										"internalType": "uint256",
+										"name": "value",
+										"type": "uint256"
+									}
+								],
+								"internalType": "struct IChallenges.IChallenge",
+								"name": "info",
+								"type": "tuple"
+							},
+							{
+								"internalType": "uint256",
+								"name": "timeStamp",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IChallenges.Challenge",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "contestId",
+						"type": "uint256"
+					}
+				],
+				"name": "getContestChallengeIds",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nextId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "contestId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "_ids",
+						"type": "uint256[]"
+					}
+				],
+				"name": "removes",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "contestId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "challengeType",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "category",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "message",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "connectionInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "file",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "hint",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IChallenges.IChallenge",
+						"name": "challenge",
+						"type": "tuple"
+					}
+				],
+				"name": "update",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Challenges.sol": "Challenges"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/utils/structs/EnumerableSet.sol": {
+			"keccak256": "0x9772845c886f87a3aab315f8d6b68aa599027c20f441b131cd4afaf65b588900",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ad2f29a9c17a4f746416c9e254e17671f43c409dbfa6e4d7d76c3e4a83212d31",
+				"dweb:/ipfs/QmTqU65L6iu6yqmXKzcNLPioR8etzKPWycpDJCm17ifVdS"
+			]
+		},
+		"Challenges.sol": {
+			"keccak256": "0x9849b689dd5548b2ddc7dffda15e8fdf5453c7cea19b90b5b5adfbc284dac4e9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6847efae10d327788d578543cf551b413dd2343cc07912f9de808c856aea5f8d",
+				"dweb:/ipfs/QmPnC8UPqAwSZXRZp7QDtHgpvZCe4rVhVZxAnvQHFbgbsG"
+			]
+		},
+		"IChallenges.sol": {
+			"keccak256": "0x2feaa29c6241791b2afc1a881110631c233122addd2df13fa9f831ae131f5576",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2a28a159b16759aec5fcd5a6174ca41e72f9f4e8d278a978d1c5e3b5f1c5ecd2",
+				"dweb:/ipfs/QmVtXY1V51j1Ao6kfxLLbqNCYBSs6kWZbwgWv8h4n4qccQ"
+			]
+		},
+		"IContests.sol": {
+			"keccak256": "0x16bffe87ad5e11eeff05075410ab0ac2a6d90be1aac3b200abcce8ef17b253d7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0fffb098460d87a4f187b87f1547ccd66f28621bbb702c7951f7c125fe4b1c15",
+				"dweb:/ipfs/QmVqGjDgGii3btCMeGCkn55CCW2dTKZqi6fCvudXu7oRUB"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,7 +1,6 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import React from "react";
 
 i18n
     // detect user language
@@ -103,10 +102,7 @@ i18n
                         Enter_team_name:'Enter team name',
                         OnGoing:'OnGoing',
                         team_info:'team info',
-                        waiting_for_approving:'Already applied,waiting for approving...',
-                        approved:'your apply is approved',
-                        apply_rejected:'Sorry,your apply is rejected!!!',
-                        can_re_apply:'But you can re-apply',
+                        applied:'Already applied.',
                         Go_to_contest:'Go to contest',
                         Apply_contest:'Apply contest'
                     }
@@ -197,10 +193,7 @@ i18n
                         Enter_team_name:'输入队伍名称',
                         OnGoing:'进行中',
                         team_info:'队伍信息',
-                        waiting_for_approving:'申请已提交，等待审核中...',
-                        approved:'申请已通过',
-                        apply_rejected:'你的申请被拒绝了!!!',
-                        can_re_apply:'但是你可以重新申请',
+                        applied:'已经提交申请.',
                         Go_to_contest:'进入比赛',
                         Apply_contest:'申请参加比赛'
                     }

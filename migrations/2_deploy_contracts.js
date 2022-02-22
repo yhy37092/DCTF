@@ -52,19 +52,19 @@ module.exports = async (deployer, network, accounts) => {
         ['Jeopardy', 'RuCTFE 2022', 0, parseInt(Date.now() / 1000) + 86400, parseInt(Date.now() / 1000) + 2 * 86400, 'International online challenge in information security. Good choice to start playing A/D, because we\'re providing vulnbox in our cloud, so you don\'t need to be an administrator. Also good choice for pros — you will battle with teams from all over the world! From Yekaterinburg with <3']
     ]
     let challenges = [
-        ['Jeopardy', 'KoG-146', 'Web', 'King of Glory is a funny game. Our website has a list of players.', 'http://202.120.7.213:11181', '', '', 150],
-        ['Jeopardy', 'Temmo\'s Tiny Shop', 'Web', 'Enjoy online shopping? It\'s so convenient, and I like it very much.', 'http://202.120.7.197/', '', '', 200],
-        ['Jeopardy', 'Choices-297', 'Reverse', 'All roads lead to Vegas.\n' +
+        ['Standard', 'KoG-146', 'Web', 'King of Glory is a funny game. Our website has a list of players.', 'http://202.120.7.213:11181', '', '', 150],
+        ['Standard', 'Temmo\'s Tiny Shop', 'Web', 'Enjoy online shopping? It\'s so convenient, and I like it very much.', 'http://202.120.7.197/', '', '', 200],
+        ['Standard', 'Choices-297', 'Reverse', 'All roads lead to Vegas.\n' +
         '\n' +
         'Compile: clang -Xclang -load -Xclang lib0opsPass.so -mllvm -oopsSeed=BAADF00DCAFEBABE3043544620170318 source.c\n' +
         '\n' +
         'Clang && LLVM Version: 3.9.1', '', 'https://github.com/ctfs/write-ups-2017/blob/master/0ctf-quals-2017/reverse/Choices-297/choices.tar.gz', '', 100],
-        ['Jeopardy', 'engineTest-261', 'Reverse', 'run go.sh and check yout flag...', '', 'https://github.com/ctfs/write-ups-2017/blob/master/0ctf-quals-2017/reverse/engineTest-261/engineTest_81bd3eba5988a5bf7da1dae59f68df2c.zip', '', 200],
-        ['Jeopardy', 'Baby Heap 2017', 'Pwn', 'Let\'s practice some basic heap techniques in 2017 together!', '202.120.7.218:2017', 'https://github.com/ctfs/write-ups-2017/blob/master/0ctf-quals-2017/pwn/Baby-Heap-2017-255/libc.so.6_b86ec517ee44b2d6c03096e0518c72a1', '', 100],
-        ['Jeopardy', 'Survey', 'Misc', 'Please fill out this Survey (https://docs.google.com/forms/d/e/1FAIpQLSfw-2TaHtx4eHX54Vlr5LnMrQJWoPJZ-FyvmUCSefsFSY3J8g/viewform).\n' +
+        ['Standard', 'engineTest-261', 'Reverse', 'run go.sh and check yout flag...', '', 'https://github.com/ctfs/write-ups-2017/blob/master/0ctf-quals-2017/reverse/engineTest-261/engineTest_81bd3eba5988a5bf7da1dae59f68df2c.zip', '', 200],
+        ['Standard', 'Baby Heap 2017', 'Pwn', 'Let\'s practice some basic heap techniques in 2017 together!', '202.120.7.218:2017', 'https://github.com/ctfs/write-ups-2017/blob/master/0ctf-quals-2017/pwn/Baby-Heap-2017-255/libc.so.6_b86ec517ee44b2d6c03096e0518c72a1', '', 100],
+        ['Standard', 'Survey', 'Misc', 'Please fill out this Survey (https://docs.google.com/forms/d/e/1FAIpQLSfw-2TaHtx4eHX54Vlr5LnMrQJWoPJZ-FyvmUCSefsFSY3J8g/viewform).\n' +
         '\n' +
         'Thank you for participating in 0CTF 2017 Quals!', 'https://docs.google.com/forms/d/e/1FAIpQLSfw-2TaHtx4eHX54Vlr5LnMrQJWoPJZ-FyvmUCSefsFSY3J8g/viewform).', '', '', 250],
-        ['Jeopardy', 'integrity', 'Crypto', 'Just a simple scheme.\n' +
+        ['Standard', 'integrity', 'Crypto', 'Just a simple scheme.\n' +
         '\n' +
         'nc 202.120.7.217 8221', '', 'https://github.com/ctfs/write-ups-2017/blob/master/0ctf-quals-2017/crypto/integrity-75/integrity_f2ed28d6534491b42c922e7d21f59495.zip', '', 300],
 
@@ -80,8 +80,7 @@ module.exports = async (deployer, network, accounts) => {
     ]
     await AccessContr0lInstance.grantRole(Web3Utils.soliditySha3('CONTEST_ADMIN'), contestAdmin);
     await Promise.all(contests.map(contest => ContestInstance.add(contest)));
-    await Promise.all([...Array(4).keys()].map(index => TeamsInstance.applyContest(index + 1, ['Cock_Intelligence_Agency', systemAdmin, [accounts[1], accounts[2]]])));
-    await Promise.all([false, true, true].map((result, index) => TeamsInstance.auditTeams(index + 1, [index + 1], [result])));
+    await Promise.all([...Array(4).keys()].map(index => TeamsInstance.add(index + 1, ['Cock_Intelligence_Agency', systemAdmin, [accounts[1], accounts[2]]])));
     const delay = ms => new Promise(res => setTimeout(res, ms));
     await delay(10001);
 

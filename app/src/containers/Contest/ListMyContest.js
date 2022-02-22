@@ -1,19 +1,8 @@
-import React, {useCallback} from 'react'
-import {drizzleReactHooks} from '@drizzle/react-plugin'
+import React, {useCallback} from "react";
 import ListContest from "./ListContest";
 
-
-export default () => {
-    const {useCacheCall} = drizzleReactHooks.useDrizzle()
-
-    return (
-        <>
-            {
-                useCacheCall(['Teams', 'Contests'], call => {
-                    const ids = call('Teams', 'getApply') || []
-                    return <ListContest filter={useCallback(({_data}) => (ids.includes(_data.id)), [ids])}/>
-                })
-            }
-        </>
-    );
-};
+export default ({data}) => {
+    return <ListContest
+        filter={useCallback(({_data}) => data.includes(_data.id), [data])}
+    />
+}

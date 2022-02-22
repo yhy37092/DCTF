@@ -2,12 +2,12 @@ import React from 'react'
 import {drizzleReactHooks} from "@drizzle/react-plugin"
 import {Button} from 'react-bootstrap'
 import {useSelector} from 'react-redux'
-import TransactionStatuses from '../../components/TransactionStatuses'
-import {getUserFlags} from "../../reducers/flags";
+import TransactionStatuses from '../../../components/TransactionStatuses'
+import {getUserFlags} from "../../../reducers/flags";
 import {useTranslation} from "react-i18next";
 
-export default ({contest, team}) => {
-    const {t, i18n} = useTranslation();
+export default ({contestId, teamId}) => {
+    const {t} = useTranslation();
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
     const {send, TXObjects} = useCacheSend('Moves', 'revealForMembers')
     const flags = useSelector(getUserFlags)
@@ -17,13 +17,13 @@ export default ({contest, team}) => {
         const _flags = []
         const _salts = []
         flags.forEach(flag => {
-            if (contest.id === flag.contestId) {
+            if (contestId === flag.contestId) {
                 _challengeIds.push(flag.challengeId)
                 _flags.push(flag.flag)
                 _salts.push(flag.salt)
             }
         })
-        _challengeIds.length > 0 && send(contest.id, team.id, _challengeIds, _flags, _salts)
+        _challengeIds.length > 0 && send(contestId, teamId, _challengeIds, _flags, _salts)
     }
 
     return (

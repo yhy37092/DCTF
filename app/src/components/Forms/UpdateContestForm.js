@@ -5,7 +5,7 @@ import SimpleMDE from 'react-simplemde-editor'
 import {useTranslation} from "react-i18next";
 
 export default ({onSubmit, data}) => {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     const [contestType, setContestType] = useState('')
     const [name, setName] = useState('')
     const [fee, setFee] = useState(0)

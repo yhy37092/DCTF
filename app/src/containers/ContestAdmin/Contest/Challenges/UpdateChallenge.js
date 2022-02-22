@@ -13,9 +13,7 @@ export default ({contestId, challengeId}) => {
             <TransactionStatuses TXObjects={TXObjects}/>
             <UpdateChallengeForm
                 data={useCacheCall('Challenges', 'challenges', challengeId) || challenge}
-                onSubmit={useCallback(({_data}) => {
-                    send(contestId, challengeId, _data)
-                }, [send, contestId, challengeId])}/>
+                onSubmit={useCallback(({_data}) => send(contestId, challengeId, _data), [send, contestId, challengeId])}/>
         </>
     )
 }

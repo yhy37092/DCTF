@@ -8,7 +8,7 @@ import TransactionStatuses from '../../../../components/TransactionStatuses'
 import {useTranslation} from "react-i18next";
 
 export default ({contestId}) => {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
     const {send, TXObjects} = useCacheSend('Moves', 'revealForAdmins')
     const flags = useSelector(getAdminFlags)

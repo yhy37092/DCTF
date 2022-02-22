@@ -1,17 +1,17 @@
 import {useDispatch, useSelector} from "react-redux";
-import {getUserFlags, userAdd, userRemove} from "../../reducers/flags";
+import {getUserFlags, userAdd, userRemove} from "../../../reducers/flags";
 import React, {useCallback, useEffect, useState} from "react";
 import Web3Utils from "web3-utils";
 import {Modal, Tab, Tabs} from "react-bootstrap";
-import ChallengeDetail from "../../components/Challenge/ChallengeDetail";
-import CommitForm from "../../components/Forms/CommitForm";
+import ChallengeDetail from "../../../components/Challenge/ChallengeDetail";
+import CommitForm from "../../../components/Forms/CommitForm";
 import {drizzleReactHooks} from "@drizzle/react-plugin";
-import TransactionStatuses from "../../components/TransactionStatuses";
-import {ChallengePreview} from "../../components";
+import TransactionStatuses from "../../../components/TransactionStatuses";
+import {ChallengePreview} from "../../../components";
 import {useTranslation} from "react-i18next";
 
-export default ({contest, team, challenge}) => {
-    const {t, i18n} = useTranslation();
+export default ({contestId, teamId, challenge}) => {
+    const {t} = useTranslation();
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
     const {send, TXObjects} = useCacheSend('Moves', 'commitForMember')
     const flags = useSelector(getUserFlags);
@@ -48,14 +48,14 @@ export default ({contest, team, challenge}) => {
                         })
                         const salt = Web3Utils.randomHex(32);
                         dispatch(userAdd({
-                            contestId: contest.id,
-                            teamId: team.id,
+                            contestId: contestId,
+                            teamId: teamId,
                             challengeId: challenge.id,
                             flag: flag,
                             salt: salt
                         }));
-                        send(contest.id, team.id, challenge.id, Web3Utils.soliditySha3(flag, salt))
-                    },[])}/>
+                        send(contestId, teamId, challenge.id, Web3Utils.soliditySha3(flag, salt))
+                    },[contestId,teamId,challenge,flag,flags,send,dispatch])}/>
                 </Modal.Footer>
             </Modal>
             <ChallengePreview data={challenge} callback={useCallback(handleShow, [])}/>

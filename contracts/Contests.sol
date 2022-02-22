@@ -17,26 +17,23 @@ contract Contests is IContests {
     }
 
     EnumerableSet.UintSet ids;
-    //ContestId => contest
-    mapping(uint => Contest) public contests;
+    mapping(uint => Contest) contests;
     uint public nextId = 1;
 
-    // index
-    // contests managed by someone
     mapping(address => EnumerableSet.UintSet) addressToContests;
 
-    function _gets(uint [] memory _ids) internal view returns (Contest [] memory) {
-        uint number = _ids.length;
-        Contest [] memory result = new Contest [] (number);
-        for(uint i = 0; i < number; i++) {
-            result[i] = contests[_ids[i]];
-        }
-        return result;
+    function _updateState(uint id) internal {
+        if (block.timestamp >= contests[id].info.start) contests[id].state = IContests.ContestState.STARTED;
+        if (block.timestamp >= contests[id].info.end) contests[id].state = IContests.ContestState.ENDED;
     }
 
-    function _updateState(uint id) internal {
-        if(block.timestamp >= contests[id].info.start) contests[id].state = IContests.ContestState.STARTED;
-        if(block.timestamp >= contests[id].info.end) contests[id].state = IContests.ContestState.ENDED;
+    function _remove(uint id) internal
+    onlyContestExist(id)
+    onlyContestOwner(id)
+    onlyContestInState(id, IContests.ContestState.CREATED) {
+        ids.remove(id);
+        addressToContests[msg.sender].remove(id);
+        delete contests[id];
     }
 
     function add(IContest calldata contest) external
@@ -56,43 +53,23 @@ contract Contests is IContests {
         contests[id].info = contest;
     }
 
-    function _remove(uint id) internal
-    onlyContestExist(id)
-    onlyContestOwner(id)
-    onlyContestInState(id, IContests.ContestState.CREATED) {
-        ids.remove(id);
-        addressToContests[msg.sender].remove(id);
-        delete contests[id];
-    }
     function removes(uint [] memory _ids) external {
-        for(uint i = 0; i < _ids.length; i++) {
+        for (uint i = 0; i < _ids.length; i++) {
             _remove(_ids[i]);
         }
     }
 
-    function contestInState(uint id, IContests.ContestState state) external returns(bool) {
+    function contestInState(uint id, IContests.ContestState state) external returns (bool) {
         _updateState(id);
         return contests[id].state == state;
     }
 
-    function isOwner(uint contestId, address account) external view returns(bool) {
-        return contests[contestId].owner == account;
+    function getContest(uint id) external view returns (Contest memory) {
+        return contests[id];
     }
 
-    function Exist(uint contestId) external view returns(bool) {
-        return contests[contestId].id > 0;
-    }
-
-    function getSome(uint [] memory _ids) external view returns (Contest [] memory) {
-        return _gets(_ids);
-    }
-
-    function getAll() external view returns (Contest [] memory) {
-        return _gets(ids.values());
-    }
-
-    function gets(address account) external view returns (Contest [] memory){
-        return _gets(addressToContests[account].values());
+    function getMyContestIds() external view returns (uint [] memory){
+        return addressToContests[msg.sender].values();
     }
 
     function getCount() external view returns (uint) {

@@ -17,28 +17,24 @@ contract Challenges is IChallenges{
         Contests = IContests(_Contests);
     }
 
-    //ContestId  => challengeIds
     EnumerableSet.UintSet ids;
-    //ChallengeId => Challenge
     mapping(uint => Challenge) public challenges;
     uint public nextId = 1;
 
-    // index
-    // contestId => challengeIds
     mapping(uint => EnumerableSet.UintSet) contestChallenges;
 
-    function _gets(uint [] memory _ids) internal view returns (Challenge [] memory) {
-        uint number = _ids.length;
-        Challenge [] memory result = new Challenge [] (number);
-        for(uint i = 0; i < number; i++) {
-            result[i] = challenges[_ids[i]];
-        }
-        return result;
+    function _remove(uint contestId, uint id) internal
+    onlyChallengeExist(id)
+    onlyContestOwner(contestId)
+    onlyContestInState(contestId, IContests.ContestState.STARTED) {
+        ids.remove(id);
+        contestChallenges[contestId].remove(id);
+        delete challenges[id];
     }
 
     function add(uint contestId, IChallenge calldata challenge) external
     onlyContestOwner(contestId)
-    onlyContestInState(contestId, IContests.ContestState.STARTED){
+    onlyContestInState(contestId, IContests.ContestState.STARTED) {
         ids.add(nextId);
         contestChallenges[contestId].add(nextId);
         challenges[nextId] = Challenge(nextId, contestId, challenge, block.timestamp);
@@ -52,34 +48,18 @@ contract Challenges is IChallenges{
         challenges[id].info = challenge;
     }
 
-    function _remove(uint contestId, uint id) internal
-    onlyChallengeExist(id)
-    onlyContestOwner(contestId)
-    onlyContestInState(contestId, IContests.ContestState.STARTED) {
-        ids.remove(id);
-        contestChallenges[contestId].remove(id);
-        delete challenges[id];
-    }
-
     function removes(uint contestId, uint [] memory _ids) external {
         for (uint i = 0; i < _ids.length; i++) {
             _remove(contestId, _ids[i]);
         }
     }
 
-    function getAll() external view returns (Challenge [] memory) {
-        return _gets(ids.values());
-    }
-
-    function getSome(uint [] memory _ids) external view returns (Challenge [] memory) {
-        return _gets(_ids);
-    }
-
-    function gets(uint contestId) external view returns (Challenge [] memory){
-        return _gets(contestChallenges[contestId].values());
-    }
-    function getsId(uint contestId) external view returns (uint [] memory){
+    function getContestChallengeIds(uint contestId) external view returns (uint [] memory){
         return contestChallenges[contestId].values();
+    }
+
+    function getChallenge(uint id) external view returns (Challenge memory) {
+        return challenges[id];
     }
 
     function getCount() external view returns (uint) {
@@ -91,11 +71,12 @@ contract Challenges is IChallenges{
     }
 
     modifier onlyChallengeExist(uint id){
-        require(ids.contains(id), "challenge does not exist");
+        require(challenges[id].id > 0, "challenge does not exist");
         _;
     }
     modifier onlyContestOwner(uint contestId){
-        require(Contests.isOwner(contestId, msg.sender), "only contest owner");
+        IContests.Contest memory contest = Contests.getContest(contestId);
+        require(contest.owner == msg.sender, "only contest owner");
         _;
     }
     modifier onlyContestInState(uint contestId, IContests.ContestState state){

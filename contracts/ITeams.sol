@@ -26,28 +26,17 @@ interface ITeams {
         REJECTED
     }
 
-    function applyContest(uint contestId, ITeam calldata team) external payable;
+    function add(uint contestId, ITeam calldata team) external payable;
 
-    function auditTeams(uint contestId, uint [] memory _ids, bool [] memory results) external;
+    function getMyContestIds() external view returns (uint [] memory);
 
-    function updateScore(uint contestId, uint [] memory teamIds, uint [] memory scores) external;
+    function getMyTeamId(uint contestId) external view returns (uint);
 
-    function isTeamMember(uint teamId, address account) external view returns(bool);
-
-    function getApply() external view returns (uint [] memory);
-
-    function getAll() external view returns (Team [] memory);
-
-    function getSome(uint [] memory _ids) external view returns (Team [] memory);
-
-    function gets(uint contestId) external view returns (Team [] memory);
-
-    function getsId(uint contestId) external view returns (uint [] memory);
-
-    function getOne(uint contestId, address account) external view returns (Team memory);
+    function getContestTeamIds(uint contestId) external view returns (uint [] memory);
 
     function getCount() external view returns (uint);
 
     function get(uint index) external view returns (Team memory);
 
+    function getTeam(uint id) external view returns (Team memory);
 }

@@ -1,21 +1,21 @@
 {
   "contest": {
-    "id": 0,
+    "id": "0",
     "info": {
       "contestType": "",
       "name": "",
       "fee": "0",
-      "start": 0,
-      "end": 0,
+      "start": "0",
+      "end": "0",
       "message": ""
     },
     "owner": "",
-    "state": 0,
-    "timeStamp": 0
+    "state": "0",
+    "timeStamp": "0"
   },
   "challenge": {
-    "id": 0,
-    "contestId": 0,
+    "id": "0",
+    "contestId": "0",
     "info": {
       "challengeType": "",
       "name": "",
@@ -24,20 +24,33 @@
       "connectionInfo": "",
       "file": "",
       "hint": "",
-      "value": 0
+      "value": "0"
     },
-    "timeStamp": 0
+    "timeStamp": "0"
   },
   "team": {
-    "id": 0,
-    "contestId": 0,
+    "id": "0",
+    "contestId": "0",
     "info": {
       "name": "",
       "captain": "",
       "members": []
     },
-    "state": 0,
-    "score": 0,
-    "timeStamp": 0
+    "state": "0",
+    "score": "0",
+    "timeStamp": "0"
+  },
+  "move": {
+    "id": "0",
+    "contestId": "0",
+    "challengeId": "0",
+    "teamId": "0",
+    "info": {
+      "hash": "",
+      "flag": "",
+      "salt": ""
+    },
+    "state": "0",
+    "timeStamp": "0"
   }
 }

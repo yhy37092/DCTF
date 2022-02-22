@@ -3,9 +3,9 @@ import {Button, Col, Form, Row} from 'react-bootstrap'
 import {useTranslation} from "react-i18next";
 
 export default ({onSubmit}) => {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     const [name, setName] = useState('');
-    const [captain, setCaptin] = useState('');
+    const [captain, setCaptain] = useState('');
     const [members, setMembers] = useState([]);
     const [count, setCount] = useState(0);
 
@@ -23,13 +23,15 @@ export default ({onSubmit}) => {
             <Form.Control key='name' type='text' name='name' value={name} placeholder={t('description.Enter_team_name')}
                           onChange={event => setName(event.target.value)}/>
             <Form.Label>{t('description.captain_account')}</Form.Label>
-            <Form.Control key='captain' type='text' name='captain' value={captain} placeholder={t('description.Enter_account')}
-                          onChange={event => setCaptin(event.target.value)}/>
+            <Form.Control key='captain' type='text' name='captain' value={captain}
+                          placeholder={t('description.Enter_account')}
+                          onChange={event => setCaptain(event.target.value)}/>
             {
                 members.map((member, index) => (
                     <div key={index + 1}>
                         <Form.Label>{t('description.member')} {index + 1}</Form.Label>
-                        <Form.Control type='text' name={index + 1} value={member} placeholder={t('description.Enter_account')}
+                        <Form.Control type='text' name={index + 1} value={member}
+                                      placeholder={t('description.Enter_account')}
                                       onChange={event => {
                                           const tmp = members.slice();
                                           tmp[index] = event.target.value;
