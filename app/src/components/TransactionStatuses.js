@@ -3,7 +3,7 @@ import {ListGroup, Toast, ToastContainer} from "react-bootstrap";
 import {useTranslation} from "react-i18next";
 
 export default ({TXObjects}) => {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     const [show, setShow] = useState(false)
     const toggleShow = () => setShow(!show);
     useEffect(() => {

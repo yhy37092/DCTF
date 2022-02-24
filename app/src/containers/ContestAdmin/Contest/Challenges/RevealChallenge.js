@@ -8,7 +8,7 @@ import TransactionStatuses from '../../../../components/TransactionStatuses'
 import {useTranslation} from "react-i18next";
 
 export default ({contestId}) => {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
     const {send, TXObjects} = useCacheSend('Moves', 'revealForAdmins')
     const flags = useSelector(getAdminFlags)
@@ -29,15 +29,9 @@ export default ({contestId}) => {
 
     return (
         <>
-            <h1 align='center'>{t('description.Challenges')}
-                <Link to={`/ContestAdmin/Contest-${contestId}/Challenges/New`}>
-                    <Button
-                        variant='outline-secondary'><i
-                        className='btn-fa fas fa-plus-circle'/></Button></Link>
-                <Button variant='outline-secondary' onClick={handleReveal}>
-                    <i className='fas fa-arrow-circle-up'/>
-                </Button>
-            </h1>
+            <Button variant='outline-secondary' onClick={handleReveal}>
+                <i className='fas fa-arrow-circle-up'/>
+            </Button>
             <TransactionStatuses TXObjects={TXObjects}/>
         </>
     )

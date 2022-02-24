@@ -11,9 +11,7 @@ export default ({contestId}) => {
         <>
             <TransactionStatuses TXObjects={TXObjects}/>
             <NewChallengeForm
-                onSubmit={useCallback(({_data}) => {
-                    send(contestId, _data)
-                }, [send, contestId])}/>
+                onSubmit={useCallback(({_data}) => send(contestId, _data), [send, contestId])}/>
         </>
     )
 }

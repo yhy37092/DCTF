@@ -4,7 +4,7 @@ import {Link, useParams} from 'react-router-dom'
 import {useTranslation} from "react-i18next";
 
 export default ({onSubmit, data}) => {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     const {contestId} = useParams()
 
     const [checkList, setCheckList] = useState([])

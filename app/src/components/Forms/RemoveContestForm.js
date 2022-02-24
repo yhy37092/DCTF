@@ -5,7 +5,7 @@ import {toContestState, toDate, toEther} from '../../utils/utils'
 import {useTranslation} from "react-i18next";
 
 export default ({onSubmit, data}) => {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     const [checkList, setCheckList] = useState([])
     useEffect(() => {
         setCheckList(Array(data.length).fill(false))

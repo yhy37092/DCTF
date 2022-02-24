@@ -29,13 +29,9 @@ interface IChallenges {
 
     function removes(uint contestId, uint [] memory _ids) external;
 
-    function getAll() external view returns (Challenge [] memory);
+    function getContestChallengeIds(uint contestId) external view returns (uint [] memory);
 
-    function getSome(uint [] calldata _ids) external view returns (Challenge [] memory);
-
-    function gets(uint contestId) external view returns (Challenge [] memory);
-
-    function getsId(uint contestId) external view returns (uint [] memory);
+    function getChallenge(uint id) external view returns (Challenge memory);
 
     function getCount() external view returns (uint);
 

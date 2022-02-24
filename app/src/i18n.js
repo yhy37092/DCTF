@@ -1,7 +1,6 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import React from "react";
 
 i18n
     // detect user language
@@ -55,7 +54,8 @@ i18n
                         Type: 'Type',
                         Fee: 'Fee',
                         Start: 'Start',
-                        End: 'End',
+                        commitEnd: 'commit end',
+                        revealEnd: 'reveal end',
                         State: 'State',
                         Message: 'Message',
                         Jeopardy: 'Jeopardy',
@@ -103,12 +103,12 @@ i18n
                         Enter_team_name:'Enter team name',
                         OnGoing:'OnGoing',
                         team_info:'team info',
-                        waiting_for_approving:'Already applied,waiting for approving...',
-                        approved:'your apply is approved',
-                        apply_rejected:'Sorry,your apply is rejected!!!',
-                        can_re_apply:'But you can re-apply',
+                        applied:'Already applied.',
                         Go_to_contest:'Go to contest',
-                        Apply_contest:'Apply contest'
+                        Apply_contest:'Apply contest',
+                        Flags:'Challenge Flag',
+                        Score:'Score',
+                        ContestWillBegin:'Contest will begin at'
                     }
                 }
             },
@@ -150,7 +150,8 @@ i18n
                         Type: '类型',
                         Fee: '费用',
                         Start: '开始时间',
-                        End: '结束时间',
+                        commitEnd: '结束时间',
+                        revealEnd: '提交结束时间',
                         State: '状态',
                         Message: '信息',
                         Jeopardy: '解题模式',
@@ -159,7 +160,8 @@ i18n
                         name_of_contest: '比赛名称',
                         fee_of_contest: '参赛费用',
                         start_of_contest: '比赛开始时间',
-                        end_of_contest: '比赛结束时间',
+                        commitEnd_of_contest: '比赛结束时间',
+                        revealEnd_of_contest: '提交结束时间',
                         message_of_contest: '比赛描述',
                         Enter_contest_name: '输入比赛名称',
                         Enter_contest_fee: '输入比赛费用',
@@ -197,12 +199,12 @@ i18n
                         Enter_team_name:'输入队伍名称',
                         OnGoing:'进行中',
                         team_info:'队伍信息',
-                        waiting_for_approving:'申请已提交，等待审核中...',
-                        approved:'申请已通过',
-                        apply_rejected:'你的申请被拒绝了!!!',
-                        can_re_apply:'但是你可以重新申请',
+                        applied:'已经提交申请.',
                         Go_to_contest:'进入比赛',
-                        Apply_contest:'申请参加比赛'
+                        Apply_contest:'申请参加比赛',
+                        Flags:'题目flag',
+                        Score:'分数',
+                        ContestWillBegin:'比赛将开始于'
                     }
                 }
             }

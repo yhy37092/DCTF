@@ -1,22 +1,19 @@
 import React, {useCallback} from 'react'
 import {drizzleReactHooks} from '@drizzle/react-plugin'
-import Web3Utils from 'web3-utils'
 import TransactionStatuses from '../../components/TransactionStatuses'
 import RevokeForm from '../../components/Forms/RevokeForm'
 
-export default () => {
+export default ({Role}) => {
     const {useCacheSend, useCacheCall} = drizzleReactHooks.useDrizzle()
     const {send, TXObjects} = useCacheSend('AccessContr0l', 'revokeRoles')
-    const CONTEST_ADMIN = Web3Utils.keccak256('CONTEST_ADMIN')
 
     return (
         <>
             <TransactionStatuses TXObjects={TXObjects}/>
             <RevokeForm
-                data={useCacheCall('AccessContr0l','getRoleMembers',CONTEST_ADMIN)|| []}
-                onSubmit={useCallback(({_data}) => {
-                    send(CONTEST_ADMIN, _data)
-                }, [CONTEST_ADMIN, send])}/>
+                data={useCacheCall(['AccessContr0l'], call => [...Array(parseInt((call('AccessContr0l', 'getRoleMemberCount', Role) || '0'))).keys()].map(index => call('AccessContr0l', 'getRoleMember', Role, index))) || []}
+                onSubmit={useCallback(({_data}) => send(Role, _data), [Role, send])}
+            />
         </>
     )
 }

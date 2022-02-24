@@ -117,70 +117,40 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "contestId",
+          "name": "challengeId",
           "type": "uint256"
         }
       ],
-      "name": "getsSubmit",
+      "name": "getChallengeAnswerMoveId",
       "outputs": [
         {
-          "components": [
-            {
-              "internalType": "uint256",
-              "name": "id",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "contestId",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "challengeId",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "teamId",
-              "type": "uint256"
-            },
-            {
-              "components": [
-                {
-                  "internalType": "bytes32",
-                  "name": "hash",
-                  "type": "bytes32"
-                },
-                {
-                  "internalType": "string",
-                  "name": "flag",
-                  "type": "string"
-                },
-                {
-                  "internalType": "bytes32",
-                  "name": "salt",
-                  "type": "bytes32"
-                }
-              ],
-              "internalType": "struct IMoves.IMove",
-              "name": "info",
-              "type": "tuple"
-            },
-            {
-              "internalType": "enum IMoves.MoveState",
-              "name": "state",
-              "type": "uint8"
-            },
-            {
-              "internalType": "uint256",
-              "name": "timeStamp",
-              "type": "uint256"
-            }
-          ],
-          "internalType": "struct IMoves.Move[]",
+          "internalType": "uint256",
           "name": "",
-          "type": "tuple[]"
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "challengeId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "teamId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getChallengeTeamSubmitMoveId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
         }
       ],
       "stateMutability": "view",
@@ -194,66 +164,31 @@
           "type": "uint256"
         }
       ],
-      "name": "getsAnswer",
+      "name": "getContestSubmitIds",
       "outputs": [
         {
-          "components": [
-            {
-              "internalType": "uint256",
-              "name": "id",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "contestId",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "challengeId",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "teamId",
-              "type": "uint256"
-            },
-            {
-              "components": [
-                {
-                  "internalType": "bytes32",
-                  "name": "hash",
-                  "type": "bytes32"
-                },
-                {
-                  "internalType": "string",
-                  "name": "flag",
-                  "type": "string"
-                },
-                {
-                  "internalType": "bytes32",
-                  "name": "salt",
-                  "type": "bytes32"
-                }
-              ],
-              "internalType": "struct IMoves.IMove",
-              "name": "info",
-              "type": "tuple"
-            },
-            {
-              "internalType": "enum IMoves.MoveState",
-              "name": "state",
-              "type": "uint8"
-            },
-            {
-              "internalType": "uint256",
-              "name": "timeStamp",
-              "type": "uint256"
-            }
-          ],
-          "internalType": "struct IMoves.Move[]",
+          "internalType": "uint256[]",
           "name": "",
-          "type": "tuple[]"
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "contestId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getContestAnswerIds",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "",
+          "type": "uint256[]"
         }
       ],
       "stateMutability": "view",
@@ -344,9 +279,82 @@
       ],
       "stateMutability": "view",
       "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "name": "getMove",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "contestId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "challengeId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "teamId",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "bytes32",
+                  "name": "hash",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "string",
+                  "name": "flag",
+                  "type": "string"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "salt",
+                  "type": "bytes32"
+                }
+              ],
+              "internalType": "struct IMoves.IMove",
+              "name": "info",
+              "type": "tuple"
+            },
+            {
+              "internalType": "enum IMoves.MoveState",
+              "name": "state",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint256",
+              "name": "timeStamp",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IMoves.Move",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"challengeId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"}],\"name\":\"commitForAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"teamId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"challengeId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"}],\"name\":\"commitForMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"get\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"challengeId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"teamId\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"},{\"internalType\":\"string\",\"name\":\"flag\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"}],\"internalType\":\"struct IMoves.IMove\",\"name\":\"info\",\"type\":\"tuple\"},{\"internalType\":\"enum IMoves.MoveState\",\"name\":\"state\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IMoves.Move\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"}],\"name\":\"getsAnswer\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"challengeId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"teamId\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"},{\"internalType\":\"string\",\"name\":\"flag\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"}],\"internalType\":\"struct IMoves.IMove\",\"name\":\"info\",\"type\":\"tuple\"},{\"internalType\":\"enum IMoves.MoveState\",\"name\":\"state\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IMoves.Move[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"}],\"name\":\"getsSubmit\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"challengeId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"teamId\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"},{\"internalType\":\"string\",\"name\":\"flag\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"}],\"internalType\":\"struct IMoves.IMove\",\"name\":\"info\",\"type\":\"tuple\"},{\"internalType\":\"enum IMoves.MoveState\",\"name\":\"state\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IMoves.Move[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256[]\",\"name\":\"challengeIds\",\"type\":\"uint256[]\"},{\"internalType\":\"string[]\",\"name\":\"flags\",\"type\":\"string[]\"},{\"internalType\":\"bytes32[]\",\"name\":\"salts\",\"type\":\"bytes32[]\"}],\"name\":\"revealForAdmins\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"teamId\",\"type\":\"uint256\"},{\"internalType\":\"uint256[]\",\"name\":\"challengeIds\",\"type\":\"uint256[]\"},{\"internalType\":\"string[]\",\"name\":\"flags\",\"type\":\"string[]\"},{\"internalType\":\"bytes32[]\",\"name\":\"salts\",\"type\":\"bytes32[]\"}],\"name\":\"revealForMembers\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IMoves.sol\":\"IMoves\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IMoves.sol\":{\"keccak256\":\"0x0799e739c087517732cde18211e58c0006d776c07a4616b0c9e5b41059503c16\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://30728bbb57c4a3464b43a7235a36c5daf076d3617cafe24960114784139003df\",\"dweb:/ipfs/QmNQL3neD8txtCjoPEWWDxwE2exZTBFBrQmatcWn5m1pFa\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"challengeId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"}],\"name\":\"commitForAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"teamId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"challengeId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"}],\"name\":\"commitForMember\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"get\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"challengeId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"teamId\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"},{\"internalType\":\"string\",\"name\":\"flag\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"}],\"internalType\":\"struct IMoves.IMove\",\"name\":\"info\",\"type\":\"tuple\"},{\"internalType\":\"enum IMoves.MoveState\",\"name\":\"state\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IMoves.Move\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"challengeId\",\"type\":\"uint256\"}],\"name\":\"getChallengeAnswerMoveId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"challengeId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"teamId\",\"type\":\"uint256\"}],\"name\":\"getChallengeTeamSubmitMoveId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"}],\"name\":\"getContestAnswerIds\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"}],\"name\":\"getContestSubmitIds\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"getMove\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"challengeId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"teamId\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"},{\"internalType\":\"string\",\"name\":\"flag\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"}],\"internalType\":\"struct IMoves.IMove\",\"name\":\"info\",\"type\":\"tuple\"},{\"internalType\":\"enum IMoves.MoveState\",\"name\":\"state\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"internalType\":\"struct IMoves.Move\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256[]\",\"name\":\"challengeIds\",\"type\":\"uint256[]\"},{\"internalType\":\"string[]\",\"name\":\"flags\",\"type\":\"string[]\"},{\"internalType\":\"bytes32[]\",\"name\":\"salts\",\"type\":\"bytes32[]\"}],\"name\":\"revealForAdmins\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"contestId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"teamId\",\"type\":\"uint256\"},{\"internalType\":\"uint256[]\",\"name\":\"challengeIds\",\"type\":\"uint256[]\"},{\"internalType\":\"string[]\",\"name\":\"flags\",\"type\":\"string[]\"},{\"internalType\":\"bytes32[]\",\"name\":\"salts\",\"type\":\"bytes32[]\"}],\"name\":\"revealForMembers\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IMoves.sol\":\"IMoves\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IMoves.sol\":{\"keccak256\":\"0xae93c2eca86a793827881385e85c7b9e4b87a67d2397ed664b37a54edec1b80a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c517696b0076300dcd6ca51ad1754e9f5215d773a0e8ef542c63554e8fc1ed8e\",\"dweb:/ipfs/QmZKUUzg4gdaPhb2MmvtU8icUi8Gj8rszG2J8fYSLZ4FZ4\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -354,21 +362,21 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.10;\npragma experimental ABIEncoderV2;\n\ninterface IMoves {\n\n    struct IMove{\n        bytes32 hash;\n        string flag;\n        bytes32 salt;\n    }\n\n    struct Move {\n        uint id;\n        uint contestId;\n        uint challengeId;\n        uint teamId;\n        IMove info;\n        MoveState state;\n        uint timeStamp;\n    }\n\n    enum MoveState{\n        DEFAULT,\n        COMMITTED,\n        REVEALED\n    }\n\n    function commitForAdmin(uint contestId, uint challengeId, bytes32 hash) external;\n\n    function commitForMember(uint contestId, uint teamId, uint challengeId, bytes32 hash) external;\n\n    function revealForAdmins(uint contestId, uint [] memory challengeIds, string [] memory flags, bytes32 [] memory salts) external;\n\n    function revealForMembers(uint contestId, uint teamId, uint [] memory challengeIds, string [] memory flags, bytes32 [] memory salts) external;\n\n    function getsSubmit(uint contestId) external view returns (Move [] memory);\n\n    function getsAnswer(uint contestId) external view returns (Move [] memory);\n\n    function getCount() external view returns (uint);\n\n    function get(uint index) external view returns (Move memory);\n\n}",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.10;\npragma experimental ABIEncoderV2;\n\ninterface IMoves {\n\n    struct IMove{\n        bytes32 hash;\n        string flag;\n        bytes32 salt;\n    }\n\n    struct Move {\n        uint id;\n        uint contestId;\n        uint challengeId;\n        uint teamId;\n        IMove info;\n        MoveState state;\n        uint timeStamp;\n    }\n\n    enum MoveState{\n        DEFAULT,\n        COMMITTED,\n        REVEALED\n    }\n\n    function commitForAdmin(uint contestId, uint challengeId, bytes32 hash) external;\n\n    function commitForMember(uint contestId, uint teamId, uint challengeId, bytes32 hash) external;\n\n    function revealForAdmins(uint contestId, uint [] memory challengeIds, string [] memory flags, bytes32 [] memory salts) external;\n\n    function revealForMembers(uint contestId, uint teamId, uint [] memory challengeIds, string [] memory flags, bytes32 [] memory salts) external;\n\n    function getChallengeAnswerMoveId(uint challengeId) external view returns (uint);\n\n    function getChallengeTeamSubmitMoveId(uint challengeId, uint teamId) external view returns (uint);\n\n    function getContestSubmitIds(uint contestId) external view returns (uint [] memory);\n\n    function getContestAnswerIds(uint contestId) external view returns (uint [] memory);\n\n    function getCount() external view returns (uint);\n\n    function get(uint index) external view returns (Move memory);\n\n    function getMove(uint id) external view returns (Move memory);\n\n}",
   "sourcePath": "/Users/yhy/Code/GitHub/DCTF/contracts/IMoves.sol",
   "ast": {
     "absolutePath": "project:/contracts/IMoves.sol",
     "exportedSymbols": {
       "IMoves": [
-        935
+        3885
       ]
     },
-    "id": 936,
+    "id": 3886,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 824,
+        "id": 3752,
         "literals": [
           "solidity",
           "^",
@@ -376,16 +384,16 @@
           ".10"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:24:3"
+        "src": "32:24:23"
       },
       {
-        "id": 825,
+        "id": 3753,
         "literals": [
           "experimental",
           "ABIEncoderV2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "57:33:3"
+        "src": "57:33:23"
       },
       {
         "abstract": false,
@@ -394,27 +402,27 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 935,
+        "id": 3885,
         "linearizedBaseContracts": [
-          935
+          3885
         ],
         "name": "IMoves",
-        "nameLocation": "102:6:3",
+        "nameLocation": "102:6:23",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "IMoves.IMove",
-            "id": 832,
+            "id": 3760,
             "members": [
               {
                 "constant": false,
-                "id": 827,
+                "id": 3755,
                 "mutability": "mutable",
                 "name": "hash",
-                "nameLocation": "146:4:3",
+                "nameLocation": "146:4:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 832,
-                "src": "138:12:3",
+                "scope": 3760,
+                "src": "138:12:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -422,10 +430,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 826,
+                  "id": 3754,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "138:7:3",
+                  "src": "138:7:23",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -435,13 +443,13 @@
               },
               {
                 "constant": false,
-                "id": 829,
+                "id": 3757,
                 "mutability": "mutable",
                 "name": "flag",
-                "nameLocation": "167:4:3",
+                "nameLocation": "167:4:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 832,
-                "src": "160:11:3",
+                "scope": 3760,
+                "src": "160:11:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -449,10 +457,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 828,
+                  "id": 3756,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "160:6:3",
+                  "src": "160:6:23",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -462,13 +470,13 @@
               },
               {
                 "constant": false,
-                "id": 831,
+                "id": 3759,
                 "mutability": "mutable",
                 "name": "salt",
-                "nameLocation": "189:4:3",
+                "nameLocation": "189:4:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 832,
-                "src": "181:12:3",
+                "scope": 3760,
+                "src": "181:12:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -476,10 +484,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 830,
+                  "id": 3758,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "181:7:3",
+                  "src": "181:7:23",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -489,25 +497,25 @@
               }
             ],
             "name": "IMove",
-            "nameLocation": "123:5:3",
+            "nameLocation": "123:5:23",
             "nodeType": "StructDefinition",
-            "scope": 935,
-            "src": "116:84:3",
+            "scope": 3885,
+            "src": "116:84:23",
             "visibility": "public"
           },
           {
             "canonicalName": "IMoves.Move",
-            "id": 849,
+            "id": 3777,
             "members": [
               {
                 "constant": false,
-                "id": 834,
+                "id": 3762,
                 "mutability": "mutable",
                 "name": "id",
-                "nameLocation": "233:2:3",
+                "nameLocation": "233:2:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 849,
-                "src": "228:7:3",
+                "scope": 3777,
+                "src": "228:7:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -515,10 +523,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 833,
+                  "id": 3761,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "228:4:3",
+                  "src": "228:4:23",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -528,13 +536,13 @@
               },
               {
                 "constant": false,
-                "id": 836,
+                "id": 3764,
                 "mutability": "mutable",
                 "name": "contestId",
-                "nameLocation": "250:9:3",
+                "nameLocation": "250:9:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 849,
-                "src": "245:14:3",
+                "scope": 3777,
+                "src": "245:14:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -542,10 +550,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 835,
+                  "id": 3763,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "245:4:3",
+                  "src": "245:4:23",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -555,13 +563,13 @@
               },
               {
                 "constant": false,
-                "id": 838,
+                "id": 3766,
                 "mutability": "mutable",
                 "name": "challengeId",
-                "nameLocation": "274:11:3",
+                "nameLocation": "274:11:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 849,
-                "src": "269:16:3",
+                "scope": 3777,
+                "src": "269:16:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -569,10 +577,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 837,
+                  "id": 3765,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "269:4:3",
+                  "src": "269:4:23",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -582,13 +590,13 @@
               },
               {
                 "constant": false,
-                "id": 840,
+                "id": 3768,
                 "mutability": "mutable",
                 "name": "teamId",
-                "nameLocation": "300:6:3",
+                "nameLocation": "300:6:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 849,
-                "src": "295:11:3",
+                "scope": 3777,
+                "src": "295:11:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -596,10 +604,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 839,
+                  "id": 3767,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "295:4:3",
+                  "src": "295:4:23",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -609,33 +617,33 @@
               },
               {
                 "constant": false,
-                "id": 843,
+                "id": 3771,
                 "mutability": "mutable",
                 "name": "info",
-                "nameLocation": "322:4:3",
+                "nameLocation": "322:4:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 849,
-                "src": "316:10:3",
+                "scope": 3777,
+                "src": "316:10:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_IMove_$832_storage_ptr",
+                  "typeIdentifier": "t_struct$_IMove_$3760_storage_ptr",
                   "typeString": "struct IMoves.IMove"
                 },
                 "typeName": {
-                  "id": 842,
+                  "id": 3770,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 841,
+                    "id": 3769,
                     "name": "IMove",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 832,
-                    "src": "316:5:3"
+                    "referencedDeclaration": 3760,
+                    "src": "316:5:23"
                   },
-                  "referencedDeclaration": 832,
-                  "src": "316:5:3",
+                  "referencedDeclaration": 3760,
+                  "src": "316:5:23",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_IMove_$832_storage_ptr",
+                    "typeIdentifier": "t_struct$_IMove_$3760_storage_ptr",
                     "typeString": "struct IMoves.IMove"
                   }
                 },
@@ -643,33 +651,33 @@
               },
               {
                 "constant": false,
-                "id": 846,
+                "id": 3774,
                 "mutability": "mutable",
                 "name": "state",
-                "nameLocation": "346:5:3",
+                "nameLocation": "346:5:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 849,
-                "src": "336:15:3",
+                "scope": 3777,
+                "src": "336:15:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_MoveState_$853",
+                  "typeIdentifier": "t_enum$_MoveState_$3781",
                   "typeString": "enum IMoves.MoveState"
                 },
                 "typeName": {
-                  "id": 845,
+                  "id": 3773,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 844,
+                    "id": 3772,
                     "name": "MoveState",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 853,
-                    "src": "336:9:3"
+                    "referencedDeclaration": 3781,
+                    "src": "336:9:23"
                   },
-                  "referencedDeclaration": 853,
-                  "src": "336:9:3",
+                  "referencedDeclaration": 3781,
+                  "src": "336:9:23",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_MoveState_$853",
+                    "typeIdentifier": "t_enum$_MoveState_$3781",
                     "typeString": "enum IMoves.MoveState"
                   }
                 },
@@ -677,13 +685,13 @@
               },
               {
                 "constant": false,
-                "id": 848,
+                "id": 3776,
                 "mutability": "mutable",
                 "name": "timeStamp",
-                "nameLocation": "366:9:3",
+                "nameLocation": "366:9:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 849,
-                "src": "361:14:3",
+                "scope": 3777,
+                "src": "361:14:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -691,10 +699,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 847,
+                  "id": 3775,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "361:4:3",
+                  "src": "361:4:23",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -704,65 +712,65 @@
               }
             ],
             "name": "Move",
-            "nameLocation": "213:4:3",
+            "nameLocation": "213:4:23",
             "nodeType": "StructDefinition",
-            "scope": 935,
-            "src": "206:176:3",
+            "scope": 3885,
+            "src": "206:176:23",
             "visibility": "public"
           },
           {
             "canonicalName": "IMoves.MoveState",
-            "id": 853,
+            "id": 3781,
             "members": [
               {
-                "id": 850,
+                "id": 3778,
                 "name": "DEFAULT",
-                "nameLocation": "412:7:3",
+                "nameLocation": "412:7:23",
                 "nodeType": "EnumValue",
-                "src": "412:7:3"
+                "src": "412:7:23"
               },
               {
-                "id": 851,
+                "id": 3779,
                 "name": "COMMITTED",
-                "nameLocation": "429:9:3",
+                "nameLocation": "429:9:23",
                 "nodeType": "EnumValue",
-                "src": "429:9:3"
+                "src": "429:9:23"
               },
               {
-                "id": 852,
+                "id": 3780,
                 "name": "REVEALED",
-                "nameLocation": "448:8:3",
+                "nameLocation": "448:8:23",
                 "nodeType": "EnumValue",
-                "src": "448:8:3"
+                "src": "448:8:23"
               }
             ],
             "name": "MoveState",
-            "nameLocation": "393:9:3",
+            "nameLocation": "393:9:23",
             "nodeType": "EnumDefinition",
-            "src": "388:74:3"
+            "src": "388:74:23"
           },
           {
             "functionSelector": "5aeba835",
-            "id": 862,
+            "id": 3790,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "commitForAdmin",
-            "nameLocation": "477:14:3",
+            "nameLocation": "477:14:23",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 860,
+              "id": 3788,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 855,
+                  "id": 3783,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "497:9:3",
+                  "nameLocation": "497:9:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 862,
-                  "src": "492:14:3",
+                  "scope": 3790,
+                  "src": "492:14:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -770,10 +778,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 854,
+                    "id": 3782,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "492:4:3",
+                    "src": "492:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -783,13 +791,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 857,
+                  "id": 3785,
                   "mutability": "mutable",
                   "name": "challengeId",
-                  "nameLocation": "513:11:3",
+                  "nameLocation": "513:11:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 862,
-                  "src": "508:16:3",
+                  "scope": 3790,
+                  "src": "508:16:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -797,10 +805,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 856,
+                    "id": 3784,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "508:4:3",
+                    "src": "508:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -810,13 +818,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 859,
+                  "id": 3787,
                   "mutability": "mutable",
                   "name": "hash",
-                  "nameLocation": "534:4:3",
+                  "nameLocation": "534:4:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 862,
-                  "src": "526:12:3",
+                  "scope": 3790,
+                  "src": "526:12:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -824,10 +832,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 858,
+                    "id": 3786,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "526:7:3",
+                    "src": "526:7:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -836,42 +844,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "491:48:3"
+              "src": "491:48:23"
             },
             "returnParameters": {
-              "id": 861,
+              "id": 3789,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "548:0:3"
+              "src": "548:0:23"
             },
-            "scope": 935,
-            "src": "468:81:3",
+            "scope": 3885,
+            "src": "468:81:23",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "3c1fc8c8",
-            "id": 873,
+            "id": 3801,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "commitForMember",
-            "nameLocation": "564:15:3",
+            "nameLocation": "564:15:23",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 871,
+              "id": 3799,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 864,
+                  "id": 3792,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "585:9:3",
+                  "nameLocation": "585:9:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 873,
-                  "src": "580:14:3",
+                  "scope": 3801,
+                  "src": "580:14:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -879,10 +887,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 863,
+                    "id": 3791,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "580:4:3",
+                    "src": "580:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -892,13 +900,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 866,
+                  "id": 3794,
                   "mutability": "mutable",
                   "name": "teamId",
-                  "nameLocation": "601:6:3",
+                  "nameLocation": "601:6:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 873,
-                  "src": "596:11:3",
+                  "scope": 3801,
+                  "src": "596:11:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -906,10 +914,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 865,
+                    "id": 3793,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "596:4:3",
+                    "src": "596:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -919,13 +927,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 868,
+                  "id": 3796,
                   "mutability": "mutable",
                   "name": "challengeId",
-                  "nameLocation": "614:11:3",
+                  "nameLocation": "614:11:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 873,
-                  "src": "609:16:3",
+                  "scope": 3801,
+                  "src": "609:16:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -933,10 +941,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 867,
+                    "id": 3795,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "609:4:3",
+                    "src": "609:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -946,13 +954,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 870,
+                  "id": 3798,
                   "mutability": "mutable",
                   "name": "hash",
-                  "nameLocation": "635:4:3",
+                  "nameLocation": "635:4:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 873,
-                  "src": "627:12:3",
+                  "scope": 3801,
+                  "src": "627:12:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -960,10 +968,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 869,
+                    "id": 3797,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "627:7:3",
+                    "src": "627:7:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -972,42 +980,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "579:61:3"
+              "src": "579:61:23"
             },
             "returnParameters": {
-              "id": 872,
+              "id": 3800,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "649:0:3"
+              "src": "649:0:23"
             },
-            "scope": 935,
-            "src": "555:95:3",
+            "scope": 3885,
+            "src": "555:95:23",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "44d5d1c3",
-            "id": 887,
+            "id": 3815,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "revealForAdmins",
-            "nameLocation": "665:15:3",
+            "nameLocation": "665:15:23",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 885,
+              "id": 3813,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 875,
+                  "id": 3803,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "686:9:3",
+                  "nameLocation": "686:9:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 887,
-                  "src": "681:14:3",
+                  "scope": 3815,
+                  "src": "681:14:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1015,10 +1023,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 874,
+                    "id": 3802,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "681:4:3",
+                    "src": "681:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1028,13 +1036,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 878,
+                  "id": 3806,
                   "mutability": "mutable",
                   "name": "challengeIds",
-                  "nameLocation": "712:12:3",
+                  "nameLocation": "712:12:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 887,
-                  "src": "697:27:3",
+                  "scope": 3815,
+                  "src": "697:27:23",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1043,18 +1051,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 876,
+                      "id": 3804,
                       "name": "uint",
                       "nodeType": "ElementaryTypeName",
-                      "src": "697:4:3",
+                      "src": "697:4:23",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 877,
+                    "id": 3805,
                     "nodeType": "ArrayTypeName",
-                    "src": "697:7:3",
+                    "src": "697:7:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -1064,13 +1072,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 881,
+                  "id": 3809,
                   "mutability": "mutable",
                   "name": "flags",
-                  "nameLocation": "743:5:3",
+                  "nameLocation": "743:5:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 887,
-                  "src": "726:22:3",
+                  "scope": 3815,
+                  "src": "726:22:23",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1079,18 +1087,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 879,
+                      "id": 3807,
                       "name": "string",
                       "nodeType": "ElementaryTypeName",
-                      "src": "726:6:3",
+                      "src": "726:6:23",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage_ptr",
                         "typeString": "string"
                       }
                     },
-                    "id": 880,
+                    "id": 3808,
                     "nodeType": "ArrayTypeName",
-                    "src": "726:9:3",
+                    "src": "726:9:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
                       "typeString": "string[]"
@@ -1100,13 +1108,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 884,
+                  "id": 3812,
                   "mutability": "mutable",
                   "name": "salts",
-                  "nameLocation": "768:5:3",
+                  "nameLocation": "768:5:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 887,
-                  "src": "750:23:3",
+                  "scope": 3815,
+                  "src": "750:23:23",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1115,18 +1123,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 882,
+                      "id": 3810,
                       "name": "bytes32",
                       "nodeType": "ElementaryTypeName",
-                      "src": "750:7:3",
+                      "src": "750:7:23",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
                       }
                     },
-                    "id": 883,
+                    "id": 3811,
                     "nodeType": "ArrayTypeName",
-                    "src": "750:10:3",
+                    "src": "750:10:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
                       "typeString": "bytes32[]"
@@ -1135,42 +1143,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "680:94:3"
+              "src": "680:94:23"
             },
             "returnParameters": {
-              "id": 886,
+              "id": 3814,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "783:0:3"
+              "src": "783:0:23"
             },
-            "scope": 935,
-            "src": "656:128:3",
+            "scope": 3885,
+            "src": "656:128:23",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "3861d430",
-            "id": 903,
+            "id": 3831,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "revealForMembers",
-            "nameLocation": "799:16:3",
+            "nameLocation": "799:16:23",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 901,
+              "id": 3829,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 889,
+                  "id": 3817,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "821:9:3",
+                  "nameLocation": "821:9:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 903,
-                  "src": "816:14:3",
+                  "scope": 3831,
+                  "src": "816:14:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1178,10 +1186,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 888,
+                    "id": 3816,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "816:4:3",
+                    "src": "816:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1191,13 +1199,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 891,
+                  "id": 3819,
                   "mutability": "mutable",
                   "name": "teamId",
-                  "nameLocation": "837:6:3",
+                  "nameLocation": "837:6:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 903,
-                  "src": "832:11:3",
+                  "scope": 3831,
+                  "src": "832:11:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1205,10 +1213,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 890,
+                    "id": 3818,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "832:4:3",
+                    "src": "832:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1218,13 +1226,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 894,
+                  "id": 3822,
                   "mutability": "mutable",
                   "name": "challengeIds",
-                  "nameLocation": "860:12:3",
+                  "nameLocation": "860:12:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 903,
-                  "src": "845:27:3",
+                  "scope": 3831,
+                  "src": "845:27:23",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1233,18 +1241,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 892,
+                      "id": 3820,
                       "name": "uint",
                       "nodeType": "ElementaryTypeName",
-                      "src": "845:4:3",
+                      "src": "845:4:23",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 893,
+                    "id": 3821,
                     "nodeType": "ArrayTypeName",
-                    "src": "845:7:3",
+                    "src": "845:7:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -1254,13 +1262,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 897,
+                  "id": 3825,
                   "mutability": "mutable",
                   "name": "flags",
-                  "nameLocation": "891:5:3",
+                  "nameLocation": "891:5:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 903,
-                  "src": "874:22:3",
+                  "scope": 3831,
+                  "src": "874:22:23",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1269,18 +1277,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 895,
+                      "id": 3823,
                       "name": "string",
                       "nodeType": "ElementaryTypeName",
-                      "src": "874:6:3",
+                      "src": "874:6:23",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage_ptr",
                         "typeString": "string"
                       }
                     },
-                    "id": 896,
+                    "id": 3824,
                     "nodeType": "ArrayTypeName",
-                    "src": "874:9:3",
+                    "src": "874:9:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
                       "typeString": "string[]"
@@ -1290,13 +1298,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 900,
+                  "id": 3828,
                   "mutability": "mutable",
                   "name": "salts",
-                  "nameLocation": "916:5:3",
+                  "nameLocation": "916:5:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 903,
-                  "src": "898:23:3",
+                  "scope": 3831,
+                  "src": "898:23:23",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1305,18 +1313,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 898,
+                      "id": 3826,
                       "name": "bytes32",
                       "nodeType": "ElementaryTypeName",
-                      "src": "898:7:3",
+                      "src": "898:7:23",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
                       }
                     },
-                    "id": 899,
+                    "id": 3827,
                     "nodeType": "ArrayTypeName",
-                    "src": "898:10:3",
+                    "src": "898:10:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
                       "typeString": "bytes32[]"
@@ -1325,42 +1333,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "815:107:3"
+              "src": "815:107:23"
             },
             "returnParameters": {
-              "id": 902,
+              "id": 3830,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "931:0:3"
+              "src": "931:0:23"
             },
-            "scope": 935,
-            "src": "790:142:3",
+            "scope": 3885,
+            "src": "790:142:23",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "functionSelector": "b84b453e",
-            "id": 912,
+            "functionSelector": "0abcad0f",
+            "id": 3838,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "getsSubmit",
-            "nameLocation": "947:10:3",
+            "name": "getChallengeAnswerMoveId",
+            "nameLocation": "947:24:23",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 906,
+              "id": 3834,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 905,
+                  "id": 3833,
                   "mutability": "mutable",
-                  "name": "contestId",
-                  "nameLocation": "963:9:3",
+                  "name": "challengeId",
+                  "nameLocation": "977:11:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 912,
-                  "src": "958:14:3",
+                  "scope": 3838,
+                  "src": "972:16:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1368,10 +1376,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 904,
+                    "id": 3832,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "958:4:3",
+                    "src": "972:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1380,86 +1388,70 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "957:16:3"
+              "src": "971:18:23"
             },
             "returnParameters": {
-              "id": 911,
+              "id": 3837,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 910,
+                  "id": 3836,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 912,
-                  "src": "997:14:3",
+                  "scope": 3838,
+                  "src": "1013:4:23",
                   "stateVariable": false,
-                  "storageLocation": "memory",
+                  "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Move_$849_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct IMoves.Move[]"
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
                   },
                   "typeName": {
-                    "baseType": {
-                      "id": 908,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 907,
-                        "name": "Move",
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 849,
-                        "src": "997:4:3"
-                      },
-                      "referencedDeclaration": 849,
-                      "src": "997:4:3",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Move_$849_storage_ptr",
-                        "typeString": "struct IMoves.Move"
-                      }
-                    },
-                    "id": 909,
-                    "nodeType": "ArrayTypeName",
-                    "src": "997:7:3",
+                    "id": 3835,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1013:4:23",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Move_$849_storage_$dyn_storage_ptr",
-                      "typeString": "struct IMoves.Move[]"
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "996:16:3"
+              "src": "1012:6:23"
             },
-            "scope": 935,
-            "src": "938:75:3",
+            "scope": 3885,
+            "src": "938:81:23",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "functionSelector": "bedb0db9",
-            "id": 921,
+            "functionSelector": "a8f0a382",
+            "id": 3847,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "getsAnswer",
-            "nameLocation": "1028:10:3",
+            "name": "getChallengeTeamSubmitMoveId",
+            "nameLocation": "1034:28:23",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 915,
+              "id": 3843,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 914,
+                  "id": 3840,
                   "mutability": "mutable",
-                  "name": "contestId",
-                  "nameLocation": "1044:9:3",
+                  "name": "challengeId",
+                  "nameLocation": "1068:11:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 921,
-                  "src": "1039:14:3",
+                  "scope": 3847,
+                  "src": "1063:16:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1467,10 +1459,37 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 913,
+                    "id": 3839,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1039:4:3",
+                    "src": "1063:4:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3842,
+                  "mutability": "mutable",
+                  "name": "teamId",
+                  "nameLocation": "1086:6:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3847,
+                  "src": "1081:11:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3841,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1081:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1479,92 +1498,260 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1038:16:3"
+              "src": "1062:31:23"
             },
             "returnParameters": {
-              "id": 920,
+              "id": 3846,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 919,
+                  "id": 3845,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 921,
-                  "src": "1078:14:3",
+                  "scope": 3847,
+                  "src": "1117:4:23",
                   "stateVariable": false,
-                  "storageLocation": "memory",
+                  "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Move_$849_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct IMoves.Move[]"
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
                   },
                   "typeName": {
-                    "baseType": {
-                      "id": 917,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 916,
-                        "name": "Move",
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 849,
-                        "src": "1078:4:3"
-                      },
-                      "referencedDeclaration": 849,
-                      "src": "1078:4:3",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Move_$849_storage_ptr",
-                        "typeString": "struct IMoves.Move"
-                      }
-                    },
-                    "id": 918,
-                    "nodeType": "ArrayTypeName",
-                    "src": "1078:7:3",
+                    "id": 3844,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1117:4:23",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Move_$849_storage_$dyn_storage_ptr",
-                      "typeString": "struct IMoves.Move[]"
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "1077:16:3"
+              "src": "1116:6:23"
             },
-            "scope": 935,
-            "src": "1019:75:3",
+            "scope": 3885,
+            "src": "1025:98:23",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "30d6345a",
+            "id": 3855,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getContestSubmitIds",
+            "nameLocation": "1138:19:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3850,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3849,
+                  "mutability": "mutable",
+                  "name": "contestId",
+                  "nameLocation": "1163:9:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3855,
+                  "src": "1158:14:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3848,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1158:4:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1157:16:23"
+            },
+            "returnParameters": {
+              "id": 3854,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3853,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3855,
+                  "src": "1197:14:23",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 3851,
+                      "name": "uint",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1197:4:23",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 3852,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1197:7:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1196:16:23"
+            },
+            "scope": 3885,
+            "src": "1129:84:23",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "19488c09",
+            "id": 3863,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getContestAnswerIds",
+            "nameLocation": "1228:19:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3858,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3857,
+                  "mutability": "mutable",
+                  "name": "contestId",
+                  "nameLocation": "1253:9:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3863,
+                  "src": "1248:14:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3856,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1248:4:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1247:16:23"
+            },
+            "returnParameters": {
+              "id": 3862,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3861,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3863,
+                  "src": "1287:14:23",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 3859,
+                      "name": "uint",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1287:4:23",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 3860,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1287:7:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1286:16:23"
+            },
+            "scope": 3885,
+            "src": "1219:84:23",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "a87d942c",
-            "id": 926,
+            "id": 3868,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getCount",
-            "nameLocation": "1109:8:3",
+            "nameLocation": "1318:8:23",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 922,
+              "id": 3864,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1117:2:3"
+              "src": "1326:2:23"
             },
             "returnParameters": {
-              "id": 925,
+              "id": 3867,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 924,
+                  "id": 3866,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 926,
-                  "src": "1143:4:3",
+                  "scope": 3868,
+                  "src": "1352:4:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1572,10 +1759,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 923,
+                    "id": 3865,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1143:4:3",
+                    "src": "1352:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1584,36 +1771,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1142:6:3"
+              "src": "1351:6:23"
             },
-            "scope": 935,
-            "src": "1100:49:3",
+            "scope": 3885,
+            "src": "1309:49:23",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "9507d39a",
-            "id": 934,
+            "id": 3876,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "get",
-            "nameLocation": "1164:3:3",
+            "nameLocation": "1373:3:23",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 929,
+              "id": 3871,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 928,
+                  "id": 3870,
                   "mutability": "mutable",
                   "name": "index",
-                  "nameLocation": "1173:5:3",
+                  "nameLocation": "1382:5:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 934,
-                  "src": "1168:10:3",
+                  "scope": 3876,
+                  "src": "1377:10:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1621,10 +1808,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 927,
+                    "id": 3869,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1168:4:3",
+                    "src": "1377:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1633,76 +1820,166 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1167:12:3"
+              "src": "1376:12:23"
             },
             "returnParameters": {
-              "id": 933,
+              "id": 3875,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 932,
+                  "id": 3874,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 934,
-                  "src": "1203:11:3",
+                  "scope": 3876,
+                  "src": "1412:11:23",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Move_$849_memory_ptr",
+                    "typeIdentifier": "t_struct$_Move_$3777_memory_ptr",
                     "typeString": "struct IMoves.Move"
                   },
                   "typeName": {
-                    "id": 931,
+                    "id": 3873,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 930,
+                      "id": 3872,
                       "name": "Move",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 849,
-                      "src": "1203:4:3"
+                      "referencedDeclaration": 3777,
+                      "src": "1412:4:23"
                     },
-                    "referencedDeclaration": 849,
-                    "src": "1203:4:3",
+                    "referencedDeclaration": 3777,
+                    "src": "1412:4:23",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Move_$849_storage_ptr",
+                      "typeIdentifier": "t_struct$_Move_$3777_storage_ptr",
                       "typeString": "struct IMoves.Move"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "1202:13:3"
+              "src": "1411:13:23"
             },
-            "scope": 935,
-            "src": "1155:61:3",
+            "scope": 3885,
+            "src": "1364:61:23",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "71dbd330",
+            "id": 3884,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getMove",
+            "nameLocation": "1440:7:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3879,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3878,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "1453:2:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3884,
+                  "src": "1448:7:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3877,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1448:4:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1447:9:23"
+            },
+            "returnParameters": {
+              "id": 3883,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3882,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3884,
+                  "src": "1480:11:23",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Move_$3777_memory_ptr",
+                    "typeString": "struct IMoves.Move"
+                  },
+                  "typeName": {
+                    "id": 3881,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 3880,
+                      "name": "Move",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3777,
+                      "src": "1480:4:23"
+                    },
+                    "referencedDeclaration": 3777,
+                    "src": "1480:4:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Move_$3777_storage_ptr",
+                      "typeString": "struct IMoves.Move"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1479:13:23"
+            },
+            "scope": 3885,
+            "src": "1431:62:23",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 936,
-        "src": "92:1127:3",
+        "scope": 3886,
+        "src": "92:1404:23",
         "usedErrors": []
       }
     ],
-    "src": "32:1187:3"
+    "src": "32:1464:23"
   },
   "legacyAST": {
     "absolutePath": "project:/contracts/IMoves.sol",
     "exportedSymbols": {
       "IMoves": [
-        935
+        3885
       ]
     },
-    "id": 936,
+    "id": 3886,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 824,
+        "id": 3752,
         "literals": [
           "solidity",
           "^",
@@ -1710,16 +1987,16 @@
           ".10"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:24:3"
+        "src": "32:24:23"
       },
       {
-        "id": 825,
+        "id": 3753,
         "literals": [
           "experimental",
           "ABIEncoderV2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "57:33:3"
+        "src": "57:33:23"
       },
       {
         "abstract": false,
@@ -1728,27 +2005,27 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 935,
+        "id": 3885,
         "linearizedBaseContracts": [
-          935
+          3885
         ],
         "name": "IMoves",
-        "nameLocation": "102:6:3",
+        "nameLocation": "102:6:23",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "IMoves.IMove",
-            "id": 832,
+            "id": 3760,
             "members": [
               {
                 "constant": false,
-                "id": 827,
+                "id": 3755,
                 "mutability": "mutable",
                 "name": "hash",
-                "nameLocation": "146:4:3",
+                "nameLocation": "146:4:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 832,
-                "src": "138:12:3",
+                "scope": 3760,
+                "src": "138:12:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1756,10 +2033,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 826,
+                  "id": 3754,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "138:7:3",
+                  "src": "138:7:23",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -1769,13 +2046,13 @@
               },
               {
                 "constant": false,
-                "id": 829,
+                "id": 3757,
                 "mutability": "mutable",
                 "name": "flag",
-                "nameLocation": "167:4:3",
+                "nameLocation": "167:4:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 832,
-                "src": "160:11:3",
+                "scope": 3760,
+                "src": "160:11:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1783,10 +2060,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 828,
+                  "id": 3756,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "160:6:3",
+                  "src": "160:6:23",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1796,13 +2073,13 @@
               },
               {
                 "constant": false,
-                "id": 831,
+                "id": 3759,
                 "mutability": "mutable",
                 "name": "salt",
-                "nameLocation": "189:4:3",
+                "nameLocation": "189:4:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 832,
-                "src": "181:12:3",
+                "scope": 3760,
+                "src": "181:12:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1810,10 +2087,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 830,
+                  "id": 3758,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "181:7:3",
+                  "src": "181:7:23",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -1823,25 +2100,25 @@
               }
             ],
             "name": "IMove",
-            "nameLocation": "123:5:3",
+            "nameLocation": "123:5:23",
             "nodeType": "StructDefinition",
-            "scope": 935,
-            "src": "116:84:3",
+            "scope": 3885,
+            "src": "116:84:23",
             "visibility": "public"
           },
           {
             "canonicalName": "IMoves.Move",
-            "id": 849,
+            "id": 3777,
             "members": [
               {
                 "constant": false,
-                "id": 834,
+                "id": 3762,
                 "mutability": "mutable",
                 "name": "id",
-                "nameLocation": "233:2:3",
+                "nameLocation": "233:2:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 849,
-                "src": "228:7:3",
+                "scope": 3777,
+                "src": "228:7:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1849,10 +2126,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 833,
+                  "id": 3761,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "228:4:3",
+                  "src": "228:4:23",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1862,13 +2139,13 @@
               },
               {
                 "constant": false,
-                "id": 836,
+                "id": 3764,
                 "mutability": "mutable",
                 "name": "contestId",
-                "nameLocation": "250:9:3",
+                "nameLocation": "250:9:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 849,
-                "src": "245:14:3",
+                "scope": 3777,
+                "src": "245:14:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1876,10 +2153,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 835,
+                  "id": 3763,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "245:4:3",
+                  "src": "245:4:23",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1889,13 +2166,13 @@
               },
               {
                 "constant": false,
-                "id": 838,
+                "id": 3766,
                 "mutability": "mutable",
                 "name": "challengeId",
-                "nameLocation": "274:11:3",
+                "nameLocation": "274:11:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 849,
-                "src": "269:16:3",
+                "scope": 3777,
+                "src": "269:16:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1903,10 +2180,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 837,
+                  "id": 3765,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "269:4:3",
+                  "src": "269:4:23",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1916,13 +2193,13 @@
               },
               {
                 "constant": false,
-                "id": 840,
+                "id": 3768,
                 "mutability": "mutable",
                 "name": "teamId",
-                "nameLocation": "300:6:3",
+                "nameLocation": "300:6:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 849,
-                "src": "295:11:3",
+                "scope": 3777,
+                "src": "295:11:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1930,10 +2207,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 839,
+                  "id": 3767,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "295:4:3",
+                  "src": "295:4:23",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1943,33 +2220,33 @@
               },
               {
                 "constant": false,
-                "id": 843,
+                "id": 3771,
                 "mutability": "mutable",
                 "name": "info",
-                "nameLocation": "322:4:3",
+                "nameLocation": "322:4:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 849,
-                "src": "316:10:3",
+                "scope": 3777,
+                "src": "316:10:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_IMove_$832_storage_ptr",
+                  "typeIdentifier": "t_struct$_IMove_$3760_storage_ptr",
                   "typeString": "struct IMoves.IMove"
                 },
                 "typeName": {
-                  "id": 842,
+                  "id": 3770,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 841,
+                    "id": 3769,
                     "name": "IMove",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 832,
-                    "src": "316:5:3"
+                    "referencedDeclaration": 3760,
+                    "src": "316:5:23"
                   },
-                  "referencedDeclaration": 832,
-                  "src": "316:5:3",
+                  "referencedDeclaration": 3760,
+                  "src": "316:5:23",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_IMove_$832_storage_ptr",
+                    "typeIdentifier": "t_struct$_IMove_$3760_storage_ptr",
                     "typeString": "struct IMoves.IMove"
                   }
                 },
@@ -1977,33 +2254,33 @@
               },
               {
                 "constant": false,
-                "id": 846,
+                "id": 3774,
                 "mutability": "mutable",
                 "name": "state",
-                "nameLocation": "346:5:3",
+                "nameLocation": "346:5:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 849,
-                "src": "336:15:3",
+                "scope": 3777,
+                "src": "336:15:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_MoveState_$853",
+                  "typeIdentifier": "t_enum$_MoveState_$3781",
                   "typeString": "enum IMoves.MoveState"
                 },
                 "typeName": {
-                  "id": 845,
+                  "id": 3773,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 844,
+                    "id": 3772,
                     "name": "MoveState",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 853,
-                    "src": "336:9:3"
+                    "referencedDeclaration": 3781,
+                    "src": "336:9:23"
                   },
-                  "referencedDeclaration": 853,
-                  "src": "336:9:3",
+                  "referencedDeclaration": 3781,
+                  "src": "336:9:23",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_MoveState_$853",
+                    "typeIdentifier": "t_enum$_MoveState_$3781",
                     "typeString": "enum IMoves.MoveState"
                   }
                 },
@@ -2011,13 +2288,13 @@
               },
               {
                 "constant": false,
-                "id": 848,
+                "id": 3776,
                 "mutability": "mutable",
                 "name": "timeStamp",
-                "nameLocation": "366:9:3",
+                "nameLocation": "366:9:23",
                 "nodeType": "VariableDeclaration",
-                "scope": 849,
-                "src": "361:14:3",
+                "scope": 3777,
+                "src": "361:14:23",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -2025,10 +2302,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 847,
+                  "id": 3775,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "361:4:3",
+                  "src": "361:4:23",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -2038,65 +2315,65 @@
               }
             ],
             "name": "Move",
-            "nameLocation": "213:4:3",
+            "nameLocation": "213:4:23",
             "nodeType": "StructDefinition",
-            "scope": 935,
-            "src": "206:176:3",
+            "scope": 3885,
+            "src": "206:176:23",
             "visibility": "public"
           },
           {
             "canonicalName": "IMoves.MoveState",
-            "id": 853,
+            "id": 3781,
             "members": [
               {
-                "id": 850,
+                "id": 3778,
                 "name": "DEFAULT",
-                "nameLocation": "412:7:3",
+                "nameLocation": "412:7:23",
                 "nodeType": "EnumValue",
-                "src": "412:7:3"
+                "src": "412:7:23"
               },
               {
-                "id": 851,
+                "id": 3779,
                 "name": "COMMITTED",
-                "nameLocation": "429:9:3",
+                "nameLocation": "429:9:23",
                 "nodeType": "EnumValue",
-                "src": "429:9:3"
+                "src": "429:9:23"
               },
               {
-                "id": 852,
+                "id": 3780,
                 "name": "REVEALED",
-                "nameLocation": "448:8:3",
+                "nameLocation": "448:8:23",
                 "nodeType": "EnumValue",
-                "src": "448:8:3"
+                "src": "448:8:23"
               }
             ],
             "name": "MoveState",
-            "nameLocation": "393:9:3",
+            "nameLocation": "393:9:23",
             "nodeType": "EnumDefinition",
-            "src": "388:74:3"
+            "src": "388:74:23"
           },
           {
             "functionSelector": "5aeba835",
-            "id": 862,
+            "id": 3790,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "commitForAdmin",
-            "nameLocation": "477:14:3",
+            "nameLocation": "477:14:23",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 860,
+              "id": 3788,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 855,
+                  "id": 3783,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "497:9:3",
+                  "nameLocation": "497:9:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 862,
-                  "src": "492:14:3",
+                  "scope": 3790,
+                  "src": "492:14:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2104,10 +2381,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 854,
+                    "id": 3782,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "492:4:3",
+                    "src": "492:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2117,13 +2394,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 857,
+                  "id": 3785,
                   "mutability": "mutable",
                   "name": "challengeId",
-                  "nameLocation": "513:11:3",
+                  "nameLocation": "513:11:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 862,
-                  "src": "508:16:3",
+                  "scope": 3790,
+                  "src": "508:16:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2131,10 +2408,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 856,
+                    "id": 3784,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "508:4:3",
+                    "src": "508:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2144,13 +2421,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 859,
+                  "id": 3787,
                   "mutability": "mutable",
                   "name": "hash",
-                  "nameLocation": "534:4:3",
+                  "nameLocation": "534:4:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 862,
-                  "src": "526:12:3",
+                  "scope": 3790,
+                  "src": "526:12:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2158,10 +2435,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 858,
+                    "id": 3786,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "526:7:3",
+                    "src": "526:7:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -2170,42 +2447,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "491:48:3"
+              "src": "491:48:23"
             },
             "returnParameters": {
-              "id": 861,
+              "id": 3789,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "548:0:3"
+              "src": "548:0:23"
             },
-            "scope": 935,
-            "src": "468:81:3",
+            "scope": 3885,
+            "src": "468:81:23",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "3c1fc8c8",
-            "id": 873,
+            "id": 3801,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "commitForMember",
-            "nameLocation": "564:15:3",
+            "nameLocation": "564:15:23",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 871,
+              "id": 3799,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 864,
+                  "id": 3792,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "585:9:3",
+                  "nameLocation": "585:9:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 873,
-                  "src": "580:14:3",
+                  "scope": 3801,
+                  "src": "580:14:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2213,10 +2490,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 863,
+                    "id": 3791,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "580:4:3",
+                    "src": "580:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2226,13 +2503,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 866,
+                  "id": 3794,
                   "mutability": "mutable",
                   "name": "teamId",
-                  "nameLocation": "601:6:3",
+                  "nameLocation": "601:6:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 873,
-                  "src": "596:11:3",
+                  "scope": 3801,
+                  "src": "596:11:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2240,10 +2517,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 865,
+                    "id": 3793,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "596:4:3",
+                    "src": "596:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2253,13 +2530,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 868,
+                  "id": 3796,
                   "mutability": "mutable",
                   "name": "challengeId",
-                  "nameLocation": "614:11:3",
+                  "nameLocation": "614:11:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 873,
-                  "src": "609:16:3",
+                  "scope": 3801,
+                  "src": "609:16:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2267,10 +2544,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 867,
+                    "id": 3795,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "609:4:3",
+                    "src": "609:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2280,13 +2557,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 870,
+                  "id": 3798,
                   "mutability": "mutable",
                   "name": "hash",
-                  "nameLocation": "635:4:3",
+                  "nameLocation": "635:4:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 873,
-                  "src": "627:12:3",
+                  "scope": 3801,
+                  "src": "627:12:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2294,10 +2571,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 869,
+                    "id": 3797,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "627:7:3",
+                    "src": "627:7:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -2306,42 +2583,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "579:61:3"
+              "src": "579:61:23"
             },
             "returnParameters": {
-              "id": 872,
+              "id": 3800,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "649:0:3"
+              "src": "649:0:23"
             },
-            "scope": 935,
-            "src": "555:95:3",
+            "scope": 3885,
+            "src": "555:95:23",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "44d5d1c3",
-            "id": 887,
+            "id": 3815,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "revealForAdmins",
-            "nameLocation": "665:15:3",
+            "nameLocation": "665:15:23",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 885,
+              "id": 3813,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 875,
+                  "id": 3803,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "686:9:3",
+                  "nameLocation": "686:9:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 887,
-                  "src": "681:14:3",
+                  "scope": 3815,
+                  "src": "681:14:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2349,10 +2626,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 874,
+                    "id": 3802,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "681:4:3",
+                    "src": "681:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2362,13 +2639,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 878,
+                  "id": 3806,
                   "mutability": "mutable",
                   "name": "challengeIds",
-                  "nameLocation": "712:12:3",
+                  "nameLocation": "712:12:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 887,
-                  "src": "697:27:3",
+                  "scope": 3815,
+                  "src": "697:27:23",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2377,18 +2654,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 876,
+                      "id": 3804,
                       "name": "uint",
                       "nodeType": "ElementaryTypeName",
-                      "src": "697:4:3",
+                      "src": "697:4:23",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 877,
+                    "id": 3805,
                     "nodeType": "ArrayTypeName",
-                    "src": "697:7:3",
+                    "src": "697:7:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -2398,13 +2675,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 881,
+                  "id": 3809,
                   "mutability": "mutable",
                   "name": "flags",
-                  "nameLocation": "743:5:3",
+                  "nameLocation": "743:5:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 887,
-                  "src": "726:22:3",
+                  "scope": 3815,
+                  "src": "726:22:23",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2413,18 +2690,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 879,
+                      "id": 3807,
                       "name": "string",
                       "nodeType": "ElementaryTypeName",
-                      "src": "726:6:3",
+                      "src": "726:6:23",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage_ptr",
                         "typeString": "string"
                       }
                     },
-                    "id": 880,
+                    "id": 3808,
                     "nodeType": "ArrayTypeName",
-                    "src": "726:9:3",
+                    "src": "726:9:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
                       "typeString": "string[]"
@@ -2434,13 +2711,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 884,
+                  "id": 3812,
                   "mutability": "mutable",
                   "name": "salts",
-                  "nameLocation": "768:5:3",
+                  "nameLocation": "768:5:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 887,
-                  "src": "750:23:3",
+                  "scope": 3815,
+                  "src": "750:23:23",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2449,18 +2726,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 882,
+                      "id": 3810,
                       "name": "bytes32",
                       "nodeType": "ElementaryTypeName",
-                      "src": "750:7:3",
+                      "src": "750:7:23",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
                       }
                     },
-                    "id": 883,
+                    "id": 3811,
                     "nodeType": "ArrayTypeName",
-                    "src": "750:10:3",
+                    "src": "750:10:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
                       "typeString": "bytes32[]"
@@ -2469,42 +2746,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "680:94:3"
+              "src": "680:94:23"
             },
             "returnParameters": {
-              "id": 886,
+              "id": 3814,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "783:0:3"
+              "src": "783:0:23"
             },
-            "scope": 935,
-            "src": "656:128:3",
+            "scope": 3885,
+            "src": "656:128:23",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "3861d430",
-            "id": 903,
+            "id": 3831,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "revealForMembers",
-            "nameLocation": "799:16:3",
+            "nameLocation": "799:16:23",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 901,
+              "id": 3829,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 889,
+                  "id": 3817,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "821:9:3",
+                  "nameLocation": "821:9:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 903,
-                  "src": "816:14:3",
+                  "scope": 3831,
+                  "src": "816:14:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2512,10 +2789,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 888,
+                    "id": 3816,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "816:4:3",
+                    "src": "816:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2525,13 +2802,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 891,
+                  "id": 3819,
                   "mutability": "mutable",
                   "name": "teamId",
-                  "nameLocation": "837:6:3",
+                  "nameLocation": "837:6:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 903,
-                  "src": "832:11:3",
+                  "scope": 3831,
+                  "src": "832:11:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2539,10 +2816,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 890,
+                    "id": 3818,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "832:4:3",
+                    "src": "832:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2552,13 +2829,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 894,
+                  "id": 3822,
                   "mutability": "mutable",
                   "name": "challengeIds",
-                  "nameLocation": "860:12:3",
+                  "nameLocation": "860:12:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 903,
-                  "src": "845:27:3",
+                  "scope": 3831,
+                  "src": "845:27:23",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2567,18 +2844,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 892,
+                      "id": 3820,
                       "name": "uint",
                       "nodeType": "ElementaryTypeName",
-                      "src": "845:4:3",
+                      "src": "845:4:23",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 893,
+                    "id": 3821,
                     "nodeType": "ArrayTypeName",
-                    "src": "845:7:3",
+                    "src": "845:7:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -2588,13 +2865,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 897,
+                  "id": 3825,
                   "mutability": "mutable",
                   "name": "flags",
-                  "nameLocation": "891:5:3",
+                  "nameLocation": "891:5:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 903,
-                  "src": "874:22:3",
+                  "scope": 3831,
+                  "src": "874:22:23",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2603,18 +2880,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 895,
+                      "id": 3823,
                       "name": "string",
                       "nodeType": "ElementaryTypeName",
-                      "src": "874:6:3",
+                      "src": "874:6:23",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage_ptr",
                         "typeString": "string"
                       }
                     },
-                    "id": 896,
+                    "id": 3824,
                     "nodeType": "ArrayTypeName",
-                    "src": "874:9:3",
+                    "src": "874:9:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
                       "typeString": "string[]"
@@ -2624,13 +2901,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 900,
+                  "id": 3828,
                   "mutability": "mutable",
                   "name": "salts",
-                  "nameLocation": "916:5:3",
+                  "nameLocation": "916:5:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 903,
-                  "src": "898:23:3",
+                  "scope": 3831,
+                  "src": "898:23:23",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2639,18 +2916,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 898,
+                      "id": 3826,
                       "name": "bytes32",
                       "nodeType": "ElementaryTypeName",
-                      "src": "898:7:3",
+                      "src": "898:7:23",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
                       }
                     },
-                    "id": 899,
+                    "id": 3827,
                     "nodeType": "ArrayTypeName",
-                    "src": "898:10:3",
+                    "src": "898:10:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
                       "typeString": "bytes32[]"
@@ -2659,42 +2936,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "815:107:3"
+              "src": "815:107:23"
             },
             "returnParameters": {
-              "id": 902,
+              "id": 3830,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "931:0:3"
+              "src": "931:0:23"
             },
-            "scope": 935,
-            "src": "790:142:3",
+            "scope": 3885,
+            "src": "790:142:23",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "functionSelector": "b84b453e",
-            "id": 912,
+            "functionSelector": "0abcad0f",
+            "id": 3838,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "getsSubmit",
-            "nameLocation": "947:10:3",
+            "name": "getChallengeAnswerMoveId",
+            "nameLocation": "947:24:23",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 906,
+              "id": 3834,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 905,
+                  "id": 3833,
                   "mutability": "mutable",
-                  "name": "contestId",
-                  "nameLocation": "963:9:3",
+                  "name": "challengeId",
+                  "nameLocation": "977:11:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 912,
-                  "src": "958:14:3",
+                  "scope": 3838,
+                  "src": "972:16:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2702,10 +2979,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 904,
+                    "id": 3832,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "958:4:3",
+                    "src": "972:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2714,86 +2991,70 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "957:16:3"
+              "src": "971:18:23"
             },
             "returnParameters": {
-              "id": 911,
+              "id": 3837,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 910,
+                  "id": 3836,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 912,
-                  "src": "997:14:3",
+                  "scope": 3838,
+                  "src": "1013:4:23",
                   "stateVariable": false,
-                  "storageLocation": "memory",
+                  "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Move_$849_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct IMoves.Move[]"
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
                   },
                   "typeName": {
-                    "baseType": {
-                      "id": 908,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 907,
-                        "name": "Move",
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 849,
-                        "src": "997:4:3"
-                      },
-                      "referencedDeclaration": 849,
-                      "src": "997:4:3",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Move_$849_storage_ptr",
-                        "typeString": "struct IMoves.Move"
-                      }
-                    },
-                    "id": 909,
-                    "nodeType": "ArrayTypeName",
-                    "src": "997:7:3",
+                    "id": 3835,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1013:4:23",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Move_$849_storage_$dyn_storage_ptr",
-                      "typeString": "struct IMoves.Move[]"
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "996:16:3"
+              "src": "1012:6:23"
             },
-            "scope": 935,
-            "src": "938:75:3",
+            "scope": 3885,
+            "src": "938:81:23",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "functionSelector": "bedb0db9",
-            "id": 921,
+            "functionSelector": "a8f0a382",
+            "id": 3847,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "getsAnswer",
-            "nameLocation": "1028:10:3",
+            "name": "getChallengeTeamSubmitMoveId",
+            "nameLocation": "1034:28:23",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 915,
+              "id": 3843,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 914,
+                  "id": 3840,
                   "mutability": "mutable",
-                  "name": "contestId",
-                  "nameLocation": "1044:9:3",
+                  "name": "challengeId",
+                  "nameLocation": "1068:11:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 921,
-                  "src": "1039:14:3",
+                  "scope": 3847,
+                  "src": "1063:16:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2801,10 +3062,37 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 913,
+                    "id": 3839,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1039:4:3",
+                    "src": "1063:4:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3842,
+                  "mutability": "mutable",
+                  "name": "teamId",
+                  "nameLocation": "1086:6:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3847,
+                  "src": "1081:11:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3841,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1081:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2813,92 +3101,260 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1038:16:3"
+              "src": "1062:31:23"
             },
             "returnParameters": {
-              "id": 920,
+              "id": 3846,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 919,
+                  "id": 3845,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 921,
-                  "src": "1078:14:3",
+                  "scope": 3847,
+                  "src": "1117:4:23",
                   "stateVariable": false,
-                  "storageLocation": "memory",
+                  "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Move_$849_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct IMoves.Move[]"
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
                   },
                   "typeName": {
-                    "baseType": {
-                      "id": 917,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 916,
-                        "name": "Move",
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 849,
-                        "src": "1078:4:3"
-                      },
-                      "referencedDeclaration": 849,
-                      "src": "1078:4:3",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Move_$849_storage_ptr",
-                        "typeString": "struct IMoves.Move"
-                      }
-                    },
-                    "id": 918,
-                    "nodeType": "ArrayTypeName",
-                    "src": "1078:7:3",
+                    "id": 3844,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1117:4:23",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Move_$849_storage_$dyn_storage_ptr",
-                      "typeString": "struct IMoves.Move[]"
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "1077:16:3"
+              "src": "1116:6:23"
             },
-            "scope": 935,
-            "src": "1019:75:3",
+            "scope": 3885,
+            "src": "1025:98:23",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "30d6345a",
+            "id": 3855,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getContestSubmitIds",
+            "nameLocation": "1138:19:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3850,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3849,
+                  "mutability": "mutable",
+                  "name": "contestId",
+                  "nameLocation": "1163:9:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3855,
+                  "src": "1158:14:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3848,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1158:4:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1157:16:23"
+            },
+            "returnParameters": {
+              "id": 3854,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3853,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3855,
+                  "src": "1197:14:23",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 3851,
+                      "name": "uint",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1197:4:23",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 3852,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1197:7:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1196:16:23"
+            },
+            "scope": 3885,
+            "src": "1129:84:23",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "19488c09",
+            "id": 3863,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getContestAnswerIds",
+            "nameLocation": "1228:19:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3858,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3857,
+                  "mutability": "mutable",
+                  "name": "contestId",
+                  "nameLocation": "1253:9:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3863,
+                  "src": "1248:14:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3856,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1248:4:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1247:16:23"
+            },
+            "returnParameters": {
+              "id": 3862,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3861,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3863,
+                  "src": "1287:14:23",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 3859,
+                      "name": "uint",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1287:4:23",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 3860,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1287:7:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1286:16:23"
+            },
+            "scope": 3885,
+            "src": "1219:84:23",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "a87d942c",
-            "id": 926,
+            "id": 3868,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getCount",
-            "nameLocation": "1109:8:3",
+            "nameLocation": "1318:8:23",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 922,
+              "id": 3864,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1117:2:3"
+              "src": "1326:2:23"
             },
             "returnParameters": {
-              "id": 925,
+              "id": 3867,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 924,
+                  "id": 3866,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 926,
-                  "src": "1143:4:3",
+                  "scope": 3868,
+                  "src": "1352:4:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2906,10 +3362,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 923,
+                    "id": 3865,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1143:4:3",
+                    "src": "1352:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2918,36 +3374,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1142:6:3"
+              "src": "1351:6:23"
             },
-            "scope": 935,
-            "src": "1100:49:3",
+            "scope": 3885,
+            "src": "1309:49:23",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "9507d39a",
-            "id": 934,
+            "id": 3876,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "get",
-            "nameLocation": "1164:3:3",
+            "nameLocation": "1373:3:23",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 929,
+              "id": 3871,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 928,
+                  "id": 3870,
                   "mutability": "mutable",
                   "name": "index",
-                  "nameLocation": "1173:5:3",
+                  "nameLocation": "1382:5:23",
                   "nodeType": "VariableDeclaration",
-                  "scope": 934,
-                  "src": "1168:10:3",
+                  "scope": 3876,
+                  "src": "1377:10:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2955,10 +3411,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 927,
+                    "id": 3869,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1168:4:3",
+                    "src": "1377:4:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2967,62 +3423,152 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1167:12:3"
+              "src": "1376:12:23"
             },
             "returnParameters": {
-              "id": 933,
+              "id": 3875,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 932,
+                  "id": 3874,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 934,
-                  "src": "1203:11:3",
+                  "scope": 3876,
+                  "src": "1412:11:23",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Move_$849_memory_ptr",
+                    "typeIdentifier": "t_struct$_Move_$3777_memory_ptr",
                     "typeString": "struct IMoves.Move"
                   },
                   "typeName": {
-                    "id": 931,
+                    "id": 3873,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 930,
+                      "id": 3872,
                       "name": "Move",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 849,
-                      "src": "1203:4:3"
+                      "referencedDeclaration": 3777,
+                      "src": "1412:4:23"
                     },
-                    "referencedDeclaration": 849,
-                    "src": "1203:4:3",
+                    "referencedDeclaration": 3777,
+                    "src": "1412:4:23",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Move_$849_storage_ptr",
+                      "typeIdentifier": "t_struct$_Move_$3777_storage_ptr",
                       "typeString": "struct IMoves.Move"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "1202:13:3"
+              "src": "1411:13:23"
             },
-            "scope": 935,
-            "src": "1155:61:3",
+            "scope": 3885,
+            "src": "1364:61:23",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "71dbd330",
+            "id": 3884,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getMove",
+            "nameLocation": "1440:7:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3879,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3878,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "1453:2:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3884,
+                  "src": "1448:7:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3877,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1448:4:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1447:9:23"
+            },
+            "returnParameters": {
+              "id": 3883,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3882,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3884,
+                  "src": "1480:11:23",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Move_$3777_memory_ptr",
+                    "typeString": "struct IMoves.Move"
+                  },
+                  "typeName": {
+                    "id": 3881,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 3880,
+                      "name": "Move",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 3777,
+                      "src": "1480:4:23"
+                    },
+                    "referencedDeclaration": 3777,
+                    "src": "1480:4:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Move_$3777_storage_ptr",
+                      "typeString": "struct IMoves.Move"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1479:13:23"
+            },
+            "scope": 3885,
+            "src": "1431:62:23",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 936,
-        "src": "92:1127:3",
+        "scope": 3886,
+        "src": "92:1404:23",
         "usedErrors": []
       }
     ],
-    "src": "32:1187:3"
+    "src": "32:1464:23"
   },
   "compiler": {
     "name": "solc",
@@ -3030,7 +3576,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-02-21T06:02:10.552Z",
+  "updatedAt": "2022-02-23T05:20:31.591Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

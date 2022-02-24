@@ -9,7 +9,8 @@ interface IContests {
         string name;
         uint fee;
         uint start;
-        uint end;
+        uint commitEnd;
+        uint revealEnd;
         string message;
     }
 
@@ -25,7 +26,8 @@ interface IContests {
         DEFAULT,
         CREATED,
         STARTED,
-        ENDED
+        COMMITENDED,
+        REVEALENDED
     }
 
     function add(IContest calldata contest) external;
@@ -34,17 +36,11 @@ interface IContests {
 
     function removes(uint [] memory _ids) external;
 
-    function contestInState(uint id, IContests.ContestState state) external returns(bool);
+    function contestInState(uint id, IContests.ContestState state) external returns (bool);
 
-    function isOwner(uint contestId, address account) external view returns(bool);
+    function getContest(uint id) external view returns (Contest memory);
 
-    function Exist(uint contestId) external view returns(bool);
-
-    function getSome(uint [] memory _ids) external view returns (Contest [] memory);
-
-    function getAll() external view returns (Contest [] memory);
-
-    function gets(address account) external view returns (Contest [] memory);
+    function getMyContestIds() external view returns (uint [] memory);
 
     function getCount() external view returns (uint);
 

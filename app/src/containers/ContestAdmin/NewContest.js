@@ -10,10 +10,7 @@ export default () => {
     return (
         <>
             <TransactionStatuses TXObjects={TXObjects}/>
-            <NewContestForm
-                onSubmit={useCallback(({_data}) => {
-                    send(_data)
-                }, [send])}/>
+            <NewContestForm onSubmit={useCallback(({_data}) => send(_data), [send])}/>
         </>
     )
 }

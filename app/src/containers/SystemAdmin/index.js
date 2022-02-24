@@ -6,6 +6,7 @@ import {NoMatch} from "../../components";
 import {useTranslation} from "react-i18next";
 import GrantMember from "./GrantMember";
 import RevokeMember from "./RevokeMember";
+import Web3Utils from "web3-utils";
 
 export default () => {
     return (
@@ -29,13 +30,15 @@ function MainPage() {
             </Row>
             <Row>
                 <Col>
-                    <GrantMember/>
+                    <h1 align='center'>{t('description.Contest_admins')}
+                        <GrantMember Role={Web3Utils.keccak256('CONTEST_ADMIN')}/>
+                    </h1>
                 </Col>
             </Row>
 
             <Row>
                 <Col>
-                    <RevokeMember/>
+                    <RevokeMember Role={Web3Utils.keccak256('CONTEST_ADMIN')}/>
                 </Col>
             </Row>
         </>

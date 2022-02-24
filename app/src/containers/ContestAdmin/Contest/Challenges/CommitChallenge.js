@@ -35,7 +35,7 @@ export default ({contestId, challengeId}) => {
                         const salt = Web3Utils.randomHex(32)
                         dispatch(adminAdd({contestId: contestId, challengeId: challengeId, flag: _data, salt: salt}))
                         send(contestId, challengeId, Web3Utils.soliditySha3(_data, salt))
-                    }, [])}
+                    }, [contestId, challengeId, dispatch, flags, send])}
                 />
             </Tab>
         </Tabs>

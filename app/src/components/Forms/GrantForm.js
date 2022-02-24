@@ -3,7 +3,7 @@ import {Button, Form, ModalFooter} from 'react-bootstrap'
 import {useTranslation} from "react-i18next";
 
 export default ({onSubmit}) => {
-    const { t, i18n } = useTranslation();
+    const {t} = useTranslation();
     const [accounts, setAccounts] = useState([''])
     const [count, setCount] = useState(1)
 

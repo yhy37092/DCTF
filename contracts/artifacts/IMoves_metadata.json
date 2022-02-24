@@ -1,0 +1,398 @@
+{
+	"compiler": {
+		"version": "0.8.12+commit.f00d7308"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "contestId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "challengeId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "hash",
+						"type": "bytes32"
+					}
+				],
+				"name": "commitForAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "contestId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "teamId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "challengeId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "hash",
+						"type": "bytes32"
+					}
+				],
+				"name": "commitForMember",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "get",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "contestId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "challengeId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "teamId",
+								"type": "uint256"
+							},
+							{
+								"components": [
+									{
+										"internalType": "bytes32",
+										"name": "hash",
+										"type": "bytes32"
+									},
+									{
+										"internalType": "string",
+										"name": "flag",
+										"type": "string"
+									},
+									{
+										"internalType": "bytes32",
+										"name": "salt",
+										"type": "bytes32"
+									}
+								],
+								"internalType": "struct IMoves.IMove",
+								"name": "info",
+								"type": "tuple"
+							},
+							{
+								"internalType": "enum IMoves.MoveState",
+								"name": "state",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "timeStamp",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IMoves.Move",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "challengeId",
+						"type": "uint256"
+					}
+				],
+				"name": "getChallengeAnswerMoveId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "challengeId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "teamId",
+						"type": "uint256"
+					}
+				],
+				"name": "getChallengeTeamSubmitMoveId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "contestId",
+						"type": "uint256"
+					}
+				],
+				"name": "getContestAnswerIds",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "contestId",
+						"type": "uint256"
+					}
+				],
+				"name": "getContestSubmitIds",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "getMove",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "contestId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "challengeId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "teamId",
+								"type": "uint256"
+							},
+							{
+								"components": [
+									{
+										"internalType": "bytes32",
+										"name": "hash",
+										"type": "bytes32"
+									},
+									{
+										"internalType": "string",
+										"name": "flag",
+										"type": "string"
+									},
+									{
+										"internalType": "bytes32",
+										"name": "salt",
+										"type": "bytes32"
+									}
+								],
+								"internalType": "struct IMoves.IMove",
+								"name": "info",
+								"type": "tuple"
+							},
+							{
+								"internalType": "enum IMoves.MoveState",
+								"name": "state",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "timeStamp",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IMoves.Move",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "contestId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "challengeIds",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "string[]",
+						"name": "flags",
+						"type": "string[]"
+					},
+					{
+						"internalType": "bytes32[]",
+						"name": "salts",
+						"type": "bytes32[]"
+					}
+				],
+				"name": "revealForAdmins",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "contestId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "teamId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "challengeIds",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "string[]",
+						"name": "flags",
+						"type": "string[]"
+					},
+					{
+						"internalType": "bytes32[]",
+						"name": "salts",
+						"type": "bytes32[]"
+					}
+				],
+				"name": "revealForMembers",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"IMoves.sol": "IMoves"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"IMoves.sol": {
+			"keccak256": "0xae93c2eca86a793827881385e85c7b9e4b87a67d2397ed664b37a54edec1b80a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c517696b0076300dcd6ca51ad1754e9f5215d773a0e8ef542c63554e8fc1ed8e",
+				"dweb:/ipfs/QmZKUUzg4gdaPhb2MmvtU8icUi8Gj8rszG2J8fYSLZ4FZ4"
+			]
+		}
+	},
+	"version": 1
+}

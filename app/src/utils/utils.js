@@ -70,7 +70,7 @@ const timeSince = dateTimestamp => {
         let [hh, hr] = mdiv(dr, 3.6e6);
         let [tt] = mdiv(hr, 6e4);
 
-        var ymdht = ['year', 'month', 'day', 'hour', 'minute'];
+        const ymdht = ['year', 'month', 'day', 'hour', 'minute'];
         let res = [];
         [yy, mm, dd, hh, tt].forEach((tis, ii)=>{
             if(res.length === max_units){return}

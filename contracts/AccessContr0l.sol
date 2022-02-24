@@ -14,16 +14,6 @@ contract AccessContr0l is AccessControlEnumerable {
         _setupRole(SYSTEM_ADMIN, systemAdmin);
     }
 
-    function getRoleMembers(bytes32 role) external view returns(address [] memory) {
-        uint number = getRoleMemberCount(role);
-        address [] memory accounts = new address [] (number);
-        for(uint i = 0; i < number; i++) {
-            address account = getRoleMember(role, i);
-            accounts[i] = account;
-        }
-        return accounts;
-    }
-
     function grantRoles(bytes32 role, address [] memory accounts) external {
         for(uint i = 0; i < accounts.length; i++) {
             grantRole(role, accounts[i]);

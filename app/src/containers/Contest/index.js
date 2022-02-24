@@ -3,14 +3,13 @@ import {Link, Route, Routes, useParams} from 'react-router-dom'
 import {drizzleReactHooks} from "@drizzle/react-plugin";
 import {Breadcrumb, Col, Row} from 'react-bootstrap'
 import {before} from '../../utils/utils'
-import {contest, team} from '../../MetaData.json'
 import {ContestNavBar, NoMatch,} from "../../components";
 import ListContest from "./ListContest";
+import ApplyContest from "./ApplyContest";
+import OnGoingContest from "./Ongoing/OnGoingContest";
+import {useTranslation} from "react-i18next";
 import ListMyContest from "./ListMyContest";
 import Contest from "./Contest";
-import ApplyContest from "./ApplyContest";
-import OnGoingContest from "./OnGoingContest";
-import {useTranslation} from "react-i18next";
 
 export default () => {
     return (
@@ -28,7 +27,7 @@ export default () => {
 }
 
 function MainPage() {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     return (
         <>
             <Row>
@@ -46,7 +45,8 @@ function MainPage() {
 
             <Row>
                 <Col>
-                    <ListContest filter={useCallback(({_data}) => (before(_data.info.start)), [])}/>
+                    <ListContest
+                        filter={useCallback(({_data}) => before(_data.info.start), [])}/>
                 </Col>
             </Row>
         </>
@@ -54,7 +54,8 @@ function MainPage() {
 }
 
 function My() {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
+    const {useCacheCall} = drizzleReactHooks.useDrizzle()
     return (
         <>
             <Row>
@@ -73,7 +74,7 @@ function My() {
 
             <Row>
                 <Col>
-                    <ListMyContest/>
+                    <ListMyContest data={useCacheCall('Teams', 'getMyContestIds') || []}/>
                 </Col>
             </Row>
         </>
@@ -81,10 +82,8 @@ function My() {
 }
 
 function Detail() {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     const {contestId} = useParams();
-    const {useCacheCall} = drizzleReactHooks.useDrizzle()
-    const drizzleState = drizzleReactHooks.useDrizzleState(drizzleState => ({account: drizzleState.accounts[0]}))
     return (
         <>
             <Row>
@@ -108,10 +107,7 @@ function Detail() {
             </Row>
             <Row>
                 <Col>
-                    <ApplyContest
-                        contest={useCacheCall("Contests", 'contests', contestId) || contest}
-                        team={useCacheCall("Teams", 'getOne', contestId, drizzleState.account) || team}
-                    />
+                    <ApplyContest contestId={contestId}/>
                 </Col>
             </Row>
         </>
@@ -119,10 +115,8 @@ function Detail() {
 }
 
 function OnGoing() {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     const {contestId} = useParams();
-    const {useCacheCall} = drizzleReactHooks.useDrizzle()
-    const drizzleState = drizzleReactHooks.useDrizzleState(drizzleState => ({account: drizzleState.accounts[0]}))
     return (
         <>
             <Row>
@@ -138,10 +132,7 @@ function OnGoing() {
 
             <Row>
                 <Col>
-                    <OnGoingContest
-                        contest={useCacheCall("Contests", 'contests', contestId) || contest}
-                        team={useCacheCall("Teams", 'getOne', contestId, drizzleState.account) || team}
-                    />
+                    <OnGoingContest contestId={contestId}/>
                 </Col>
             </Row>
 

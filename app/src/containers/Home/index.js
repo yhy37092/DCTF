@@ -20,7 +20,7 @@ export default () => {
                         <h5>This is a decentralized ctf platform base on Ethereum.</h5>
                         <p><a href="https://en.wikipedia.org/wiki/Decentralized_application">see what is
                             decentralized application here</a></p>
-                        <p>DCTF suport jeopardy and AWD mode.</p>
+                        <p>DCTF support jeopardy and AWD mode.</p>
                         <p>System administrator can grant or revoke contest administrator account in
                             <Link to={'SystemAdmin'}>SystemAdmin</Link>
                         </p>

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link, Route, Routes, useParams} from 'react-router-dom'
-import {Breadcrumb, Col, Row} from 'react-bootstrap'
+import {Breadcrumb, Button, Col, Row} from 'react-bootstrap'
 import RevealChallenge from "./RevealChallenge";
 import RemoveChallenge from "./RemoveChallenge";
 import NewChallenge from "./NewChallenge";
@@ -20,7 +20,7 @@ export default () => {
 }
 
 function MainPage() {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     const {contestId} = useParams()
 
     return (
@@ -37,7 +37,13 @@ function MainPage() {
             </Row>
             <Row>
                 <Col>
-                    <RevealChallenge contestId={contestId}/>
+                    <h1 align='center'>{t('description.Challenges')}
+                        <Link to={`/ContestAdmin/Contest-${contestId}/Challenges/New`}>
+                            <Button
+                                variant='outline-secondary'><i
+                                className='btn-fa fas fa-plus-circle'/></Button></Link>
+                        <RevealChallenge contestId={contestId}/>
+                    </h1>
                 </Col>
             </Row>
 
@@ -52,7 +58,7 @@ function MainPage() {
 }
 
 function New() {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     const {contestId} = useParams()
 
     return (
@@ -86,7 +92,7 @@ function New() {
 }
 
 function Update() {
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     const {contestId, challengeId} = useParams()
 
     return (
