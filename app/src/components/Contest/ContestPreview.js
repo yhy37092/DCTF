@@ -10,8 +10,8 @@ export default ({data, link}) => {
         <Card className="text-center" border="primary">
             <Card.Header>{t(`description.${data.info.contestType}`)}
                 {before(data.info.start) && <i className="fas fa-hourglass-start"/>}
-                {after(data.info.start) && before(data.info.end) && <i className="fas fa-hourglass-half"/>}
-                {after(data.info.end) && <i className="fas fa-hourglass-end"/>}
+                {after(data.info.start) && before(data.info.commitEnd) && <i className="fas fa-hourglass-half"/>}
+                {after(data.info.commitEnd) && <i className="fas fa-hourglass-end"/>}
             </Card.Header>
             <Card.Body>
                 <Card.Title>{data.info.name}</Card.Title>

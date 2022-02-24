@@ -9,7 +9,8 @@ interface IContests {
         string name;
         uint fee;
         uint start;
-        uint end;
+        uint commitEnd;
+        uint revealEnd;
         string message;
     }
 
@@ -25,7 +26,8 @@ interface IContests {
         DEFAULT,
         CREATED,
         STARTED,
-        ENDED
+        COMMITENDED,
+        REVEALENDED
     }
 
     function add(IContest calldata contest) external;

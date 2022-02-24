@@ -8,8 +8,18 @@ export default ({filter}) => {
     const {useCacheCall} = drizzleReactHooks.useDrizzle()
     return (
         <>
-            {useCacheCall(['Contests'], call => [...Array(parseInt((call('Contests', 'getCount') || '0'))).keys()].map(value => call('Contests', 'get', value) || contest))
-                .map(
+            <Show
+                filter={filter}
+                data={useCacheCall(['Contests'], call => [...Array(parseInt((call('Contests', 'getCount') || '0'))).keys()].map(value => call('Contests', 'get', value) || contest))}
+            />
+        </>
+    );
+};
+
+function Show({data, filter}) {
+    return (
+        <>
+            {data.map(
                 (value, index) => (
                     (filter({_data: value}) ? (
                         <div key={index}>
@@ -20,5 +30,5 @@ export default ({filter}) => {
                 )
             )}
         </>
-    );
-};
+    )
+}

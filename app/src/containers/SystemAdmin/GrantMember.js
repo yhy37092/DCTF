@@ -17,12 +17,9 @@ export default ({Role}) => {
 
     return (
         <>
-            <h1 align='center'>{t('description.Contest_admins')}
-                <Button variant='outline-secondary' onClick={handleShow}>
-                    <i className='btn-fa fas fa-plus-circle'/>
-                </Button>
-            </h1>
-
+            <Button variant='outline-secondary' onClick={handleShow}>
+                <i className='btn-fa fas fa-plus-circle'/>
+            </Button>
             <Modal show={show} onHide={handleShow}>
                 <Modal.Header closeButton onClick={handleClose}>
                     <Modal.Title>{t('description.grant')}</Modal.Title>

@@ -25,11 +25,18 @@ contract Moves is IMoves {
     mapping(uint => Move) moves;
     uint public nextId = 1;
 
+    // teamID => score
+    mapping(uint => uint) scores;
+
     mapping(uint => uint) challengeIdToAnswerMoveId;
     // challengeId => (teamId => moveId)
     mapping(uint => mapping(uint => uint)) challengeIdAndTeamIdToSubmitMoveId;
     mapping(uint => EnumerableSet.UintSet) contestAnswers;
     mapping(uint => EnumerableSet.UintSet) contestSubmits;
+
+    function _compareStrings(string memory a, string memory b) internal pure returns (bool) {
+        return (keccak256(abi.encodePacked((a))) == keccak256(abi.encodePacked((b))));
+    }
 
     function _commit(uint contestId, uint challengeId, uint teamId, bytes32 hash) internal returns (uint) {
         uint id = nextId;
@@ -49,13 +56,13 @@ contract Moves is IMoves {
 
     function _revealForAdmin(uint contestId, uint challengeId, string memory flag, bytes32 salt) internal
     onlyContestOwner(contestId)
-    onlyContestInState(contestId, IContests.ContestState.ENDED) {
+    onlyContestInState(contestId, IContests.ContestState.COMMITENDED) {
         _reveal(challengeIdToAnswerMoveId[challengeId], flag, salt);
     }
 
     function _revealForMember(uint contestId, uint teamId, uint challengeId, string memory flag, bytes32 salt) internal
     onlyTeamMember(teamId)
-    onlyContestInState(contestId, IContests.ContestState.ENDED) {
+    onlyContestInState(contestId, IContests.ContestState.COMMITENDED) {
         _reveal(challengeIdAndTeamIdToSubmitMoveId[challengeId][teamId], flag, salt);
     }
 
@@ -97,6 +104,24 @@ contract Moves is IMoves {
         }
     }
 
+    function updateScore(uint contestId) external
+    onlyContestInState(contestId, IContests.ContestState.REVEALENDED) {
+        uint [] memory submits = contestSubmits[contestId].values();
+        uint [] memory answers = contestAnswers[contestId].values();
+
+        for (uint i = 0; i < submits.length; i++) scores[moves[submits[i]].teamId] = 0;
+
+        for (uint i = 0; i < submits.length; i++) {
+            Move memory submitMove = moves[submits[i]];
+            Move memory answerMove;
+            for (uint j = 0; j < answers.length; j++)
+                if (submitMove.challengeId == moves[answers[j]].challengeId)
+                    answerMove = moves[answers[j]];
+            if (submitMove.state == IMoves.MoveState.REVEALED && answerMove.state == IMoves.MoveState.REVEALED && _compareStrings(submitMove.info.flag, answerMove.info.flag))
+                scores[submitMove.teamId] += Challenges.getChallenge(submitMove.challengeId).info.value;
+        }
+    }
+
     function getChallengeAnswerMoveId(uint challengeId) external view returns (uint) {
         return challengeIdToAnswerMoveId[challengeId];
     }
@@ -123,6 +148,10 @@ contract Moves is IMoves {
 
     function getMove(uint id) external view returns (Move memory) {
         return moves[id];
+    }
+
+    function getScore(uint teamId) external view returns(uint){
+        return scores[teamId];
     }
 
     modifier onlyTeamMember(uint teamId) {

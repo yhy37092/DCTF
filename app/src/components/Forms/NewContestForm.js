@@ -10,14 +10,15 @@ export default ({onSubmit}) => {
     const [name, setName] = useState('')
     const [fee, setFee] = useState(0)
     const [start, setStart] = useState(new Date())
-    const [end, setEnd] = useState(new Date())
+    const [commitEnd, setCommitEnd] = useState(new Date())
+    const [revealEnd, setRevealEnd] = useState(new Date())
     const [message, setMessage] = useState('')
 
     return (
         <Form onSubmit={event => {
             event.preventDefault()
             onSubmit({
-                _data: [contestType, name, fee, parseInt(start.getTime()/1000), parseInt(end.getTime()/1000), message]
+                _data: [contestType, name, fee, parseInt(start.getTime()/1000), parseInt(commitEnd.getTime()/1000), parseInt(revealEnd.getTime()/1000), message]
             })
         }
         }>
@@ -53,9 +54,14 @@ export default ({onSubmit}) => {
                         <DateTimePicker onChange={setStart} value={start}/>
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label as={Row}>{t('description.End')}:</Form.Label>
-                        <Form.Text as={Row} muted>{t('description.end_of_contest')}</Form.Text>
-                        <DateTimePicker onChange={setEnd} value={end}/>
+                        <Form.Label as={Row}>{t('description.commitEnd')}:</Form.Label>
+                        <Form.Text as={Row} muted>{t('description.commitEnd_of_contest')}</Form.Text>
+                        <DateTimePicker onChange={setCommitEnd} value={commitEnd}/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label as={Row}>{t('description.revealEnd')}:</Form.Label>
+                        <Form.Text as={Row} muted>{t('description.revealEnd_of_contest')}</Form.Text>
+                        <DateTimePicker onChange={setRevealEnd} value={revealEnd}/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label as={Row}>{t('description.Message')}:</Form.Label>

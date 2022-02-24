@@ -32,6 +32,10 @@ export default ({contestId}) => {
                         </Nav.Item>
                         <Nav.Item>
                             <CustomLink
+                                to={`/ContestAdmin/Contest-${contestId}/Flags`}>{t('description.Flags')}</CustomLink>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <CustomLink
                                 to={`/ContestAdmin/Contest-${contestId}/Submissions`}>{t('description.Submissions')}</CustomLink>
                         </Nav.Item>
                         <Nav.Item>

@@ -24,7 +24,8 @@ contract Contests is IContests {
 
     function _updateState(uint id) internal {
         if (block.timestamp >= contests[id].info.start) contests[id].state = IContests.ContestState.STARTED;
-        if (block.timestamp >= contests[id].info.end) contests[id].state = IContests.ContestState.ENDED;
+        if (block.timestamp >= contests[id].info.commitEnd) contests[id].state = IContests.ContestState.COMMITENDED;
+        if (block.timestamp >= contests[id].info.revealEnd) contests[id].state = IContests.ContestState.REVEALENDED;
     }
 
     function _remove(uint id) internal
@@ -38,7 +39,7 @@ contract Contests is IContests {
 
     function add(IContest calldata contest) external
     onlyContestAdmin()
-    timeQualified(contest.start, contest.end) {
+    timeQualified(contest) {
         ids.add(nextId);
         addressToContests[msg.sender].add(nextId);
         contests[nextId] = Contest(nextId, contest, msg.sender, ContestState.CREATED, block.timestamp);
@@ -49,7 +50,7 @@ contract Contests is IContests {
     onlyContestExist(id)
     onlyContestOwner(id)
     onlyContestInState(id, IContests.ContestState.CREATED)
-    timeQualified(contest.start, contest.end) {
+    timeQualified(contest) {
         contests[id].info = contest;
     }
 
@@ -101,9 +102,10 @@ contract Contests is IContests {
         _;
     }
 
-    modifier timeQualified(uint start, uint end){
-        require(end > start, "can only add contest if end after start");
-        require(start > block.timestamp, "can only add contest at a future date");
+    modifier timeQualified(IContest calldata contest){
+        require(contest.start > block.timestamp, "can only add contest at a future date");
+        require(contest.commitEnd > contest.start, "can only add contest if commit end after start");
+        require(contest.revealEnd > contest.commitEnd, "can only add contest if reveal end after commit end");
         _;
     }
 }

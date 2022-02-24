@@ -30,7 +30,9 @@ function MainPage() {
             </Row>
             <Row>
                 <Col>
-                    <GrantMember Role={Web3Utils.keccak256('CONTEST_ADMIN')}/>
+                    <h1 align='center'>{t('description.Contest_admins')}
+                        <GrantMember Role={Web3Utils.keccak256('CONTEST_ADMIN')}/>
+                    </h1>
                 </Col>
             </Row>
 

@@ -39,7 +39,7 @@ contract Teams is ITeams {
         }
         contestTeams[contestId].add(nextId);
         ids.add(nextId);
-        teams[nextId] = Team(nextId, contestId, team, TeamState.APPLIED, 0, block.timestamp);
+        teams[nextId] = Team(nextId, contestId, team, TeamState.APPLIED, block.timestamp);
         nextId++;
     }
 
@@ -70,12 +70,6 @@ contract Teams is ITeams {
     modifier onlyContestExist(uint contestId){
         IContests.Contest memory contest = Contests.getContest(contestId);
         require(contest.id > 0, "only contest exist");
-        _;
-    }
-
-    modifier onlyContestOwner(uint contestId){
-        IContests.Contest memory contest = Contests.getContest(contestId);
-        require(contest.owner == msg.sender, "only contest owner");
         _;
     }
     modifier onlyContestInState(uint contestId, IContests.ContestState state){

@@ -51,10 +51,10 @@ export default ({contestId, teamId, challenge}) => {
                             contestId: contestId,
                             teamId: teamId,
                             challengeId: challenge.id,
-                            flag: flag,
+                            flag: _data,
                             salt: salt
                         }));
-                        send(contestId, teamId, challenge.id, Web3Utils.soliditySha3(flag, salt))
+                        send(contestId, teamId, challenge.id, Web3Utils.soliditySha3(_data, salt))
                     },[contestId,teamId,challenge,flag,flags,send,dispatch])}/>
                 </Modal.Footer>
             </Modal>

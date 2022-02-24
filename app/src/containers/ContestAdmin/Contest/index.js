@@ -7,6 +7,9 @@ import {useTranslation} from "react-i18next";
 import Submissions from "./Submissions";
 import AuditTeam from "./Teams";
 import UpdateContest from "./UpdateContest";
+import ChallengesFlag from "./ChallengesFlag";
+import UpdateScore from "./UpdateScore";
+import Scores from "./Scores";
 
 export default () => {
 
@@ -19,6 +22,7 @@ export default () => {
                 <Route path={`/`} element={<MainPage/>}/>
                 <Route path={`/Challenges/*`} element={<Challenges/>}/>
                 <Route path={`/Teams`} element={<Teams/>}/>
+                <Route path={`/Flags`} element={<Flags/>}/>
                 <Route path={`/Submissions`} element={<Submission/>}/>
                 <Route path={`/ScoreBoard`} element={<ScoreBoard/>}/>
                 <Route path='*' element={<NoMatch/>}/>
@@ -88,7 +92,38 @@ function Teams() {
 
     )
 }
+function Flags() {
+    const {t} = useTranslation();
+    const {contestId} = useParams()
 
+    return (
+        <>
+            <Row>
+                <Col>
+                    <Breadcrumb>
+                        <Link to='/ContestAdmin' className='breadcrumb-item'>{t('description.ContestAdmin')}</Link>
+                        <Link to={`/ContestAdmin/Contest-${contestId}`}
+                              className='breadcrumb-item'>{t('description.Contest')}-{contestId}</Link>
+                        <Breadcrumb.Item active>{t('description.Flags')}</Breadcrumb.Item>
+                    </Breadcrumb>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col>
+                    <h1 align='center'>{t('description.Flags')}</h1>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col>
+                    <ChallengesFlag contestId={contestId}/>
+                </Col>
+            </Row>
+        </>
+
+    )
+}
 function Submission() {
     const {t} = useTranslation();
     const {contestId} = useParams()
@@ -140,13 +175,15 @@ function ScoreBoard() {
 
             <Row>
                 <Col>
-                    <h1 align='center'>{t('description.ScoreBoard')}</h1>
+                    <h1 align='center'>{t('description.ScoreBoard')}
+                        <UpdateScore contestId={contestId}/>
+                    </h1>
                 </Col>
             </Row>
 
             <Row>
                 <Col>
-
+                    <Scores contestId={contestId}/>
                 </Col>
             </Row>
         </>

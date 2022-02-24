@@ -7,7 +7,19 @@ export default ({contestId, teamId}) => {
     const {useCacheCall} = drizzleReactHooks.useDrizzle()
     return (
         <>
-            {useCacheCall(['Challenges'], call => (call('Challenges', 'getContestChallengeIds', contestId) || []).map(value => call('Challenges', 'getChallenge', parseInt(value)) || challenge)).map(
+            <Show
+                teamId={teamId}
+                contestId={contestId}
+                challenges={useCacheCall(['Challenges'], call => (call('Challenges', 'getContestChallengeIds', contestId) || []).map(value => call('Challenges', 'getChallenge', parseInt(value)) || challenge))}
+            />
+        </>
+    );
+};
+
+function Show({contestId, teamId, challenges}) {
+    return (
+        <>
+            {challenges.map(
                 (value, index) => (
                     <div key={index}>
                         <Challenge contestId={contestId} teamId={teamId} challenge={value}/>
@@ -15,5 +27,5 @@ export default ({contestId, teamId}) => {
                     </div>
                 ))}
         </>
-    );
-};
+    )
+}

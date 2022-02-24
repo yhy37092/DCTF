@@ -15,7 +15,6 @@ interface ITeams {
         uint contestId;
         ITeam info;
         TeamState state;
-        uint score;
         uint timeStamp;
     }
 

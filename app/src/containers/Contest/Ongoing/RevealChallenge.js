@@ -29,11 +29,9 @@ export default ({contestId, teamId}) => {
     return (
         <>
             <TransactionStatuses TXObjects={TXObjects}/>
-            <h1 align="center">{t('description.Challenges')}
-                <Button variant="outline-secondary" onClick={handleReveal}>
-                    <i className="fas fa-arrow-circle-up"/>
-                </Button>
-            </h1>
+            <Button variant="outline-secondary" onClick={handleReveal}>
+                <i className="fas fa-arrow-circle-up"/>
+            </Button>
         </>
     )
 }
