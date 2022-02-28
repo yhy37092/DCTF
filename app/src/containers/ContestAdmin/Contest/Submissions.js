@@ -1,18 +1,38 @@
-import React from 'react'
-import {drizzleReactHooks} from "@drizzle/react-plugin"
-import SubmissionForm from "../../../components/Forms/SubmissionForm"
-import {challenge as defaultChallenge, move as defaultMove, team as defaultTeam} from '../../../MetaData.json'
+import {useTranslation} from "react-i18next";
+import {Link, useParams} from "react-router-dom";
+import {Breadcrumb, Col, Row} from "react-bootstrap";
+import Submissions from "../../../components/ContestAdmin/Contest/Submissions";
+import React from "react";
 
-export default ({contestId}) => {
-    const {useCacheCall} = drizzleReactHooks.useDrizzle()
+export default () => {
+    const {t} = useTranslation();
+    const {contestId} = useParams()
 
     return (
-        <SubmissionForm
-            data={useCacheCall(['Moves', 'Teams', 'Challenges'], call => ((call('Moves', 'getContestSubmitIds', contestId) || []).flatMap(moveId => [call('Moves', 'getMove', parseInt(moveId)) || defaultMove].map(move => ({
-                move: move,
-                team: call('Teams', 'getTeam', parseInt(move.teamId)) || defaultTeam,
-                challenge: call('Challenges', 'getChallenge', parseInt(move.challengeId)) || defaultChallenge
-            })))))}
-        />
+        <>
+            <Row>
+                <Col>
+                    <Breadcrumb>
+                        <Link to='/ContestAdmin' className='breadcrumb-item'>{t('description.ContestAdmin')}</Link>
+                        <Link to={`/ContestAdmin/Contest-${contestId}`}
+                              className='breadcrumb-item'>{t('description.Contest')}-{contestId}</Link>
+                        <Breadcrumb.Item active>{t('description.Submissions')}</Breadcrumb.Item>
+                    </Breadcrumb>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col>
+                    <h1 align='center'>{t('description.Submissions')}</h1>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col>
+                    <Submissions contestId={contestId}/>
+                </Col>
+            </Row>
+        </>
+
     )
 }

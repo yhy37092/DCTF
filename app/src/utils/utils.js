@@ -23,6 +23,8 @@ const toContestState = state => {
             return 'STARTED'
         case 3:
             return 'ENDED'
+        case 4:
+            return 'ENDED'
         default :
             return 'ERROR'
     }

@@ -1,16 +1,37 @@
-import React from 'react'
-import {drizzleReactHooks} from "@drizzle/react-plugin"
-import TeamsForm from '../../../components/Forms/TeamsForm'
-import {team} from '../../../MetaData.json'
+import {useTranslation} from "react-i18next";
+import {Link, useParams} from "react-router-dom";
+import {Breadcrumb, Col, Row} from "react-bootstrap";
+import AuditTeam from "../../../components/ContestAdmin/Contest/Teams";
+import React from "react";
 
-export default ({contestId}) => {
-    const {useCacheCall} = drizzleReactHooks.useDrizzle()
+export default () => {
+    const {t} = useTranslation();
+    const {contestId} = useParams()
 
     return (
         <>
-            <TeamsForm
-                data={useCacheCall(['Teams'], call => (call('Teams', 'getContestTeamIds', contestId) || []).map(value => call('Teams', 'getTeam', value) || team))}
-            />
+            <Row>
+                <Col>
+                    <Breadcrumb>
+                        <Link to='/ContestAdmin' className='breadcrumb-item'>{t('description.ContestAdmin')}</Link>
+                        <Link to={`/ContestAdmin/Contest-${contestId}`}
+                              className='breadcrumb-item'>{t('description.Contest')}-{contestId}</Link>
+                        <Breadcrumb.Item active>{t('description.Teams')}</Breadcrumb.Item>
+                    </Breadcrumb>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <h1 align='center'>{t('description.Teams')}</h1>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col>
+                    <AuditTeam contestId={contestId}/>
+                </Col>
+            </Row>
         </>
+
     )
 }

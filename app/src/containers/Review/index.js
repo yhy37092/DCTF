@@ -1,14 +1,17 @@
-import React from "react";
+import {NoMatch} from "../../components";
 import {Route, Routes} from "react-router-dom";
+import React from "react";
+import Contest from "./Contest";
+import MainPage from "./MainPage";
 
-import List from "./List/index";
-import NoMatch from "../../components/NoMatch";
-
-export default ({drizzle, drizzleState}) => {
+export default () => {
     return (
-        <Routes>
-            <Route path={`/`} element={<List drizzle={drizzle} drizzleState={drizzleState}/>}/>
-            <Route path="*" element={<NoMatch />} />
-        </Routes>
-    );
-};
+        <>
+            <Routes>
+                <Route path={`/`} element={<MainPage/>}/>
+                <Route path={`/Contest-:contestId/*`} element={<Contest/>}/>
+                <Route path='*' element={<NoMatch/>}/>
+            </Routes>
+        </>
+    )
+}

@@ -1,12 +1,8 @@
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
-
-import {Breadcrumb, Col, Row} from 'react-bootstrap'
 import {NoMatch} from "../../components";
-import {useTranslation} from "react-i18next";
-import GrantMember from "./GrantMember";
-import RevokeMember from "./RevokeMember";
-import Web3Utils from "web3-utils";
+import MainPage from "./MainPage";
+
 
 export default () => {
     return (
@@ -14,33 +10,5 @@ export default () => {
             <Route path='/' element={<MainPage/>}/>
             <Route path='*' element={<NoMatch/>}/>
         </Routes>
-    )
-}
-
-function MainPage() {
-    const {t} = useTranslation();
-    return (
-        <>
-            <Row>
-                <Col>
-                    <Breadcrumb>
-                        <Breadcrumb.Item active>{t('description.SystemAdmin')}</Breadcrumb.Item>
-                    </Breadcrumb>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <h1 align='center'>{t('description.Contest_admins')}
-                        <GrantMember Role={Web3Utils.keccak256('CONTEST_ADMIN')}/>
-                    </h1>
-                </Col>
-            </Row>
-
-            <Row>
-                <Col>
-                    <RevokeMember Role={Web3Utils.keccak256('CONTEST_ADMIN')}/>
-                </Col>
-            </Row>
-        </>
     )
 }

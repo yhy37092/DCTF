@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import {Button, Col, Form, Row, Table} from 'react-bootstrap'
-import {Link, useParams} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {useTranslation} from "react-i18next";
 
 export default ({onSubmit, data}) => {
     const {t} = useTranslation();
-    const {contestId} = useParams()
 
     const [checkList, setCheckList] = useState([])
     useEffect(() => {
@@ -50,7 +49,7 @@ export default ({onSubmit, data}) => {
                                             }}/></td>
                             <td>{value.id}</td>
                             <td><Link
-                                to={`/ContestAdmin/Contest-${contestId}/Challenges/Challenge-${value.id}`}>{value.info.name}</Link>
+                                to={`Challenge-${value.id}`}>{value.info.name}</Link>
                             </td>
                             <td>{value.info.category}</td>
                             <td>{value.info.value}</td>
