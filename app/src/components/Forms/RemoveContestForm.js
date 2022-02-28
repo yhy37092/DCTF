@@ -35,7 +35,7 @@ export default ({onSubmit, data}) => {
                     <th>{t('description.Type')}</th>
                     <th>{t('description.Fee')}</th>
                     <th>{t('description.Start')}</th>
-                    <th>{t('description.End')}</th>
+                    <th>{t('description.commitEnd')}</th>
                     <th>{t('description.State')}</th>
                 </tr>
                 </thead>
@@ -52,12 +52,12 @@ export default ({onSubmit, data}) => {
                                            }}/></td>
                             <td>{value.id}</td>
                             <td><Link
-                                to={`/ContestAdmin/Contest-${value.id}`}>{value.info.name}</Link>
+                                to={`Contest-${value.id}`}>{value.info.name}</Link>
                             </td>
                             <td>{t(`description.${value.info.contestType}`)}</td>
                             <td>{toEther(value.info.fee)} ether</td>
                             <td>{toDate(value.info.start)}</td>
-                            <td>{toDate(value.info.end)}</td>
+                            <td>{toDate(value.info.commitEnd)}</td>
                             <td>{toContestState(value.state)}</td>
                         </tr>
                     ))

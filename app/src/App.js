@@ -12,6 +12,7 @@ import Contest from './containers/Contest'
 import NoMatch from './components/NoMatch'
 
 import './App.css'
+import Review from "./containers/Review";
 
 const drizzle = new Drizzle(drizzleOptions)
 const {DrizzleProvider} = drizzleReactHooks
@@ -30,7 +31,7 @@ function App() {
                                 <Route path='SystemAdmin/*' element={<SystemAdmin/>}/>
                                 <Route path='ContestAdmin/*' element={<ContestAdmin/>}/>
                                 <Route path='Contests/*' element={<Contest/>}/>
-                                {/*<Route path='Review/*' element={<Review/>}/>*/}
+                                <Route path='Review/*' element={<Review/>}/>
                                 <Route path='*' element={<NoMatch/>}/>
                             </Routes>
                         </Stack>
