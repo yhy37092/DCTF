@@ -2,7 +2,7 @@ import {useTranslation} from "react-i18next";
 import {Link, useParams} from "react-router-dom";
 import {Breadcrumb, Col, Row} from "react-bootstrap";
 import UpdateScore from "../../../components/ContestAdmin/Contest/UpdateScore";
-import Scores from "../../../components/ContestAdmin/Contest/Scores";
+import Scores from "../../../components/ContestAdmin/Contest/ListScore";
 import React from "react";
 
 export default () => {

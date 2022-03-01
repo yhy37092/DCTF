@@ -241,15 +241,15 @@
     "absolutePath": "project:/contracts/ITeams.sol",
     "exportedSymbols": {
       "ITeams": [
-        1788
+        2178
       ]
     },
-    "id": 1789,
+    "id": 2179,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1710,
+        "id": 2100,
         "literals": [
           "solidity",
           "^",
@@ -257,16 +257,16 @@
           ".10"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:24:7"
+        "src": "32:24:14"
       },
       {
-        "id": 1711,
+        "id": 2101,
         "literals": [
           "experimental",
           "ABIEncoderV2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "57:33:7"
+        "src": "57:33:14"
       },
       {
         "abstract": false,
@@ -275,27 +275,27 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 1788,
+        "id": 2178,
         "linearizedBaseContracts": [
-          1788
+          2178
         ],
         "name": "ITeams",
-        "nameLocation": "102:6:7",
+        "nameLocation": "102:6:14",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "ITeams.ITeam",
-            "id": 1719,
+            "id": 2109,
             "members": [
               {
                 "constant": false,
-                "id": 1713,
+                "id": 2103,
                 "mutability": "mutable",
                 "name": "name",
-                "nameLocation": "145:4:7",
+                "nameLocation": "145:4:14",
                 "nodeType": "VariableDeclaration",
-                "scope": 1719,
-                "src": "138:11:7",
+                "scope": 2109,
+                "src": "138:11:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -303,10 +303,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1712,
+                  "id": 2102,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "138:6:7",
+                  "src": "138:6:14",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -316,13 +316,13 @@
               },
               {
                 "constant": false,
-                "id": 1715,
+                "id": 2105,
                 "mutability": "mutable",
                 "name": "captain",
-                "nameLocation": "175:7:7",
+                "nameLocation": "175:7:14",
                 "nodeType": "VariableDeclaration",
-                "scope": 1719,
-                "src": "159:23:7",
+                "scope": 2109,
+                "src": "159:23:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -330,10 +330,10 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 1714,
+                  "id": 2104,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "159:15:7",
+                  "src": "159:15:14",
                   "stateMutability": "payable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address_payable",
@@ -344,13 +344,13 @@
               },
               {
                 "constant": false,
-                "id": 1718,
+                "id": 2108,
                 "mutability": "mutable",
                 "name": "members",
-                "nameLocation": "203:7:7",
+                "nameLocation": "203:7:14",
                 "nodeType": "VariableDeclaration",
-                "scope": 1719,
-                "src": "192:18:7",
+                "scope": 2109,
+                "src": "192:18:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -359,19 +359,19 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 1716,
+                    "id": 2106,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "192:7:7",
+                    "src": "192:7:14",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 1717,
+                  "id": 2107,
                   "nodeType": "ArrayTypeName",
-                  "src": "192:10:7",
+                  "src": "192:10:14",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                     "typeString": "address[]"
@@ -381,25 +381,25 @@
               }
             ],
             "name": "ITeam",
-            "nameLocation": "123:5:7",
+            "nameLocation": "123:5:14",
             "nodeType": "StructDefinition",
-            "scope": 1788,
-            "src": "116:101:7",
+            "scope": 2178,
+            "src": "116:101:14",
             "visibility": "public"
           },
           {
             "canonicalName": "ITeams.Team",
-            "id": 1732,
+            "id": 2122,
             "members": [
               {
                 "constant": false,
-                "id": 1721,
+                "id": 2111,
                 "mutability": "mutable",
                 "name": "id",
-                "nameLocation": "250:2:7",
+                "nameLocation": "250:2:14",
                 "nodeType": "VariableDeclaration",
-                "scope": 1732,
-                "src": "245:7:7",
+                "scope": 2122,
+                "src": "245:7:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -407,10 +407,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1720,
+                  "id": 2110,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "245:4:7",
+                  "src": "245:4:14",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -420,13 +420,13 @@
               },
               {
                 "constant": false,
-                "id": 1723,
+                "id": 2113,
                 "mutability": "mutable",
                 "name": "contestId",
-                "nameLocation": "267:9:7",
+                "nameLocation": "267:9:14",
                 "nodeType": "VariableDeclaration",
-                "scope": 1732,
-                "src": "262:14:7",
+                "scope": 2122,
+                "src": "262:14:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -434,10 +434,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1722,
+                  "id": 2112,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "262:4:7",
+                  "src": "262:4:14",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -447,33 +447,33 @@
               },
               {
                 "constant": false,
-                "id": 1726,
+                "id": 2116,
                 "mutability": "mutable",
                 "name": "info",
-                "nameLocation": "292:4:7",
+                "nameLocation": "292:4:14",
                 "nodeType": "VariableDeclaration",
-                "scope": 1732,
-                "src": "286:10:7",
+                "scope": 2122,
+                "src": "286:10:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_ITeam_$1719_storage_ptr",
+                  "typeIdentifier": "t_struct$_ITeam_$2109_storage_ptr",
                   "typeString": "struct ITeams.ITeam"
                 },
                 "typeName": {
-                  "id": 1725,
+                  "id": 2115,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 1724,
+                    "id": 2114,
                     "name": "ITeam",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 1719,
-                    "src": "286:5:7"
+                    "referencedDeclaration": 2109,
+                    "src": "286:5:14"
                   },
-                  "referencedDeclaration": 1719,
-                  "src": "286:5:7",
+                  "referencedDeclaration": 2109,
+                  "src": "286:5:14",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_ITeam_$1719_storage_ptr",
+                    "typeIdentifier": "t_struct$_ITeam_$2109_storage_ptr",
                     "typeString": "struct ITeams.ITeam"
                   }
                 },
@@ -481,33 +481,33 @@
               },
               {
                 "constant": false,
-                "id": 1729,
+                "id": 2119,
                 "mutability": "mutable",
                 "name": "state",
-                "nameLocation": "316:5:7",
+                "nameLocation": "316:5:14",
                 "nodeType": "VariableDeclaration",
-                "scope": 1732,
-                "src": "306:15:7",
+                "scope": 2122,
+                "src": "306:15:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_TeamState_$1737",
+                  "typeIdentifier": "t_enum$_TeamState_$2127",
                   "typeString": "enum ITeams.TeamState"
                 },
                 "typeName": {
-                  "id": 1728,
+                  "id": 2118,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 1727,
+                    "id": 2117,
                     "name": "TeamState",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 1737,
-                    "src": "306:9:7"
+                    "referencedDeclaration": 2127,
+                    "src": "306:9:14"
                   },
-                  "referencedDeclaration": 1737,
-                  "src": "306:9:7",
+                  "referencedDeclaration": 2127,
+                  "src": "306:9:14",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_TeamState_$1737",
+                    "typeIdentifier": "t_enum$_TeamState_$2127",
                     "typeString": "enum ITeams.TeamState"
                   }
                 },
@@ -515,13 +515,13 @@
               },
               {
                 "constant": false,
-                "id": 1731,
+                "id": 2121,
                 "mutability": "mutable",
                 "name": "timeStamp",
-                "nameLocation": "336:9:7",
+                "nameLocation": "336:9:14",
                 "nodeType": "VariableDeclaration",
-                "scope": 1732,
-                "src": "331:14:7",
+                "scope": 2122,
+                "src": "331:14:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -529,10 +529,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1730,
+                  "id": 2120,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "331:4:7",
+                  "src": "331:4:14",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -542,72 +542,72 @@
               }
             ],
             "name": "Team",
-            "nameLocation": "230:4:7",
+            "nameLocation": "230:4:14",
             "nodeType": "StructDefinition",
-            "scope": 1788,
-            "src": "223:129:7",
+            "scope": 2178,
+            "src": "223:129:14",
             "visibility": "public"
           },
           {
             "canonicalName": "ITeams.TeamState",
-            "id": 1737,
+            "id": 2127,
             "members": [
               {
-                "id": 1733,
+                "id": 2123,
                 "name": "DEFAULT",
-                "nameLocation": "382:7:7",
+                "nameLocation": "382:7:14",
                 "nodeType": "EnumValue",
-                "src": "382:7:7"
+                "src": "382:7:14"
               },
               {
-                "id": 1734,
+                "id": 2124,
                 "name": "APPLIED",
-                "nameLocation": "399:7:7",
+                "nameLocation": "399:7:14",
                 "nodeType": "EnumValue",
-                "src": "399:7:7"
+                "src": "399:7:14"
               },
               {
-                "id": 1735,
+                "id": 2125,
                 "name": "APPROVED",
-                "nameLocation": "416:8:7",
+                "nameLocation": "416:8:14",
                 "nodeType": "EnumValue",
-                "src": "416:8:7"
+                "src": "416:8:14"
               },
               {
-                "id": 1736,
+                "id": 2126,
                 "name": "REJECTED",
-                "nameLocation": "434:8:7",
+                "nameLocation": "434:8:14",
                 "nodeType": "EnumValue",
-                "src": "434:8:7"
+                "src": "434:8:14"
               }
             ],
             "name": "TeamState",
-            "nameLocation": "363:9:7",
+            "nameLocation": "363:9:14",
             "nodeType": "EnumDefinition",
-            "src": "358:90:7"
+            "src": "358:90:14"
           },
           {
             "functionSelector": "97c8a3c1",
-            "id": 1745,
+            "id": 2135,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "add",
-            "nameLocation": "463:3:7",
+            "nameLocation": "463:3:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1743,
+              "id": 2133,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1739,
+                  "id": 2129,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "472:9:7",
+                  "nameLocation": "472:9:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1745,
-                  "src": "467:14:7",
+                  "scope": 2135,
+                  "src": "467:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -615,10 +615,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1738,
+                    "id": 2128,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "467:4:7",
+                    "src": "467:4:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -628,81 +628,81 @@
                 },
                 {
                   "constant": false,
-                  "id": 1742,
+                  "id": 2132,
                   "mutability": "mutable",
                   "name": "team",
-                  "nameLocation": "498:4:7",
+                  "nameLocation": "498:4:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1745,
-                  "src": "483:19:7",
+                  "scope": 2135,
+                  "src": "483:19:14",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_ITeam_$1719_calldata_ptr",
+                    "typeIdentifier": "t_struct$_ITeam_$2109_calldata_ptr",
                     "typeString": "struct ITeams.ITeam"
                   },
                   "typeName": {
-                    "id": 1741,
+                    "id": 2131,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1740,
+                      "id": 2130,
                       "name": "ITeam",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1719,
-                      "src": "483:5:7"
+                      "referencedDeclaration": 2109,
+                      "src": "483:5:14"
                     },
-                    "referencedDeclaration": 1719,
-                    "src": "483:5:7",
+                    "referencedDeclaration": 2109,
+                    "src": "483:5:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ITeam_$1719_storage_ptr",
+                      "typeIdentifier": "t_struct$_ITeam_$2109_storage_ptr",
                       "typeString": "struct ITeams.ITeam"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "466:37:7"
+              "src": "466:37:14"
             },
             "returnParameters": {
-              "id": 1744,
+              "id": 2134,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "520:0:7"
+              "src": "520:0:14"
             },
-            "scope": 1788,
-            "src": "454:67:7",
+            "scope": 2178,
+            "src": "454:67:14",
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "a3cb7242",
-            "id": 1751,
+            "id": 2141,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getMyContestIds",
-            "nameLocation": "536:15:7",
+            "nameLocation": "536:15:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1746,
+              "id": 2136,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "551:2:7"
+              "src": "551:2:14"
             },
             "returnParameters": {
-              "id": 1750,
+              "id": 2140,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1749,
+                  "id": 2139,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1751,
-                  "src": "577:14:7",
+                  "scope": 2141,
+                  "src": "577:14:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -711,18 +711,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1747,
+                      "id": 2137,
                       "name": "uint",
                       "nodeType": "ElementaryTypeName",
-                      "src": "577:4:7",
+                      "src": "577:4:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 1748,
+                    "id": 2138,
                     "nodeType": "ArrayTypeName",
-                    "src": "577:7:7",
+                    "src": "577:7:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -731,36 +731,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "576:16:7"
+              "src": "576:16:14"
             },
-            "scope": 1788,
-            "src": "527:66:7",
+            "scope": 2178,
+            "src": "527:66:14",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "bd5e8497",
-            "id": 1758,
+            "id": 2148,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getMyTeamId",
-            "nameLocation": "608:11:7",
+            "nameLocation": "608:11:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1754,
+              "id": 2144,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1753,
+                  "id": 2143,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "625:9:7",
+                  "nameLocation": "625:9:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1758,
-                  "src": "620:14:7",
+                  "scope": 2148,
+                  "src": "620:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -768,10 +768,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1752,
+                    "id": 2142,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "620:4:7",
+                    "src": "620:4:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -780,21 +780,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "619:16:7"
+              "src": "619:16:14"
             },
             "returnParameters": {
-              "id": 1757,
+              "id": 2147,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1756,
+                  "id": 2146,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1758,
-                  "src": "659:4:7",
+                  "scope": 2148,
+                  "src": "659:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -802,10 +802,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1755,
+                    "id": 2145,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "659:4:7",
+                    "src": "659:4:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -814,36 +814,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "658:6:7"
+              "src": "658:6:14"
             },
-            "scope": 1788,
-            "src": "599:66:7",
+            "scope": 2178,
+            "src": "599:66:14",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "1be0dbf1",
-            "id": 1766,
+            "id": 2156,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getContestTeamIds",
-            "nameLocation": "680:17:7",
+            "nameLocation": "680:17:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1761,
+              "id": 2151,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1760,
+                  "id": 2150,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "703:9:7",
+                  "nameLocation": "703:9:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1766,
-                  "src": "698:14:7",
+                  "scope": 2156,
+                  "src": "698:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -851,10 +851,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1759,
+                    "id": 2149,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "698:4:7",
+                    "src": "698:4:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -863,21 +863,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "697:16:7"
+              "src": "697:16:14"
             },
             "returnParameters": {
-              "id": 1765,
+              "id": 2155,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1764,
+                  "id": 2154,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1766,
-                  "src": "737:14:7",
+                  "scope": 2156,
+                  "src": "737:14:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -886,18 +886,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1762,
+                      "id": 2152,
                       "name": "uint",
                       "nodeType": "ElementaryTypeName",
-                      "src": "737:4:7",
+                      "src": "737:4:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 1763,
+                    "id": 2153,
                     "nodeType": "ArrayTypeName",
-                    "src": "737:7:7",
+                    "src": "737:7:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -906,42 +906,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "736:16:7"
+              "src": "736:16:14"
             },
-            "scope": 1788,
-            "src": "671:82:7",
+            "scope": 2178,
+            "src": "671:82:14",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "a87d942c",
-            "id": 1771,
+            "id": 2161,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getCount",
-            "nameLocation": "768:8:7",
+            "nameLocation": "768:8:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1767,
+              "id": 2157,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "776:2:7"
+              "src": "776:2:14"
             },
             "returnParameters": {
-              "id": 1770,
+              "id": 2160,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1769,
+                  "id": 2159,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1771,
-                  "src": "802:4:7",
+                  "scope": 2161,
+                  "src": "802:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -949,10 +949,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1768,
+                    "id": 2158,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "802:4:7",
+                    "src": "802:4:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -961,36 +961,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "801:6:7"
+              "src": "801:6:14"
             },
-            "scope": 1788,
-            "src": "759:49:7",
+            "scope": 2178,
+            "src": "759:49:14",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "9507d39a",
-            "id": 1779,
+            "id": 2169,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "get",
-            "nameLocation": "823:3:7",
+            "nameLocation": "823:3:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1774,
+              "id": 2164,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1773,
+                  "id": 2163,
                   "mutability": "mutable",
                   "name": "index",
-                  "nameLocation": "832:5:7",
+                  "nameLocation": "832:5:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1779,
-                  "src": "827:10:7",
+                  "scope": 2169,
+                  "src": "827:10:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -998,10 +998,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1772,
+                    "id": 2162,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "827:4:7",
+                    "src": "827:4:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1010,77 +1010,77 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "826:12:7"
+              "src": "826:12:14"
             },
             "returnParameters": {
-              "id": 1778,
+              "id": 2168,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1777,
+                  "id": 2167,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1779,
-                  "src": "862:11:7",
+                  "scope": 2169,
+                  "src": "862:11:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Team_$1732_memory_ptr",
+                    "typeIdentifier": "t_struct$_Team_$2122_memory_ptr",
                     "typeString": "struct ITeams.Team"
                   },
                   "typeName": {
-                    "id": 1776,
+                    "id": 2166,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1775,
+                      "id": 2165,
                       "name": "Team",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1732,
-                      "src": "862:4:7"
+                      "referencedDeclaration": 2122,
+                      "src": "862:4:14"
                     },
-                    "referencedDeclaration": 1732,
-                    "src": "862:4:7",
+                    "referencedDeclaration": 2122,
+                    "src": "862:4:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Team_$1732_storage_ptr",
+                      "typeIdentifier": "t_struct$_Team_$2122_storage_ptr",
                       "typeString": "struct ITeams.Team"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "861:13:7"
+              "src": "861:13:14"
             },
-            "scope": 1788,
-            "src": "814:61:7",
+            "scope": 2178,
+            "src": "814:61:14",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "008e0f1b",
-            "id": 1787,
+            "id": 2177,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getTeam",
-            "nameLocation": "890:7:7",
+            "nameLocation": "890:7:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1782,
+              "id": 2172,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1781,
+                  "id": 2171,
                   "mutability": "mutable",
                   "name": "id",
-                  "nameLocation": "903:2:7",
+                  "nameLocation": "903:2:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1787,
-                  "src": "898:7:7",
+                  "scope": 2177,
+                  "src": "898:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1088,10 +1088,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1780,
+                    "id": 2170,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "898:4:7",
+                    "src": "898:4:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1100,76 +1100,76 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "897:9:7"
+              "src": "897:9:14"
             },
             "returnParameters": {
-              "id": 1786,
+              "id": 2176,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1785,
+                  "id": 2175,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1787,
-                  "src": "930:11:7",
+                  "scope": 2177,
+                  "src": "930:11:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Team_$1732_memory_ptr",
+                    "typeIdentifier": "t_struct$_Team_$2122_memory_ptr",
                     "typeString": "struct ITeams.Team"
                   },
                   "typeName": {
-                    "id": 1784,
+                    "id": 2174,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1783,
+                      "id": 2173,
                       "name": "Team",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1732,
-                      "src": "930:4:7"
+                      "referencedDeclaration": 2122,
+                      "src": "930:4:14"
                     },
-                    "referencedDeclaration": 1732,
-                    "src": "930:4:7",
+                    "referencedDeclaration": 2122,
+                    "src": "930:4:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Team_$1732_storage_ptr",
+                      "typeIdentifier": "t_struct$_Team_$2122_storage_ptr",
                       "typeString": "struct ITeams.Team"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "929:13:7"
+              "src": "929:13:14"
             },
-            "scope": 1788,
-            "src": "881:62:7",
+            "scope": 2178,
+            "src": "881:62:14",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 1789,
-        "src": "92:853:7",
+        "scope": 2179,
+        "src": "92:853:14",
         "usedErrors": []
       }
     ],
-    "src": "32:913:7"
+    "src": "32:913:14"
   },
   "legacyAST": {
     "absolutePath": "project:/contracts/ITeams.sol",
     "exportedSymbols": {
       "ITeams": [
-        1788
+        2178
       ]
     },
-    "id": 1789,
+    "id": 2179,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1710,
+        "id": 2100,
         "literals": [
           "solidity",
           "^",
@@ -1177,16 +1177,16 @@
           ".10"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:24:7"
+        "src": "32:24:14"
       },
       {
-        "id": 1711,
+        "id": 2101,
         "literals": [
           "experimental",
           "ABIEncoderV2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "57:33:7"
+        "src": "57:33:14"
       },
       {
         "abstract": false,
@@ -1195,27 +1195,27 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 1788,
+        "id": 2178,
         "linearizedBaseContracts": [
-          1788
+          2178
         ],
         "name": "ITeams",
-        "nameLocation": "102:6:7",
+        "nameLocation": "102:6:14",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "ITeams.ITeam",
-            "id": 1719,
+            "id": 2109,
             "members": [
               {
                 "constant": false,
-                "id": 1713,
+                "id": 2103,
                 "mutability": "mutable",
                 "name": "name",
-                "nameLocation": "145:4:7",
+                "nameLocation": "145:4:14",
                 "nodeType": "VariableDeclaration",
-                "scope": 1719,
-                "src": "138:11:7",
+                "scope": 2109,
+                "src": "138:11:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1223,10 +1223,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1712,
+                  "id": 2102,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "138:6:7",
+                  "src": "138:6:14",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -1236,13 +1236,13 @@
               },
               {
                 "constant": false,
-                "id": 1715,
+                "id": 2105,
                 "mutability": "mutable",
                 "name": "captain",
-                "nameLocation": "175:7:7",
+                "nameLocation": "175:7:14",
                 "nodeType": "VariableDeclaration",
-                "scope": 1719,
-                "src": "159:23:7",
+                "scope": 2109,
+                "src": "159:23:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1250,10 +1250,10 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 1714,
+                  "id": 2104,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "159:15:7",
+                  "src": "159:15:14",
                   "stateMutability": "payable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address_payable",
@@ -1264,13 +1264,13 @@
               },
               {
                 "constant": false,
-                "id": 1718,
+                "id": 2108,
                 "mutability": "mutable",
                 "name": "members",
-                "nameLocation": "203:7:7",
+                "nameLocation": "203:7:14",
                 "nodeType": "VariableDeclaration",
-                "scope": 1719,
-                "src": "192:18:7",
+                "scope": 2109,
+                "src": "192:18:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1279,19 +1279,19 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 1716,
+                    "id": 2106,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "192:7:7",
+                    "src": "192:7:14",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 1717,
+                  "id": 2107,
                   "nodeType": "ArrayTypeName",
-                  "src": "192:10:7",
+                  "src": "192:10:14",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                     "typeString": "address[]"
@@ -1301,25 +1301,25 @@
               }
             ],
             "name": "ITeam",
-            "nameLocation": "123:5:7",
+            "nameLocation": "123:5:14",
             "nodeType": "StructDefinition",
-            "scope": 1788,
-            "src": "116:101:7",
+            "scope": 2178,
+            "src": "116:101:14",
             "visibility": "public"
           },
           {
             "canonicalName": "ITeams.Team",
-            "id": 1732,
+            "id": 2122,
             "members": [
               {
                 "constant": false,
-                "id": 1721,
+                "id": 2111,
                 "mutability": "mutable",
                 "name": "id",
-                "nameLocation": "250:2:7",
+                "nameLocation": "250:2:14",
                 "nodeType": "VariableDeclaration",
-                "scope": 1732,
-                "src": "245:7:7",
+                "scope": 2122,
+                "src": "245:7:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1327,10 +1327,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1720,
+                  "id": 2110,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "245:4:7",
+                  "src": "245:4:14",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1340,13 +1340,13 @@
               },
               {
                 "constant": false,
-                "id": 1723,
+                "id": 2113,
                 "mutability": "mutable",
                 "name": "contestId",
-                "nameLocation": "267:9:7",
+                "nameLocation": "267:9:14",
                 "nodeType": "VariableDeclaration",
-                "scope": 1732,
-                "src": "262:14:7",
+                "scope": 2122,
+                "src": "262:14:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1354,10 +1354,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1722,
+                  "id": 2112,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "262:4:7",
+                  "src": "262:4:14",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1367,33 +1367,33 @@
               },
               {
                 "constant": false,
-                "id": 1726,
+                "id": 2116,
                 "mutability": "mutable",
                 "name": "info",
-                "nameLocation": "292:4:7",
+                "nameLocation": "292:4:14",
                 "nodeType": "VariableDeclaration",
-                "scope": 1732,
-                "src": "286:10:7",
+                "scope": 2122,
+                "src": "286:10:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_ITeam_$1719_storage_ptr",
+                  "typeIdentifier": "t_struct$_ITeam_$2109_storage_ptr",
                   "typeString": "struct ITeams.ITeam"
                 },
                 "typeName": {
-                  "id": 1725,
+                  "id": 2115,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 1724,
+                    "id": 2114,
                     "name": "ITeam",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 1719,
-                    "src": "286:5:7"
+                    "referencedDeclaration": 2109,
+                    "src": "286:5:14"
                   },
-                  "referencedDeclaration": 1719,
-                  "src": "286:5:7",
+                  "referencedDeclaration": 2109,
+                  "src": "286:5:14",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_ITeam_$1719_storage_ptr",
+                    "typeIdentifier": "t_struct$_ITeam_$2109_storage_ptr",
                     "typeString": "struct ITeams.ITeam"
                   }
                 },
@@ -1401,33 +1401,33 @@
               },
               {
                 "constant": false,
-                "id": 1729,
+                "id": 2119,
                 "mutability": "mutable",
                 "name": "state",
-                "nameLocation": "316:5:7",
+                "nameLocation": "316:5:14",
                 "nodeType": "VariableDeclaration",
-                "scope": 1732,
-                "src": "306:15:7",
+                "scope": 2122,
+                "src": "306:15:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_TeamState_$1737",
+                  "typeIdentifier": "t_enum$_TeamState_$2127",
                   "typeString": "enum ITeams.TeamState"
                 },
                 "typeName": {
-                  "id": 1728,
+                  "id": 2118,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 1727,
+                    "id": 2117,
                     "name": "TeamState",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 1737,
-                    "src": "306:9:7"
+                    "referencedDeclaration": 2127,
+                    "src": "306:9:14"
                   },
-                  "referencedDeclaration": 1737,
-                  "src": "306:9:7",
+                  "referencedDeclaration": 2127,
+                  "src": "306:9:14",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_TeamState_$1737",
+                    "typeIdentifier": "t_enum$_TeamState_$2127",
                     "typeString": "enum ITeams.TeamState"
                   }
                 },
@@ -1435,13 +1435,13 @@
               },
               {
                 "constant": false,
-                "id": 1731,
+                "id": 2121,
                 "mutability": "mutable",
                 "name": "timeStamp",
-                "nameLocation": "336:9:7",
+                "nameLocation": "336:9:14",
                 "nodeType": "VariableDeclaration",
-                "scope": 1732,
-                "src": "331:14:7",
+                "scope": 2122,
+                "src": "331:14:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1449,10 +1449,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1730,
+                  "id": 2120,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "331:4:7",
+                  "src": "331:4:14",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1462,72 +1462,72 @@
               }
             ],
             "name": "Team",
-            "nameLocation": "230:4:7",
+            "nameLocation": "230:4:14",
             "nodeType": "StructDefinition",
-            "scope": 1788,
-            "src": "223:129:7",
+            "scope": 2178,
+            "src": "223:129:14",
             "visibility": "public"
           },
           {
             "canonicalName": "ITeams.TeamState",
-            "id": 1737,
+            "id": 2127,
             "members": [
               {
-                "id": 1733,
+                "id": 2123,
                 "name": "DEFAULT",
-                "nameLocation": "382:7:7",
+                "nameLocation": "382:7:14",
                 "nodeType": "EnumValue",
-                "src": "382:7:7"
+                "src": "382:7:14"
               },
               {
-                "id": 1734,
+                "id": 2124,
                 "name": "APPLIED",
-                "nameLocation": "399:7:7",
+                "nameLocation": "399:7:14",
                 "nodeType": "EnumValue",
-                "src": "399:7:7"
+                "src": "399:7:14"
               },
               {
-                "id": 1735,
+                "id": 2125,
                 "name": "APPROVED",
-                "nameLocation": "416:8:7",
+                "nameLocation": "416:8:14",
                 "nodeType": "EnumValue",
-                "src": "416:8:7"
+                "src": "416:8:14"
               },
               {
-                "id": 1736,
+                "id": 2126,
                 "name": "REJECTED",
-                "nameLocation": "434:8:7",
+                "nameLocation": "434:8:14",
                 "nodeType": "EnumValue",
-                "src": "434:8:7"
+                "src": "434:8:14"
               }
             ],
             "name": "TeamState",
-            "nameLocation": "363:9:7",
+            "nameLocation": "363:9:14",
             "nodeType": "EnumDefinition",
-            "src": "358:90:7"
+            "src": "358:90:14"
           },
           {
             "functionSelector": "97c8a3c1",
-            "id": 1745,
+            "id": 2135,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "add",
-            "nameLocation": "463:3:7",
+            "nameLocation": "463:3:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1743,
+              "id": 2133,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1739,
+                  "id": 2129,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "472:9:7",
+                  "nameLocation": "472:9:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1745,
-                  "src": "467:14:7",
+                  "scope": 2135,
+                  "src": "467:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1535,10 +1535,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1738,
+                    "id": 2128,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "467:4:7",
+                    "src": "467:4:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1548,81 +1548,81 @@
                 },
                 {
                   "constant": false,
-                  "id": 1742,
+                  "id": 2132,
                   "mutability": "mutable",
                   "name": "team",
-                  "nameLocation": "498:4:7",
+                  "nameLocation": "498:4:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1745,
-                  "src": "483:19:7",
+                  "scope": 2135,
+                  "src": "483:19:14",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_ITeam_$1719_calldata_ptr",
+                    "typeIdentifier": "t_struct$_ITeam_$2109_calldata_ptr",
                     "typeString": "struct ITeams.ITeam"
                   },
                   "typeName": {
-                    "id": 1741,
+                    "id": 2131,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1740,
+                      "id": 2130,
                       "name": "ITeam",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1719,
-                      "src": "483:5:7"
+                      "referencedDeclaration": 2109,
+                      "src": "483:5:14"
                     },
-                    "referencedDeclaration": 1719,
-                    "src": "483:5:7",
+                    "referencedDeclaration": 2109,
+                    "src": "483:5:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ITeam_$1719_storage_ptr",
+                      "typeIdentifier": "t_struct$_ITeam_$2109_storage_ptr",
                       "typeString": "struct ITeams.ITeam"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "466:37:7"
+              "src": "466:37:14"
             },
             "returnParameters": {
-              "id": 1744,
+              "id": 2134,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "520:0:7"
+              "src": "520:0:14"
             },
-            "scope": 1788,
-            "src": "454:67:7",
+            "scope": 2178,
+            "src": "454:67:14",
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "a3cb7242",
-            "id": 1751,
+            "id": 2141,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getMyContestIds",
-            "nameLocation": "536:15:7",
+            "nameLocation": "536:15:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1746,
+              "id": 2136,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "551:2:7"
+              "src": "551:2:14"
             },
             "returnParameters": {
-              "id": 1750,
+              "id": 2140,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1749,
+                  "id": 2139,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1751,
-                  "src": "577:14:7",
+                  "scope": 2141,
+                  "src": "577:14:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1631,18 +1631,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1747,
+                      "id": 2137,
                       "name": "uint",
                       "nodeType": "ElementaryTypeName",
-                      "src": "577:4:7",
+                      "src": "577:4:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 1748,
+                    "id": 2138,
                     "nodeType": "ArrayTypeName",
-                    "src": "577:7:7",
+                    "src": "577:7:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -1651,36 +1651,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "576:16:7"
+              "src": "576:16:14"
             },
-            "scope": 1788,
-            "src": "527:66:7",
+            "scope": 2178,
+            "src": "527:66:14",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "bd5e8497",
-            "id": 1758,
+            "id": 2148,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getMyTeamId",
-            "nameLocation": "608:11:7",
+            "nameLocation": "608:11:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1754,
+              "id": 2144,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1753,
+                  "id": 2143,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "625:9:7",
+                  "nameLocation": "625:9:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1758,
-                  "src": "620:14:7",
+                  "scope": 2148,
+                  "src": "620:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1688,10 +1688,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1752,
+                    "id": 2142,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "620:4:7",
+                    "src": "620:4:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1700,21 +1700,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "619:16:7"
+              "src": "619:16:14"
             },
             "returnParameters": {
-              "id": 1757,
+              "id": 2147,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1756,
+                  "id": 2146,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1758,
-                  "src": "659:4:7",
+                  "scope": 2148,
+                  "src": "659:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1722,10 +1722,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1755,
+                    "id": 2145,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "659:4:7",
+                    "src": "659:4:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1734,36 +1734,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "658:6:7"
+              "src": "658:6:14"
             },
-            "scope": 1788,
-            "src": "599:66:7",
+            "scope": 2178,
+            "src": "599:66:14",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "1be0dbf1",
-            "id": 1766,
+            "id": 2156,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getContestTeamIds",
-            "nameLocation": "680:17:7",
+            "nameLocation": "680:17:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1761,
+              "id": 2151,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1760,
+                  "id": 2150,
                   "mutability": "mutable",
                   "name": "contestId",
-                  "nameLocation": "703:9:7",
+                  "nameLocation": "703:9:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1766,
-                  "src": "698:14:7",
+                  "scope": 2156,
+                  "src": "698:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1771,10 +1771,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1759,
+                    "id": 2149,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "698:4:7",
+                    "src": "698:4:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1783,21 +1783,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "697:16:7"
+              "src": "697:16:14"
             },
             "returnParameters": {
-              "id": 1765,
+              "id": 2155,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1764,
+                  "id": 2154,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1766,
-                  "src": "737:14:7",
+                  "scope": 2156,
+                  "src": "737:14:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1806,18 +1806,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1762,
+                      "id": 2152,
                       "name": "uint",
                       "nodeType": "ElementaryTypeName",
-                      "src": "737:4:7",
+                      "src": "737:4:14",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 1763,
+                    "id": 2153,
                     "nodeType": "ArrayTypeName",
-                    "src": "737:7:7",
+                    "src": "737:7:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -1826,42 +1826,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "736:16:7"
+              "src": "736:16:14"
             },
-            "scope": 1788,
-            "src": "671:82:7",
+            "scope": 2178,
+            "src": "671:82:14",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "a87d942c",
-            "id": 1771,
+            "id": 2161,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getCount",
-            "nameLocation": "768:8:7",
+            "nameLocation": "768:8:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1767,
+              "id": 2157,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "776:2:7"
+              "src": "776:2:14"
             },
             "returnParameters": {
-              "id": 1770,
+              "id": 2160,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1769,
+                  "id": 2159,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1771,
-                  "src": "802:4:7",
+                  "scope": 2161,
+                  "src": "802:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1869,10 +1869,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1768,
+                    "id": 2158,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "802:4:7",
+                    "src": "802:4:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1881,36 +1881,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "801:6:7"
+              "src": "801:6:14"
             },
-            "scope": 1788,
-            "src": "759:49:7",
+            "scope": 2178,
+            "src": "759:49:14",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "9507d39a",
-            "id": 1779,
+            "id": 2169,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "get",
-            "nameLocation": "823:3:7",
+            "nameLocation": "823:3:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1774,
+              "id": 2164,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1773,
+                  "id": 2163,
                   "mutability": "mutable",
                   "name": "index",
-                  "nameLocation": "832:5:7",
+                  "nameLocation": "832:5:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1779,
-                  "src": "827:10:7",
+                  "scope": 2169,
+                  "src": "827:10:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1918,10 +1918,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1772,
+                    "id": 2162,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "827:4:7",
+                    "src": "827:4:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1930,77 +1930,77 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "826:12:7"
+              "src": "826:12:14"
             },
             "returnParameters": {
-              "id": 1778,
+              "id": 2168,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1777,
+                  "id": 2167,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1779,
-                  "src": "862:11:7",
+                  "scope": 2169,
+                  "src": "862:11:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Team_$1732_memory_ptr",
+                    "typeIdentifier": "t_struct$_Team_$2122_memory_ptr",
                     "typeString": "struct ITeams.Team"
                   },
                   "typeName": {
-                    "id": 1776,
+                    "id": 2166,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1775,
+                      "id": 2165,
                       "name": "Team",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1732,
-                      "src": "862:4:7"
+                      "referencedDeclaration": 2122,
+                      "src": "862:4:14"
                     },
-                    "referencedDeclaration": 1732,
-                    "src": "862:4:7",
+                    "referencedDeclaration": 2122,
+                    "src": "862:4:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Team_$1732_storage_ptr",
+                      "typeIdentifier": "t_struct$_Team_$2122_storage_ptr",
                       "typeString": "struct ITeams.Team"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "861:13:7"
+              "src": "861:13:14"
             },
-            "scope": 1788,
-            "src": "814:61:7",
+            "scope": 2178,
+            "src": "814:61:14",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "008e0f1b",
-            "id": 1787,
+            "id": 2177,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getTeam",
-            "nameLocation": "890:7:7",
+            "nameLocation": "890:7:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1782,
+              "id": 2172,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1781,
+                  "id": 2171,
                   "mutability": "mutable",
                   "name": "id",
-                  "nameLocation": "903:2:7",
+                  "nameLocation": "903:2:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1787,
-                  "src": "898:7:7",
+                  "scope": 2177,
+                  "src": "898:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2008,10 +2008,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1780,
+                    "id": 2170,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "898:4:7",
+                    "src": "898:4:14",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2020,62 +2020,62 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "897:9:7"
+              "src": "897:9:14"
             },
             "returnParameters": {
-              "id": 1786,
+              "id": 2176,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1785,
+                  "id": 2175,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1787,
-                  "src": "930:11:7",
+                  "scope": 2177,
+                  "src": "930:11:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Team_$1732_memory_ptr",
+                    "typeIdentifier": "t_struct$_Team_$2122_memory_ptr",
                     "typeString": "struct ITeams.Team"
                   },
                   "typeName": {
-                    "id": 1784,
+                    "id": 2174,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1783,
+                      "id": 2173,
                       "name": "Team",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1732,
-                      "src": "930:4:7"
+                      "referencedDeclaration": 2122,
+                      "src": "930:4:14"
                     },
-                    "referencedDeclaration": 1732,
-                    "src": "930:4:7",
+                    "referencedDeclaration": 2122,
+                    "src": "930:4:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Team_$1732_storage_ptr",
+                      "typeIdentifier": "t_struct$_Team_$2122_storage_ptr",
                       "typeString": "struct ITeams.Team"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "929:13:7"
+              "src": "929:13:14"
             },
-            "scope": 1788,
-            "src": "881:62:7",
+            "scope": 2178,
+            "src": "881:62:14",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 1789,
-        "src": "92:853:7",
+        "scope": 2179,
+        "src": "92:853:14",
         "usedErrors": []
       }
     ],
-    "src": "32:913:7"
+    "src": "32:913:14"
   },
   "compiler": {
     "name": "solc",
@@ -2083,7 +2083,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-02-24T11:39:47.774Z",
+  "updatedAt": "2022-03-01T03:17:21.593Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

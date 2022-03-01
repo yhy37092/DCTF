@@ -1,8 +1,9 @@
 import React, {useCallback} from 'react'
 import {drizzleReactHooks} from "@drizzle/react-plugin"
-import RemoveChallengeForm from '../../Forms/RemoveChallengeForm'
 import TransactionStatuses from '../../TransactionStatuses'
-import {challenge} from '../../../MetaData.json'
+import {challenge as defaultChallenge} from '../../../MetaData.json'
+import RemoveForm from "../../RemoveForm";
+import {Link} from "react-router-dom";
 
 export default ({contestId}) => {
     const {useCacheSend, useCacheCall} = drizzleReactHooks.useDrizzle()
@@ -11,9 +12,21 @@ export default ({contestId}) => {
     return (
         <>
             <TransactionStatuses TXObjects={TXObjects}/>
-            <RemoveChallengeForm
-                data={useCacheCall(['Challenges'], call => (call('Challenges', 'getContestChallengeIds', contestId) || []).map(value => call('Challenges', 'getChallenge', parseInt(value)) || challenge))}
-                onSubmit={useCallback(({_data}) => send(contestId, _data), [send, contestId])}/>
+            <RemoveForm
+                data={useCacheCall(['Challenges'], call => (call('Challenges', 'getContestChallengeIds', contestId) || []).map(value => {
+                    const challenge = call('Challenges', 'getChallenge', parseInt(value)) || defaultChallenge
+                    return ({
+                        Id: challenge.id,
+                        Name: <Link to={`Challenge-${challenge.id}`}>{challenge.info.name}</Link>,
+                        Category: challenge.info.category,
+                        Value: challenge.info.value
+                    })
+                }))}
+                onSubmit={useCallback(({selectedData}) => {
+                    const ids = [];
+                    selectedData.forEach(value => ids.push(value.Id));
+                    send(contestId, ids)
+                }, [send,contestId])}/>
         </>
     )
 }

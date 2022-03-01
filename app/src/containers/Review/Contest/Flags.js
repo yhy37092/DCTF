@@ -1,8 +1,8 @@
 import {useTranslation} from "react-i18next";
 import {Link, useParams} from "react-router-dom";
 import {Breadcrumb, Col, Row} from "react-bootstrap";
-import ChallengesFlag from "../../../components/ContestAdmin/Challenge/ChallengesFlag";
 import React from "react";
+import ListFlag from "../../../components/ContestAdmin/Contest/ListFlag";
 
 export default () => {
     const {t} = useTranslation();
@@ -29,7 +29,7 @@ export default () => {
 
             <Row>
                 <Col>
-                    <ChallengesFlag contestId={contestId}/>
+                    <ListFlag contestId={contestId}/>
                 </Col>
             </Row>
         </>

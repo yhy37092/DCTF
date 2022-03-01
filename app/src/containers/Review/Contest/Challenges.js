@@ -3,7 +3,6 @@ import {useTranslation} from "react-i18next";
 import {Link, useParams} from "react-router-dom";
 import {Breadcrumb, Col, Row} from "react-bootstrap";
 import ListChallenge from "../../../components/Challenge/ListChallenge";
-import ShowChallenge from "../../../components/Challenge/ShowChallenge";
 
 export default () => {
     const {t} = useTranslation();
@@ -22,7 +21,7 @@ export default () => {
             </Row>
             <Row>
                 <Col>
-                    <ListChallenge contestId={contestId} view={ShowChallenge}/>
+                    <ListChallenge contestId={contestId}/>
                 </Col>
             </Row>
         </>

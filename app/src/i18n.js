@@ -38,7 +38,7 @@ i18n
                         My: 'My',
                         grant: 'grant contest admin',
                         account_address: 'account address',
-                        account: 'account',
+                        Account: 'account',
                         Enter_account: 'Enter account',
                         Add: 'Add',
                         Sub: 'Sub',
@@ -111,7 +111,13 @@ i18n
                         ContestWillBegin: 'Contest will begin at',
                         contest_is_ongoing: 'Contest is ongoing',
                         contest_end: 'contest is ended',
-                        reviewContest: 'Review contest'
+                        reviewContest: 'Review contest',
+                        GameBox: 'GameBox',
+                        ChallengeName:'Challenge Name',
+                        TeamName:'Team Name',
+                        SubmitTime:'Submit Time',
+                        Move:'Move',
+                        End:'End'
                     }
                 }
             },
@@ -137,7 +143,7 @@ i18n
                         My: '我的比赛',
                         grant: '添加比赛管理员',
                         account_address: '账户地址',
-                        account: '账户',
+                        Account: '账户',
                         Enter_account: '输入账户',
                         Add: '增加',
                         Sub: '减少',
@@ -210,7 +216,13 @@ i18n
                         ContestWillBegin: '比赛将开始于',
                         contest_is_ongoing: '比赛正在进行中',
                         contest_end: '比赛已经结束了',
-                        reviewContest: '回顾比赛'
+                        reviewContest: '回顾比赛',
+                        GameBox: '靶机',
+                        ChallengeName:'题目名称',
+                        TeamName:'队伍名称',
+                        SubmitTime:'提交时间',
+                        Move:'存证数据',
+                        End:'结束时间'
                     }
                 }
             }

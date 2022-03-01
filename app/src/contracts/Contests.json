@@ -29187,12 +29187,12 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0xc6d022452623e94425f2Cb17a13e9289ad92a9D3",
-      "transactionHash": "0x430094214c70aacbb15ede44632d9c939f68f32dc315ae4f29bfebcdd37c8b61"
+      "address": "0x8a71D5638666AAC01d1086706b18EEc4aF1189BD",
+      "transactionHash": "0x07c77144f39ef5987b94c306040b5b7e4f2e5b52a72b363da508e4f78b584bd7"
     }
   },
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-02-28T05:09:36.739Z",
+  "updatedAt": "2022-03-01T14:33:09.894Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

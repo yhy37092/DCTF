@@ -2,8 +2,8 @@ import {useTranslation} from "react-i18next";
 import {drizzleReactHooks} from "@drizzle/react-plugin";
 import {Breadcrumb, Col, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import ListMyContest from "../../components/Contest/ListMyContest";
-import React from "react";
+import React, {useCallback} from "react";
+import ListContest from "../../components/Contest/ListContest";
 
 export default () => {
     const {t} = useTranslation();
@@ -26,9 +26,13 @@ export default () => {
 
             <Row>
                 <Col>
-                    <ListMyContest data={useCacheCall('Teams', 'getMyContestIds') || []}/>
+                    <ListMyContest contestIds={useCacheCall('Teams', 'getMyContestIds') || []}/>
                 </Col>
             </Row>
         </>
     )
+}
+
+function ListMyContest({contestIds}) {
+    return <ListContest filter={useCallback(({_data}) => contestIds.includes(_data.id), [contestIds])}/>
 }
