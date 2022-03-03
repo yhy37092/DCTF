@@ -1,7 +1,7 @@
 import {useTranslation} from "react-i18next";
 import {Link, useParams} from "react-router-dom";
 import {Breadcrumb, Col, Row} from "react-bootstrap";
-import Submissions from "../../../../components/ContestAdmin/Contest/ListSubmission";
+import Submissions from "../../../../components/ContestAdmin/Jeopardy/ListSubmission";
 import React from "react";
 
 export default () => {

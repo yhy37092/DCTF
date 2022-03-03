@@ -16,7 +16,7 @@ export default () => {
                 <Col>
                     <Breadcrumb>
                         <Link to='/Review' className='breadcrumb-item'>{t('description.Review')}</Link>
-                        <Breadcrumb.Item active>{t('description.Contest')}-{contestId}</Breadcrumb.Item>
+                        <Breadcrumb.Item active>{t('description.Jeopardy')}-{contestId}</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>
             </Row>
@@ -28,7 +28,7 @@ export default () => {
 
             <Row>
                 <Col>
-                    <ContestDetail data={useCacheCall('Contests', 'getContest', contestId) || defaultContest}/>
+                    <ContestDetail contest={useCacheCall('Contests', 'getContest', contestId) || defaultContest}/>
                 </Col>
             </Row>
         </>

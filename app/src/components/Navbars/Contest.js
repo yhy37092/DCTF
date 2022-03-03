@@ -23,23 +23,7 @@ export default () => {
                         <CustomLink to={`/Contests/My`}>{t('description.My')}</CustomLink>
                     </Nav.Item>
                 </Nav>
-                <Nav>
-                    <Nav.Item>
-                        <CustomLink to="/SystemAdmin">{t('description.System_Admin')}</CustomLink>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <CustomLink to={"/ContestAdmin"}>{t('description.Contest_Admin')}</CustomLink>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <CustomLink to={"/Contests"}>{t('description.Contests')}</CustomLink>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <CustomLink to={"/Review"}>{t('description.Review')}</CustomLink>
-                    </Nav.Item>
-                    <Nav.Item>
 
-                    </Nav.Item>
-                </Nav>
                 <Nav>
                     <NavDropdown as={Nav.Item} title={<i className="fas fa-language">Language</i>}>
                         {Object.keys(lngs).map((lng) => (

@@ -20,7 +20,7 @@ export default ({contestId}) => {
                     <Nav className="me-auto">
                         <Nav.Item>
                             <CustomLink
-                                to={`/ContestAdmin/Contest-${contestId}`}>{t('description.Contest')}</CustomLink>
+                                to={`/ContestAdmin/Contest-${contestId}`}>{t('description.Jeopardy')}</CustomLink>
                         </Nav.Item>
                         <Nav.Item>
                             <CustomLink
@@ -43,23 +43,7 @@ export default ({contestId}) => {
                                 to={`/ContestAdmin/Contest-${contestId}/ScoreBoard`}>{t('description.ScoreBoard')}</CustomLink>
                         </Nav.Item>
                     </Nav>
-                    <Nav>
-                        <Nav.Item>
-                            <CustomLink to="/SystemAdmin">{t('description.System_Admin')}</CustomLink>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <CustomLink to={"/ContestAdmin"}>{t('description.Contest_Admin')}</CustomLink>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <CustomLink to={"/Contests"}>{t('description.Contests')}</CustomLink>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <CustomLink to={"/Review"}>{t('description.Review')}</CustomLink>
-                        </Nav.Item>
-                        <Nav.Item>
 
-                        </Nav.Item>
-                    </Nav>
                     <Nav>
                         <NavDropdown as={Nav.Item} title={<i className="fas fa-language">Language</i>}>
                             {Object.keys(lngs).map((lng) => (

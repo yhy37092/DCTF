@@ -5,11 +5,12 @@ import {toTeamState} from "../../utils/utils";
 import Table from "../Table";
 import TeamNamePreview from "./TeamNamePreview";
 
-export default ({contestId}) => {
+export default ({contestId, filter}) => {
     const {useCacheCall} = drizzleReactHooks.useDrizzle()
 
     return (
         <Table
+            filter={filter}
             data={useCacheCall(['Teams'], call => (call('Teams', 'getContestTeamIds', contestId) || []).map(value => {
                 const team = call('Teams', 'getTeam', value) || teamDefault
                 return ({

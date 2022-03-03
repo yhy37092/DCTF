@@ -18,7 +18,7 @@ export default () => {
                     <Breadcrumb>
                         <Link to="/Contests" className="breadcrumb-item">{t('description.Contests')}</Link>
                         <Link to={`/Contests/Contest-${contestId}`}
-                              className="breadcrumb-item">{t('description.Contest')}-{contestId}</Link>
+                              className="breadcrumb-item">{t('description.Jeopardy')}-{contestId}</Link>
                         <Breadcrumb.Item active>{t('description.OnGoing')}</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>

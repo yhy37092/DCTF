@@ -1,8 +1,8 @@
 import {useTranslation} from "react-i18next";
 import {Link, useParams} from "react-router-dom";
 import {Breadcrumb, Button, Col, Row} from "react-bootstrap";
-import RevealChallenge from "../../../../../components/ContestAdmin/Challenge/RevealChallenge";
-import RemoveChallenge from "../../../../../components/ContestAdmin/Challenge/RemoveChallenge";
+import RevealChallenge from "../../../../../components/ContestAdmin/Jeopardy/Challenge/RevealChallenge";
+import RemoveChallenge from "../../../../../components/ContestAdmin/Jeopardy/Challenge/RemoveChallenge";
 import React from "react";
 
 export default () => {

@@ -1,7 +1,7 @@
 import {useTranslation} from "react-i18next";
 import {Breadcrumb, Col, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import NewContest from "../../components/ContestAdmin/Contest/NewContest";
+import NewContest from "../../components/ContestAdmin/NewContest";
 import React from "react";
 
 export default () => {

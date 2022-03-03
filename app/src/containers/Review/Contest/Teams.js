@@ -15,7 +15,7 @@ export default () => {
                     <Breadcrumb>
                         <Link to='/Review' className='breadcrumb-item'>{t('description.Review')}</Link>
                         <Link to={`/Review/Contest-${contestId}`}
-                              className='breadcrumb-item'>{t('description.Contest')}-{contestId}</Link>
+                              className='breadcrumb-item'>{t('description.Jeopardy')}-{contestId}</Link>
                         <Breadcrumb.Item active>{t('description.Teams')}</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>

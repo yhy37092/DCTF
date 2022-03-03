@@ -2,11 +2,15 @@ import {ContestPreview} from "./index";
 import React from "react";
 import {Row, Stack} from "react-bootstrap";
 
-export default ({data, filter}) => {
+export default ({contests, filter}) => {
+    const _filter = (value) => {
+        if (filter === undefined) return true
+        return filter({_data: value})
+    }
     return (
         <Stack gap={2}>
-            {data.map((value, index) => (filter({_data: value}) ? (
-                <Row><ContestPreview key={index} data={value}/></Row>) : null))}
+            {contests.map((value, index) => _filter(value) ? (
+                <Row key={index}><ContestPreview contest={value}/></Row>) : null)}
         </Stack>
     )
 }

@@ -1,7 +1,7 @@
 import {useTranslation} from "react-i18next";
 import {Breadcrumb, Button, Col, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import RemoveContest from "../../components/ContestAdmin/Contest/RemoveContest";
+import RemoveContest from "../../components/ContestAdmin/RemoveContest";
 import React from "react";
 
 export default () => {

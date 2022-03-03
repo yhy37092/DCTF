@@ -1,8 +1,8 @@
 import {useTranslation} from "react-i18next";
 import {Link, useParams} from "react-router-dom";
 import {Breadcrumb, Col, Row} from "react-bootstrap";
-import CommitChallenge from "../../../../../components/ContestAdmin/Challenge/CommitChallenge";
-import UpdateChallenge from "../../../../../components/ContestAdmin/Challenge/UpdateChallenge";
+import CommitChallenge from "../../../../../components/ContestAdmin/Jeopardy/Challenge/CommitChallenge";
+import UpdateChallenge from "../../../../../components/ContestAdmin/Jeopardy/Challenge/UpdateChallenge";
 import React from "react";
 
 export default () => {

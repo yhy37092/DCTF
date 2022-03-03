@@ -1,12 +1,13 @@
-import { createStore } from 'redux'
-import { persistStore, persistReducer } from 'redux-persist'
+import {createStore} from 'redux'
+import {persistReducer, persistStore} from 'redux-persist'
 import {combineReducers} from '@reduxjs/toolkit'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
-
-import flagsSlice from '../reducers/flags'
+import flagsSlice from '../reducers/Flag'
+import submitsSlice from "../reducers/Submit";
 
 const reducers = combineReducers({
-    flags: flagsSlice
+    flags: flagsSlice,
+    submits: submitsSlice
 })
 
 const persistConfig = {

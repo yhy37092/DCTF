@@ -4,7 +4,9 @@ const Contests = artifacts.require("Contests");
 const Challenges = artifacts.require("Challenges");
 const Teams = artifacts.require("Teams");
 const Moves = artifacts.require("Moves");
-
+const Jeopardy = artifacts.require("Jeopardy")
+const GameBoxes = artifacts.require("GameBoxes")
+const AWD = artifacts.require("AWD")
 module.exports = async (deployer, network, accounts) => {
 
     const systemAdmin = accounts[0];
@@ -19,8 +21,13 @@ module.exports = async (deployer, network, accounts) => {
     const TeamsInstance = await Teams.deployed();
     await deployer.deploy(Moves, Contests.address, Challenges.address, Teams.address);
     const MovesInstance = await Moves.deployed();
+    await deployer.deploy(Jeopardy, Contests.address, Challenges.address, Teams.address, Moves.address);
+    const JeopardyInstance = await Jeopardy.deployed();
+    await deployer.deploy(GameBoxes, Contests.address, Challenges.address, Teams.address)
+    const GameBoxesInstance = await GameBoxes.deployed();
+    await deployer.deploy(AWD, Contests.address, Challenges.address, Teams.address, Moves.address)
 
-    let contests = [
+    let jeopardyContests = [
         ['Jeopardy', 'ASIS CTF Quals 2022', 0, parseInt(Date.now() / 1000) + 10, parseInt(Date.now() / 1000) + 60, parseInt(Date.now() / 1000) + 120, 'ASIS CTF Quals 2022 :)'],
         ['Jeopardy', 'Crypto CTF 2022', 0, parseInt(Date.now() / 1000) + 10, parseInt(Date.now() / 1000) + 60, parseInt(Date.now() / 1000) + 120, 'Crypto CTF is an online competition for hackers to test, evaluate, and expand their cryptography exploiting skills. In this CTF, we will provide various crypto challenges regarding modern cryptography techniques.\n' +
         'All crypto lovers are most welcome!\n' +
@@ -33,7 +40,7 @@ module.exports = async (deployer, network, accounts) => {
         '\n' +
         'WHEN and WHERE\n' +
         'The final event is in Sweden from June 18th - 19th, with the online qualifier running from April 2nd - 3rd.'],
-        ['Jeopardy', 'WeCTF 2022', 0, parseInt(Date.now() / 1000) + 10, parseInt(Date.now() / 1000) + 1200, parseInt(Date.now() / 1000) + 2400, 'WeCTF is a Web-only CTF that has both intro-level challenges and diabolical ones.'],
+        ['Jeopardy', 'WeCTF 2022', 0, parseInt(Date.now() / 1000) + 10, parseInt(Date.now() / 1000) + 12000, parseInt(Date.now() / 1000) + 24000, 'WeCTF is a Web-only CTF that has both intro-level challenges and diabolical ones.'],
         ['Jeopardy', 'SEETF 2022', 0, parseInt(Date.now() / 1000) + 3600, parseInt(Date.now() / 1000) + 5 * 3600, parseInt(Date.now() / 1000) + 5 * 3600 + 600, 'SEETF is a cybersecurity Capture the Flag competition hosted by the Social Engineering Experts CTF team.\n' +
         '\n' +
         'Categories include web exploitation, binary exploitation, reverse engineering, forensics, cryptography and more.\n' +
@@ -87,7 +94,7 @@ module.exports = async (deployer, network, accounts) => {
         Web3Utils.randomHex(32)
     ]
     await AccessContr0lInstance.grantRole(Web3Utils.soliditySha3('CONTEST_ADMIN'), contestAdmin);
-    await Promise.all(contests.map(contest => ContestInstance.add(contest)));
+    await Promise.all(jeopardyContests.map(contest => ContestInstance.add(contest)));
     await Promise.all([...Array(4).keys()].map(index => TeamsInstance.add(index + 1, ['Cock_Intelligence_Agency', systemAdmin, [accounts[1], accounts[2]]])));
     const delay = ms => new Promise(res => setTimeout(res, ms));
     await delay(10001);
@@ -96,15 +103,25 @@ module.exports = async (deployer, network, accounts) => {
         await Promise.all(challenges.map(challenge => ChallengesInstance.add(index + 1, challenge)))
     );
     [...Array(3).keys()].map(async (index) =>
-        await Promise.all(flags.map((flag, i) => MovesInstance.commitForMember(index + 2, index + 2, challenges.length * (index + 1) + i + 1, Web3Utils.soliditySha3(flag, salts[i]))))
+        await Promise.all(flags.map((flag, i) => JeopardyInstance.commitSubmit(index + 2, challenges.length * (index + 1) + i + 1, index + 2, Web3Utils.soliditySha3(flag, salts[i]))))
     );
     [...Array(4).keys()].map(async (index) =>
-        await Promise.all(flags.map((flag, i) => MovesInstance.commitForAdmin(index + 1, challenges.length * index + i + 1, Web3Utils.soliditySha3(flag, salts[i]))))
+        await Promise.all(flags.map((flag, i) => JeopardyInstance.commitFlag(index + 1, challenges.length * index + i + 1, Web3Utils.soliditySha3(flag, salts[i]))))
     );
     await delay(50001);
     [...Array(2).keys()].map(async (index) =>
-        await Promise.all(flags.map((flag, i) => MovesInstance.revealForAdmins(index + 1, [challenges.length * index + i + 1], [flag], [salts[i]])))
+        await Promise.all(flags.map((flag, i) => JeopardyInstance.revealFlags(index + 1, [challenges.length * index + i + 1], [flag], [salts[i]])))
     );
-    await Promise.all(flags.map((flag, i) => MovesInstance.revealForMembers(2, 2, [challenges.length + i + 1], [flag], [salts[i]])));
+    await Promise.all(flags.map((flag, i) => JeopardyInstance.revealSubmits(2, 2, [challenges.length + i + 1], [flag], [salts[i]])));
+
+    let AWDContests = [
+        ['AWD', 'TetCTF 2022', 0, parseInt(Date.now() / 1000) + 10, parseInt(Date.now() / 1000) + 86400, parseInt(Date.now() / 1000) + 87000, 'Online CTF is Jeopardy-style.\n' +
+        '- Web Exploit — web technologies and vulnerabilities\n' +
+        '- Cryptography — crack or clone cryptographic objects or algorithms to reach the flag.\n' +
+        '- Pwnable — binary exploiting skills\n' +
+        '- Reverse']
+    ]
+    await Promise.all(AWDContests.map(contest => ContestInstance.add(contest)));
+    await TeamsInstance.add(7, ['Cock_Intelligence_Agency', systemAdmin, [accounts[1], accounts[2]]]);
 
 };

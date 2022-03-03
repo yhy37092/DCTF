@@ -2,7 +2,7 @@ import {useTranslation} from "react-i18next";
 import {Link, useParams} from "react-router-dom";
 import {Breadcrumb, Col, Row} from "react-bootstrap";
 import React from "react";
-import ListFlag from "../../../../components/ContestAdmin/Contest/ListFlag";
+import ListFlag from "../../../../components/ContestAdmin/Jeopardy/ListFlag";
 
 export default () => {
     const {t} = useTranslation();

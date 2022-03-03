@@ -3,7 +3,7 @@ import {drizzleReactHooks} from '@drizzle/react-plugin'
 import TransactionStatuses from '../TransactionStatuses'
 import RemoveForm from "../RemoveForm";
 
-export default ({Role}) => {
+export default ({Role, filter}) => {
     const {useCacheSend, useCacheCall} = drizzleReactHooks.useDrizzle()
     const {send, TXObjects} = useCacheSend('AccessContr0l', 'revokeRoles')
 
@@ -11,6 +11,7 @@ export default ({Role}) => {
         <>
             <TransactionStatuses TXObjects={TXObjects}/>
             <RemoveForm
+                filter={filter}
                 data={useCacheCall(['AccessContr0l'], call => [...Array(parseInt((call('AccessContr0l', 'getRoleMemberCount', Role) || '0'))).keys()].map(index => {
                     const address = call('AccessContr0l', 'getRoleMember', Role, index) || ''
                     return ({

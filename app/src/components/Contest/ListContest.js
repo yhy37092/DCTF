@@ -9,7 +9,7 @@ export default ({filter}) => {
     return (
         <ContestPreviews
             filter={filter}
-            data={useCacheCall(['Contests'], call => [...Array(parseInt((call('Contests', 'getCount') || '0'))).keys()].map(value => call('Contests', 'get', value) || contest))}
+            contests={useCacheCall(['Contests'], call => [...Array(parseInt((call('Contests', 'getCount') || '0'))).keys()].map(value => call('Contests', 'get', value) || contest))}
         />
     );
 };

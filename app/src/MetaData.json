@@ -46,6 +46,7 @@
     "contestId": "0",
     "challengeId": "0",
     "teamId": "0",
+    "targetTeamId": "0",
     "info": {
       "hash": "",
       "flag": "",
@@ -53,5 +54,18 @@
     },
     "state": "0",
     "timeStamp": "0"
+  },
+  "gameBox": {
+    "id": "0",
+    "contestId": "0",
+    "challengeId": "0",
+    "teamId": "0",
+    "info": {
+      "ip": "",
+      "port": "0",
+      "Flag_SSH_Port": "0",
+      "Flag_SSH_User_Name": "",
+      "Flag_SSH_Password": ""
+    }
   }
 }

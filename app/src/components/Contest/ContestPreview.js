@@ -4,23 +4,23 @@ import {Link} from "react-router-dom";
 import React from "react";
 import {useTranslation} from "react-i18next";
 
-export default ({data}) => {
+export default ({contest}) => {
     const {t} = useTranslation();
     return (
         <Card className="text-center" border="primary">
-            <Card.Header>{t(`description.${data.info.contestType}`)}
-                {before(data.info.start) && <i className="fas fa-hourglass-start"/>}
-                {after(data.info.start) && before(data.info.commitEnd) &&
+            <Card.Header>{t(`description.${contest.info.contestType}`)}
+                {before(contest.info.start) && <i className="fas fa-hourglass-start"/>}
+                {after(contest.info.start) && before(contest.info.revealEnd) &&
                     <i className="fas fa-hourglass-half"/>}
-                {after(data.info.commitEnd) && <i className="fas fa-hourglass-end"/>}
+                {after(contest.info.revealEnd) && <i className="fas fa-hourglass-end"/>}
             </Card.Header>
             <Card.Body>
-                <Card.Title>{data.info.name}</Card.Title>
-                <Card.Text>{data.info.description}</Card.Text>
-                <Link to={`Contest-${data.id}`}>{t('description.Detail')}</Link>
+                <Card.Title>{contest.info.name}</Card.Title>
+                <Card.Text>{contest.info.description}</Card.Text>
+                <Link to={`Contest-${contest.id}`}>{t('description.Detail')}</Link>
             </Card.Body>
             <Card.Footer
-                className="text-muted">{timeSince(data.timeStamp)}</Card.Footer>
+                className="text-muted">{timeSince(contest.timeStamp)}</Card.Footer>
         </Card>
     )
 }

@@ -15,6 +15,7 @@ interface IMoves {
         uint contestId;
         uint challengeId;
         uint teamId;
+        uint targetTeamId;
         IMove info;
         MoveState state;
         uint timeStamp;
@@ -25,22 +26,9 @@ interface IMoves {
         COMMITTED,
         REVEALED
     }
+    function commit(uint contestId, uint challengeId, uint teamId, uint targetTeamId, bytes32 hash) external returns (uint);
 
-    function commitForAdmin(uint contestId, uint challengeId, bytes32 hash) external;
-
-    function commitForMember(uint contestId, uint teamId, uint challengeId, bytes32 hash) external;
-
-    function revealForAdmins(uint contestId, uint [] memory challengeIds, string [] memory flags, bytes32 [] memory salts) external;
-
-    function revealForMembers(uint contestId, uint teamId, uint [] memory challengeIds, string [] memory flags, bytes32 [] memory salts) external;
-
-    function getChallengeAnswerMoveId(uint challengeId) external view returns (uint);
-
-    function getChallengeTeamSubmitMoveId(uint challengeId, uint teamId) external view returns (uint);
-
-    function getContestSubmitIds(uint contestId) external view returns (uint [] memory);
-
-    function getContestAnswerIds(uint contestId) external view returns (uint [] memory);
+    function reveal(uint id, string memory flag, bytes32 salt) external;
 
     function getCount() external view returns (uint);
 
