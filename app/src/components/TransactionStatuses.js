@@ -21,9 +21,7 @@ export default ({TXObjects}) => {
                         {TXObjects.map((TXObject, index) => (
                             <ListGroup.Item key={index}>
                                 {TXObject === undefined && t('description.waiting')}
-                                {TXObject && TXObject.status === 'pending' && t('description.pending')}
-                                {TXObject && TXObject.status === 'success' && t('description.success')}
-                                {TXObject && TXObject.status === 'error' && t('description.error')}
+                                {['pending', 'success', 'error'].map((status) => TXObject && TXObject.status === status && t(`description.${status}`))}
                             </ListGroup.Item>
                         ))}
                     </ListGroup>

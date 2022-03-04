@@ -1,4 +1,6 @@
 export { default as NavBar } from './Default'
-export { default as ContestAdminNavBar } from './ContestAdmin'
+export { default as JeopardyContestAdminNavBar } from './JeopardyContestAdmin'
+export { default as AWDContestAdminNavBar } from './AWDContestAdmin'
 export { default as ContestNavBar } from './Contest'
-export { default as ReviewNavBar } from './Review'
+export { default as JeopardyReviewNavBar } from './JeopardyReview'
+export { default as AWDReviewNavBar } from './AWDReview'

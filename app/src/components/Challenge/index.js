@@ -1,3 +1,3 @@
 export { default as ChallengeDetail } from './ChallengeDetail'
-export { default as ChallengePreview } from './ChallengePreview'
-export { default as ListChallenge } from './ListChallenge'
+export { default as ChallengePreview } from './Jeopardy/ChallengePreview'
+export { default as ListChallenge } from './Jeopardy/ListChallenge'

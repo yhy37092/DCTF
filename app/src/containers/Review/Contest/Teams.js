@@ -1,7 +1,7 @@
 import {useTranslation} from "react-i18next";
 import {Link, useParams} from "react-router-dom";
 import {Breadcrumb, Col, Row} from "react-bootstrap";
-import AuditTeam from "../../../components/ContestAdmin/Contest/Teams";
+import ListTeam from "../../../components/Team/ListTeam";
 import React from "react";
 
 export default () => {
@@ -15,7 +15,7 @@ export default () => {
                     <Breadcrumb>
                         <Link to='/Review' className='breadcrumb-item'>{t('description.Review')}</Link>
                         <Link to={`/Review/Contest-${contestId}`}
-                              className='breadcrumb-item'>{t('description.Contest')}-{contestId}</Link>
+                              className='breadcrumb-item'>{t('description.Jeopardy')}-{contestId}</Link>
                         <Breadcrumb.Item active>{t('description.Teams')}</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>
@@ -28,7 +28,7 @@ export default () => {
 
             <Row>
                 <Col>
-                    <AuditTeam contestId={contestId}/>
+                    <ListTeam contestId={contestId}/>
                 </Col>
             </Row>
         </>
