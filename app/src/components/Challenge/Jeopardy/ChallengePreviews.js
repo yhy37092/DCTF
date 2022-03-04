@@ -10,7 +10,7 @@ export default ({challenges, filter}) => {
     return (
         <Stack gap={2}>
             {challenges.map((challenge, index) => _filter(challenge) ?
-                <Row><ChallengePreview key={index} challenge={challenge}/></Row> : null)}
+                <Row key={index}><ChallengePreview challenge={challenge}/></Row> : null)}
         </Stack>
     )
 }

@@ -1,13 +1,10 @@
 import React, {useState} from "react";
 import {Button, Card, Modal, Tab, Tabs} from "react-bootstrap";
-import {drizzleReactHooks} from "@drizzle/react-plugin";
 import {useTranslation} from "react-i18next";
 import {ChallengeDetail} from "../index";
-import GameBoxDetail from "../../GameBox/GameBoxDetail";
 import ListGameBox from "../../GameBox/ListGameBox";
 
-export default ({contestId, teamId, challenge, gameBox}) => {
-    const {useCacheCall} = drizzleReactHooks.useDrizzle()
+export default ({contestId, challenge}) => {
     const {t} = useTranslation();
 
     const [show, setShow] = useState(false);
@@ -24,13 +21,6 @@ export default ({contestId, teamId, challenge, gameBox}) => {
                     <Tabs className="mb-3">
                         <Tab eventKey="Challenge" title={t('description.Challenge')}>
                             <ChallengeDetail challenge={challenge}/>
-                        </Tab>
-                        <Tab eventKey="GameBox" title={t('description.myGameBox')}>
-                            <GameBoxDetail gameBox={useCacheCall(['GameBoxes'], call => {
-                                const gameBoxId = call('GameBoxes', 'getChallengeTeamGameBoxId', challenge.id, teamId) || 0
-                                return call('GameBoxes', 'getGameBox', gameBoxId) || gameBox
-                            })
-                            }/>
                         </Tab>
                         <Tab eventKey="gameBoxList" title={t('description.gameBoxList')}>
                             <ListGameBox contestId={contestId}

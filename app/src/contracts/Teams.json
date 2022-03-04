@@ -23805,12 +23805,12 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0xe20e94309abb9439a9b0678aef323D1663cE6F23",
-      "transactionHash": "0x6c19123cd6a2bdf303b3583df4c6bc90e9d13f818f65317644ad0cd6b77517c8"
+      "address": "0x22dFC900f17B3575cEe4E4c1d49c14B1aDd15207",
+      "transactionHash": "0xa35f0b92ddd0ae016e8217f9635841ab88b4499c64f84fc84df2f993dd0e0117"
     }
   },
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-03-03T12:57:46.302Z",
+  "updatedAt": "2022-03-04T12:31:25.793Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

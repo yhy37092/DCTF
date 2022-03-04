@@ -42843,12 +42843,12 @@
     "1337": {
       "events": {},
       "links": {},
-      "address": "0xBe3A1fd505c78Abe9E73068a2d42ff514A1f88C7",
-      "transactionHash": "0x96f49ce69e3e1870470f597682a9a14d76cc41acd957574036ce28f5ff955d4c"
+      "address": "0x91C0B76b9C62f23db779951d99ca434D87dc2806",
+      "transactionHash": "0x169b525e99e41a071a86468c73518b52c4925f73c28da4571db7a2d55be4cfb3"
     }
   },
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-03-03T12:57:46.330Z",
+  "updatedAt": "2022-03-04T12:31:25.818Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

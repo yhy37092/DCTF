@@ -1,13 +1,13 @@
 import {useTranslation} from "react-i18next";
 import {Link, useParams} from "react-router-dom";
 import {Breadcrumb, Col, Row} from "react-bootstrap";
+import UpdateScore from "../../../../components/ContestAdmin/AWD/UpdateScore";
+import Scores from "../../../../components/ContestAdmin/AWD/ListScore";
 import React from "react";
-import ListFlag from "../../../components/ContestAdmin/Jeopardy/ListFlag";
 
 export default () => {
     const {t} = useTranslation();
     const {contestId} = useParams()
-
     return (
         <>
             <Row>
@@ -15,24 +15,25 @@ export default () => {
                     <Breadcrumb>
                         <Link to='/Review' className='breadcrumb-item'>{t('description.Review')}</Link>
                         <Link to={`/Review/Contest-${contestId}`}
-                              className='breadcrumb-item'>{t('description.Jeopardy')}-{contestId}</Link>
-                        <Breadcrumb.Item active>{t('description.Flags')}</Breadcrumb.Item>
+                              className='breadcrumb-item'>{t('description.Contest')}-{contestId}</Link>
+                        <Breadcrumb.Item active>{t('description.ScoreBoard')}</Breadcrumb.Item>
                     </Breadcrumb>
                 </Col>
             </Row>
 
             <Row>
                 <Col>
-                    <h1 align='center'>{t('description.Flags')}</h1>
+                    <h1 align='center'>{t('description.ScoreBoard')}
+                        <UpdateScore contestId={contestId}/>
+                    </h1>
                 </Col>
             </Row>
 
             <Row>
                 <Col>
-                    <ListFlag contestId={contestId}/>
+                    <Scores contestId={contestId}/>
                 </Col>
             </Row>
         </>
-
     )
 }
