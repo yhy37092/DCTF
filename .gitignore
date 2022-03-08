@@ -1,5 +1,4 @@
-.secrets
 .idea
 .DS_Store
-build
 node_modules
+app/src/contracts
