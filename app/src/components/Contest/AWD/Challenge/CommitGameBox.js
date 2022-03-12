@@ -8,19 +8,21 @@ import TransactionStatuses from "../../../TransactionStatuses";
 
 export default ({contestId, challengeId, teamId}) => {
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
+    const drizzleState = drizzleReactHooks.useDrizzleState(drizzleState => ({account: drizzleState.accounts[0]}))
     const {send, TXObjects} = useCacheSend('AWD', 'commitFlag')
     const flags = useSelector(getAWDFlags);
     const dispatch = useDispatch();
     const [flag, setFlag] = useState('');
     useEffect(() => {
-        flags.forEach(flag => flag.challengeId === challengeId && setFlag(flag.flag))
-    }, [flags, challengeId])
+        flags.forEach(flag => flag.challengeId === challengeId && flag.sender === drizzleState.account && setFlag(flag.flag))
+    }, [flags, challengeId, drizzleState.account])
     return (
         <>
             <TransactionStatuses TXObjects={TXObjects}/>
             <CommitForm data={flag} onSubmit={useCallback(({_data}) => {
-                flags.forEach((item, index) => {
-                    if (item.challengeId === challengeId)
+                flags.forEach((flag, index) => {
+                    if (flag.challengeId === challengeId &&
+                        flag.sender === drizzleState.account)
                         dispatch(AWDRemove(index));
                 })
                 const salt = Web3Utils.randomHex(32);
@@ -29,10 +31,11 @@ export default ({contestId, challengeId, teamId}) => {
                     teamId: teamId,
                     challengeId: challengeId,
                     flag: _data,
-                    salt: salt
+                    salt: salt,
+                    sender: drizzleState.account
                 }));
                 send(contestId, challengeId, teamId, Web3Utils.soliditySha3(_data, salt))
-            }, [contestId, challengeId, teamId, flags, send, dispatch])}/>
+            }, [contestId, challengeId, teamId, flags, send, dispatch, drizzleState.account])}/>
         </>
     )
 }

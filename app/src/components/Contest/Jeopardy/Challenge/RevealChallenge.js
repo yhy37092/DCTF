@@ -7,6 +7,7 @@ import {getJeopardySubmits} from "../../../../reducers/Submit";
 
 export default ({contestId, teamId}) => {
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
+    const drizzleState = drizzleReactHooks.useDrizzleState(drizzleState => ({account: drizzleState.accounts[0]}))
     const {send, TXObjects} = useCacheSend('Jeopardy', 'revealSubmits')
     const submits = useSelector(getJeopardySubmits)
 
@@ -15,7 +16,8 @@ export default ({contestId, teamId}) => {
         const _flags = []
         const _salts = []
         submits.forEach(flag => {
-            if (contestId === flag.contestId) {
+            if (contestId === flag.contestId &&
+                drizzleState.accounts === flag.sender) {
                 _challengeIds.push(flag.challengeId)
                 _flags.push(flag.flag)
                 _salts.push(flag.salt)

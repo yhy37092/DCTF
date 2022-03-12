@@ -25,11 +25,13 @@ contract Teams is ITeams {
 
     function add(uint contestId, ITeam calldata team) external payable
     onlyContestExist(contestId)
+    onlyNOTTeamMember(addressToTeamId[contestId][msg.sender])
     onlyContestInState(contestId, IContests.ContestState.CREATED) {
 
         IContests.Contest memory contest = Contests.getContest(contestId);
 
         require(msg.value == contest.info.fee, "not qualified contest fee");
+        require(msg.sender == team.captain, " msg sender should be captain");
 
         addressToTeamId[contestId][team.captain] = nextId;
         addressToContests[team.captain].add(contestId);
@@ -74,6 +76,15 @@ contract Teams is ITeams {
     }
     modifier onlyContestInState(uint contestId, IContests.ContestState state){
         require(Contests.contestInState(contestId, state), "wrong contest state");
+        _;
+    }
+    modifier onlyNOTTeamMember(uint teamId) {
+        ITeams.Team memory team = teams[teamId];
+        bool result = true;
+        if (team.info.captain == msg.sender) result = false;
+        for (uint i = 0; i < team.info.members.length; i++)
+            if (team.info.members[i] == msg.sender) result = false;
+        require(result, "only not team captain or member");
         _;
     }
 }

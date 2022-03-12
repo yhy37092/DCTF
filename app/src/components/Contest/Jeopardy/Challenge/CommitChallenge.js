@@ -8,19 +8,21 @@ import TransactionStatuses from "../../../TransactionStatuses";
 
 export default ({contestId, teamId, challengeId}) => {
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
+    const drizzleState = drizzleReactHooks.useDrizzleState(drizzleState => ({account: drizzleState.accounts[0]}))
     const {send, TXObjects} = useCacheSend('Jeopardy', 'commitSubmit')
     const submits = useSelector(getJeopardySubmits);
     const dispatch = useDispatch();
     const [flag, setFlag] = useState('');
     useEffect(() => {
-        submits.forEach(flag => flag.challengeId === challengeId && setFlag(flag.flag))
-    }, [submits, challengeId])
+        submits.forEach(flag => flag.challengeId === challengeId && flag.sender === drizzleState.account && setFlag(flag.flag))
+    }, [submits, challengeId, drizzleState.account])
     return (
         <>
             <TransactionStatuses TXObjects={TXObjects}/>
             <CommitForm data={flag} onSubmit={useCallback(({_data}) => {
-                submits.forEach((item, index) => {
-                    if (item.challengeId === challengeId)
+                submits.forEach((submit, index) => {
+                    if (submit.challengeId === challengeId &&
+                        submit.sender === drizzleState.account)
                         dispatch(JeopardyRemove(index));
                 })
                 const salt = Web3Utils.randomHex(32);
@@ -29,10 +31,11 @@ export default ({contestId, teamId, challengeId}) => {
                     teamId: teamId,
                     challengeId: challengeId,
                     flag: _data,
-                    salt: salt
+                    salt: salt,
+                    sender: drizzleState.account
                 }));
                 send(contestId, challengeId, teamId, Web3Utils.soliditySha3(_data, salt))
-            }, [contestId, teamId, challengeId, submits, send, dispatch])}/>
+            }, [contestId, teamId, challengeId, submits, send, dispatch, drizzleState.account])}/>
         </>
     )
 }

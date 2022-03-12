@@ -3,10 +3,12 @@ import {useTranslation} from "react-i18next";
 import {after, before, toDate} from "../../../utils/utils";
 import {Col, Row} from "react-bootstrap";
 import Countdown from "react-countdown";
-import RevealChallenge from "../../../components/Contest/AWD/Challenge/Reveal";
+import RevealChallenge from "../../../components/Contest/AWD/Challenge/RevealFlag";
+import RevealFlag from "../../../components/Contest/AWD/Challenge/RevealFlag";
 import ListChallenge from "../../../components/Contest/AWD/Challenge/ListChallenge";
 import ListChallengeNoCommit from "../../../components/Challenge/AWD/ListChallenge";
 import {Link} from "react-router-dom";
+import RevealSubmit from "../../../components/Contest/AWD/Challenge/RevealSubmit";
 
 export default ({contest, teamId}) => {
     const {t} = useTranslation();
@@ -50,10 +52,7 @@ export default ({contest, teamId}) => {
                     </Row>
                     <Row>
                         <Col>
-                            <h1 align="center">{t('description.Challenges')}
-                                <RevealChallenge contestId={contest.id}
-                                                 teamId={teamId}/>
-                            </h1>
+                            <h1 align="center">{t('description.Challenges')}</h1>
                         </Col>
                     </Row>
 
@@ -81,8 +80,10 @@ export default ({contest, teamId}) => {
                     <Row>
                         <Col>
                             <h1 align="center">{t('description.Challenges')}
-                                <RevealChallenge contestId={contest.id}
-                                                 teamId={teamId}/>
+                                <RevealFlag contestId={contest.id}
+                                            teamId={teamId}/>
+                                <RevealSubmit contestId={contest.id}
+                                              teamId={teamId}/>
                             </h1>
                         </Col>
                     </Row>

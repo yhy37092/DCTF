@@ -48,6 +48,7 @@ export default () => {
 function Apply({contest, team}) {
     const {t} = useTranslation();
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
+    const drizzleState = drizzleReactHooks.useDrizzleState(drizzleState => ({account: drizzleState.accounts[0]}))
     const {send, TXObjects} = useCacheSend('Teams', 'add')
     return (
         <>
@@ -58,7 +59,9 @@ function Apply({contest, team}) {
                     <div align="center">
                         <h3>{t('description.Apply_contest')}</h3>
                         <ApplyContestForm
-                            onSubmit={({_data}) => send(contest.id, _data, {value: contest.info.fee})}/>
+                            onSubmit={({_data}) => send(contest.id, _data, {value: contest.info.fee})}
+                            sender={drizzleState.account}
+                        />
                     </div>
                 }
                 {

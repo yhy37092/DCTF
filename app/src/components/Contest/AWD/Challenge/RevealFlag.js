@@ -2,14 +2,15 @@ import React from 'react'
 import {drizzleReactHooks} from "@drizzle/react-plugin"
 import {Button} from 'react-bootstrap'
 import {useSelector} from 'react-redux'
-import {getJeopardyFlags} from '../../../../reducers/Flag'
 import TransactionStatuses from '../../../TransactionStatuses'
+import {getAWDFlags} from "../../../../reducers/Flag";
 
-export default ({contestId}) => {
+export default ({contestId, teamId}) => {
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
     const drizzleState = drizzleReactHooks.useDrizzleState(drizzleState => ({account: drizzleState.accounts[0]}))
-    const {send, TXObjects} = useCacheSend('Jeopardy', 'revealFlags')
-    const flags = useSelector(getJeopardyFlags)
+    const revealFlags = useCacheSend('AWD', 'revealFlags')['send']
+    const revealFlagStatus = useCacheSend('AWD', 'revealSubmits')['TXObjects']
+    const flags = useSelector(getAWDFlags)
 
     function handleReveal() {
         const _challengeIds = []
@@ -23,15 +24,15 @@ export default ({contestId}) => {
                 _salts.push(flag.salt)
             }
         })
-        _challengeIds.length > 0 && send(contestId, _challengeIds, _flags, _salts)
+        _challengeIds.length > 0 && revealFlags(contestId, _challengeIds, teamId, _flags, _salts)
     }
 
     return (
         <>
-            <Button variant='outline-secondary' onClick={handleReveal}>
-                <i className='fas fa-arrow-circle-up'/>
+            <TransactionStatuses TXObjects={revealFlagStatus}/>
+            <Button variant="outline-secondary" onClick={handleReveal}>
+                <i className="fas fa-arrow-circle-up"/>
             </Button>
-            <TransactionStatuses TXObjects={TXObjects}/>
         </>
     )
 }

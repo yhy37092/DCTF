@@ -1,13 +1,15 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Button, Col, Form, Row} from 'react-bootstrap'
 import {useTranslation} from "react-i18next";
 
-export default ({onSubmit}) => {
+export default ({onSubmit,sender}) => {
     const {t} = useTranslation();
     const [name, setName] = useState('');
     const [captain, setCaptain] = useState('');
     const [members, setMembers] = useState([]);
     const [count, setCount] = useState(0);
+
+    useEffect(() => {setCaptain(sender)},[sender])
 
     return (
 
@@ -23,7 +25,7 @@ export default ({onSubmit}) => {
             <Form.Control key='name' type='text' name='name' value={name} placeholder={t('description.Enter_team_name')}
                           onChange={event => setName(event.target.value)}/>
             <Form.Label>{t('description.captain_account')}</Form.Label>
-            <Form.Control key='captain' type='text' name='captain' value={captain}
+            <Form.Control key='captain' type='text' name='captain' value={captain} disabled
                           placeholder={t('description.Enter_account')}
                           onChange={event => setCaptain(event.target.value)}/>
             {
