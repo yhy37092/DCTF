@@ -3,11 +3,11 @@ pragma solidity ^0.8.10;
 pragma experimental ABIEncoderV2;
 
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
-import "./IMoves.sol";
-import "./IContests.sol";
-import "./ITeams.sol";
-import "./IChallenges.sol";
-import "./IAWD.sol";
+import "./interfaces/IMoves.sol";
+import "./interfaces/IContests.sol";
+import "./interfaces/ITeams.sol";
+import "./interfaces/IChallenges.sol";
+import "./interfaces/IAWD.sol";
 
 contract AWD is IAWD {
     using EnumerableSet for EnumerableSet.UintSet;
@@ -36,17 +36,20 @@ contract AWD is IAWD {
     }
 
     function _revealFlag(uint contestId, uint challengeId, uint teamId, string memory flag, bytes32 salt) internal
-    {
+    onlyTeamMember(teamId)
+    onlyContestInState(contestId, IContests.ContestState.COMMITENDED) {
         Moves.reveal(ChallengeIdAndTeamIdToFlagMoveId[challengeId][teamId], flag, salt);
     }
 
     function _revealSubmit(uint contestId, uint teamId, uint challengeId, uint targetTeamId, string memory flag, bytes32 salt) internal
-    {
+    onlyTeamMember(teamId)
+    onlyContestInState(contestId, IContests.ContestState.COMMITENDED) {
         Moves.reveal(ChallengeIdTeamIdAndTargetTeamIdToSubmitMoveId[challengeId][teamId][targetTeamId], flag, salt);
     }
 
     function commitFlag(uint contestId, uint challengeId, uint teamId, bytes32 hash) external
-    {
+    onlyTeamMember(teamId)
+    onlyContestInState(contestId, IContests.ContestState.STARTED) {
         uint oldId = ChallengeIdAndTeamIdToFlagMoveId[challengeId][teamId];
         contestFlags[contestId].remove(oldId);
         uint id = Moves.commit(contestId, challengeId, teamId, 0, hash);
@@ -55,7 +58,8 @@ contract AWD is IAWD {
     }
 
     function commitSubmit(uint contestId, uint challengeId, uint teamId, uint targetTeamId, bytes32 hash) external
-    {
+    onlyTeamMember(teamId)
+    onlyContestInState(contestId, IContests.ContestState.STARTED) {
         uint oldId = ChallengeIdTeamIdAndTargetTeamIdToSubmitMoveId[challengeId][teamId][targetTeamId];
         contestSubmits[contestId].remove(oldId);
         uint id = Moves.commit(contestId, challengeId, teamId, targetTeamId, hash);
@@ -80,8 +84,34 @@ contract AWD is IAWD {
         }
     }
 
-    function updateScore(uint contestId) external {
+    function updateScore(uint contestId) external
+    onlyContestInState(contestId, IContests.ContestState.REVEALENDED) {
+        uint [] memory submits = contestSubmits[contestId].values();
+        uint [] memory flags = contestFlags[contestId].values();
+        uint [] memory teams = Teams.getContestTeamIds(contestId);
+        uint [] memory challenges = Challenges.getContestChallengeIds(contestId);
 
+        uint score = 0;
+        for (uint i = 0; i < challenges.length; i++) score += Challenges.getChallenge(challenges[i]).info.value;
+
+        for (uint i = 0; i < teams.length; i++) scores[teams[i]] = score;
+
+        for (uint i = 0; i < submits.length; i++) {
+            IMoves.Move memory submitMove = Moves.getMove(submits[i]);
+            IMoves.Move memory answerMove;
+            for (uint j = 0; j < flags.length; j++) {
+                IMoves.Move memory flagMove = Moves.getMove(flags[j]);
+                if (submitMove.challengeId == flagMove.challengeId &&
+                    submitMove.targetTeamId == flagMove.teamId)
+                    answerMove = flagMove;
+            }
+            if (submitMove.state == IMoves.MoveState.REVEALED &&
+            answerMove.state == IMoves.MoveState.REVEALED &&
+                _compareStrings(submitMove.info.flag, answerMove.info.flag)) {
+                scores[submitMove.teamId] += 50;
+                scores[submitMove.targetTeamId] -= 50;
+            }
+        }
     }
 
     function getContestSubmitIds(uint contestId) external view returns (uint [] memory) {
@@ -102,6 +132,19 @@ contract AWD is IAWD {
 
     function getScore(uint teamId) external view returns (uint){
         return scores[teamId];
+    }
+    modifier onlyTeamMember(uint teamId) {
+        ITeams.Team memory team = Teams.getTeam(teamId);
+        bool result = false;
+        if (team.info.captain == msg.sender) result = true;
+        for (uint i = 0; i < team.info.members.length; i++)
+            if (team.info.members[i] == msg.sender) result = true;
+        require(result, "only team captain or member");
+        _;
+    }
+    modifier onlyContestInState(uint contestId, IContests.ContestState state){
+        require(Contests.contestInState(contestId, state), "wrong contest state");
+        _;
     }
 
 }

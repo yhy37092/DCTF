@@ -3,11 +3,11 @@ pragma solidity ^0.8.10;
 pragma experimental ABIEncoderV2;
 
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
-import "./IMoves.sol";
-import "./IContests.sol";
-import "./ITeams.sol";
-import "./IChallenges.sol";
-import "./IJeopardy.sol";
+import "./interfaces/IContests.sol";
+import "./interfaces/ITeams.sol";
+import "./interfaces/IChallenges.sol";
+import "./interfaces/IJeopardy.sol";
+import "./interfaces/IMoves.sol";
 
 contract Jeopardy is IJeopardy {
     using EnumerableSet for EnumerableSet.UintSet;
@@ -89,16 +89,21 @@ contract Jeopardy is IJeopardy {
     onlyContestInState(contestId, IContests.ContestState.REVEALENDED) {
         uint [] memory submits = contestSubmits[contestId].values();
         uint [] memory flags = contestFlags[contestId].values();
+        uint [] memory teams = Teams.getContestTeamIds(contestId);
 
-        for (uint i = 0; i < submits.length; i++) scores[Moves.getMove(submits[i]).teamId] = 0;
+        for (uint i = 0; i < teams.length; i++) scores[teams[i]] = 0;
 
         for (uint i = 0; i < submits.length; i++) {
             IMoves.Move memory submitMove = Moves.getMove(submits[i]);
             IMoves.Move memory answerMove;
-            for (uint j = 0; j < flags.length; j++)
-                if (submitMove.challengeId == Moves.getMove(flags[j]).challengeId)
-                    answerMove = Moves.getMove(flags[j]);
-            if (submitMove.state == IMoves.MoveState.REVEALED && answerMove.state == IMoves.MoveState.REVEALED && _compareStrings(submitMove.info.flag, answerMove.info.flag))
+            for (uint j = 0; j < flags.length; j++) {
+                IMoves.Move memory flagMove = Moves.getMove(flags[j]);
+                if (submitMove.challengeId == flagMove.challengeId)
+                    answerMove = flagMove;
+            }
+            if (submitMove.state == IMoves.MoveState.REVEALED &&
+                answerMove.state == IMoves.MoveState.REVEALED &&
+                _compareStrings(submitMove.info.flag, answerMove.info.flag))
                 scores[submitMove.teamId] += Challenges.getChallenge(submitMove.challengeId).info.value;
         }
     }

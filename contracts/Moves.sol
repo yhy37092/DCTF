@@ -3,10 +3,10 @@ pragma solidity ^0.8.10;
 pragma experimental ABIEncoderV2;
 
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
-import "./IMoves.sol";
-import "./IContests.sol";
-import "./ITeams.sol";
-import "./IChallenges.sol";
+import "./interfaces/IMoves.sol";
+import "./interfaces/IContests.sol";
+import "./interfaces/ITeams.sol";
+import "./interfaces/IChallenges.sol";
 
 contract Moves is IMoves {
     using EnumerableSet for EnumerableSet.UintSet;

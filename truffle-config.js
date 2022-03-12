@@ -5,9 +5,9 @@ module.exports = {
     contracts_build_directory: path.join(__dirname, "app/src/contracts"),
     networks: {
         develop: {
-            host: "localhost",     // Localhost (default: none)
+            host: "ganache",     // Localhost (default: none)
             port: 8545,            // Standard Ethereum port (default: none)
-            network_id: 1337,    // Any network (default: none)
+            network_id: "*",    // Any network (default: none)
         }
     },
     compilers: {

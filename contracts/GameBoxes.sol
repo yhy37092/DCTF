@@ -3,10 +3,10 @@ pragma solidity ^0.8.10;
 pragma experimental ABIEncoderV2;
 
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
-import "./IContests.sol";
-import "./IGameBoxes.sol";
-import "./ITeams.sol";
-import "./IChallenges.sol";
+import "./interfaces/IContests.sol";
+import "./interfaces/IGameBoxes.sol";
+import "./interfaces/ITeams.sol";
+import "./interfaces/IChallenges.sol";
 
 contract GameBoxes is IGameBoxes {
 

@@ -4,8 +4,8 @@ pragma experimental ABIEncoderV2;
 
 
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
-import "./IChallenges.sol";
-import "./IContests.sol";
+import "./interfaces/IChallenges.sol";
+import "./interfaces/IContests.sol";
 
 contract Challenges is IChallenges{
 

@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "migrate": "truffle migrate --reset --network develop",
     "test": "echo \"Error: no test specified\" "
   },
   "dependencies": {
