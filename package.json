@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "ganache-cli": "ganache-cli -m 'unable off subject boil blur state suspect bleak book sentence opera pet'",
     "migrate": "truffle migrate --reset --network develop",
     "test": "echo \"Error: no test specified\" "
   },

@@ -3,7 +3,6 @@ import {useTranslation} from "react-i18next";
 import {after, before, toDate} from "../../../utils/utils";
 import {Col, Row} from "react-bootstrap";
 import Countdown from "react-countdown";
-import RevealChallenge from "../../../components/Contest/AWD/Challenge/RevealFlag";
 import RevealFlag from "../../../components/Contest/AWD/Challenge/RevealFlag";
 import ListChallenge from "../../../components/Contest/AWD/Challenge/ListChallenge";
 import ListChallengeNoCommit from "../../../components/Challenge/AWD/ListChallenge";
