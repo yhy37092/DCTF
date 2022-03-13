@@ -17,13 +17,13 @@ export default ({contestId, teamId}) => {
         const _salts = []
         submits.forEach(flag => {
             if (contestId === flag.contestId &&
-                drizzleState.accounts === flag.sender) {
+                drizzleState.account === flag.sender) {
                 _challengeIds.push(flag.challengeId)
                 _flags.push(flag.flag)
                 _salts.push(flag.salt)
             }
         })
-        _challengeIds.length > 0 && send(contestId, _challengeIds, teamId, _flags, _salts)
+        _challengeIds.length > 0 && send(contestId, teamId, _challengeIds, _flags, _salts)
     }
 
     return (
