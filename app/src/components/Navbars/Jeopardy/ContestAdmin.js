@@ -1,7 +1,7 @@
 import React from "react";
 import {Button, Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import CustomLink from "./CustomLink";
+import CustomLink from "../CustomLink";
 import {useTranslation} from "react-i18next";
 
 const lngs = {
@@ -20,31 +20,27 @@ export default ({contestId}) => {
                     <Nav className="me-auto">
                         <Nav.Item>
                             <CustomLink
-                                to={`/Review/Contest-${contestId}`}>{t('description.AWD')}</CustomLink>
+                                to={`/ContestAdmin/Contest-${contestId}`}>{t('description.Jeopardy')}</CustomLink>
                         </Nav.Item>
                         <Nav.Item>
                             <CustomLink
-                                to={`/Review/Contest-${contestId}/Challenges`}>{t('description.Challenges')}</CustomLink>
+                                to={`/ContestAdmin/Contest-${contestId}/Challenges`}>{t('description.Challenges')}</CustomLink>
                         </Nav.Item>
                         <Nav.Item>
                             <CustomLink
-                                to={`/Review/Contest-${contestId}/GameBoxes`}>{t('description.GameBoxes')}</CustomLink>
+                                to={`/ContestAdmin/Contest-${contestId}/Teams`}>{t('description.Teams')}</CustomLink>
                         </Nav.Item>
                         <Nav.Item>
                             <CustomLink
-                                to={`/Review/Contest-${contestId}/Teams`}>{t('description.Teams')}</CustomLink>
+                                to={`/ContestAdmin/Contest-${contestId}/Flags`}>{t('description.Flags')}</CustomLink>
                         </Nav.Item>
                         <Nav.Item>
                             <CustomLink
-                                to={`/Review/Contest-${contestId}/Flags`}>{t('description.Flags')}</CustomLink>
+                                to={`/ContestAdmin/Contest-${contestId}/Submissions`}>{t('description.Submissions')}</CustomLink>
                         </Nav.Item>
                         <Nav.Item>
                             <CustomLink
-                                to={`/Review/Contest-${contestId}/Submissions`}>{t('description.Submissions')}</CustomLink>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <CustomLink
-                                to={`/Review/Contest-${contestId}/ScoreBoard`}>{t('description.ScoreBoard')}</CustomLink>
+                                to={`/ContestAdmin/Contest-${contestId}/ScoreBoard`}>{t('description.ScoreBoard')}</CustomLink>
                         </Nav.Item>
                     </Nav>
 
