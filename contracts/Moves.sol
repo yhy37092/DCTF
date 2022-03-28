@@ -25,7 +25,11 @@ contract Moves is IMoves {
     mapping(uint => Move) moves;
     uint public nextId = 1;
 
+    mapping(bytes32 => bool) hashes;
+
     function commit(uint contestId, uint challengeId, uint teamId, uint targetTeamId, bytes32 hash) external returns (uint) {
+        require(hashes[hash] == false, "hash in use");
+        hashes[hash] = true;
         uint id = nextId;
         ids.add(id);
         moves[id] = Move(id, contestId, challengeId, teamId, targetTeamId, IMove(hash, "", ""), MoveState.COMMITTED, block.timestamp);
