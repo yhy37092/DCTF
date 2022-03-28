@@ -4,6 +4,8 @@ import {Button} from 'react-bootstrap'
 import {useSelector} from 'react-redux'
 import TransactionStatuses from '../../../TransactionStatuses'
 import {getAWDSubmits} from "../../../../reducers/Submit";
+import {solid} from "@fortawesome/fontawesome-svg-core/import.macro";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export default ({contestId, teamId}) => {
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
@@ -33,7 +35,7 @@ export default ({contestId, teamId}) => {
         <>
             <TransactionStatuses TXObjects={revealSubmitStatus}/>
             <Button variant="outline-secondary" onClick={handleReveal}>
-                <i className="fas fa-arrow-circle-up"/>
+                <FontAwesomeIcon icon={solid("circle-arrow-up")}/>
             </Button>
         </>
     )

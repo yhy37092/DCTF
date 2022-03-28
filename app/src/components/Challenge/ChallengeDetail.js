@@ -1,6 +1,8 @@
 import React from "react";
-import { Card, ListGroup, ListGroupItem} from "react-bootstrap";
+import {Card, ListGroup, ListGroupItem} from "react-bootstrap";
 import ReactMarkdown from 'react-markdown'
+import {solid} from "@fortawesome/fontawesome-svg-core/import.macro";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export default ({challenge}) => (
     <Card>
@@ -14,7 +16,8 @@ export default ({challenge}) => (
             {challenge.info.connectionInfo !== '' ?
                 <ListGroupItem>URL: <a href={challenge.info.connectionInfo}>Go to</a></ListGroupItem> : null}
             {challenge.info.file !== '' ?
-                <ListGroupItem>File: <a href={challenge.info.file}><i className="fas fa-download"/>Download</a></ListGroupItem> : null}
+                <ListGroupItem>File: <a href={challenge.info.file}><FontAwesomeIcon
+                    icon={solid("download")}/>Download</a></ListGroupItem> : null}
             {challenge.info.hint !== '' ?
                 <ListGroupItem>hint: {challenge.info.hint}</ListGroupItem> : null}
         </ListGroup>
