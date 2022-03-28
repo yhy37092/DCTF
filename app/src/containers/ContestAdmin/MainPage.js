@@ -4,6 +4,10 @@ import {Link} from "react-router-dom";
 import RemoveContest from "../../components/ContestAdmin/RemoveContest";
 import React from "react";
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {solid} from '@fortawesome/fontawesome-svg-core/import.macro'
+
+
 export default () => {
     const {t} = useTranslation();
     return (
@@ -19,7 +23,7 @@ export default () => {
                 <Col>
                     <h1 align='center'>{t('description.Contests')}
                         <Link to={'New'}><Button variant='outline-secondary'>
-                            <i className='btn-fa fas fa-plus-circle'/>
+                            <FontAwesomeIcon icon={solid("circle-plus")}/>
                         </Button></Link>
                     </h1>
                 </Col>

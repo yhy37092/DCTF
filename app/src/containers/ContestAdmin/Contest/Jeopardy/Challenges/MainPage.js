@@ -4,6 +4,8 @@ import {Breadcrumb, Button, Col, Row} from "react-bootstrap";
 import RevealChallenge from "../../../../../components/ContestAdmin/Jeopardy/Challenge/RevealChallenge";
 import RemoveChallenge from "../../../../../components/ContestAdmin/Jeopardy/Challenge/RemoveChallenge";
 import React from "react";
+import {solid} from "@fortawesome/fontawesome-svg-core/import.macro";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export default () => {
     const {t} = useTranslation();
@@ -25,9 +27,10 @@ export default () => {
                 <Col>
                     <h1 align='center'>{t('description.Challenges')}
                         <Link to={`New`}>
-                            <Button
-                                variant='outline-secondary'><i
-                                className='btn-fa fas fa-plus-circle'/></Button></Link>
+                            <Button variant='outline-secondary'>
+                                <FontAwesomeIcon icon={solid("circle-plus")}/>
+                            </Button>
+                        </Link>
                         <RevealChallenge contestId={contestId}/>
                     </h1>
                 </Col>

@@ -4,6 +4,8 @@ import {Button} from 'react-bootstrap'
 import {useSelector} from 'react-redux'
 import {getJeopardyFlags} from '../../../../reducers/Flag'
 import TransactionStatuses from '../../../TransactionStatuses'
+import {solid} from "@fortawesome/fontawesome-svg-core/import.macro";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export default ({contestId}) => {
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
@@ -29,7 +31,7 @@ export default ({contestId}) => {
     return (
         <>
             <Button variant='outline-secondary' onClick={handleReveal}>
-                <i className='fas fa-arrow-circle-up'/>
+                <FontAwesomeIcon icon={solid("circle-arrow-up")}/>
             </Button>
             <TransactionStatuses TXObjects={TXObjects}/>
         </>

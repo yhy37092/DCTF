@@ -3,6 +3,8 @@ import {Button, Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import CustomLink from "../CustomLink";
 import {useTranslation} from "react-i18next";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {solid} from "@fortawesome/fontawesome-svg-core/import.macro";
 
 const lngs = {
     en: {nativeName: 'English'},
@@ -49,7 +51,8 @@ export default ({contestId}) => {
                     </Nav>
 
                     <Nav>
-                        <NavDropdown as={Nav.Item} title={<i className="fas fa-language">Language</i>}>
+                        <NavDropdown as={Nav.Item}
+                                     title={<span><FontAwesomeIcon icon={solid("language")}/>{t('description.language')}</span>}>
                             {Object.keys(lngs).map((lng) => (
                                 <Button as={NavDropdown.Item} key={lng} onClick={() => i18n.changeLanguage(lng)}>
                                     {lngs[lng].nativeName}

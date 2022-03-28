@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import {Button, Col, Form, Row, Table} from 'react-bootstrap'
 import {useTranslation} from "react-i18next";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {solid} from '@fortawesome/fontawesome-svg-core/import.macro'
 
 export default ({onSubmit, data, filter}) => {
     const {t} = useTranslation();
@@ -22,7 +24,7 @@ export default ({onSubmit, data, filter}) => {
         }>
             <Row><Col>
                 <Button className='float-end' variant='outline-danger' type='submit'>
-                    <i className='btn-fa fas fa-trash-alt'/>
+                    <FontAwesomeIcon icon={solid("trash-alt")}/>
                 </Button>
             </Col></Row>
             <Table responsive bordered hover>

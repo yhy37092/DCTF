@@ -2,6 +2,8 @@ import React from 'react'
 import {drizzleReactHooks} from "@drizzle/react-plugin"
 import {Button} from "react-bootstrap";
 import TransactionStatuses from "../../TransactionStatuses";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {solid} from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export default ({contestId}) => {
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
@@ -11,7 +13,7 @@ export default ({contestId}) => {
         <>
             <TransactionStatuses TXObjects={TXObjects}/>
             <Button variant='outline-secondary' onClick={() => send(contestId)}>
-                <i className="fas fa-sync"/>
+                <FontAwesomeIcon icon={solid('sync')}/>
             </Button>
         </>
     )

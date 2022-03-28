@@ -135,11 +135,13 @@ i18n
                         selectTeam: "Select a Team",
                         Create_GameBox: 'Create game box',
                         TargetTeamName: 'Target team name',
-                        toContestEnd:'To contest end:',
-                        toContestStart:'To contest start',
-                        toContestRevealEnd:'To contest reveal end',
-                        myGameBox:'My game box',
-                        gameBoxList:'Game box list'
+                        toContestEnd: 'To contest end:',
+                        toContestStart: 'To contest start',
+                        toContestRevealEnd: 'To contest reveal end',
+                        myGameBox: 'My game box',
+                        gameBoxList: 'Game box list',
+                        language: 'language',
+                        account: 'account'
                     }
                 }
             },
@@ -262,11 +264,13 @@ i18n
                         selectTeam: "选择一个队伍",
                         Create_GameBox: '创建靶机',
                         TargetTeamName: '目标队伍名称',
-                        toContestEnd:'距离比赛结束还有',
-                        toContestStart:'距离比赛开始还有',
-                        toContestRevealEnd:'距离比赛提交结束还有',
-                        myGameBox:'我的靶机',
-                        gameBoxList:'靶机列表'
+                        toContestEnd: '距离比赛结束还有',
+                        toContestStart: '距离比赛开始还有',
+                        toContestRevealEnd: '距离比赛提交结束还有',
+                        myGameBox: '我的靶机',
+                        gameBoxList: '靶机列表',
+                        language: '语言',
+                        account: '账户'
                     }
                 }
             }

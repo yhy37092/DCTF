@@ -4,6 +4,9 @@ import {Button, Modal} from 'react-bootstrap'
 import TransactionStatuses from '../TransactionStatuses'
 import GrantForm from '../Forms/GrantForm'
 import {useTranslation} from "react-i18next";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {solid} from '@fortawesome/fontawesome-svg-core/import.macro'
+
 
 export default ({Role}) => {
     const {t} = useTranslation();
@@ -18,7 +21,7 @@ export default ({Role}) => {
     return (
         <>
             <Button variant='outline-secondary' onClick={handleShow}>
-                <i className='btn-fa fas fa-plus-circle'/>
+                <FontAwesomeIcon icon={solid("circle-plus")}/>
             </Button>
             <Modal show={show} onHide={handleShow}>
                 <Modal.Header closeButton onClick={handleClose}>
