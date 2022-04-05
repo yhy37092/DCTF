@@ -27,7 +27,11 @@ interface IChallenges {
 
     function update(uint contestId, uint id, IChallenge calldata challenge) external;
 
+    function remove(uint contestId, uint id) external;
+
     function removes(uint contestId, uint [] memory _ids) external;
+
+    function isContestChallenge(uint contestId, uint challengeId) view external returns (bool);
 
     function getContestChallengeIds(uint contestId) external view returns (uint [] memory);
 

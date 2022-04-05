@@ -8,13 +8,14 @@ import ListChallenge from "../../../components/Contest/AWD/Challenge/ListChallen
 import ListChallengeNoCommit from "../../../components/Challenge/AWD/ListChallenge";
 import {Link} from "react-router-dom";
 import RevealSubmit from "../../../components/Contest/AWD/Challenge/RevealSubmit";
+import ListChallenge1 from "../../../components/Contest/AWD/Challenge/ListChallenge1";
 
 export default ({contest, teamId}) => {
     const {t} = useTranslation();
     return (
         <>
             {
-                before(contest.info.start) &&
+                before(parseInt(contest.info.start)) &&
                 <div>
                     <Row>
                         <Col>
@@ -37,7 +38,35 @@ export default ({contest, teamId}) => {
                 </div>
             }
             {
-                after(contest.info.start) && before(contest.info.commitEnd) &&
+                after(parseInt(contest.info.start)) && before(parseInt(contest.info.start) + parseInt(contest.info.flagCommitTime)) &&
+                <div>
+                    <Row>
+                        <Col>
+                            <h3 align="center">
+                                {t('description.toContestCommit')}
+                            </h3>
+                            <h3 align="center">
+                                <Countdown
+                                    date={new Date((parseInt(contest.info.start) + parseInt(contest.info.flagCommitTime)) * 1000)}/>
+                            </h3>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <h1 align="center">{t('description.Challenges')}</h1>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col>
+                            <ListChallenge1 contestId={contest.id}
+                                           teamId={teamId}/>
+                        </Col>
+                    </Row>
+                </div>
+            }
+            {
+                after(parseInt(contest.info.start) + parseInt(contest.info.flagCommitTime)) && before(parseInt(contest.info.end)) &&
                 <div>
                     <Row>
                         <Col>
@@ -45,7 +74,7 @@ export default ({contest, teamId}) => {
                                 {t('description.toContestEnd')}
                             </h3>
                             <h3 align="center">
-                                <Countdown date={new Date(parseInt(contest.info.commitEnd) * 1000)}/>
+                                <Countdown date={new Date(parseInt(contest.info.end) * 1000)}/>
                             </h3>
                         </Col>
                     </Row>
@@ -64,7 +93,7 @@ export default ({contest, teamId}) => {
                 </div>
             }
             {
-                after(contest.info.commitEnd) && before(contest.info.revealEnd) &&
+                after(parseInt(contest.info.end)) && before(parseInt(contest.info.end) + parseInt(contest.info.revealTime)) &&
                 <div>
                     <Row>
                         <Col>
@@ -72,7 +101,8 @@ export default ({contest, teamId}) => {
                                 {t('description.toContestRevealEnd')}
                             </h3>
                             <h3 align="center">
-                                <Countdown date={new Date(parseInt(contest.info.revealEnd) * 1000)}/>
+                                <Countdown
+                                    date={new Date((parseInt(contest.info.end) + parseInt(contest.info.revealTime)) * 1000)}/>
                             </h3>
                         </Col>
                     </Row>
@@ -96,7 +126,7 @@ export default ({contest, teamId}) => {
                 </div>
             }
             {
-                after(contest.info.revealEnd) &&
+                after(parseInt(contest.info.end) + parseInt(contest.info.revealTime)) &&
                 <div align="center">
                     <h3>{t('description.contest_end')}</h3>
                     <h2><Link

@@ -26,13 +26,10 @@ contract Teams is ITeams {
     function add(uint contestId, ITeam calldata team) external payable
     onlyContestExist(contestId)
     onlyNOTTeamMember(addressToTeamId[contestId][msg.sender])
-    onlyContestInState(contestId, IContests.ContestState.CREATED) {
-
+    onlyContestInState(contestId, IContests.ContestState.CREATE) {
         IContests.Contest memory contest = Contests.getContest(contestId);
-
         require(msg.value == contest.info.fee, "not qualified contest fee");
         require(msg.sender == team.captain, " msg sender should be captain");
-
         addressToTeamId[contestId][team.captain] = nextId;
         addressToContests[team.captain].add(contestId);
         for (uint i = 0; i < team.members.length; i++) {
@@ -45,12 +42,20 @@ contract Teams is ITeams {
         nextId++;
     }
 
+    function isContestTeam(uint contestId, uint teamId) view external returns (bool) {
+        return contestTeams[contestId].contains(teamId);
+    }
+
     function getMyContestIds() external view returns (uint [] memory) {
         return addressToContests[msg.sender].values();
     }
 
     function getMyTeamId(uint contestId) external view returns (uint) {
         return addressToTeamId[contestId][msg.sender];
+    }
+
+    function getTeamId(uint contestId, address account) external view returns (uint) {
+        return addressToTeamId[contestId][account];
     }
 
     function getContestTeamIds(uint contestId) external view returns (uint [] memory) {

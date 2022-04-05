@@ -54,8 +54,6 @@ i18n
                         Type: 'Type',
                         Fee: 'Fee',
                         Start: 'Start',
-                        commitEnd: 'commit end',
-                        revealEnd: 'reveal end',
                         State: 'State',
                         Message: 'Message',
                         Jeopardy: 'Jeopardy',
@@ -141,7 +139,16 @@ i18n
                         myGameBox: 'My game box',
                         gameBoxList: 'Game box list',
                         language: 'language',
-                        account: 'account'
+                        account: 'account',
+                        minutes:'minutes',
+                        flagCommitDuration:'window of flag commit time',
+                        revealDuration:'window of flag reveal time',
+                        flagCommitDuration_of_contest:"window of flag commit time from contest start",
+                        revealDuration_of_contest:"window of flag reveal time after contest end",
+                        Enter_revealDuration:'enter duration time',
+                        Enter_flagCommitDuration:'enter duration time',
+                        end:'end',
+                        toContestCommit:'To contest commit start'
                     }
                 }
             },
@@ -183,8 +190,6 @@ i18n
                         Type: '类型',
                         Fee: '费用',
                         Start: '开始时间',
-                        commitEnd: '结束时间',
-                        revealEnd: '提交结束时间',
                         State: '状态',
                         Message: '信息',
                         Jeopardy: '解题模式',
@@ -193,8 +198,6 @@ i18n
                         name_of_contest: '比赛名称',
                         fee_of_contest: '参赛费用',
                         start_of_contest: '比赛开始时间',
-                        commitEnd_of_contest: '比赛结束时间',
-                        revealEnd_of_contest: '提交结束时间',
                         message_of_contest: '比赛描述',
                         Enter_contest_name: '输入比赛名称',
                         Enter_contest_fee: '输入比赛费用',
@@ -270,7 +273,17 @@ i18n
                         myGameBox: '我的靶机',
                         gameBoxList: '靶机列表',
                         language: '语言',
-                        account: '账户'
+                        account: '账户',
+                        end_of_contest:'比赛结束时间',
+                        minutes:'分钟',
+                        flagCommitDuration:'flag commit时间窗口',
+                        revealDuration:'reveal 时间窗口',
+                        flagCommitDuration_of_contest:"flag commit时间窗口，从比赛开始计算",
+                        revealDuration_of_contest:"reveal 时间窗口，从比赛结束计算",
+                        Enter_revealDuration:'输入持续时间',
+                        Enter_flagCommitDuration:'输入持续时间',
+                        end:'结束时间',
+                        toContestCommit:'到比赛开始提交还有'
                     }
                 }
             }

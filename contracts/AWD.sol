@@ -35,57 +35,81 @@ contract AWD is IAWD {
         return (keccak256(abi.encodePacked((a))) == keccak256(abi.encodePacked((b))));
     }
 
-    function _revealFlag(uint contestId, uint challengeId, uint teamId, string memory flag, bytes32 salt) internal
-    onlyTeamMember(teamId)
-    onlyContestInState(contestId, IContests.ContestState.COMMITENDED) {
-        Moves.reveal(ChallengeIdAndTeamIdToFlagMoveId[challengeId][teamId], flag, salt);
+    function _commitFlag(IMoves.CommitData memory data) internal
+    challengeQualified(data.basic.contestId, data.basic.challengeId)
+    teamQualified(data.basic.contestId, data.basic.teamId, ITeams.TeamState.APPLIED)
+    onlyContestInState(data.basic.contestId, IContests.ContestState.FLAGCOMMIT) {
+        uint oldId = ChallengeIdAndTeamIdToFlagMoveId[data.basic.challengeId][data.basic.teamId];
+        contestFlags[data.basic.contestId].remove(oldId);
+        uint id = Moves.commit(data);
+        ChallengeIdAndTeamIdToFlagMoveId[data.basic.challengeId][data.basic.teamId] = id;
+        contestFlags[data.basic.contestId].add(id);
     }
 
-    function _revealSubmit(uint contestId, uint teamId, uint challengeId, uint targetTeamId, string memory flag, bytes32 salt) internal
-    onlyTeamMember(teamId)
-    onlyContestInState(contestId, IContests.ContestState.COMMITENDED) {
-        Moves.reveal(ChallengeIdTeamIdAndTargetTeamIdToSubmitMoveId[challengeId][teamId][targetTeamId], flag, salt);
+    function _commitSubmit(IMoves.CommitData memory data) internal
+    challengeQualified(data.basic.contestId, data.basic.challengeId)
+    teamQualified(data.basic.contestId, data.basic.teamId, ITeams.TeamState.APPLIED)
+    onlyContestInState(data.basic.contestId, IContests.ContestState.SUBMITCOMMIT) {
+        uint oldId = ChallengeIdTeamIdAndTargetTeamIdToSubmitMoveId[data.basic.challengeId][data.basic.teamId][data.basic.targetTeamId];
+        contestSubmits[data.basic.contestId].remove(oldId);
+        uint id = Moves.commit(data);
+        ChallengeIdTeamIdAndTargetTeamIdToSubmitMoveId[data.basic.challengeId][data.basic.teamId][data.basic.targetTeamId] = id;
+        contestSubmits[data.basic.contestId].add(id);
     }
 
-    function commitFlag(uint contestId, uint challengeId, uint teamId, bytes32 hash) external
-    onlyTeamMember(teamId)
-    onlyContestInState(contestId, IContests.ContestState.STARTED) {
-        uint oldId = ChallengeIdAndTeamIdToFlagMoveId[challengeId][teamId];
-        contestFlags[contestId].remove(oldId);
-        uint id = Moves.commit(contestId, challengeId, teamId, 0, hash);
-        ChallengeIdAndTeamIdToFlagMoveId[challengeId][teamId] = id;
-        contestFlags[contestId].add(id);
+    function _revealFlag(IMoves.RevealData memory data) internal
+    challengeQualified(data.basic.contestId, data.basic.challengeId)
+    teamQualified(data.basic.contestId, data.basic.teamId, ITeams.TeamState.APPLIED)
+    onlyContestInState(data.basic.contestId, IContests.ContestState.REVEAL) {
+        Moves.reveal
+        (
+            ChallengeIdAndTeamIdToFlagMoveId[data.basic.challengeId][data.basic.teamId],
+            data.flag,
+            data.salt
+        );
     }
 
-    function commitSubmit(uint contestId, uint challengeId, uint teamId, uint targetTeamId, bytes32 hash) external
-    onlyTeamMember(teamId)
-    onlyContestInState(contestId, IContests.ContestState.STARTED) {
-        uint oldId = ChallengeIdTeamIdAndTargetTeamIdToSubmitMoveId[challengeId][teamId][targetTeamId];
-        contestSubmits[contestId].remove(oldId);
-        uint id = Moves.commit(contestId, challengeId, teamId, targetTeamId, hash);
-        ChallengeIdTeamIdAndTargetTeamIdToSubmitMoveId[challengeId][teamId][targetTeamId] = id;
-        contestSubmits[contestId].add(id);
+    function _revealSubmit(IMoves.RevealData memory data) internal
+    challengeQualified(data.basic.contestId, data.basic.challengeId)
+    teamQualified(data.basic.contestId, data.basic.teamId, ITeams.TeamState.APPLIED)
+    onlyContestInState(data.basic.contestId, IContests.ContestState.REVEAL) {
+        Moves.reveal
+        (
+            ChallengeIdTeamIdAndTargetTeamIdToSubmitMoveId[data.basic.challengeId][data.basic.teamId][data.basic.targetTeamId],
+            data.flag,
+            data.salt
+        );
     }
 
-    function revealFlags(uint contestId, uint [] memory challengeIds, uint teamId, string [] memory flags, bytes32 [] memory salts) external {
-        require(challengeIds.length == flags.length, "length should be equal");
-        require(challengeIds.length == salts.length, "length should be equal");
-        for (uint i = 0; i < challengeIds.length; i++) {
-            _revealFlag(contestId, challengeIds[i], teamId, flags[i], salts[i]);
-        }
+    function commitFlag(IMoves.CommitData memory data) external {
+        _commitFlag(data);
     }
 
-    function revealSubmits(uint contestId, uint teamId, uint [] memory challengeIds, uint [] memory targetTeamIds, string [] memory flags, bytes32 [] memory salts) external {
-        require(challengeIds.length == targetTeamIds.length, "length should be equal");
-        require(challengeIds.length == flags.length, "length should be equal");
-        require(challengeIds.length == salts.length, "length should be equal");
-        for (uint i = 0; i < challengeIds.length; i++) {
-            _revealSubmit(contestId, teamId, challengeIds[i], targetTeamIds[i], flags[i], salts[i]);
-        }
+    function commitSubmit(IMoves.CommitData memory data) external {
+        _commitSubmit(data);
+    }
+
+
+    function revealFlag(IMoves.RevealData memory data) external {
+        _revealFlag(data);
+    }
+
+    function revealSubmit(IMoves.RevealData memory data) external {
+        _revealSubmit(data);
+    }
+
+    function revealFlags(IMoves.RevealData [] memory data) external {
+        for (uint i = 0; i < data.length; i++)
+            _revealFlag(data[i]);
+    }
+
+    function revealSubmits(IMoves.RevealData [] memory data) external {
+        for (uint i = 0; i < data.length; i++)
+            _revealSubmit(data[i]);
     }
 
     function updateScore(uint contestId) external
-    onlyContestInState(contestId, IContests.ContestState.REVEALENDED) {
+    onlyContestInState(contestId, IContests.ContestState.END) {
         uint [] memory submits = contestSubmits[contestId].values();
         uint [] memory flags = contestFlags[contestId].values();
         uint [] memory teams = Teams.getContestTeamIds(contestId);
@@ -133,15 +157,25 @@ contract AWD is IAWD {
     function getScore(uint teamId) external view returns (uint){
         return scores[teamId];
     }
-    modifier onlyTeamMember(uint teamId) {
+
+    modifier challengeQualified(uint contestId, uint challengeId) {
+        require(Challenges.isContestChallenge(contestId, challengeId), "only contest challenge");
+        _;
+    }
+
+    modifier teamQualified(uint contestId, uint teamId, ITeams.TeamState state) {
+        require(Teams.isContestTeam(contestId, teamId), "only contest team");
+        require(Teams.getTeamId(contestId, msg.sender) == teamId, "wrong team ID");
         ITeams.Team memory team = Teams.getTeam(teamId);
         bool result = false;
         if (team.info.captain == msg.sender) result = true;
         for (uint i = 0; i < team.info.members.length; i++)
             if (team.info.members[i] == msg.sender) result = true;
         require(result, "only team captain or member");
+        require(team.state == state, "wrong team state");
         _;
     }
+
     modifier onlyContestInState(uint contestId, IContests.ContestState state){
         require(Contests.contestInState(contestId, state), "wrong contest state");
         _;

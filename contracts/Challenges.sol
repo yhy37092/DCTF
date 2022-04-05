@@ -24,9 +24,9 @@ contract Challenges is IChallenges{
     mapping(uint => EnumerableSet.UintSet) contestChallenges;
 
     function _remove(uint contestId, uint id) internal
-    onlyChallengeExist(id)
     onlyContestOwner(contestId)
-    onlyContestInState(contestId, IContests.ContestState.STARTED) {
+    onlyContestChallenge(contestId, id)
+    onlyContestInState(contestId, IContests.ContestState.CREATE) {
         ids.remove(id);
         contestChallenges[contestId].remove(id);
         delete challenges[id];
@@ -34,7 +34,7 @@ contract Challenges is IChallenges{
 
     function add(uint contestId, IChallenge calldata challenge) external
     onlyContestOwner(contestId)
-    onlyContestInState(contestId, IContests.ContestState.STARTED) {
+    onlyContestInState(contestId, IContests.ContestState.CREATE) {
         ids.add(nextId);
         contestChallenges[contestId].add(nextId);
         challenges[nextId] = Challenge(nextId, contestId, challenge, block.timestamp);
@@ -44,14 +44,22 @@ contract Challenges is IChallenges{
     function update(uint contestId, uint id, IChallenge calldata challenge) external
     onlyChallengeExist(id)
     onlyContestOwner(contestId)
-    onlyContestInState(contestId, IContests.ContestState.STARTED){
+    onlyContestInState(contestId, IContests.ContestState.CREATE) {
         challenges[id].info = challenge;
+    }
+
+    function remove(uint contestId, uint id) external {
+        _remove(contestId, id);
     }
 
     function removes(uint contestId, uint [] memory _ids) external {
         for (uint i = 0; i < _ids.length; i++) {
             _remove(contestId, _ids[i]);
         }
+    }
+
+    function isContestChallenge(uint contestId, uint challengeId) view external returns (bool) {
+        return contestChallenges[contestId].contains(challengeId);
     }
 
     function getContestChallengeIds(uint contestId) external view returns (uint [] memory){
@@ -81,6 +89,10 @@ contract Challenges is IChallenges{
     }
     modifier onlyContestInState(uint contestId, IContests.ContestState state){
         require(Contests.contestInState(contestId, state), "wrong contest state");
+        _;
+    }
+    modifier onlyContestChallenge(uint contestId, uint challengeId){
+        require(contestChallenges[contestId].contains(challengeId), "only contest's challenge");
         _;
     }
 }

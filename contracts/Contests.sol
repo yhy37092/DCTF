@@ -23,15 +23,16 @@ contract Contests is IContests {
     mapping(address => EnumerableSet.UintSet) addressToContests;
 
     function _updateState(uint id) internal {
-        if (block.timestamp >= contests[id].info.start) contests[id].state = IContests.ContestState.STARTED;
-        if (block.timestamp >= contests[id].info.commitEnd) contests[id].state = IContests.ContestState.COMMITENDED;
-        if (block.timestamp >= contests[id].info.revealEnd) contests[id].state = IContests.ContestState.REVEALENDED;
+        IContests.Contest storage contest = contests[id];
+        if (block.timestamp >= contest.info.end + contest.info.revealTime) {contests[id].state = IContests.ContestState.END; return;}
+        if (block.timestamp >= contest.info.end) {contests[id].state = IContests.ContestState.REVEAL; return;}
+        if (block.timestamp >= contest.info.start + contest.info.flagCommitTime) {contest.state = IContests.ContestState.SUBMITCOMMIT; return;}
+        if (block.timestamp >= contest.info.start) {contest.state = IContests.ContestState.FLAGCOMMIT; return;}
     }
 
     function _remove(uint id) internal
-    onlyContestExist(id)
     onlyContestOwner(id)
-    onlyContestInState(id, IContests.ContestState.CREATED) {
+    onlyContestInState(id, IContests.ContestState.CREATE) {
         ids.remove(id);
         addressToContests[msg.sender].remove(id);
         delete contests[id];
@@ -42,16 +43,20 @@ contract Contests is IContests {
     timeQualified(contest) {
         ids.add(nextId);
         addressToContests[msg.sender].add(nextId);
-        contests[nextId] = Contest(nextId, contest, msg.sender, ContestState.CREATED, block.timestamp);
+        contests[nextId] = Contest(nextId, contest, msg.sender, ContestState.CREATE, block.timestamp);
         nextId++;
     }
 
     function update(uint id, IContest calldata contest) external
     onlyContestExist(id)
     onlyContestOwner(id)
-    onlyContestInState(id, IContests.ContestState.CREATED)
+    onlyContestInState(id, IContests.ContestState.CREATE)
     timeQualified(contest) {
         contests[id].info = contest;
+    }
+
+    function remove(uint id) external {
+        _remove(id);
     }
 
     function removes(uint [] memory _ids) external {
@@ -104,8 +109,8 @@ contract Contests is IContests {
 
     modifier timeQualified(IContest calldata contest){
         require(contest.start > block.timestamp, "can only add contest at a future date");
-        require(contest.commitEnd > contest.start, "can only add contest if commit end after start");
-        require(contest.revealEnd > contest.commitEnd, "can only add contest if reveal end after commit end");
+        require(contest.end > contest.start, "can only add contest if end after start");
+        require(contest.flagCommitTime < contest.end - contest.start, "flag commit time duration wrong");
         _;
     }
 }

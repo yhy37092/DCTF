@@ -14,18 +14,13 @@ export default ({contestId, teamId}) => {
     const submits = useSelector(getJeopardySubmits)
 
     function handleReveal() {
-        const _challengeIds = []
-        const _flags = []
-        const _salts = []
-        submits.forEach(flag => {
-            if (contestId === flag.contestId &&
-                drizzleState.account === flag.sender) {
-                _challengeIds.push(flag.challengeId)
-                _flags.push(flag.flag)
-                _salts.push(flag.salt)
-            }
+        const RevealData = []
+        submits.forEach(value => {
+            if (contestId === value.contestId &&
+                drizzleState.account === value.sender)
+                RevealData.push([[contestId, value.challengeId, teamId, 0], value.flag, value.salt])
         })
-        _challengeIds.length > 0 && send(contestId, teamId, _challengeIds, _flags, _salts)
+        RevealData.length > 0 && send(RevealData)
     }
 
     return (

@@ -76,7 +76,7 @@ function Apply({contest, team}) {
                     </div>
                 }
             </>}
-            {after(contest.info.start) && before(contest.info.revealEnd) && <>
+            {after(contest.info.start) && before(contest.info.end) && <>
                 {
                     team.state === '0' &&
                     <div align="center">
@@ -95,7 +95,7 @@ function Apply({contest, team}) {
                     </div>
                 }
             </>}
-            {after(contest.info.revealEnd) && <div align="center">
+            {after(parseInt(contest.info.end) + parseInt(contest.info.revealTime)) && <div align="center">
                 <h3>{t('description.contest_end')}</h3>
                 <h2><Link
                     to={`/Review/Contest-${contest.id}`}>{t('description.reviewContest')}</Link>

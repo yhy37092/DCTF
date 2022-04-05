@@ -1,15 +1,21 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
+
+import "./IMoves.sol";
 pragma experimental ABIEncoderV2;
 
 interface IJeopardy {
-    function commitFlag(uint contestId, uint challengeId, bytes32 hash) external;
+    function commitFlag(IMoves.CommitData memory data) external;
 
-    function commitSubmit(uint contestId, uint challengeId, uint teamId, bytes32 hash) external;
+    function commitSubmit(IMoves.CommitData memory data) external;
 
-    function revealFlags(uint contestId, uint [] memory challengeIds, string [] memory flags, bytes32 [] memory salts) external;
+    function revealFlag(IMoves.RevealData memory data) external;
 
-    function revealSubmits(uint contestId, uint teamId, uint [] memory challengeIds, string [] memory flags, bytes32 [] memory salts) external;
+    function revealSubmit(IMoves.RevealData memory data) external;
+
+    function revealFlags(IMoves.RevealData [] memory data) external;
+
+    function revealSubmits(IMoves.RevealData [] memory data) external;
 
     function updateScore(uint contestId) external;
 

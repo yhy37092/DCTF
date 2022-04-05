@@ -6,8 +6,9 @@
       "name": "",
       "fee": "0",
       "start": "0",
-      "commitEnd": "0",
-      "revealEnd": "0",
+      "end": "0",
+      "flagCommitTime": "0",
+      "revealTime": "0",
       "message": ""
     },
     "owner": "",

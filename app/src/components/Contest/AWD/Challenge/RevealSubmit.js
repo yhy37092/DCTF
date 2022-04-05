@@ -10,30 +10,22 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 export default ({contestId, teamId}) => {
     const {useCacheSend} = drizzleReactHooks.useDrizzle()
     const drizzleState = drizzleReactHooks.useDrizzleState(drizzleState => ({account: drizzleState.accounts[0]}))
-    const revealSubmits = useCacheSend('AWD', 'revealSubmits')['send']
-    const revealSubmitStatus = useCacheSend('AWD', 'revealSubmits')['TXObjects']
+    const {send, TXObjects} = useCacheSend('AWD', 'revealSubmits')
     const submits = useSelector(getAWDSubmits)
 
     function handleReveal() {
-        const _challengeIds = []
-        const _targetTeamIds = []
-        const _flags = []
-        const _salts = []
-        submits.forEach(submit => {
-            if (contestId === submit.contestId &&
-                drizzleState.account === submit.sender) {
-                _challengeIds.push(submit.challengeId)
-                _targetTeamIds.push(submit.targetTeamId)
-                _flags.push(submit.flag)
-                _salts.push(submit.salt)
-            }
+        const RevealData = []
+        submits.forEach(value => {
+            if (contestId === value.contestId &&
+                drizzleState.account === value.sender)
+                RevealData.push([[contestId, value.challengeId, teamId, value.targetTeamId], value.flag, value.salt])
         })
-        _challengeIds.length > 0 && revealSubmits(contestId, teamId, _challengeIds, _targetTeamIds, _flags, _salts)
+        RevealData.length > 0 && send(RevealData)
     }
 
     return (
         <>
-            <TransactionStatuses TXObjects={revealSubmitStatus}/>
+            <TransactionStatuses TXObjects={TXObjects}/>
             <Button variant="outline-secondary" onClick={handleReveal}>
                 <FontAwesomeIcon icon={solid("circle-arrow-up")}/>
             </Button>

@@ -12,9 +12,9 @@ export default ({contest}) => {
         <Card>
             <Card.Header>{t(`description.${contest.info.contestType}`)}
                 {before(contest.info.start) && <FontAwesomeIcon icon={solid("hourglass-start")}/>}
-                {after(contest.info.start) && before(contest.info.commitEnd) &&
+                {after(contest.info.start) && before(contest.info.end) &&
                     <FontAwesomeIcon icon={solid("hourglass-half")}/>}
-                {after(contest.info.commitEnd) && <FontAwesomeIcon icon={solid("hourglass-end")}/>}
+                {after(contest.info.end) && <FontAwesomeIcon icon={solid("hourglass-end")}/>}
             </Card.Header>
             <Card.Body>
                 <Card.Title>{contest.info.name}</Card.Title>
@@ -24,8 +24,7 @@ export default ({contest}) => {
                 <ListGroupItem><strong>{t('description.Owner')}</strong>: {contest.owner}</ListGroupItem>
                 <ListGroupItem><strong>{t('description.Fee')}</strong>: {toEther(contest.info.fee)} ether</ListGroupItem>
                 <ListGroupItem><strong>{t('description.Start')}</strong>: {toDate(contest.info.start)}</ListGroupItem>
-                <ListGroupItem><strong>{t('description.commitEnd')}</strong>: {toDate(contest.info.commitEnd)}</ListGroupItem>
-                <ListGroupItem><strong>{t('description.revealEnd')}</strong>: {toDate(contest.info.commitEnd)}</ListGroupItem>
+                <ListGroupItem><strong>{t('description.end')}</strong>: {toDate(contest.info.end)}</ListGroupItem>
             </ListGroup>
         </Card>
     )

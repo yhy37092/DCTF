@@ -26,7 +26,11 @@ interface IGameBoxes {
 
     function update(uint contestId, uint id, IGameBox calldata env) external;
 
+    function remove(uint contestId, uint id) external;
+
     function removes(uint contestId, uint [] memory _ids) external;
+
+    function isContestGameBox(uint contestId, uint gameBoxId) view external returns (bool);
 
     function getContestGameBoxIds(uint contestId) external view returns (uint [] memory);
 

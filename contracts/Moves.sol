@@ -27,12 +27,21 @@ contract Moves is IMoves {
 
     mapping(bytes32 => bool) hashes;
 
-    function commit(uint contestId, uint challengeId, uint teamId, uint targetTeamId, bytes32 hash) external returns (uint) {
-        require(hashes[hash] == false, "hash in use");
-        hashes[hash] = true;
+    function commit(CommitData memory data) external returns (uint) {
+        require(hashes[data.hash] == false, "hash in use");
+        hashes[data.hash] = true;
         uint id = nextId;
         ids.add(id);
-        moves[id] = Move(id, contestId, challengeId, teamId, targetTeamId, IMove(hash, "", ""), MoveState.COMMITTED, block.timestamp);
+        moves[id] = Move(
+            id, 
+            data.basic.contestId,
+            data.basic.challengeId, 
+            data.basic.teamId,
+            data.basic.targetTeamId, 
+            IMove(data.hash, "", ""), 
+            MoveState.COMMITTED, 
+            block.timestamp
+            );
         nextId++;
         return id;
     }

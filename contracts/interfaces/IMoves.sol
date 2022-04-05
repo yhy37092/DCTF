@@ -10,6 +10,24 @@ interface IMoves {
         bytes32 salt;
     }
 
+    struct basicData{
+        uint contestId;
+        uint challengeId;
+        uint teamId;
+        uint targetTeamId;
+    }
+
+    struct CommitData{
+        basicData basic;
+        bytes32 hash;
+    }
+
+    struct RevealData{
+        basicData basic;
+        string flag;
+        bytes32 salt;
+    }
+
     struct Move {
         uint id;
         uint contestId;
@@ -26,7 +44,7 @@ interface IMoves {
         COMMITTED,
         REVEALED
     }
-    function commit(uint contestId, uint challengeId, uint teamId, uint targetTeamId, bytes32 hash) external returns (uint);
+    function commit(CommitData memory data) external returns (uint);
 
     function reveal(uint id, string memory flag, bytes32 salt) external;
 

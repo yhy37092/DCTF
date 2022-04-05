@@ -34,7 +34,7 @@ export default ({contestId, teamId, challengeId}) => {
                     salt: salt,
                     sender: drizzleState.account
                 }));
-                send(contestId, challengeId, teamId, Web3Utils.soliditySha3(_data, salt))
+                send([[contestId, challengeId, teamId, 0], Web3Utils.soliditySha3(_data, salt)])
             }, [contestId, teamId, challengeId, submits, send, dispatch, drizzleState.account])}/>
         </>
     )

@@ -24,7 +24,7 @@ export default ({filter}) => {
                         Type: t(`description.${contest.info.contestType}`),
                         Fee: `${toEther(contest.info.fee)} ether`,
                         Start: toDate(contest.info.start),
-                        End: toDate(contest.info.commitEnd),
+                        End: toDate(contest.info.end),
                         State: toContestState(contest.state)
                     }
                 }))}

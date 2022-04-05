@@ -12,9 +12,9 @@ export default ({contest}) => {
         <Card className="text-center" border="primary">
             <Card.Header>{t(`description.${contest.info.contestType}`)}
                 {before(contest.info.start) && <FontAwesomeIcon icon={solid("hourglass-start")}/>}
-                {after(contest.info.start) && before(contest.info.revealEnd) &&
+                {after(contest.info.start) && before(contest.info.end) &&
                     <FontAwesomeIcon icon={solid("hourglass-half")}/>}
-                {after(contest.info.revealEnd) && <FontAwesomeIcon icon={solid("hourglass-end")}/>}
+                {after(contest.info.end) && <FontAwesomeIcon icon={solid("hourglass-end")}/>}
             </Card.Header>
             <Card.Body>
                 <Card.Title>{contest.info.name}</Card.Title>

@@ -18,13 +18,15 @@ const toContestState = state => {
     state = parseInt(state);
     switch (state) {
         case 1 :
-            return 'CREATED'
+            return 'CREATE'
         case 2 :
-            return 'STARTED'
+            return 'FLAGCOMMIT'
         case 3:
-            return 'ENDED'
+            return 'SUBMITCOMMIT'
         case 4:
-            return 'ENDED'
+            return 'REVEAL'
+        case 5:
+            return 'END'
         default :
             return 'ERROR'
     }
@@ -34,10 +36,6 @@ const toTeamState = state => {
     switch (state) {
         case 1 :
             return 'APPLIED'
-        case 2 :
-            return 'APPROVED'
-        case 3:
-            return 'REJECTED'
         default :
             return 'ERROR'
     }

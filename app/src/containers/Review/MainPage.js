@@ -24,7 +24,7 @@ export default () => {
             <Row>
                 <Col>
                     <ListContest
-                        filter={useCallback(({_data}) => after(_data.info.revealEnd), [])}/>
+                        filter={useCallback(({_data}) => after(_data.info.end), [])}/>
                 </Col>
             </Row>
         </>

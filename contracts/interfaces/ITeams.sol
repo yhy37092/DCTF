@@ -20,16 +20,18 @@ interface ITeams {
 
     enum TeamState{
         DEFAULT,
-        APPLIED,
-        APPROVED,
-        REJECTED
+        APPLIED
     }
 
     function add(uint contestId, ITeam calldata team) external payable;
 
+    function isContestTeam(uint contestId, uint teamId) view external returns (bool);
+
     function getMyContestIds() external view returns (uint [] memory);
 
     function getMyTeamId(uint contestId) external view returns (uint);
+
+    function getTeamId(uint contestId, address account) external view returns (uint);
 
     function getContestTeamIds(uint contestId) external view returns (uint [] memory);
 

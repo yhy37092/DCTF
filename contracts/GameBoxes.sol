@@ -31,7 +31,9 @@ contract GameBoxes is IGameBoxes {
     mapping(uint => EnumerableSet.UintSet) contestGameBoxes;
 
     function _remove(uint contestId, uint id) internal
-    onlyGameBoxExist(id) {
+    onlyContestGameBox(contestId, id)
+    onlyContestOwner(contestId)
+    onlyContestInState(contestId, IContests.ContestState.CREATE) {
         ids.remove(id);
         contestGameBoxes[contestId].remove(id);
         delete teamGameBox[gameBoxes[id].challengeId][gameBoxes[id].teamId];
@@ -40,7 +42,7 @@ contract GameBoxes is IGameBoxes {
 
     function add(uint contestId, uint challengeId, uint teamId, IGameBox calldata gameBox) external
     onlyContestOwner(contestId)
-    onlyContestInState(contestId, IContests.ContestState.STARTED)
+    onlyContestInState(contestId, IContests.ContestState.CREATE)
     onlyChallengeExist(challengeId)
     onlyTeamExist(teamId) {
         require(gameBoxes[teamGameBox[challengeId][teamId]].id == 0, "only game box not exist");
@@ -53,17 +55,23 @@ contract GameBoxes is IGameBoxes {
 
     function update(uint contestId, uint id, IGameBox calldata gameBox) external
     onlyContestOwner(contestId)
-    onlyContestInState(contestId, IContests.ContestState.STARTED)
+    onlyContestInState(contestId, IContests.ContestState.CREATE)
     onlyGameBoxExist(id) {
         gameBoxes[id].info = gameBox;
     }
 
-    function removes(uint contestId, uint [] memory _ids) external
-    onlyContestOwner(contestId)
-    onlyContestInState(contestId, IContests.ContestState.STARTED) {
+    function remove(uint contestId, uint id) external {
+        _remove(contestId, id);
+    }
+
+    function removes(uint contestId, uint [] memory _ids) external {
         for (uint i = 0; i < _ids.length; i++) {
             _remove(contestId, _ids[i]);
         }
+    }
+
+    function isContestGameBox(uint contestId, uint gameBoxId) view external returns (bool) {
+        return contestGameBoxes[contestId].contains(gameBoxId);
     }
 
     function getContestGameBoxIds(uint contestId) external view returns (uint [] memory) {
@@ -108,6 +116,10 @@ contract GameBoxes is IGameBoxes {
     }
     modifier onlyContestInState(uint contestId, IContests.ContestState state){
         require(Contests.contestInState(contestId, state), "wrong contest state");
+        _;
+    }
+    modifier onlyContestGameBox(uint contestId, uint gameBoxId){
+        require(contestGameBoxes[contestId].contains(gameBoxId), "only contest's game box");
         _;
     }
 

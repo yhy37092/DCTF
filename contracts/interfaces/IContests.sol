@@ -9,8 +9,9 @@ interface IContests {
         string name;
         uint fee;
         uint start;
-        uint commitEnd;
-        uint revealEnd;
+        uint end;
+        uint flagCommitTime;
+        uint revealTime;
         string message;
     }
 
@@ -24,15 +25,18 @@ interface IContests {
 
     enum ContestState{
         DEFAULT,
-        CREATED,
-        STARTED,
-        COMMITENDED,
-        REVEALENDED
+        CREATE,
+        FLAGCOMMIT,
+        SUBMITCOMMIT,
+        REVEAL,
+        END
     }
 
     function add(IContest calldata contest) external;
 
     function update(uint id, IContest calldata contest) external;
+
+    function remove(uint id) external;
 
     function removes(uint [] memory _ids) external;
 
