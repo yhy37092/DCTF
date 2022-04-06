@@ -22,20 +22,20 @@ contract Contests is IContests {
 
     mapping(address => EnumerableSet.UintSet) addressToContests;
 
-    function _updateState(uint id) internal {
-        IContests.Contest storage contest = contests[id];
-        if (block.timestamp >= contest.info.end + contest.info.revealTime) {contests[id].state = IContests.ContestState.END; return;}
-        if (block.timestamp >= contest.info.end) {contests[id].state = IContests.ContestState.REVEAL; return;}
+    function _updateState(uint contestId) internal {
+        IContests.Contest storage contest = contests[contestId];
+        if (block.timestamp >= contest.info.end + contest.info.revealTime) {contests[contestId].state = IContests.ContestState.END; return;}
+        if (block.timestamp >= contest.info.end) {contests[contestId].state = IContests.ContestState.REVEAL; return;}
         if (block.timestamp >= contest.info.start + contest.info.flagCommitTime) {contest.state = IContests.ContestState.SUBMITCOMMIT; return;}
         if (block.timestamp >= contest.info.start) {contest.state = IContests.ContestState.FLAGCOMMIT; return;}
     }
 
-    function _remove(uint id) internal
-    onlyContestOwner(id)
-    onlyContestInState(id, IContests.ContestState.CREATE) {
-        ids.remove(id);
-        addressToContests[msg.sender].remove(id);
-        delete contests[id];
+    function _remove(uint contestId) internal
+    onlyContestOwner(contestId)
+    onlyContestInState(contestId, IContests.ContestState.CREATE) {
+        ids.remove(contestId);
+        addressToContests[msg.sender].remove(contestId);
+        delete contests[contestId];
     }
 
     function add(IContest calldata contest) external
@@ -47,31 +47,31 @@ contract Contests is IContests {
         nextId++;
     }
 
-    function update(uint id, IContest calldata contest) external
-    onlyContestExist(id)
-    onlyContestOwner(id)
-    onlyContestInState(id, IContests.ContestState.CREATE)
+    function update(uint contestId, IContest calldata contest) external
+    onlyContestExist(contestId)
+    onlyContestOwner(contestId)
+    onlyContestInState(contestId, IContests.ContestState.CREATE)
     timeQualified(contest) {
-        contests[id].info = contest;
+        contests[contestId].info = contest;
     }
 
-    function remove(uint id) external {
-        _remove(id);
+    function remove(uint contestId) external {
+        _remove(contestId);
     }
 
-    function removes(uint [] memory _ids) external {
-        for (uint i = 0; i < _ids.length; i++) {
-            _remove(_ids[i]);
+    function removes(uint [] memory contestIds) external {
+        for (uint i = 0; i < contestIds.length; i++) {
+            _remove(contestIds[i]);
         }
     }
 
-    function contestInState(uint id, IContests.ContestState state) external returns (bool) {
-        _updateState(id);
-        return contests[id].state == state;
+    function contestInState(uint contestId, IContests.ContestState state) external returns (bool) {
+        _updateState(contestId);
+        return contests[contestId].state == state;
     }
 
-    function getContest(uint id) external view returns (Contest memory) {
-        return contests[id];
+    function getContest(uint contestId) external view returns (Contest memory) {
+        return contests[contestId];
     }
 
     function getMyContestIds() external view returns (uint [] memory){
@@ -86,8 +86,8 @@ contract Contests is IContests {
         return contests[ids.at(index)];
     }
 
-    modifier onlyContestExist(uint id){
-        require(ids.contains(id), "contest does not exist");
+    modifier onlyContestExist(uint contestId){
+        require(ids.contains(contestId), "contest does not exist");
         _;
     }
 
@@ -96,14 +96,14 @@ contract Contests is IContests {
         _;
     }
 
-    modifier onlyContestOwner(uint id){
-        require(contests[id].owner == msg.sender, "only contest owner");
+    modifier onlyContestOwner(uint contestId){
+        require(contests[contestId].owner == msg.sender, "only contest owner");
         _;
     }
 
-    modifier onlyContestInState(uint id, IContests.ContestState state){
-        _updateState(id);
-        require(contests[id].state == state, "wrong contest state");
+    modifier onlyContestInState(uint contestId, IContests.ContestState state){
+        _updateState(contestId);
+        require(contests[contestId].state == state, "wrong contest state");
         _;
     }
 

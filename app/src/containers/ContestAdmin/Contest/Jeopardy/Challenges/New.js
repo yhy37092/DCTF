@@ -1,8 +1,8 @@
+import React from "react";
 import {useTranslation} from "react-i18next";
 import {Link, useParams} from "react-router-dom";
 import {Breadcrumb, Col, Row} from "react-bootstrap";
 import NewChallenge from "../../../../../components/ContestAdmin/Jeopardy/Challenge/NewChallenge";
-import React from "react";
 
 export default () => {
     const {t} = useTranslation();

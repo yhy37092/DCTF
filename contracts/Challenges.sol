@@ -23,13 +23,13 @@ contract Challenges is IChallenges{
 
     mapping(uint => EnumerableSet.UintSet) contestChallenges;
 
-    function _remove(uint contestId, uint id) internal
+    function _remove(uint contestId, uint challengeId) internal
     onlyContestOwner(contestId)
-    onlyContestChallenge(contestId, id)
+    onlyContestChallenge(contestId, challengeId)
     onlyContestInState(contestId, IContests.ContestState.CREATE) {
-        ids.remove(id);
-        contestChallenges[contestId].remove(id);
-        delete challenges[id];
+        ids.remove(challengeId);
+        contestChallenges[contestId].remove(challengeId);
+        delete challenges[challengeId];
     }
 
     function add(uint contestId, IChallenge calldata challenge) external
@@ -41,20 +41,21 @@ contract Challenges is IChallenges{
         nextId++;
     }
 
-    function update(uint contestId, uint id, IChallenge calldata challenge) external
-    onlyChallengeExist(id)
+    function update(uint contestId, uint challengeId, IChallenge calldata challenge) external
+    onlyChallengeExist(challengeId)
     onlyContestOwner(contestId)
+    onlyContestChallenge(contestId, challengeId)
     onlyContestInState(contestId, IContests.ContestState.CREATE) {
-        challenges[id].info = challenge;
+        challenges[challengeId].info = challenge;
     }
 
-    function remove(uint contestId, uint id) external {
-        _remove(contestId, id);
+    function remove(uint contestId, uint challengeId) external {
+        _remove(contestId, challengeId);
     }
 
-    function removes(uint contestId, uint [] memory _ids) external {
-        for (uint i = 0; i < _ids.length; i++) {
-            _remove(contestId, _ids[i]);
+    function removes(uint contestId, uint [] memory challengeIds) external {
+        for (uint i = 0; i < challengeIds.length; i++) {
+            _remove(contestId, challengeIds[i]);
         }
     }
 
@@ -66,8 +67,8 @@ contract Challenges is IChallenges{
         return contestChallenges[contestId].values();
     }
 
-    function getChallenge(uint id) external view returns (Challenge memory) {
-        return challenges[id];
+    function getChallenge(uint challengeId) external view returns (Challenge memory) {
+        return challenges[challengeId];
     }
 
     function getCount() external view returns (uint) {
@@ -78,8 +79,8 @@ contract Challenges is IChallenges{
         return challenges[ids.at(index)];
     }
 
-    modifier onlyChallengeExist(uint id){
-        require(challenges[id].id > 0, "challenge does not exist");
+    modifier onlyChallengeExist(uint challengeId){
+        require(challenges[challengeId].id > 0, "challenge does not exist");
         _;
     }
     modifier onlyContestOwner(uint contestId){

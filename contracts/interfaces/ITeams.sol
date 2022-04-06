@@ -23,21 +23,21 @@ interface ITeams {
         APPLIED
     }
 
-    function add(uint contestId, ITeam calldata team) external payable;
+    function add(uint, ITeam calldata) external payable;
 
-    function isContestTeam(uint contestId, uint teamId) view external returns (bool);
+    function isContestTeam(uint, uint) view external returns (bool);
 
     function getMyContestIds() external view returns (uint [] memory);
 
-    function getMyTeamId(uint contestId) external view returns (uint);
+    function getMyTeamId(uint) external view returns (uint);
 
-    function getTeamId(uint contestId, address account) external view returns (uint);
+    function getTeamId(uint, address) external view returns (uint);
 
-    function getContestTeamIds(uint contestId) external view returns (uint [] memory);
+    function getContestTeamIds(uint) external view returns (uint [] memory);
 
     function getCount() external view returns (uint);
 
-    function get(uint index) external view returns (Team memory);
+    function get(uint) external view returns (Team memory);
 
-    function getTeam(uint id) external view returns (Team memory);
+    function getTeam(uint) external view returns (Team memory);
 }

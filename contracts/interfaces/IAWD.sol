@@ -5,27 +5,27 @@ import "./IMoves.sol";
 pragma experimental ABIEncoderV2;
 
 interface IAWD {
-    function commitFlag(IMoves.CommitData memory data) external;
+    function commitFlag(IMoves.CommitData memory) external;
 
-    function commitSubmit(IMoves.CommitData memory data) external;
+    function commitSubmit(IMoves.CommitData memory) external;
 
-    function revealFlag(IMoves.RevealData memory data) external;
+    function revealFlag(IMoves.RevealData memory) external;
 
-    function revealSubmit(IMoves.RevealData memory data) external;
+    function revealSubmit(IMoves.RevealData memory) external;
 
-    function revealFlags(IMoves.RevealData [] memory data) external;
+    function revealFlags(IMoves.RevealData [] memory) external;
 
-    function revealSubmits(IMoves.RevealData [] memory data) external;
+    function revealSubmits(IMoves.RevealData [] memory) external;
 
-    function updateScore(uint contestId) external;
+    function updateScore(uint) external;
 
-    function getContestSubmitIds(uint contestId) external view returns (uint [] memory);
+    function getContestSubmitIds(uint) external view returns (uint [] memory);
 
-    function getChallengeTeamFlagMoveId(uint challengeId, uint teamId) external view returns (uint);
+    function getChallengeTeamFlagMoveId(uint, uint) external view returns (uint);
 
-    function getChallengeTeamTargetTeamSubmitMoveId(uint challengeId, uint teamId, uint targetTeam) external view returns (uint);
+    function getChallengeTeamTargetTeamSubmitMoveId(uint, uint, uint) external view returns (uint);
 
-    function getContestFlagIds(uint contestId) external view returns (uint [] memory);
+    function getContestFlagIds(uint) external view returns (uint [] memory);
 
-    function getScore(uint teamId) external view returns (uint);
+    function getScore(uint) external view returns (uint);
 }

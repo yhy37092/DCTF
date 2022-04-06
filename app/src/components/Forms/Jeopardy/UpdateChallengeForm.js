@@ -12,7 +12,7 @@ export default ({onSubmit, data}) => {
     const [connectionInfo, setConnectionInfo] = useState('')
     const [file, setFile] = useState('')
     const [hint, setHint] = useState('')
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState('0')
 
     useEffect(() => {
         setChallengeType(data.info.challengeType)
@@ -77,7 +77,7 @@ export default ({onSubmit, data}) => {
                 <Form.Label as={Row}>{t('description.Value')}:</Form.Label>
                 <Form.Text as={Row} muted>{t('description.value_of_challenge')}</Form.Text>
                 <Form.Control type='number' value={value}
-                              onChange={event => setValue(parseInt(event.target.value))}/>
+                              onChange={event => setValue(event.target.value)}/>
             </Form.Group>
 
             <Form.Group>

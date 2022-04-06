@@ -43,9 +43,9 @@ contract Jeopardy is IJeopardy {
     onlyContestInState(data.basic.contestId, IContests.ContestState.FLAGCOMMIT) {
         uint oldId = challengeIdToFlagMoveId[data.basic.challengeId];
         contestFlags[data.basic.contestId].remove(oldId);
-        uint id = Moves.commit(data);
-        challengeIdToFlagMoveId[data.basic.challengeId] = id;
-        contestFlags[data.basic.contestId].add(id);
+        uint moveId = Moves.commit(data);
+        challengeIdToFlagMoveId[data.basic.challengeId] = moveId;
+        contestFlags[data.basic.contestId].add(moveId);
     }
 
     function _commitSubmit(IMoves.CommitData memory data) internal
@@ -54,9 +54,9 @@ contract Jeopardy is IJeopardy {
     onlyContestInState(data.basic.contestId, IContests.ContestState.SUBMITCOMMIT) {
         uint oldId = challengeIdAndTeamIdToSubmitMoveId[data.basic.challengeId][data.basic.teamId];
         contestSubmits[data.basic.contestId].remove(oldId);
-        uint id = Moves.commit(data);
-        challengeIdAndTeamIdToSubmitMoveId[data.basic.challengeId][data.basic.teamId] = id;
-        contestSubmits[data.basic.contestId].add(id);
+        uint moveId = Moves.commit(data);
+        challengeIdAndTeamIdToSubmitMoveId[data.basic.challengeId][data.basic.teamId] = moveId;
+        contestSubmits[data.basic.contestId].add(moveId);
     }
 
     function _revealFlag(IMoves.RevealData memory data) internal

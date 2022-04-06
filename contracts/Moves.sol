@@ -30,10 +30,10 @@ contract Moves is IMoves {
     function commit(CommitData memory data) external returns (uint) {
         require(hashes[data.hash] == false, "hash in use");
         hashes[data.hash] = true;
-        uint id = nextId;
-        ids.add(id);
-        moves[id] = Move(
-            id, 
+        uint moveId = nextId;
+        ids.add(moveId);
+        moves[moveId] = Move(
+            moveId,
             data.basic.contestId,
             data.basic.challengeId, 
             data.basic.teamId,
@@ -43,15 +43,15 @@ contract Moves is IMoves {
             block.timestamp
             );
         nextId++;
-        return id;
+        return moveId;
     }
 
-    function reveal(uint id, string memory flag, bytes32 salt) external {
-        require(moves[id].state == IMoves.MoveState.COMMITTED, "already revealed");
-        require(moves[id].info.hash == keccak256(abi.encodePacked(flag, salt)), "does not match commitment");
-        moves[id].info.flag = flag;
-        moves[id].info.salt = salt;
-        moves[id].state = MoveState.REVEALED;
+    function reveal(uint moveId, string memory flag, bytes32 salt) external {
+        require(moves[moveId].state == IMoves.MoveState.COMMITTED, "already revealed");
+        require(moves[moveId].info.hash == keccak256(abi.encodePacked(flag, salt)), "does not match commitment");
+        moves[moveId].info.flag = flag;
+        moves[moveId].info.salt = salt;
+        moves[moveId].state = MoveState.REVEALED;
     }
 
     function getCount() external view returns (uint) {
@@ -62,8 +62,8 @@ contract Moves is IMoves {
         return moves[ids.at(index)];
     }
 
-    function getMove(uint id) external view returns (Move memory) {
-        return moves[id];
+    function getMove(uint moveId) external view returns (Move memory) {
+        return moves[moveId];
     }
 
 }

@@ -11,15 +11,15 @@ export default ({onSubmit}) => {
     const [fee, setFee] = useState('0')
     const [start, setStart] = useState(new Date())
     const [end, setEnd] = useState(new Date())
-    const [flagCommitTime, setFlagCommitTime] = useState(0)
-    const [revealTime, setRevealTime] = useState(0)
+    const [flagCommitTime, setFlagCommitTime] = useState('0')
+    const [revealTime, setRevealTime] = useState('0')
     const [message, setMessage] = useState('')
 
     return (
         <Form onSubmit={event => {
             event.preventDefault()
             onSubmit({
-                _data: [contestType, name, fee, parseInt(start.getTime() / 1000), parseInt(end.getTime() / 1000), flagCommitTime * 60, revealTime * 60, message]
+                _data: [contestType, name, fee, Math.floor(start.getTime() / 1000), Math.floor(end.getTime() / 1000), flagCommitTime * 60, revealTime * 60, message]
             })
         }
         }>

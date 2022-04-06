@@ -44,14 +44,14 @@ interface IMoves {
         COMMITTED,
         REVEALED
     }
-    function commit(CommitData memory data) external returns (uint);
+    function commit(CommitData memory) external returns (uint);
 
-    function reveal(uint id, string memory flag, bytes32 salt) external;
+    function reveal(uint, string memory, bytes32) external;
 
     function getCount() external view returns (uint);
 
-    function get(uint index) external view returns (Move memory);
+    function get(uint) external view returns (Move memory);
 
-    function getMove(uint id) external view returns (Move memory);
+    function getMove(uint) external view returns (Move memory);
 
 }

@@ -32,21 +32,21 @@ interface IContests {
         END
     }
 
-    function add(IContest calldata contest) external;
+    function add(IContest calldata) external;
 
-    function update(uint id, IContest calldata contest) external;
+    function update(uint, IContest calldata) external;
 
-    function remove(uint id) external;
+    function remove(uint) external;
 
-    function removes(uint [] memory _ids) external;
+    function removes(uint [] memory) external;
 
-    function contestInState(uint id, IContests.ContestState state) external returns (bool);
+    function contestInState(uint, IContests.ContestState) external returns (bool);
 
-    function getContest(uint id) external view returns (Contest memory);
+    function getContest(uint) external view returns (Contest memory);
 
     function getMyContestIds() external view returns (uint [] memory);
 
     function getCount() external view returns (uint);
 
-    function get(uint index) external view returns (Contest memory);
+    function get(uint) external view returns (Contest memory);
 }

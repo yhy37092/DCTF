@@ -16,21 +16,21 @@ export default ({onSubmit, data}) => {
     const [message, setMessage] = useState('')
 
     useEffect(() => {
-        setContestType(data.info.contestType)
-        setName(data.info.name)
-        setFee(data.info.fee)
-        setStart(new Date(data.info.start * 1000))
-        setEnd(new Date(data.info.end * 1000))
-        setFlagCommitTime(data.info.flagCommitTime / 60)
-        setRevealTime(data.info.revealTime / 60)
-        setMessage(data.info.message)
+        setContestType(data.info["contestType"])
+        setName(data.info["name"])
+        setFee(data.info["fee"])
+        setStart(new Date(data.info["start"] * 1000))
+        setEnd(new Date(data.info["end"] * 1000))
+        setFlagCommitTime((data.info["flagCommitTime"] / 60).toString())
+        setRevealTime((data.info["revealTime"] / 60).toString())
+        setMessage(data.info["message"])
     }, [data])
 
     return (
         <Form onSubmit={event => {
             event.preventDefault()
             onSubmit({
-                _data: [contestType, name, fee, parseInt(start.getTime() / 1000), parseInt(end.getTime() / 1000), flagCommitTime * 60, revealTime * 60, message]
+                _data: [contestType, name, fee, Math.floor(start.getTime() / 1000), Math.floor(end.getTime() / 1000), flagCommitTime * 60, revealTime * 60, message]
             })
         }
         }>

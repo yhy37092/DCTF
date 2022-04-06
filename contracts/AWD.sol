@@ -41,9 +41,9 @@ contract AWD is IAWD {
     onlyContestInState(data.basic.contestId, IContests.ContestState.FLAGCOMMIT) {
         uint oldId = ChallengeIdAndTeamIdToFlagMoveId[data.basic.challengeId][data.basic.teamId];
         contestFlags[data.basic.contestId].remove(oldId);
-        uint id = Moves.commit(data);
-        ChallengeIdAndTeamIdToFlagMoveId[data.basic.challengeId][data.basic.teamId] = id;
-        contestFlags[data.basic.contestId].add(id);
+        uint moveId = Moves.commit(data);
+        ChallengeIdAndTeamIdToFlagMoveId[data.basic.challengeId][data.basic.teamId] = moveId;
+        contestFlags[data.basic.contestId].add(moveId);
     }
 
     function _commitSubmit(IMoves.CommitData memory data) internal
@@ -52,9 +52,9 @@ contract AWD is IAWD {
     onlyContestInState(data.basic.contestId, IContests.ContestState.SUBMITCOMMIT) {
         uint oldId = ChallengeIdTeamIdAndTargetTeamIdToSubmitMoveId[data.basic.challengeId][data.basic.teamId][data.basic.targetTeamId];
         contestSubmits[data.basic.contestId].remove(oldId);
-        uint id = Moves.commit(data);
-        ChallengeIdTeamIdAndTargetTeamIdToSubmitMoveId[data.basic.challengeId][data.basic.teamId][data.basic.targetTeamId] = id;
-        contestSubmits[data.basic.contestId].add(id);
+        uint moveId = Moves.commit(data);
+        ChallengeIdTeamIdAndTargetTeamIdToSubmitMoveId[data.basic.challengeId][data.basic.teamId][data.basic.targetTeamId] = moveId;
+        contestSubmits[data.basic.contestId].add(moveId);
     }
 
     function _revealFlag(IMoves.RevealData memory data) internal

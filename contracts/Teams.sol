@@ -70,8 +70,8 @@ contract Teams is ITeams {
         return teams[ids.at(index)];
     }
 
-    function getTeam(uint id) external view returns (Team memory) {
-        return teams[id];
+    function getTeam(uint teamId) external view returns (Team memory) {
+        return teams[teamId];
     }
 
     modifier onlyContestExist(uint contestId){

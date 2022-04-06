@@ -148,7 +148,10 @@ i18n
                         Enter_revealDuration:'enter duration time',
                         Enter_flagCommitDuration:'enter duration time',
                         end:'end',
-                        toContestCommit:'To contest commit start'
+                        toContestCommit:'To contest commit start',
+                        key:'key',
+                        encKey:'challenge encrypt key',
+                        Enter_encKey:'Enter key'
                     }
                 }
             },
@@ -283,7 +286,10 @@ i18n
                         Enter_revealDuration:'输入持续时间',
                         Enter_flagCommitDuration:'输入持续时间',
                         end:'结束时间',
-                        toContestCommit:'到比赛开始提交还有'
+                        toContestCommit:'到比赛开始提交还有',
+                        key:'密钥',
+                        encKey:'题目加密密钥',
+                        Enter_encKey:'输入密钥'
                     }
                 }
             }

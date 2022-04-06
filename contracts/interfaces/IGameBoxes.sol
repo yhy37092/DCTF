@@ -22,23 +22,23 @@ interface IGameBoxes {
         uint timeStamp;
     }
 
-    function add(uint contestId, uint challengeId, uint teamId, IGameBox calldata env) external;
+    function add(uint, uint, uint, IGameBox calldata) external;
 
-    function update(uint contestId, uint id, IGameBox calldata env) external;
+    function update(uint, uint, IGameBox calldata) external;
 
-    function remove(uint contestId, uint id) external;
+    function remove(uint, uint) external;
 
-    function removes(uint contestId, uint [] memory _ids) external;
+    function removes(uint, uint [] memory) external;
 
-    function isContestGameBox(uint contestId, uint gameBoxId) view external returns (bool);
+    function isContestGameBox(uint, uint) view external returns (bool);
 
-    function getContestGameBoxIds(uint contestId) external view returns (uint [] memory);
+    function getContestGameBoxIds(uint) external view returns (uint [] memory);
 
-    function getChallengeTeamGameBoxId(uint challengeId, uint teamId) external view returns (uint);
+    function getChallengeTeamGameBoxId(uint, uint) external view returns (uint);
 
-    function getGameBox(uint id) external view returns (GameBox memory);
+    function getGameBox(uint) external view returns (GameBox memory);
 
     function getCount() external view returns (uint);
 
-    function get(uint index) external view returns (GameBox memory);
+    function get(uint) external view returns (GameBox memory);
 }

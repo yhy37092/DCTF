@@ -23,22 +23,22 @@ interface IChallenges {
         uint timeStamp;
     }
 
-    function add(uint contestId, IChallenge calldata challenge) external;
+    function add(uint, IChallenge calldata) external;
 
-    function update(uint contestId, uint id, IChallenge calldata challenge) external;
+    function update(uint, uint, IChallenge calldata) external;
 
-    function remove(uint contestId, uint id) external;
+    function remove(uint, uint) external;
 
-    function removes(uint contestId, uint [] memory _ids) external;
+    function removes(uint, uint [] memory) external;
 
-    function isContestChallenge(uint contestId, uint challengeId) view external returns (bool);
+    function isContestChallenge(uint, uint) view external returns (bool);
 
-    function getContestChallengeIds(uint contestId) external view returns (uint [] memory);
+    function getContestChallengeIds(uint) external view returns (uint [] memory);
 
-    function getChallenge(uint id) external view returns (Challenge memory);
+    function getChallenge(uint) external view returns (Challenge memory);
 
     function getCount() external view returns (uint);
 
-    function get(uint index) external view returns (Challenge memory);
+    function get(uint) external view returns (Challenge memory);
 
 }

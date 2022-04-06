@@ -76,7 +76,7 @@ function Apply({contest, team}) {
                     </div>
                 }
             </>}
-            {after(contest.info.start) && before(contest.info.end) && <>
+            {after(contest.info.start) && before(parseInt(contest.info.end) + parseInt(contest.info.revealTime)) && <>
                 {
                     team.state === '0' &&
                     <div align="center">

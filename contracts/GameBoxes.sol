@@ -30,14 +30,14 @@ contract GameBoxes is IGameBoxes {
     mapping(uint => mapping(uint => uint)) teamGameBox;
     mapping(uint => EnumerableSet.UintSet) contestGameBoxes;
 
-    function _remove(uint contestId, uint id) internal
-    onlyContestGameBox(contestId, id)
+    function _remove(uint contestId, uint gameBoxId) internal
+    onlyContestGameBox(contestId, gameBoxId)
     onlyContestOwner(contestId)
     onlyContestInState(contestId, IContests.ContestState.CREATE) {
-        ids.remove(id);
-        contestGameBoxes[contestId].remove(id);
-        delete teamGameBox[gameBoxes[id].challengeId][gameBoxes[id].teamId];
-        delete gameBoxes[id];
+        ids.remove(gameBoxId);
+        contestGameBoxes[contestId].remove(gameBoxId);
+        delete teamGameBox[gameBoxes[gameBoxId].challengeId][gameBoxes[gameBoxId].teamId];
+        delete gameBoxes[gameBoxId];
     }
 
     function add(uint contestId, uint challengeId, uint teamId, IGameBox calldata gameBox) external
@@ -53,20 +53,21 @@ contract GameBoxes is IGameBoxes {
         nextId++;
     }
 
-    function update(uint contestId, uint id, IGameBox calldata gameBox) external
+    function update(uint contestId, uint gameBoxId, IGameBox calldata gameBox) external
     onlyContestOwner(contestId)
     onlyContestInState(contestId, IContests.ContestState.CREATE)
-    onlyGameBoxExist(id) {
-        gameBoxes[id].info = gameBox;
+    onlyGameBoxExist(gameBoxId)
+    onlyContestGameBox(contestId, gameBoxId) {
+        gameBoxes[gameBoxId].info = gameBox;
     }
 
-    function remove(uint contestId, uint id) external {
-        _remove(contestId, id);
+    function remove(uint contestId, uint gameBoxId) external {
+        _remove(contestId, gameBoxId);
     }
 
-    function removes(uint contestId, uint [] memory _ids) external {
-        for (uint i = 0; i < _ids.length; i++) {
-            _remove(contestId, _ids[i]);
+    function removes(uint contestId, uint [] memory gameBoxIds) external {
+        for (uint i = 0; i < gameBoxIds.length; i++) {
+            _remove(contestId, gameBoxIds[i]);
         }
     }
 
@@ -82,8 +83,8 @@ contract GameBoxes is IGameBoxes {
         return teamGameBox[challengeId][teamId];
     }
 
-    function getGameBox(uint id) external view returns (GameBox memory){
-        return gameBoxes[id];
+    function getGameBox(uint gameBoxId) external view returns (GameBox memory){
+        return gameBoxes[gameBoxId];
     }
 
     function getCount() external view returns (uint){
