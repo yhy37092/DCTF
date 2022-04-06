@@ -1,6 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import {drizzleReactHooks} from "@drizzle/react-plugin";
-import {Tab, Tabs} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
 import {getJeopardyFlags, JeopardyAdd, JeopardyRemove} from '../../../../reducers/Flag'
 import Web3Utils from 'web3-utils'
@@ -22,32 +21,29 @@ export default ({contestId, challengeId}) => {
     }, [flags, challengeId, drizzleState.account])
 
     return (
-        <Tabs defaultActiveKey='Flag'>
-            <Tab eventKey='Flag' title='Flag'>
-                <p/><p/>
-                <TransactionStatuses TXObjects={TXObjects}/>
-                <CommitForm
-                    data={flag}
-                    onSubmit={useCallback(({_data}) => {
-                        flags.forEach((flag, index) => {
-                            if (flag.challengeId === challengeId &&
-                                flag.sender === drizzleState.account)
-                                dispatch(JeopardyRemove(index))
-                        })
-                        const salt = Web3Utils.randomHex(32)
-                        dispatch(JeopardyAdd(
-                            {
-                                contestId: contestId,
-                                challengeId: challengeId,
-                                flag: _data,
-                                salt: salt,
-                                sender: drizzleState.account
-                            }
-                        ))
-                        send([[contestId, challengeId, 0, 0], Web3Utils.soliditySha3(_data, salt)])
-                    }, [contestId, challengeId, dispatch, flags, send, drizzleState.account])}
-                />
-            </Tab>
-        </Tabs>
+        <>
+            <TransactionStatuses TXObjects={TXObjects}/>
+            <CommitForm
+                data={flag}
+                onSubmit={useCallback(({_data}) => {
+                    flags.forEach((flag, index) => {
+                        if (flag.challengeId === challengeId &&
+                            flag.sender === drizzleState.account)
+                            dispatch(JeopardyRemove(index))
+                    })
+                    const salt = Web3Utils.randomHex(32)
+                    dispatch(JeopardyAdd(
+                        {
+                            contestId: contestId,
+                            challengeId: challengeId,
+                            flag: _data,
+                            salt: salt,
+                            sender: drizzleState.account
+                        }
+                    ))
+                    send([[contestId, challengeId, 0, 0], Web3Utils.soliditySha3(_data, salt)])
+                }, [contestId, challengeId, dispatch, flags, send, drizzleState.account])}
+            />
+        </>
     )
 }

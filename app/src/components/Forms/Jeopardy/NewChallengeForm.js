@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
-import {Button, Col, Form, Row} from 'react-bootstrap'
+import {Button, Col, Form, InputGroup, Row} from 'react-bootstrap'
 import SimpleMDE from 'react-simplemde-editor'
 import {useTranslation} from "react-i18next";
+import aes from "crypto-js/aes";
+import utf8 from "crypto-js/enc-utf8";
 
 export default ({onSubmit}) => {
     const {t} = useTranslation();
@@ -12,8 +14,9 @@ export default ({onSubmit}) => {
     const [connectionInfo, setConnectionInfo] = useState('')
     const [file, setFile] = useState('')
     const [hint, setHint] = useState('')
-    const [value, setValue] = useState(0)
-
+    const [value, setValue] = useState('0')
+    const [key, setKey] = useState('')
+    const [enc, setEnc] = useState(false);
     return (
         <Form onSubmit={event => {
             event.preventDefault()
@@ -24,6 +27,47 @@ export default ({onSubmit}) => {
         }>
             <Row>
                 <Col>
+                    <Form.Group>
+                        <Form.Label as={Row}>{t('description.key')}:</Form.Label>
+                        <Form.Text as={Row} muted>{t('description.encKey')}</Form.Text>
+                        <InputGroup>
+                            <Form.Control placeholder={t('description.Enter_encKey')}
+                                          onChange={event => setKey(event.target.value)} value={key}/>
+                            <Button variant='primary' type="button" onClick={() => {
+                                setKey(Math.random().toString(36))
+                            }}>Generate</Button>
+                            <Button variant='primary' type="button" onClick={() => {
+                                if (!enc) {
+                                    try {
+                                        setName(aes.encrypt(name, key).toString())
+                                        setCategory(aes.encrypt(category, key).toString())
+                                        setMessage(aes.encrypt(message, key).toString())
+                                        setConnectionInfo(aes.encrypt(connectionInfo, key).toString())
+                                        setFile(aes.encrypt(file, key).toString())
+                                        setHint(aes.encrypt(hint, key).toString())
+                                    } catch (e) {
+                                        alert(e)
+                                    }
+                                    setEnc(true)
+                                }
+                            }}>Encrypt</Button>
+                            <Button variant='primary' type="button" onClick={() => {
+                                if (enc) {
+                                    try {
+                                        setName(aes.decrypt(name, key).toString(utf8))
+                                        setCategory(aes.decrypt(category, key).toString(utf8))
+                                        setMessage(aes.decrypt(message, key).toString(utf8))
+                                        setConnectionInfo(aes.decrypt(connectionInfo, key).toString(utf8))
+                                        setFile(aes.decrypt(file, key).toString(utf8))
+                                        setHint(aes.decrypt(hint, key).toString(utf8))
+                                    } catch (e) {
+                                        alert(e)
+                                    }
+                                    setEnc(false)
+                                }
+                            }}>Decrypt</Button>
+                        </InputGroup>
+                    </Form.Group>
                     <Form.Group>
                         <Form.Label as={Row}>{t('description.Name')}:</Form.Label>
                         <Form.Text as={Row} muted>{t('description.name_of_challenge')}</Form.Text>
@@ -68,7 +112,7 @@ export default ({onSubmit}) => {
                         <Form.Label as={Row}>{t('description.Value')}:</Form.Label>
                         <Form.Text as={Row} muted>{t('description.value_of_challenge')}</Form.Text>
                         <Form.Control type='number' value={value}
-                                      onChange={event => setValue(parseInt(event.target.value))}/>
+                                      onChange={event => setValue(event.target.value)}/>
                     </Form.Group>
 
                     <Form.Group>

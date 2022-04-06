@@ -37,8 +37,16 @@ contract Challenges is IChallenges{
     onlyContestInState(contestId, IContests.ContestState.CREATE) {
         ids.add(nextId);
         contestChallenges[contestId].add(nextId);
-        challenges[nextId] = Challenge(nextId, contestId, challenge, block.timestamp);
+        challenges[nextId] = Challenge(nextId, contestId, challenge, '', block.timestamp);
         nextId++;
+    }
+
+    function addKey(uint contestId, uint challengeId, string memory key) external
+    onlyChallengeExist(challengeId)
+    onlyContestOwner(contestId)
+    onlyContestChallenge(contestId, challengeId)
+    onlyContestInState(contestId, IContests.ContestState.FLAGCOMMIT) {
+        challenges[challengeId].key = key;
     }
 
     function update(uint contestId, uint challengeId, IChallenge calldata challenge) external
