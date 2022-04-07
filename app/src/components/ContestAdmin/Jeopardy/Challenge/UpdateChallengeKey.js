@@ -13,7 +13,7 @@ export default ({contestId, challengeId}) => {
             <KeyForm
                 onSubmit={useCallback(({_data}) => {
                     send(contestId,challengeId,_data)
-                }, [send])}
+                }, [send,contestId,challengeId])}
             />
         </>
     )
