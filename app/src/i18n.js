@@ -196,7 +196,7 @@ i18n
                         State: '状态',
                         Message: '信息',
                         Jeopardy: '解题模式',
-                        AWD: '攻防模式',
+                        AWD: '对抗模式',
                         Create: '创建',
                         name_of_contest: '比赛名称',
                         fee_of_contest: '参赛费用',

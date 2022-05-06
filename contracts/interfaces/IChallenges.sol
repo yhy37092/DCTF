@@ -20,10 +20,13 @@ interface IChallenges {
         uint id;
         uint contestId;
         IChallenge info;
+        string key;
         uint timeStamp;
     }
 
     function add(uint, IChallenge calldata) external;
+
+    function addKey(uint contestId, uint challengeId, string memory key) external;
 
     function update(uint, uint, IChallenge calldata) external;
 

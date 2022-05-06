@@ -1,9 +1,10 @@
 import {useTranslation} from "react-i18next";
 import {Link, useParams} from "react-router-dom";
-import {Breadcrumb, Col, Row} from "react-bootstrap";
+import {Breadcrumb, Col, Row, Tab, Tabs} from "react-bootstrap";
 import CommitChallenge from "../../../../../components/ContestAdmin/Jeopardy/Challenge/CommitChallenge";
 import UpdateChallenge from "../../../../../components/ContestAdmin/Jeopardy/Challenge/UpdateChallenge";
 import React from "react";
+import UpdateChallengeKey from "../../../../../components/ContestAdmin/Jeopardy/Challenge/UpdateChallengeKey";
 
 export default () => {
     const {t} = useTranslation();
@@ -31,7 +32,16 @@ export default () => {
 
             <Row>
                 <Col>
-                    <CommitChallenge contestId={contestId} challengeId={challengeId}/>
+                    <Tabs>
+                        <Tab title='Flag' eventKey='Flag'>
+                            <p/>
+                            <CommitChallenge contestId={contestId} challengeId={challengeId}/>
+                        </Tab>
+                        <Tab title='Key' eventKey='Key'>
+                            <p/>
+                            <UpdateChallengeKey contestId={contestId} challengeId={challengeId}/>
+                        </Tab>
+                    </Tabs>
                 </Col>
                 <Col>
                     <UpdateChallenge contestId={contestId} challengeId={challengeId}/>
